@@ -45,34 +45,25 @@ Our solution solves P in such and such way.
 \section{Introduction}
 \label{sec:intro}
 
-Context
+% Context
 
-Problem
-
-- Problema: 
+% Problem
 Quiero tener reglas de reescritura, para poder transformar código, 
 por ejemplo para hacer refactors, para tener buscadores de más alto nivel, browsear código más fácil
 simplificar todas esas tareas
 dejar una API que permita hacerlo programáticamente
 
-- Por qué es interesante: 
-
-- Como lo atacamos: 
-hay una herramienta desarrollada, tiene algunos problemas, hay un blog sobre el tema.
-
-- En que se diferencia de cosas ya hechas: Al ser parte del lenguaje, liberar memoria pasa a ser un concern de alto nivel, que podríamos cambiar, reprogramar y mejorar. Otras soluciones que intentan mejorar el uso de memoria implican (a) el cambio de máquinas virtuales o la compactación de código (bytecode) dificultando el cambio (b) escribir implementaciones ad-hoc que pueden resolver los problemas solo parcialmente, en vez de tratarlo como un concern que atraviesa varias aplicaciones.
-
-
-Known tracks for solutions
+% Known tracks for solutions
 	here you want to show that you are not an idiot not knowing what have been around
 
-What our solution is \ct{Set} and \ct{OrderedCollection} (so that the reader knows where the paper is going)
+% What our solution is \ct{Set} and \ct{OrderedCollection} (so that the reader knows where the paper is going)
+hay una herramienta desarrollada, tiene algunos problemas, hay un blog sobre el tema.
 
-Contribution of the paper
+% Contribution of the paper
 una forma sencilla de definir búsquedas y transformaciones programáticamente
 búsqueda y transformación basados en ejemplos (utilizando una herramienta visual para manipular los ejemplos
 
-Paper structure
+% Paper structure
 
 
 
@@ -92,19 +83,38 @@ satisfied. They should be sound and believable. Analysis of the criteria.
 Imagine that you are another guy having this problem do the constraint
 matches yours so that you could apply the solution
 
-Problem = no hay una forma fácil de hacer transformaciones y búsquedas genéricas orientadas a un ejémplo
+% Problem
+no hay una forma fácil de hacer transformaciones y búsquedas genéricas orientadas a un ejémplo
 
-Factual solution tracks, to position...
-Our solution in a nutshell.
+The idea is very simple:
+We want to change some code in a programmatic way
+In order to do this, first we want to match the code we want and then change it.
+
+Many times we want to match an expression having different information: about the selector, about the source code (temporary vars, statements).
+
+Some examples:
+all the methods with 2 arguments,
+all methods called in a particular way,
+a method containing a specific statement,
+The first conclusion is that we want a flexible way for matching.
+
+% Factual solution tracks, to position...
+
+% Our solution in a nutshell.
+In order to do transformations sometimes we want to refer to the existing code, sometimes this expressions are very complex.
+My goal for this time is to develop tools to make simple writing searching patterns and easier writing transformations.
+Here I will write about my GSoc project: Better rewriting rule tools implemented in Pharo Smalltalk, about the experience and progress.
 
 
 \section{Proposed Solution}
 \label{sec:contribution}
-
 Free form, variable number of sections, technical details.
 
 But in general do not mix solution and discussions/possible variation
 let that for discussion
+
+% Acá se podría incluir el material de http://pharorwrules.wordpress.com/2013/06/09/a-look-into-the-rewrite-tool/
+
 
 \section{Discussion}
 \label{sec:discussion}
@@ -119,9 +129,32 @@ does it succeed or fails...
 \section{Related Works}
 \label{sec:related}
 
-Other solutions in the domain, and a real comparison of our contribution with
-solutions from other people.
+% Other solutions in the domain, and a real comparison of our contribution with solutions from other people.
 
+Cosas que se podrían leer:
+Unterholzner \cite{Unte12a} propone otra estrategia para mejorar los refactorings, agregando static type inference.
+
+Uquillas Gómez \etal \cite{Uqui12a}
+% Verónica Uquillas Gómez, Stéphane Ducasse, Theo D'Hondt, Ring: A unifying meta-model and infrastructure for Smalltalk source code analysis tools, Computer Languages, Systems & Structures, 2012, 38, 1, 44
+
+Bergel \etal \cite{Berg08c} 
+% Alexandre Bergel, Stéphane Ducasse, Colin Putney, Roel Wuyts, Creating sophisticated development tools with OmniBrowser, Computer Languages, Systems & Structures, 2008, 34, 2-3, 109
+
+% Tom Mens, Gabriele Taentzer, Olga Runge, Analysing refactoring dependencies using graph transformation, Software & Systems Modeling, 2007, 6, 3, 269
+% Berthold Hoffmann, Dirk Janssens, Niels Van Eetvelde, Cloning and Expanding Graph Transformation Rules for Refactoring, Electronic Notes in Theoretical Computer Science, 2006, 152, 53
+% Tom Mens, Niels Van Eetvelde, Serge Demeyer, Dirk Janssens, Formalizing refactorings with graph transformations, Journal of Software Maintenance and Evolution: Research and Practice, 2005, 17, 4
+
+% Este hay que leerlo sí o sí
+Eelco Visser, A survey of strategies in rule-based program transformation systems, Journal of Symbolic Computation, 2005, 40, 1, 831
+
+
+% Dudosos
+% Gabriele Bavota, Andrea De Lucia, Rocco Oliveto, Identifying Extract Class refactoring opportunities using structural and semantic cohesion measures, Journal of Systems and Software, 2011, 84, 3, 397
+% Barbara Weber, Manfred Reichert, Jan Mendling, Hajo A. Reijers, Refactoring large process model repositories, Computers in Industry, 2011, 62, 5, 467
+% Tom Mens, Serge Demeyer, Bart Du Bois, Hans Stenten, Pieter Van Gorp, Refactoring: Current Research and Future Trends, Electronic Notes in Theoretical Computer Science, 2003, 82, 3, 483
+
+% Citar pero no necesariamente related work
+% Stéphane Ducasse, Tudor Girba, Adrian Kuhn, Lukas Renggli, Meta-environment and executable meta-language using smalltalk: an experience report, Software & Systems Modeling, 2009, 8, 1, 5
 
 \section{Conclusion}
 \label{sec:conclusion}
@@ -129,19 +162,6 @@ solutions from other people.
 In this paper, we looked at problem P with this context and these
 constraints. We proposed solution S. It has such good points and such not so
 good ones. Now we could do this or that.
-
-
-\section*{macro example}
-
-\ct{look at it this is code }
-\begin{code}{}
-Class>>nknkjbkjbkjb
-    | grgr | 
-    grgrgrgg 
-    a := 
-\end{code}
-
-
 
 \subsection*{Acknowledgements} This work was supported by Ministry of Higher Education and Research, Nord-Pas de Calais Regional Council, FEDER through the 'Contrat de
 Projets Etat Region (CPER) 2007-2013',  the Cutter ANR project, ANR-10-BLAN-0219 and the MEALS Marie Curie Actions program FP7-PEOPLE-2011-
@@ -155,7 +175,7 @@ IRSES MEALS (no. 295261).
 % \section{Lots of Furry Technical Details}
 
 \bibliographystyle{abbrv}
-\bibliography{scg}
+\bibliography{flamel,scg}
 \end{document}
 
 %%% Local Variables: 

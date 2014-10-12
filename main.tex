@@ -18,18 +18,11 @@
 \usepackage[pdftex,colorlinks=true,pdfstartview=FitV,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
 \usepackage{xspace}
 
-
 \input{macros}
 
-
-
 \begin{document}
-\title{A cool title}
-\maketitle
-
-
-\title{Title that Describes the Contribution that Solves a Problem}
-\author{O. Thor \and C. O. Ottohr}
+\title{Wollok -- y una frase que describa la idea}
+\author{Nicolás Passerini \and Javier Fernandes}
 \date{\today}
 \maketitle
 
@@ -48,57 +41,20 @@ Our solution solves P in such and such way.
 % Context
 
 % Problem
-Quiero tener reglas de reescritura, para poder transformar código, 
-por ejemplo para hacer refactors, para tener buscadores de más alto nivel, browsear código más fácil
-simplificar todas esas tareas
-dejar una API que permita hacerlo programáticamente
 
 \medskip 
 
 % Known tracks for solutions
 % here you want to show that you are not an idiot not knowing what have been around
-\np{Seguro acá tenemos que hablar de the refactoring tool. Contar para qué sirve, qué cosas buenas tiene y por qué no termina de cerrar (entiendo que es porque es compleja de usar).}
-
-Currently Pharo has a rewrite tool... basado en patterns... bla bla.
-For matching, the tool provides the possibility to indicate a pattern, and the ability to specify throw symbols different meta variables for matching.
-The real power of the tool is the number of variants that admit, making it really flexible.
-
-In order to win flexibility, the patterns seems quite complex to write from scratch.
-The real power for matching derives in the combination of symbols, but as the patterns are represented by strings it seems quite confusing.
-Many times it’s easier to think in examples before writing the pattern
-
-Now we have a very powerful tool but quite complex to use… The pattern’s definitions ends up been confusing and lot of people dismiss the tool for this.
 
 
 \medskip 
 
 % What our solution is \ct{Set} and \ct{OrderedCollection} (so that the reader knows where the paper is going)
-hay una herramienta desarrollada, tiene algunos problemas, hay un blog sobre el tema.
-No estoy seguro creo que vos también decís algo de los ejemplos, Flamel se enfoca en los ejemplos, estoy bien?
-También se puede decir que definiste una UI para simplificar el ... refactoring?
 
 \medskip 
 
 % Contribution of the paper
-\np{Traje acá un montón de ideas de tu blog. Esto debería ser mucho más breve, veamos qué queda acá y el resto se mueve a otro lugar más adelante.}
-una forma sencilla de definir búsquedas y transformaciones programáticamente
-búsqueda y transformación basados en ejemplos (utilizando una herramienta visual para manipular los ejemplos
-
-It would be great to have a very expressive api for what we want to do, for example make possible to say something similar to:
-
-“some scope” pattern
-includesStatement: anStatement;
-hasTemporaryVariable: aVariable.
-We should write some nice examples of usage and also take a look into the rewriting engine, we could do lot of improvements.
-
-select a method and drop into the example text editor.
-manipulate the ASTs nodes in the text editor to make simple define transformations and matching.
-highlight the matched parts from the example.
-select scopes to apply the rule.
-preview the changes.
-show the transformation in the example expression.
-modify an expression throw the example or writing the pattern.
-output the smalltalk valid code that produces the effect we see in the example.
 
 % Paper structure
 
@@ -122,26 +78,10 @@ Imagine that you are another guy having this problem do the constraint
 matches yours so that you could apply the solution
 
 % Problem
-no hay una forma fácil de hacer transformaciones y búsquedas genéricas orientadas a un ejémplo
-
-The idea is very simple:
-We want to change some code in a programmatic way
-In order to do this, first we want to match the code we want and then change it.
-
-Many times we want to match an expression having different information: about the selector, about the source code (temporary vars, statements).
-
-Some examples:
-all the methods with 2 arguments,
-all methods called in a particular way,
-a method containing a specific statement,
-The first conclusion is that we want a flexible way for matching.
 
 % Factual solution tracks, to position...
 
 % Our solution in a nutshell.
-In order to do transformations sometimes we want to refer to the existing code, sometimes this expressions are very complex.
-My goal for this time is to develop tools to make simple writing searching patterns and easier writing transformations.
-Here I will write about my GSoc project: Better rewriting rule tools implemented in Pharo Smalltalk, about the experience and progress.
 
 
 \section{Proposed Solution}
@@ -164,42 +104,6 @@ Here I will write about my GSoc project: Better rewriting rule tools implemented
 \label{sec:related}
 
 % Other solutions in the domain, and a real comparison of our contribution with solutions from other people.
-Algunas notas sobre the Rewrite Tool \cite{Robe97a}
-\begin{itemize}
- \item The rewrite tool is a parse-tree matcher
- \item Parse trees are created by parsing a superset of Smalltalk into the pattern tree.
- \item It is not a textual search and replace, the pattern \stCode{foo} will not match \stCode{self foo} but will match \stCode{foo := foo + 1}
- \item Pattern can be used to look for matches, but also to change the code.
- \item Pattern variables are identified by a backquote, for example: \stCode{`receiver}
- \item There are specific variables for matching a single identifier, literals, a subtree, a statement, a list of statements.
-\end{itemize}
-
-
-% Este hay que leerlo sí o sí
-Eelco Visser \cite{Viss05a} ...
-
-Cosas que se podrían leer:
-Unterholzner \cite{Unte12a} propone otra estrategia para mejorar los refactorings, agregando static type inference.
-
-Uquillas Gómez \etal \cite{Uqui12a}
-% Verónica Uquillas Gómez, Stéphane Ducasse, Theo D'Hondt, Ring: A unifying meta-model and infrastructure for Smalltalk source code analysis tools, Computer Languages, Systems & Structures, 2012, 38, 1, 44
-
-Bergel \etal \cite{Berg08c} 
-% Alexandre Bergel, Stéphane Ducasse, Colin Putney, Roel Wuyts, Creating sophisticated development tools with OmniBrowser, Computer Languages, Systems & Structures, 2008, 34, 2-3, 109
-
-% Tom Mens, Gabriele Taentzer, Olga Runge, Analysing refactoring dependencies using graph transformation, Software & Systems Modeling, 2007, 6, 3, 269
-% Berthold Hoffmann, Dirk Janssens, Niels Van Eetvelde, Cloning and Expanding Graph Transformation Rules for Refactoring, Electronic Notes in Theoretical Computer Science, 2006, 152, 53
-% Tom Mens, Niels Van Eetvelde, Serge Demeyer, Dirk Janssens, Formalizing refactorings with graph transformations, Journal of Software Maintenance and Evolution: Research and Practice, 2005, 17, 4
-
-
-
-% Dudosos
-% Gabriele Bavota, Andrea De Lucia, Rocco Oliveto, Identifying Extract Class refactoring opportunities using structural and semantic cohesion measures, Journal of Systems and Software, 2011, 84, 3, 397
-% Barbara Weber, Manfred Reichert, Jan Mendling, Hajo A. Reijers, Refactoring large process model repositories, Computers in Industry, 2011, 62, 5, 467
-% Tom Mens, Serge Demeyer, Bart Du Bois, Hans Stenten, Pieter Van Gorp, Refactoring: Current Research and Future Trends, Electronic Notes in Theoretical Computer Science, 2003, 82, 3, 483
-
-% Citar pero no necesariamente related work
-% Stéphane Ducasse, Tudor Girba, Adrian Kuhn, Lukas Renggli, Meta-environment and executable meta-language using smalltalk: an experience report, Software & Systems Modeling, 2009, 8, 1, 5
 
 \section{Conclusion}
 \label{sec:conclusion}
@@ -220,12 +124,5 @@ IRSES MEALS (no. 295261).
 % \section{Lots of Furry Technical Details}
 
 \bibliographystyle{abbrv}
-\bibliography{flamel,scg}
+\bibliography{wollok,scg}
 \end{document}
-
-%%% Local Variables: 
-%%% coding: utf-8
-%%% mode: latex
-%%% TeX-master: "main"
-%%% TeX-PDF-mode: t
-%%% End:

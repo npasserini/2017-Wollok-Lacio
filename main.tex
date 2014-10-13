@@ -40,6 +40,27 @@ Our solution solves P in such and such way.
 
 % Context
 
+(a) hay que arrancar introduciendo nuestra visión, contando por qué enseñamos objetos de determinada manera, por qué hicimos Ozono.
+
+Enseñanza tradicional:
+- Muchas veces se parte del lenguaje
+- Bajos niveles de aprobación
+- Pasa mucho tiempo hasta que un chico puede hacer un programa "real", demasiados conceptos.
+- ... después pienso más
+
+Nosotros propusimos:
+- Elegir un recorrido que permite ir incorporando los conceptos uno a uno
+- Tener una herramienta que da soporte a eso
+- Focalizar en objeto-mensaje-polimorfismo-referencias, los demás conceptos aparecen después.
+
+
+Also these hindrances reduce the opportunity of students to apply
+the concepts of the paradigm effectively in their further
+professional practice, resulting in several IT-projects not taking
+advantage of the possibilities offered by the potential of good
+object-oriented practices, even in cases where the tools used may
+allow the application of object-oriented programming gracefully. \cite{lombardi_instances_2007}
+
 % Problem
 
 \medskip 
@@ -52,14 +73,33 @@ Our solution solves P in such and such way.
 
 % What our solution is \ct{Set} and \ct{OrderedCollection} (so that the reader knows where the paper is going)
 
+(b) lo que aprendimos en estos 8 años haciendo eso, que nos lleva a querer darle una vuelta más.
+
+Si bien todo esto que se nos ocurrió en su momento fue maravilloso y genial y los pibes aprenden más, programan mejor y la ponen más seguido, fuimos aprendiendo más cosas y estamos trabajando ne unos cambios:
+
+Los fáciles:
+- integrar clases y objetos en un mismo programa
+- integrar interfaces de usuario automáticas
+- utilizar herramientas avanzadas para guiar a los alumnos en el proceso de aprendizaje, la vedette acá sería el sistema de tipos.
+- acercar la práctica de lo que hacemos a la práctica industrial (acá hay que ver qué decimos y qué no, por ejemplo me molesta que no sea un archivo... pero desde lo metodológico se puede pensar en tests o incluso en un repositorio de código... sobre la relación con la industria se podría escribir un libro, hay que ver cuánto queremos meternos).
+
+No sé si hablar de los temas de colecciones, son un poco particulares de Ozono.
+
+
 \medskip 
 
 % Contribution of the paper
+(c) las ideas nuevas... y wollok como herramienta para dar soporte a esas ideas.
 
-% Paper structure
+Lo concreto que hicimos es tener un lenguaje con
+- clases y objetos integrados
+- un IDE profesional con syntax highlighting, refactors, autocompletion y la vedette (?) inferencia de tipos (en progreso).
+- bueno, muchas mejoras a nivel lenguaje, como literales para coleciones, imports
+- una forma fácil de construir tests.
 
 \medskip 
-Paper structure...
+
+% Paper structure
 
 
 \section{Problem Description}
@@ -89,9 +129,6 @@ matches yours so that you could apply the solution
 % Free form, variable number of sections, technical details.
 % But in general do not mix solution and discussions/possible variation let that for discussion
 
-% Acá se podría incluir el material de http://pharorwrules.wordpress.com/2013/06/09/a-look-into-the-rewrite-tool/
-
-
 \section{Discussion}
 \label{sec:discussion}
 
@@ -108,13 +145,27 @@ matches yours so that you could apply the solution
 \section{Conclusion}
 \label{sec:conclusion}
 
-In this paper, we looked at problem P with this context and these
-constraints. We proposed solution S. It has such good points and such not so
-good ones. Now we could do this or that.
+% In this paper, we looked at problem P with this context and these
+% constraints. We proposed solution S. It has such good points and such not so
+% good ones. 
 
-\subsection*{Acknowledgements} This work was supported by Ministry of Higher Education and Research, Nord-Pas de Calais Regional Council, FEDER through the 'Contrat de
-Projets Etat Region (CPER) 2007-2013',  the Cutter ANR project, ANR-10-BLAN-0219 and the MEALS Marie Curie Actions program FP7-PEOPLE-2011-
-IRSES MEALS (no. 295261). 
+% Now we could do this or that.
+
+Y a futuro le agregaríamos:
+- Integración con la UI
+- Integración fácil con SCM
+- Más refactors y mejora del sistema de inferencia.
+- Una versión web / versión liviana con el objetivo de poder ejecutarse en las netbooks que tienen los chicos de secundaria.
+
+Probar la nueva herramienta en entornos educativos.
+
+Eso pensando el lenguaje/herramienta, si pienso a nivel docencia se me ocurre que lo que tenemos que hacer es integrarnos con otras entidades, como Sadosky u otras universidades.
+Haciendo foco en que el punto no es la herramienta sino que tenemos que repensar cómo enseñamos a programar.
+
+\subsection*{Acknowledgements} 
+% This work was supported by Ministry of Higher Education and Research, Nord-Pas de Calais Regional Council, FEDER through the 'Contrat de
+% Projets Etat Region (CPER) 2007-2013',  the Cutter ANR project, ANR-10-BLAN-0219 and the MEALS Marie Curie Actions program FP7-PEOPLE-2011-
+% IRSES MEALS (no. 295261). 
 
 % \bibliographystyle{plain}
 % \bibliography{foo.bib}
@@ -124,5 +175,5 @@ IRSES MEALS (no. 295261).
 % \section{Lots of Furry Technical Details}
 
 \bibliographystyle{abbrv}
-\bibliography{wollok,scg}
+\bibliography{wollok,teaching,scg}
 \end{document}

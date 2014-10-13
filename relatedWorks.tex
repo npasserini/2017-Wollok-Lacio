@@ -1,0 +1,69 @@
+\section{Related Works}
+\label{sec:related}
+
+% Other solutions in the domain, and a real comparison of our contribution with solutions from other people.
+% Base tomada del paper de ESUG 2011
+LOOP is presented as a visual environment to teach OOP using
+a reduced set of language constructions and a prototype approach
+to create objects. It presents the main concepts of object, message
+and reference in a specialized tool with a visual representation of
+the object environment. Several visual tools to teach programming
+already exists, like ObjectKarel[2], Scratch[14] and Etoys[4].
+ObjectKarel presents a visual tool based on the abstraction of
+robots to teach OOP, using a map where the robots-the objects-
+move when messages are sent to them. LOOP does not center on a
+specific abstraction like a robot: it allows the student to create any
+other abstraction. Scratch and Etoys, are aimed to teach the basics
+of programming to children, using visual objects and scripts to play
+tween objects. This kind of diagrams could be inferred from the
+evaluation of any piece of code, even the execution of tests.
+Another subject of research is a “debugger” for the tool [1]. We
+think that a live and powerful debugger a ` la Smalltalk is a rich tool
+for the understanding of the whole environment behaviour. After a
+message is sent, a debugger view can be used like a video player,
+with play, forward and backward buttons to navigate the message
+stack and see how the state changes after each message send in the
+object diagram.
+Finally, there are some improvements to be made to the user
+interface, such as shortcuts, code completion, improved menus or
+internationalization. Currently the tool is only available in spanish,
+we want to make it configurable to add more languages as neces-
+sary.
+
+% Agregar referencia al paper de Fidel, y otros
+
+In response to interest in an objects-first approach, several
+texts and software tools have been published/developed that
+promote this strategy (such as [1, 12]). Four recent software
+tools are worthy of mention as using an objects-first
+approach: BlueJ [9], Java Power Tools [11], Karel J. Robot
+[2], and various graphics libraries. Interestingly, all these
+tools have a strong visual/graphical component; to help the
+novice “see” what an object actually is – to develop good
+intuitions about objects/object-oriented programming.
+BlueJ [9] provides an integrated environment in
+which the user generally starts with a previously defined set
+of classes. The project structure is presented graphically, in
+UML-like fashion. The user can create objects and invoke
+methods on those objects to illustrate their behavior. Java
+Power Tools (JPT) [11] provides a comprehensive,
+interactive GUI, consisting of several classes with which 
+the student will work. Students interact with the GUI, and
+learn about the behaviors of the GUI classes through this
+interaction. Karel J. Robot [2] uses a microworld with a
+robot to help students learn about objects. As in Karel [10],
+Robots are added to a 2-D grid. Methods may be invoked
+on the robots to move and turn them, and to have the robots
+handle beepers. Bruce et al. [3] and Roberts [13] use
+graphics libraries in an object-first approach. Here, there is
+some sort of canvas onto which objects (e.g. 2-D shapes)
+are drawn. These objects may have methods invoked on
+them and they react accordingly.
+In the remainder of this paper, we present a new
+tactic and software support for an objects-first strategy. The
+software support for this new approach is a 3D animation
+tool. 3D animation assists in providing stronger object
+visualization and a flexible, meaningful context for helping
+students to “see” object-oriented concepts. (A more detailed
+comparison of the above tools with our approach is
+provided in a later section.) 

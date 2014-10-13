@@ -39,8 +39,7 @@ Our solution solves P in such and such way.
 \label{sec:intro}
 
 % Context
-
-(a) hay que arrancar introduciendo nuestra visión, contando por qué enseñamos objetos de determinada manera, por qué hicimos Ozono.
+% (a) hay que arrancar introduciendo nuestra visión, contando por qué enseñamos objetos de determinada manera, por qué hicimos Ozono.
 
 Enseñanza tradicional:
 - Muchas veces se parte del lenguaje
@@ -60,6 +59,15 @@ professional practice, resulting in several IT-projects not taking
 advantage of the possibilities offered by the potential of good
 object-oriented practices, even in cases where the tools used may
 allow the application of object-oriented programming gracefully. \cite{lombardi_instances_2007}
+
+Secondly, better environments have become necessary. Earlier introductory courses
+focused on the development of algorithms in procedural or functional languages. To
+do this, an editor and a compiler was all that was needed for the practical part of the
+work. Modern courses now use object-oriented languages and subject material
+taught includes testing, debugging and code reuse. This creates the need to deal with
+multiple source files and multiple program development tools from the very start. To
+give a beginning student a chance to cope with this increased complexity, better
+environment support is needed. \cite{kolling_problem_1999}
 
 % Problem
 
@@ -110,21 +118,51 @@ Lo concreto que hicimos es tener un lenguaje con
 \section{Problem Description}
 \label{sec:problem}
 
-Context, exposed with the \textbf{most precise terms possible} (don't open
-unwanted doors for the reader)
+% Context, exposed with the \textbf{most precise terms possible} (don't open
+% unwanted doors for the reader)
 
+% Probably set the vocabulary before to cut any misinterpretation
 
-Probably set the vocabulary before to cut any misinterpretation
-
-Constraints that influenced the solution (because the solution is not
-universal) \emph{e.g.} our requirements for a solution, possibly not all
-satisfied. They should be sound and believable. Analysis of the criteria.
-Imagine that you are another guy having this problem do the constraint
-matches yours so that you could apply the solution
+% Constraints that influenced the solution (because the solution is not
+% universal) \emph{e.g.} our requirements for a solution, possibly not all
+% satisfied. They should be sound and believable. Analysis of the criteria.
+% Imagine that you are another guy having this problem do the constraint
+% matches yours so that you could apply the solution
 
 % Problem
 
+This means students must dive
+right into classes and objects, their encapsulation (public
+and private data, etc.) and methods (the constructors,
+accessors, modifiers, helpers, etc.). All this is in addition to
+mastering the usual concepts of types, variables, values, and
+references, as well as with the often-frustrating details of
+syntax. Now, add event-driven concepts to support
+interactivity with GUIs! As argued by [11], learning to
+program objects-first requires students grasp "many
+different concepts, ideas, and skills…almost concurrently.
+Each of these skills presents a different mental challenge." \cite{cooper_teaching_2003}
+
 % Factual solution tracks, to position...
+
+Ozono hereda muchos de los problemas de los entornos Smalltalk
+
+Smalltalk, however, lacks other important facilities: no visualisation tools for class
+relations are available. The main problem with this lies in the Smalltalk language
+itself: since it is not statically typed, it is not possible to extract usage relations from
+its source code. No indication exists before runtime as to the call relationships
+between classes. Inheritance relationships as shown in the browser do not present
+the relationships of one application but rather the whole Smalltalk environment and
+so the browser is not used as an application modelling tool. Smalltalk blurs the
+distinction between the environment and the application under development.
+Reports about the use of Smalltalk systems for teaching also point to another
+problem: its size. While the language itself (in terms of the number of constructs) is
+small, the class library and tools are large and often confusing. Several authors
+reported difficulties with the students ability to cope with the environment [7, 8],
+especially that experimentation and self directed learning was not working well
+because students were overwhelmed by the system. They also found that the
+functionality of the browser should be limited, since its power and flexibility caused
+more problems than it solved. \cite{kolling_problem_1999}.
 
 % Our solution in a nutshell.
 
@@ -146,6 +184,35 @@ matches yours so that you could apply the solution
 \label{sec:related}
 
 % Other solutions in the domain, and a real comparison of our contribution with solutions from other people.
+% Base tomada del paper de ESUG 2011
+LOOP is presented as a visual environment to teach OOP using
+a reduced set of language constructions and a prototype approach
+to create objects. It presents the main concepts of object, message
+and reference in a specialized tool with a visual representation of
+the object environment. Several visual tools to teach programming
+already exists, like ObjectKarel[2], Scratch[14] and Etoys[4].
+ObjectKarel presents a visual tool based on the abstraction of
+robots to teach OOP, using a map where the robots-the objects-
+move when messages are sent to them. LOOP does not center on a
+specific abstraction like a robot: it allows the student to create any
+other abstraction. Scratch and Etoys, are aimed to teach the basics
+of programming to children, using visual objects and scripts to play
+tween objects. This kind of diagrams could be inferred from the
+evaluation of any piece of code, even the execution of tests.
+Another subject of research is a “debugger” for the tool [1]. We
+think that a live and powerful debugger a ` la Smalltalk is a rich tool
+for the understanding of the whole environment behaviour. After a
+message is sent, a debugger view can be used like a video player,
+with play, forward and backward buttons to navigate the message
+stack and see how the state changes after each message send in the
+object diagram.
+Finally, there are some improvements to be made to the user
+interface, such as shortcuts, code completion, improved menus or
+internationalization. Currently the tool is only available in spanish,
+we want to make it configurable to add more languages as neces-
+sary.
+
+% Agregar referencia al paper de Fidel, y otros
 
 \section{Conclusion}
 \label{sec:conclusion}
@@ -159,6 +226,13 @@ matches yours so that you could apply the solution
 Y a futuro le agregaríamos:
 - Integración con la UI
 - Integración fácil con SCM
+
+Another characteristic of programming in the real world is the need to work in
+teams. The success of object-oriented languages is partly due to their advantages in
+group projects. Ideally, we also want to teach our students about the techniques
+needed for teamwork. To do this, it is essential that the environment has some form
+of support for group work. \cite{kolling_problem_1999}
+
 - Más refactors y mejora del sistema de inferencia.
 - Una versión web / versión liviana con el objetivo de poder ejecutarse en las netbooks que tienen los chicos de secundaria.
 
@@ -181,4 +255,8 @@ Haciendo foco en que el punto no es la herramienta sino que tenemos que repensar
 
 \bibliographystyle{abbrv}
 \bibliography{wollok,teaching,scg}
+
+\appendix
+\section{Images}
+Imágenes y otros detalles de wollok que no entran en las 6/7 páginas del artículo
 \end{document}

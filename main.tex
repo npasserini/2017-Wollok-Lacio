@@ -42,18 +42,23 @@ We propose this solution...
 Our solution solves P in such and such way.
 \end{abstract}
 
+\input{introduction}
 
-\section{Introduction}
-\label{sec:intro}
+\section{Problem Description}
+\label{sec:problem}
 
-% Context
-% (a) hay que arrancar introduciendo nuestra visión, contando por qué enseñamos objetos de determinada manera, por qué hicimos Ozono.
+% Context, exposed with the \textbf{most precise terms possible} (don't open
+% unwanted doors for the reader)
 
-% La importancia de arrancar con objetos. -- No sé si arrancar con esto.
-\emph{Object-oriented programming} (OOP) has become the \textit{de facto} standard programming paradigm in industrial software development.
-Therefore, in the last years software engineering curricula have put more emphasis in object-oriented courses.
-% Furthermore, opinion in the community is divided as if it should be the first programming model to be presented. 
-Still, students often have difficulties in learning how to program in an object-oriented style.
+% Probably set the vocabulary before to cut any misinterpretation
+
+% Constraints that influenced the solution (because the solution is not
+% universal) \emph{e.g.} our requirements for a solution, possibly not all
+% satisfied. They should be sound and believable. Analysis of the criteria.
+% Imagine that you are another guy having this problem do the constraint
+% matches yours so that you could apply the solution
+
+% Problem
 These difficulties become even bigger for students which have learned the imperative model first,
 and object-oriented material is delayed to intermediate courses. \cite{cooper_teaching_2003}.
 
@@ -75,84 +80,6 @@ professional practice, resulting in several IT-projects not taking
 advantage of the possibilities offered by the potential of good
 object-oriented practices. \cite{lombardi_instances_2007}
 
-\medskip 
-% Problem
-
-
-Nosotros propusimos:
-- Elegir un recorrido que permite ir incorporando los conceptos uno a uno
-- Tener una herramienta que da soporte a eso
-- Focalizar en objeto-mensaje-polimorfismo-referencias, los demás conceptos aparecen después.
-
-Secondly, better environments have become necessary. Earlier introductory courses
-focused on the development of algorithms in procedural or functional languages. To
-do this, an editor and a compiler was all that was needed for the practical part of the
-work. Modern courses now use object-oriented languages and subject material
-taught includes testing, debugging and code reuse. This creates the need to deal with
-multiple source files and multiple program development tools from the very start. To
-give a beginning student a chance to cope with this increased complexity, better
-environment support is needed. \cite{kolling_problem_1999}
-
-\medskip 
-
-% Known tracks for solutions
-We propose to provide the student a reduced and graphical
-programming environment in which the object and the message are
-the central concepts instead of defining classes and then instantiate
-them. \cite{griggio_programming_2011}
-
-% here you want to show that you are not an idiot not knowing what have been around
-
-
-\medskip 
-
-% What our solution is \ct{Set} and \ct{OrderedCollection} (so that the reader knows where the paper is going)
-
-(b) lo que aprendimos en estos 8 años haciendo eso, que nos lleva a querer darle una vuelta más.
-
-Si bien todo esto que se nos ocurrió en su momento fue maravilloso y genial y los pibes aprenden más, programan mejor y la ponen más seguido, fuimos aprendiendo más cosas y estamos trabajando ne unos cambios:
-
-Los fáciles:
-- integrar clases y objetos en un mismo programa
-- integrar interfaces de usuario automáticas
-- utilizar herramientas avanzadas para guiar a los alumnos en el proceso de aprendizaje, la vedette acá sería el sistema de tipos.
-- acercar la práctica de lo que hacemos a la práctica industrial (acá hay que ver qué decimos y qué no, por ejemplo me molesta que no sea un archivo... pero desde lo metodológico se puede pensar en tests o incluso en un repositorio de código... sobre la relación con la industria se podría escribir un libro, hay que ver cuánto queremos meternos).
-
-No sé si hablar de los temas de colecciones, son un poco particulares de Ozono.
-
-
-\medskip 
-
-% Contribution of the paper
-(c) las ideas nuevas... y wollok como herramienta para dar soporte a esas ideas.
-
-Lo concreto que hicimos es tener un lenguaje con
-- clases y objetos integrados
-- un IDE profesional con syntax highlighting, refactors, autocompletion y la vedette (?) inferencia de tipos (en progreso).
-- bueno, muchas mejoras a nivel lenguaje, como literales para coleciones, imports
-- una forma fácil de construir tests.
-
-\medskip 
-
-% Paper structure
-
-
-\section{Problem Description}
-\label{sec:problem}
-
-% Context, exposed with the \textbf{most precise terms possible} (don't open
-% unwanted doors for the reader)
-
-% Probably set the vocabulary before to cut any misinterpretation
-
-% Constraints that influenced the solution (because the solution is not
-% universal) \emph{e.g.} our requirements for a solution, possibly not all
-% satisfied. They should be sound and believable. Analysis of the criteria.
-% Imagine that you are another guy having this problem do the constraint
-% matches yours so that you could apply the solution
-
-% Problem
-
 This means students must dive
 right into classes and objects, their encapsulation (public
 and private data, etc.) and methods (the constructors,
@@ -166,6 +93,17 @@ different concepts, ideas, and skills…almost concurrently.
 Each of these skills presents a different mental challenge." \cite{cooper_teaching_2003}
 
 % Factual solution tracks, to position...
+
+Already in 1999, Kolling \etal had established the importance of enviroments in introductory courses\cite{kolling_problem_1999}. 
+
+better environments have become necessary. Earlier introductory courses
+focused on the development of algorithms in procedural or functional languages. To
+do this, an editor and a compiler was all that was needed for the practical part of the
+work. Modern courses now use object-oriented languages and subject material
+taught includes testing, debugging and code reuse. This creates the need to deal with
+multiple source files and multiple program development tools from the very start. To
+give a beginning student a chance to cope with this increased complexity, better
+environment support is needed\cite{kolling_problem_1999}. 
 
 Ozono hereda muchos de los problemas de los entornos Smalltalk
 
@@ -241,7 +179,7 @@ Haciendo foco en que el punto no es la herramienta sino que tenemos que repensar
 {
 \small
 \bibliographystyle{abbrv}
-\bibliography{wollok,teaching,scg}
+\bibliography{wollok,Teaching,scg}
 }
 
 \newpage

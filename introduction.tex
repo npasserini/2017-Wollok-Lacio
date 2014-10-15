@@ -1,0 +1,90 @@
+\section{Introduction}
+\label{sec:intro}
+
+% Context
+% (a) hay que arrancar introduciendo nuestra visión, contando por qué enseñamos objetos de determinada manera, por qué hicimos Ozono.
+
+% La importancia de arrancar con objetos. -- No sé si arrancar con esto.
+\emph{Object-oriented programming} (OOP) has become the \textit{de facto} standard programming paradigm in industrial software development.
+Therefore, in the last years software engineering curricula have put more emphasis in object-oriented courses.
+% Furthermore, opinion in the community is divided as if it should be the first programming model to be presented. 
+% Problem
+Still, students often have difficulties in learning how to program in an object-oriented style which show up both in academic and in industrial environments.
+
+Several causes have been blamed for the difficulties in OOP learning.
+First, OO courses tend to focus too much on syntax and the particular characteristics of a language, instead of focusing on OOP distinctive characteristics.
+Second, many OO languages used in introductory courses to require to grasp a lot of quite abstract concepts before being able to build a first program.
+Finaly, poor programming environments are used, in a moment when a unexperienced programmer could make great use of the guidance a good programming environment can provide.
+\np{En realidad algunos de estos problemas no son exclusivos de OOP, habría que ver si queremos decir algo al respecto.}
+
+\medskip 
+
+% Known tracks for solutions
+% here you want to show that you are not an idiot not knowing what have been around
+
+% Primero hablar de lenguajes específicos para enseñar
+There have been several proposals to address the difficulties in introductory OO courses 
+by defining a specific language which provides a simplified programming model such as Karel++ \cite{bergin_karel++:_1996} \np{¿otros?}.
+This approach has been used even outside the OO world \cite{feurzeig_programming-languages_1970, pattis_karel_1981, gobstones}.
+% Environments
+A step further is to provide a whole programming environment specifically designed to aid novice programmers 
+such as Squeak \cite{ingalls_back_1997}, Traffic \cite{broy_outside-method_2003} and BlueJ \cite{bennedsen_bluej_2010}. 
+
+% Object first
+The great differences between these programming languages and environments show that they have to be analyzed in the light of the pedagogical approaches behind them.
+The tools are of little use without this pedagogical view.
+For example some educational languages and environments are designed to be used in \textit{object-first} approaches, 
+\ie for students without any previous programming knowledge \cite{1, 3, 12, 13 del paper de cooper}.
+% Children
+Other languages are focused on teaching to children or teenagers such as Scratch \cite{malan_scratch_2007} and Etoys \cite{lee_empowering_2011}. 
+% Visualization
+and there are many approaches which emphasize the importance of \emph{visualization tools} 
+to simplify the understanding of the underlying programming model\cite{cooper_teaching_2003, Java Power Tools [11]}.
+
+
+\medskip
+% Nuestro trabajo
+
+Previous works of our team \cite{lombardi_instances_2007,lombardi_carlos_alumnos_2008,griggio_programming_2011,spigariol_lucas_ensenando_2013} have described an approach consisting of
+(a) a novel path to introduce OO concepts, focusing on objects, messages and polymorphism, while delaying the introduction of classes and inheritance and 
+(b) a reduced and graphical programming environment which supports the order in which we introduce the concepts, by allowing to build OO programs without the need of classes.
+Our approach focuses on the concepts of object, message, reference and object polymorphism, while delaying the introduction of more abstract concepts such as types, classes and inheritance.
+These way of organizing a course provides a more gentle learning curve to students and allows them to write programs from the first week.
+
+% (b) lo que aprendimos en estos 8 años haciendo eso, que nos lleva a querer darle una vuelta más.
+This work builds on the experience of eight years using our approach in 4 different universities,
+trying to correct some faults we have identified while keeping the distinctive characteristics that made it successful.
+
+\medskip 
+
+% What our solution is \ct{Set} and \ct{OrderedCollection} (so that the reader knows where the paper is going)
+
+
+
+Si bien todo esto que se nos ocurrió en su momento fue maravilloso y genial y los pibes aprenden más, programan mejor y la ponen más seguido, fuimos aprendiendo más cosas y estamos trabajando ne unos cambios:
+
+Los fáciles:
+- integrar clases y objetos en un mismo programa
+- integrar interfaces de usuario automáticas
+- utilizar herramientas avanzadas para guiar a los alumnos en el proceso de aprendizaje, la vedette acá sería el sistema de tipos.
+- acercar la práctica de lo que hacemos a la práctica industrial (acá hay que ver qué decimos y qué no, por ejemplo me molesta que no sea un archivo... pero desde lo metodológico se puede pensar en tests o incluso en un repositorio de código... sobre la relación con la industria se podría escribir un libro, hay que ver cuánto queremos meternos).
+
+No sé si hablar de los temas de colecciones, son un poco particulares de Ozono.
+
+
+\medskip 
+
+% Contribution of the paper
+(c) las ideas nuevas... y wollok como herramienta para dar soporte a esas ideas.
+
+Lo concreto que hicimos es tener un lenguaje con
+- clases y objetos integrados
+- un IDE profesional con syntax highlighting, refactors, autocompletion y la vedette (?) inferencia de tipos (en progreso).
+- bueno, muchas mejoras a nivel lenguaje, como literales para coleciones, imports
+- una forma fácil de construir tests.
+
+\medskip 
+
+% Paper structure
+
+

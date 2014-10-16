@@ -4,26 +4,47 @@
 % Context, exposed with the \textbf{most precise terms possible} (don't open
 % unwanted doors for the reader)
 
-% Probably set the vocabulary before to cut any misinterpretation
-
-% Constraints that influenced the solution (because the solution is not
-% universal) \emph{e.g.} our requirements for a solution, possibly not all
-% satisfied. They should be sound and believable. Analysis of the criteria.
-% Imagine that you are another guy having this problem do the constraint
-% matches yours so that you could apply the solution
-
-% Problem
-These difficulties become even bigger for students which have learned the imperative model first,
-and object-oriented material is delayed to intermediate courses. \cite{cooper_teaching_2003}.
-
 One of the causes of the difficulties to learn OOP is that courses often focus on syntax and the particular characteristics of a
-programming language, leading students to concentrate on these relatively unimportant details rather than the underlying algorithmic skills. 
-By focusing on details, many students fail to comprehend the essential model that transcends particular programming languages\cite{the_joint_task_force_on_computing_curricula_computing_2001}. 
-Moreover, most of the object-oriented languages used in introductory courses require the student to grasp several concepts before being able to write his first program.
+programming language, leading students to concentrate on these relatively unimportant details rather than the underlying object-oriented modelling skills. 
+Also, the use of industrial languages to introduce OOP requires the student to understand several concepts before being able to run his first program.
+
+By focusing on those details, many students fail to comprehend the essential model that transcends particular programming languages \cite{the_joint_task_force_on_computing_curricula_computing_2001}. 
+Figure \ref{fig:helloWorld} shows a typical first program, written in Java \cite{arnold1996java}.
+To get this program running, the student has to walk through a minefield of packages, classes, scoping, types, arrays and class methods among others, 
+and still he is not able to do more basic OO programming, such as sending a message to an object.
 For all these reasons, courses tend to spend too much time concentrated on the mechanistic details of programming constructs, 
 leaving too little time to become fluent on the distinctive characters of OOP, 
 such as identifying objects and their knowledge \emph{relationships}, assigning \emph{responsibilities} 
 and taking advantage of \emph{encapsulation} and \emph{polymorphism} to make programs more robust and extensible.
+
+\begin{figure}[h]
+ \centering
+ \begin{lstlisting}[language=Java]
+	package examples;
+	
+	public class HelloWorld {
+		public static void main(String[] args) {
+			System.out.println("Hello World");
+		}
+	}
+ \end{lstlisting}
+ 
+ \caption{\small Sample initial Java program which diverts student attention from the most important concepts.}
+ \label{fig:helloWorld}
+\end{figure}
+
+To make things worse, frequently the students do not have proper tools that could help them overcoming all the obstacles.
+Already in 1999, Kolling \etal had established the importance of enviroments in introductory courses \cite{kolling_problem_1999}. 
+He states that earlier introductory courses focused on the development of algorithms in procedural or functional languages. 
+To do this, an editor and a compiler was all that was needed for the practical part of the work. 
+Modern courses now use object-oriented languages and subject material taught includes testing, debugging and code reuse. 
+This creates the need to deal with multiple source files and multiple program development tools from the very start. 
+To give a beginning student a chance to cope with this increased complexity, better environment support is needed. 
+
+\medskip
+
+% Probably set the vocabulary before to cut any misinterpretation
+% Problem
 
 The failure of students to understand the essential object-oriented concepts shows both in academy as in industry.
 In academic environments we find very low completion rates in introductory OO courses.
@@ -34,30 +55,9 @@ professional practice, resulting in several IT-projects not taking
 advantage of the possibilities offered by the potential of good
 object-oriented practices. \cite{lombardi_instances_2007}
 
-This means students must dive
-right into classes and objects, their encapsulation (public
-and private data, etc.) and methods (the constructors,
-accessors, modifiers, helpers, etc.). All this is in addition to
-mastering the usual concepts of types, variables, values, and
-references, as well as with the often-frustrating details of
-syntax. Now, add event-driven concepts to support
-interactivity with GUIs! As argued by [11], learning to
-program objects-first requires students grasp "many
-different concepts, ideas, and skills…almost concurrently.
-Each of these skills presents a different mental challenge." \cite{cooper_teaching_2003}
+\medskip 
 
 % Factual solution tracks, to position...
-
-Already in 1999, Kolling \etal had established the importance of enviroments in introductory courses\cite{kolling_problem_1999}. 
-
-better environments have become necessary. Earlier introductory courses
-focused on the development of algorithms in procedural or functional languages. To
-do this, an editor and a compiler was all that was needed for the practical part of the
-work. Modern courses now use object-oriented languages and subject material
-taught includes testing, debugging and code reuse. This creates the need to deal with
-multiple source files and multiple program development tools from the very start. To
-give a beginning student a chance to cope with this increased complexity, better
-environment support is needed\cite{kolling_problem_1999}. 
 
 Ozono hereda muchos de los problemas de los entornos Smalltalk
 
@@ -79,4 +79,19 @@ functionality of the browser should be limited, since its power and flexibility 
 more problems than it solved. \cite{kolling_problem_1999}.
 
 % Our solution in a nutshell.
+% (c) las ideas nuevas... y wollok como herramienta para dar soporte a esas ideas.
 
+Lo concreto que hicimos es tener un lenguaje con
+- clases y objetos integrados
+- un IDE profesional con syntax highlighting, refactors, autocompletion y la vedette (?) inferencia de tipos (en progreso).
+- bueno, muchas mejoras a nivel lenguaje, como literales para coleciones, imports
+- una forma fácil de construir tests.
+
+
+% Constraints that influenced the solution (because the solution is not
+% universal) \emph{e.g.} our requirements for a solution, possibly not all
+% satisfied. They should be sound and believable. Analysis of the criteria.
+% Imagine that you are another guy having this problem do the constraint
+% matches yours so that you could apply the solution
+So far we have focused on university students which have had a previous subject on inperative programming.
+It is a pending job to adapt these ideas to teenagers or more generally students without any prior programming experience.

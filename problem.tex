@@ -11,7 +11,7 @@ Also, the use of industrial languages to introduce OOP requires the student to u
 
 % Ejemplo con Java.
 By focusing on those details, many students fail to comprehend the essential model that transcends particular programming languages \cite{the_joint_task_force_on_computing_curricula_computing_2001}. 
-Figure \ref{fig:helloWorld} shows a typical first program, written in Java \cite{arnold1996java}.
+Figure \ref{fig:helloWorld} shows a typical first program, written in Java \cite{arnold_java_1996}.
 To get this program running, the student has to walk through a minefield of packages, classes, scoping, types, arrays and class methods among other complex concepts.
 However, he is still not able to do more basic OO programming, such as sending a message to an object.
 
@@ -64,7 +64,19 @@ object-oriented practices. \cite{lombardi_instances_2007}
 \medskip 
 
 % Factual solution tracks, to position...
+\np{Contar algo de otras propuestas anteriores a la nuestra}
+Our previous work in this area is based on the proposal to thange the order of subjects in OOP introductory coures \cite{lombardi_instances_2007}.
+To enable this we provide a simplified OO language with an ad-hoc educational programming environment 
+named Ozono\footnote{The name has been changing along these years. Other names for our programming enviroment have been ObjectBrowser, Loop and Hoope}, 
+in which students can create objects and define directly in each object, without the need for classes and inheritance \cite{griggio_programming_2011}.
+Ozono is based Smalltalk\footnote{The latest version currently in use in universities is based on a Smalltalk dialect named Pharo \cite{black_pharo_2010}.}.
+and thus it is a \textit{dynamic language}.
 
+We take special advantage of the dynamic characteristic of the language because it allows very simple uses of polymorphism, 
+\ie any two objects that understand a common set of messages can be treated polymorphically without worrying about inheritance or \emph{interface} implementation.
+This enables the students to exploit polymorphism already in their programs after only two or three weeks of the course.
+
+\np{Hasta acá llegue}
 Ozono hereda muchos de los problemas de los entornos Smalltalk
 
 Smalltalk, however, lacks other important facilities: no visualisation tools for class

@@ -84,6 +84,29 @@ The simplified programming model, allows the students to spend more time working
 This, in turn allows for more practice and more complex exercises, even incorporating more advanced OO techniques such as \emph{design patterns} \cite{Gamm03a},
 which in traditional approaches are normally postponed to a second OOP course.
 
+% Contribution (approach)
+Still, the experience of eight years in four universities and thousands of students has provided us with new insights of the learning process, 
+which is what lead us to introduce several adjustements in our approach.
+
+In the first place, starting with a \emph{classless} language mandates a change of language and enviroment in the middle of the course,
+which is confusing for some students. 
+To solve this, we propose to integrate \emph{class-based} and \emph{self-defined} objects in the same language.
+\np{Ver bien qué nombres les ponemos y definir los conceptos antes.}
+\np{En algún lugar decir que algunos lenguajes modernos hacen eso, como Scala.}
+
+Second, we think that the absence of static typing information (which Ozono inherits from Smalltalk) prevents our programming environment to aid the students in finding some typical beginner mistakes.
+Still, we do not want to force the students to add type annotations to their code, because that would distract them from the concepts we want to focus on.
+We propose to settle this apparent controversy by enhancing our programming environment with a type inferer.
+By doing so, the student is not required to care about type annotations, and at the same type we can detect some programming mistakes and aid the student in solving them.
+
+Third, we have detected that sometimes the students which seem to understand the main concepts and can apply them in interesting ways to create medium to complex program, 
+then have a hard time translating this knowledge to their professional activity.
+We think that a good mitigation plan for this problem starts with bringing the activities in the course as close as possible to the professional practice.
+For that matter, we propose to incorporate industrial best practices such as code repositories and unit tests, adapted to the possibilities of students with little or no programming experience.
+
+% Contribution (environment)
+Also, the renewed approach is supported with a new programming language, named Wollok, and a programming environment.
+
 
 
 Ozono hereda muchos de los problemas de los entornos Smalltalk

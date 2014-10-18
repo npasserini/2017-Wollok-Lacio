@@ -65,6 +65,7 @@ object-oriented practices. \cite{lombardi_instances_2007}
 
 % Factual solution tracks, to position...
 \np{Contar algo de otras propuestas anteriores a la nuestra}
+
 Our previous work in this area is based on the proposal to change the order of subjects in OOP introductory coures \cite{lombardi_instances_2007}.
 To enable this we provide a simplified OO language with an ad-hoc educational programming environment 
 named Ozono\footnote{The name has been changing along these years. Other names for our programming enviroment have been ObjectBrowser, Loop and Hoope}, 
@@ -75,13 +76,21 @@ and thus it is a \textit{dynamic language}.
 We take special advantage of the dynamic characteristic of the language because it allows very simple uses of polymorphism, 
 \ie any two objects that understand a common set of messages can be treated polymorphically without worrying about inheritance or \emph{interface} implementation.
 This enables the students to exploit polymorphism already in their programs after only two or three weeks of the course.
+\np{Qué otras ventajas queremos contar?}
 
-\np{Hasta acá llegue}
+\medskip
+This approach produced impressive results and therefore has been adopted in other courses and universities.
+The simplified programming model, allows the students to spend more time working with the essential concepts of the OO paradigm.
+This, in turn allows for more practice and more complex exercises, even incorporating more advanced OO techniques such as \emph{design patterns} \cite{Gamm03a},
+which in traditional approaches are normally postponed to a second OOP course.
+
+
+
 Ozono hereda muchos de los problemas de los entornos Smalltalk
 
 Smalltalk, however, lacks other important facilities: no visualisation tools for class
-relations are available. The main problem with this lies in the Smalltalk language
-itself: since it is not statically typed, it is not possible to extract usage relations from
+relations are available. The main problem with this lies in the Smalltalk language 
+itself: since it is not statically typed, it is not possible to extract usage relations fromo
 its source code. No indication exists before runtime as to the call relationships
 between classes. Inheritance relationships as shown in the browser do not present
 the relationships of one application but rather the whole Smalltalk environment and

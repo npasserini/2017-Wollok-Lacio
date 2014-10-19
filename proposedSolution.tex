@@ -1,17 +1,23 @@
-\section{Proposed Solution}
-\label{sec:proposedSolution}
+\section{Wollok: the language}
+\label{sec:wollokLanguage}
 
 % Free form, variable number of sections, technical details.
 % But in general do not mix solution and discussions/possible variation let that for discussion
 
-Wollok is a complete new tool based on the same fundamental ideas that were present in Ozono and LOOP. In particular:
+Wollok is a brand new language, built to specifically give support to our pedagogical approach.
+Many ideas have been inherited from our previous projects, such as Ozono or Loop. 
+The most important of these inherited characteristics is the ability to create objects and treat them polymorphically without the need of type annotations, classes or inheritance.
+Also, as its predecessors and unlike other pedagogical tools, Wollok is a \emph{general purpose} language, \ie it is not tied to any specific domain.
 
-\begin{itemize}
-\item \textbf{Incremental concepts introduction}: references, objects, messages, polymorphism, classes, inheritance.
-\item \textbf{General purpose}: meaning not tied to any specific domain (e.g.: robots)
-\end{itemize}
+\medskip
+One of the main objectives of building a new language is to provide a smoother transition from the first phase of the course,
+in which students use a simplified programming modelm and the second phase, in which they use a full-fledged OOP language.
+With our our previous programming tools students were required to discard, in the middle of the course, the programming model and enviromnent they already knew and were used to.
+This transition has sometimes been traumatic, because the process to define an object has to be re-learnt and the tools they had been using up to that point are no longer available.
+With our new approach, the tools they first learnt are going to continue being available through all the course, together with the new ones that are incorporated in later lectures.
+This is also consistent with some modern industrial OO languages that allow to define both classes or standalone objects, such as Scala \cite{Oder04a}.
 
-Besides this we also tried to address some other concerns detected while using Ozono for several years. Here's a list of main cathegories or lines of work in which Wollok extends the previous work
+\np{Hasta acá llegué}
 
 \begin{itemize}
 \item \textbf{Profundizar y pulir el highlighting the conceptos primarios y la
@@ -24,13 +30,15 @@ conceptos ya existentes} (ej: 1- var/val, 2- la idea de hacer un effect system
 power que detecte efecto de lado, y asi poner checkeos para resolver el problema de si un método es una 'orden' o una 'pregunta', 3- program/libreria/test, 4-override ).
 \item \textbf{Unificar las fases del aprendizaje} (ej: objetos+clases: un solo
 lenguaje, misma herramientas, poder reutilizar y hacer convivir)
+\end{itemize}
+
+\begin{itemize}
 \item \textbf{Proveer un entorno inteligente que}: por un lado, estructure en
 forma más estricta/explícita la experiencia; y que, por el otro lado, permita una gran asistencia al estudiante/desarrollador (esto tiene muchos elementos: 1- desde content assist, 2-syntax coloring, 3- resaltado de errores (sintaxis y tipado) 4-navegación de código, 5-busqueda de referencias, 6-diagramas automáticos de clases, 7-hasta llegar un sistema de tipos que permita la detección temprana de errores, 8-reducir errores frustrantes: se cancela la edicion por tener 1 solo editor de metodo por ves (poder visualizar más que un sólo método simul), evitar errores de imagenes)
 \item \textbf{Acercar la experiencia de aprendizaje a las prácticas
 industriales}: (acá el palo de que la imagen sólo existe en smalltalk, y en la
 industria nadie la usa. Atrás de eso, la idea de archivos, y poder compartir con SVC. Por último la idea de actualizarse a un lenguaje con influencia de lenguajes modernos como xtend, scala, ruby, etc.)
 \end{itemize}
-
 - bueno, muchas mejoras a nivel lenguaje, como literales para coleciones, imports
 
 

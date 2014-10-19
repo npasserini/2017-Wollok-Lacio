@@ -84,8 +84,33 @@ The simplified programming model, allows the students to spend more time working
 This, in turn allows for more practice and more complex exercises, even incorporating more advanced OO techniques such as \emph{design patterns} \cite{Gamm03a},
 which in traditional approaches are normally postponed to a second OOP course.
 
-% Contribution (approach)
-Still, the experience of eight years in four universities and thousands of students has provided us with new insights of the learning process, 
+% Esto podría extender la descripción del problema
+%  Ozono hereda muchos de los problemas de los entornos Smalltalk
+
+% Smalltalk, however, lacks other important facilities: no visualisation tools for class
+% relations are available. The main problem with this lies in the Smalltalk language 
+% itself: since it is not statically typed, it is not possible to extract usage relations fromo
+% its source code. No indication exists before runtime as to the call relationships
+% between classes. Inheritance relationships as shown in the browser do not present
+% the relationships of one application but rather the whole Smalltalk environment and
+% so the browser is not used as an application modelling tool. .
+% Reports about the use of Smalltalk systems for teaching also point to another
+% problem: its size. While the language itself (in terms of the number of constructs) is
+% small, the class library and tools are large and often confusing. Several authors
+% reported difficulties with the students ability to cope with the environment [7, 8],
+% especially that experimentation and self directed learning was not working well
+% because students were overwhelmed by the system. They also found that the
+% functionality of the browser should be limited, since its power and flexibility caused
+% more problems than it solved. \cite{kolling_problem_1999}.
+
+
+% Our solution in a nutshell.
+% (c) las ideas nuevas... y wollok como herramienta para dar soporte a esas ideas.
+
+% Our solution: approach
+Still, the experience of eight years in four universities\footnote{Ozono is currently used in Universidad Tecnológica Nacional, F.R. Buenos Aires and F.R. Delta, 
+Universidad Nacional de Quilmes, Universidad Nacional de San Martín and Universidad Nacional del Oeste.}
+and thousands of students has provided us with new insights of the learning process, 
 which is what lead us to introduce several adjustements in our approach.
 
 In the first place, starting with a \emph{classless} language mandates a change of language and enviroment in the middle of the course,
@@ -99,49 +124,50 @@ Still, we do not want to force the students to add type annotations to their cod
 We propose to settle this apparent controversy by enhancing our programming environment with a type inferer.
 By doing so, the student is not required to care about type annotations, and at the same type we can detect some programming mistakes and aid the student in solving them.
 
-Third, we have detected that sometimes the students which seem to understand the main concepts and can apply them in interesting ways to create medium to complex program, 
+Last, we have detected that sometimes the students which seem to understand the main concepts and can apply them in interesting ways to create medium to complex program, 
 then have a hard time translating this knowledge to their professional activity.
 We think that a good mitigation plan for this problem starts with bringing the activities in the course as close as possible to the professional practice.
 For that matter, we propose to incorporate industrial best practices such as code repositories and unit tests, adapted to the possibilities of students with little or no programming experience.
 
-% Contribution (environment)
-Also, the renewed approach is supported with a new programming language, named Wollok, and a programming environment.
+\medskip
+% Our solution: environment
+The renewed approach is supported with a new programming language, named Wollok, and a programming environment which aids students to write, test and run programs.
+Wollok is designed to give support to our pedagogical approach; 
+it allows to define both classes and standalone objects,
+incorporates a basic type inferer
+and provides a simple syntax to define unit tests.
 
+A big difference with Ozono and other educational OO languages is that Wollok is a \emph{file-based} language.
+While we recognize the value of the \emph{image-based} approaches, we also are aware that most industrial programming enviroments are file-based.
+Therefore, we think that a file-based approach will shorten the distance between the classroom and the professional activity, which is one of our main goals.
+Moreover, image-based enviromnents tend to blur the distinction between the programming environment and the program under development,
+which can embody great possibilities for advanced programmers but often does not more than confuse beginners.
+Also, being file-based, Wollok allows for integration for the most popular code repositories.
 
+Finally, the programming enviroment incorporates several advanced characteristics from professional environments, 
+which improves the coding experience as much as familiarized the student with the kind of tools he will face in his later professional activity.
+For that matter, the enviromnent incorporates content assist, automatic refactorings, advanced code navigation, 
+language semantics-aware search tools and error highlighting \emph{while-you-type}
 
-Ozono hereda muchos de los problemas de los entornos Smalltalk
+\medskip
+% Contribution
+It is important to notice that neither the Wollok language nor the programming environment contain novel features that are unseen in intustrial tools.
+Therefore, the distinctive characteristic of these tools is the search for a programming environment which 
+(a) supports our pedagogical approach,
+(b) feeds the student with a set of tools which are adequate to his current knowledge
+and (c) gently prepares him to be using industrial-level tools.
 
-Smalltalk, however, lacks other important facilities: no visualisation tools for class
-relations are available. The main problem with this lies in the Smalltalk language 
-itself: since it is not statically typed, it is not possible to extract usage relations fromo
-its source code. No indication exists before runtime as to the call relationships
-between classes. Inheritance relationships as shown in the browser do not present
-the relationships of one application but rather the whole Smalltalk environment and
-so the browser is not used as an application modelling tool. Smalltalk blurs the
-distinction between the environment and the application under development.
-Reports about the use of Smalltalk systems for teaching also point to another
-problem: its size. While the language itself (in terms of the number of constructs) is
-small, the class library and tools are large and often confusing. Several authors
-reported difficulties with the students ability to cope with the environment [7, 8],
-especially that experimentation and self directed learning was not working well
-because students were overwhelmed by the system. They also found that the
-functionality of the browser should be limited, since its power and flexibility caused
-more problems than it solved. \cite{kolling_problem_1999}.
-
-% Our solution in a nutshell.
-% (c) las ideas nuevas... y wollok como herramienta para dar soporte a esas ideas.
-
-Lo concreto que hicimos es tener un lenguaje con
-- clases y objetos integrados
-- un IDE profesional con syntax highlighting, refactors, autocompletion y la vedette (?) inferencia de tipos (en progreso).
-- bueno, muchas mejoras a nivel lenguaje, como literales para coleciones, imports
-- una forma fácil de construir tests.
-
+A big amount of effort in our research has been put in looking for solutions that can solve the apparent controversy between the last two objectives.
+Often, the rich set of tools an industrial language or programming environment offers, cannot be exploited by an unexperienced programmer or even confuses him.
+On the other end, we think that poor programming enviroments fail to help the students to make his first steps in programming and so trims the possibilities of introductory courses.
+Therefore, there is much to gain from a language that has the exact features a teacher wants to teacher
+and a programming enviroment which provides the exact tools a student can take advantage off at each time of his learning process.
 
 % Constraints that influenced the solution (because the solution is not
 % universal) \emph{e.g.} our requirements for a solution, possibly not all
 % satisfied. They should be sound and believable. Analysis of the criteria.
 % Imagine that you are another guy having this problem do the constraint
 % matches yours so that you could apply the solution
+\np{Esto tenía ganas de decir pero no me doy cuenta dónde ponerlo... no sé si volarlo y ya.}
 So far we have focused on university students which have had a previous subject on inperative programming.
 It is a pending job to adapt these ideas to teenagers or more generally students without any prior programming experience.

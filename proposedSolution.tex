@@ -17,8 +17,30 @@ This transition has sometimes been traumatic, because the process to define an o
 With our new approach, the tools they first learnt are going to continue being available through all the course, together with the new ones that are incorporated in later lectures.
 This is also consistent with some modern industrial OO languages that allow to define both classes or standalone objects, such as Scala \cite{Oder04a}.
 
-\np{Hasta acá llegué}
+\np{Acá tal vez podríamos poner un ejemplo que muestre eso... aunque me queda un poco desordenado poner esto antes del ejemplo más básico, escucho propuestas.}
 
+\medskip
+Also we reduced to a minimum the syntax and the most basic constructs of the language.
+While this objective was already present in our previous work, the implementation strategy of Wollok \cf \ref{sec:implementation} allows us to go much further in accomplishing this goal.
+The example in figure \ref{fig:helloWorld/wollok} shows how would look the classical hello world in Wollok.
+To build this first program students are not required to know about typing, scoping or packaging.
+The only required construct is the \lstinline[language=Wollok]{program} and the only command is a message send.
+Both the receiver and the parameters are built-in objects which will be handled in the same way user-defined objects.
+The concepts required to understand this program are no more than program, object, message and argument passing.
+
+\begin{figure}[h]
+ \centering
+ \begin{lstlisting}[language=Wollok]
+	program {
+		console.println("Hello World!")
+	}
+ \end{lstlisting}
+ 
+ \caption{\small Sample initial Wollok program.}
+ \label{fig:helloWorld/wollok}
+\end{figure}
+
+\np{No estoy seguro de cómo meter lo que sigue, requiere de una explicación más larga.}
 \begin{itemize}
 \item \textbf{Profundizar y pulir el highlighting the conceptos primarios y la
 estratificacion de conceptos}.
@@ -28,9 +50,13 @@ estratificacion de conceptos}.
 \item \textbf{Introducción de nuevos elementos concretos que explicitan
 conceptos ya existentes} (ej: 1- var/val, 2- la idea de hacer un effect system
 power que detecte efecto de lado, y asi poner checkeos para resolver el problema de si un método es una 'orden' o una 'pregunta', 3- program/libreria/test, 4-override ).
-\item \textbf{Unificar las fases del aprendizaje} (ej: objetos+clases: un solo
-lenguaje, misma herramientas, poder reutilizar y hacer convivir)
 \end{itemize}
+
+- bueno, muchas mejoras a nivel lenguaje, como literales para coleciones, imports
+
+
+\section{Entorno Inteligente de Trabajo}
+\label{sec:environment}
 
 \begin{itemize}
 \item \textbf{Proveer un entorno inteligente que}: por un lado, estructure en
@@ -39,11 +65,6 @@ forma más estricta/explícita la experiencia; y que, por el otro lado, permita 
 industriales}: (acá el palo de que la imagen sólo existe en smalltalk, y en la
 industria nadie la usa. Atrás de eso, la idea de archivos, y poder compartir con SVC. Por último la idea de actualizarse a un lenguaje con influencia de lenguajes modernos como xtend, scala, ruby, etc.)
 \end{itemize}
-- bueno, muchas mejoras a nivel lenguaje, como literales para coleciones, imports
-
-
-\subsection{Entorno Inteligente de Trabajo}
-\label{subsec:proposedSolution-entornoInteligente}
 
 \subsubsection{Visualización y Navegación}
 
@@ -117,3 +138,5 @@ generados se muestran agrupados en una vista dedicada a tal fín (Problems).
 \end{itemize}
 
 
+\subsection{Implementation}
+\np{Qué podemos decir de esto}

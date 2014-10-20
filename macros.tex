@@ -52,7 +52,7 @@
 \newcommand{\ie}{\emph{i.e.,}\xspace}
 \newcommand{\etal}{\emph{et al.,}\xspace}
 \newcommand{\ct}[1]{{\textsf{#1}}\xspace}
-
+\newcommand{\cf}{\emph{cf.}\xspace}
 
 \newenvironment{code}
     {\begin{alltt}\sffamily}
@@ -108,4 +108,13 @@
   showtabs=false,                  % show tabs within strings adding particular underscores
   stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
   tabsize=2,                       % sets default tabsize to 2 spaces
+}
+
+\lstdefinelanguage{Wollok}{
+  keywords={program, console},
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
 }

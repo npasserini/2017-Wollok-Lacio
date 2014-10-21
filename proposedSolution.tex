@@ -1,4 +1,4 @@
-\section{Wollok: the language}
+\section{Wollok: The Language}
 \label{sec:wollokLanguage}
 
 % Free form, variable number of sections, technical details.
@@ -58,53 +58,63 @@ power que detecte efecto de lado, y asi poner checkeos para resolver el problema
 \section{A Customized Programming Environment}
 \label{sec:environment}
 
+Beginner programmers are likely to require more guidance and make more mistakes than experienced programmers.
+Therefore, we think that is much to gain from a good programming environment which structures the programming experienced and helps the students to identify common mistakes.
 
-\begin{itemize}
-\item \textbf{Proveer un entorno inteligente que}: por un lado, estructure en
-forma más estricta/explícita la experiencia; y que, por el otro lado, permita una gran asistencia al estudiante/desarrollador (esto tiene muchos elementos: 1- desde content assist, 2-syntax coloring, 3- resaltado de errores (sintaxis y tipado) 4-navegación de código, 5-busqueda de referencias, 6-diagramas automáticos de clases, 7-hasta llegar un sistema de tipos que permita la detección temprana de errores, 8-reducir errores frustrantes: se cancela la edicion por tener 1 solo editor de metodo por ves (poder visualizar más que un sólo método simul), evitar errores de imagenes)
-\item \textbf{Acercar la experiencia de aprendizaje a las prácticas
-industriales}: (acá el palo de que la imagen sólo existe en smalltalk, y en la
-industria nadie la usa. Atrás de eso, la idea de archivos, y poder compartir con SVC. Por último la idea de actualizarse a un lenguaje con influencia de lenguajes modernos como xtend, scala, ruby, etc.)
-\end{itemize}
+% \subsubsection{Visualización y Navegación}
+% \begin{itemize}
+%   \item syntax highlight
+%   \item outline
+%   \item hovering
+%   \item vista de problems 
+%   \item navigate: goto (F3, click), flechita para ir al método que sobrescribe.
+%   \item find references 
+% \end{itemize}
+% 
+% \subsubsection{Asistencia}
+% \begin{itemize}
+%   \item content assist
+%   \item quick fixes
+%   \item code templates (nuevo)
+% \end{itemize}
+The Wollok programming environment includes a lot of features that provide guidance to the student.
+\emph{Content assist} shows the students what are his possibilities at any moment and feeds automatically into the code the most usual constructs, 
+allowing the student to concentrate less on syntax and more in the modelling of the exercise problem.
+\emph{Advanced code navigation} and \emph{smart reference searches} allow the programmer to better understand the dependencies in his program.
+\np{¿Se les ocurre cómo mejorar eso?}
+Moreover, \emph{automatic class diagrams} provide a high level view of the program and also helps understanding.
 
-Más aún, que el terreno sea acotado fomenta que ellos lo puedan explorar. 
-Habrás notado que cuesta que los estudiantes se salgan del caminito que uno mostró en clase, que busquen la documentación de collection por sí mismos. Bueno eso podría tener muchas razones pero yo creo que una que podemos atacar es que cuando hacen eso normalmente esa documentación los marea y huyen.
+% Detect mistakes
+Also, the programming environment has many tools intended to help detecting mistakes, even while the student is writing code.
+\emph{Syntax highlighting} helps identify the most simple mistakes by providing immediate feedback when something is not right. 
+Moreover, the enviromnent provides \emph{real-time highlights} for syntactic mistakes.
+Finally, the \emph{type inferer} allows to detect more subtle mistakes.
+All these tools allows the student to gain more control of his code, keeping him away from feeling lost, 
+which is otherwise a common situation for a student walking his first steps into programming.
 
+% Este no sé cómo ponerlo, es muy crítica al smalltalk.
+% 8-reducir errores frustrantes: se cancela la edicion por tener 1 solo editor de metodo por ves (poder visualizar más que un sólo método simul), evitar errores de imagenes)
 
-\subsubsection{Visualización y Navegación}
+\medskip
+% Type inferer
+The type inferer is one of the most distintive characteristics of the Wollok programming environment.
+We think that type inference is key to a simple programming environment.
+On one side, it allows to detect lots of common mistakes \emph{before running the program}:
+if an object does understand a message, if a wrong argument is passed, if incompatible types are mixed or even miss-spellings.
+In enviroments without this capability it takes more time to detect errors.
+Moreover, it is not uncommon that a type mistake produces a runtime error in a place different from where the mistake was done, producing confussion.
 
-// todo: 
-\begin{itemize}
-  \item syntax highlight
-  \item outline
-  \item hovering
-  \item vista de problems 
-  \item navigate: goto (F3, click), flechita para ir al método que sobrescribe.
-  \item find references 
-\end{itemize}
-
-\subsubsection{Asistencia}
-
-//todo: 
-\begin{itemize}
-  \item content assist
-  \item quick fixes
-  \item code templates (nuevo)
-\end{itemize}
+Still, providing a type inferer for a language such as Wollok has its subleties, which deserves an independent study \cite{type inferer}.
+\np{no sé qué más decir de esto}
 
 \subsubsection{Checkeos y validaciones}
-
-Wollok provee numerosos checkeos y validaciones estáticas, a fin de que el
-alumno pueda encontrar los problemas en su código de manera temprana.
-Incluso a medida que va escribiendo su código.
-Esto contribuye a que el alumno mantenga control completo de su
-código, y evita la sensación de estar perdido.
  
 Todos los checkeos y problemas
 generados se muestran agrupados en una vista dedicada a tal fín (Problems).
 
+% En lo que sigue fui comentando las cosas que ya están dichas pero no quiero borrar esta enumeración porque está muy buena.
 \begin{itemize}
-  \item \textbf{De sintaxis}: dados por el parser y lexer automáticamente.
+%   \item \textbf{De sintaxis}: dados por el parser y lexer automáticamente.
   \item \textbf{De estilo}: para promover uniformidad y consistencia de código.
   Ejemplos:
   		\begin{itemize}
@@ -136,12 +146,10 @@ generados se muestran agrupados en una vista dedicada a tal fín (Problems).
   \item \textbf{De estructura}: evitan por ejemplo inconsistencias en las
   estructuras creadas por el alumno. Por ejemplo, se checkea
   que un método marcado como \textit{override} efectivamente esté
-  sobrescribiendo.
+	sobrescribiendo.
   \item \textbf{De tipos}: verifican compatibilidad de referencias en base a sus
   tipos. Por ejemplo ante envío de mensajes, o asignaciones de variables. Basado
   en el sistema de tipos.
 \end{itemize}
 
 
-\subsection{Implementation}
-\np{Qué podemos decir de esto}

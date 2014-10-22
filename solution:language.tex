@@ -1,0 +1,65 @@
+\section{Wollok: The Language}
+\label{sec:wollokLanguage}
+
+% Free form, variable number of sections, technical details.
+% But in general do not mix solution and discussions/possible variation let that for discussion
+
+Wollok is a brand new language, built to specifically give support to our pedagogical approach.
+Many ideas have been inherited from our previous projects, such as Ozono or Loop. 
+The most important of these inherited characteristics is the ability to create objects and treat them polymorphically without the need of type annotations, classes or inheritance.
+Also, as its predecessors and unlike other pedagogical tools, Wollok is a \emph{general purpose} language, \ie it is not tied to any specific domain.
+
+\medskip
+One of the main objectives of building a new language is to provide a smoother transition from the first phase of the course,
+in which students use a simplified programming modelm and the second phase, in which they use a full-fledged OOP language.
+With our our previous programming tools students were required to discard, in the middle of the course, the programming model and enviromnent they already knew and were used to.
+This transition has sometimes been traumatic, because the process to define an object has to be re-learnt and the tools they had been using up to that point are no longer available.
+With our new approach, the tools they first learnt are going to continue being available through all the course, together with the new ones that are incorporated in later lectures.
+This is also consistent with some modern industrial OO languages that allow to define both classes or standalone objects, such as Scala \cite{Oder04a}.
+
+\np{Acá tal vez podríamos poner un ejemplo que muestre eso... aunque me queda un poco desordenado poner esto antes del ejemplo más básico, escucho propuestas.}
+
+\medskip
+Also we reduced to a minimum the syntax and the most basic constructs of the language.
+While this objective was already present in our previous work, the implementation strategy of Wollok \cf \ref{sec:implementation} allows us to go much further in accomplishing this goal.
+The example in figure \ref{fig:helloWorld/wollok} shows how would look the classical hello world in Wollok.
+To build this first program students are not required to know about typing, scoping or packaging.
+The only required construct is the \lstinline[language=Wollok]{program} and the only command is a message send.
+Both the receiver and the parameters are built-in objects which will be handled in the same way user-defined objects.
+The concepts required to understand this program are no more than program, object, message and argument passing.
+
+\begin{figure}[h]
+ \centering
+ \begin{lstlisting}[language=Wollok]
+	program {
+		console.println("Hello World!")
+	}
+ \end{lstlisting}
+ 
+ \caption{\small Sample initial Wollok program.}
+ \label{fig:helloWorld/wollok}
+\end{figure}
+
+\medskip
+% Effect
+\np{Esto requeriría una mención en la intro, o en general una explicación más detallada.}
+Another concepto we propose to emphasize in the first programming courses is the control of side effects, 
+\ie a programmer should be aware about the potential side effects of each portion of code.
+The most basic feature in Wollok to controlling side effects is the ability to 
+differentiate variables (defined using \lstinline[language=Wollok]{var})
+from constants (defined using \lstinline[language=Wollok]{val}).
+One step forward is to incorporate an \emph{effect system} \cite{effect system}, \cf \ref{sec:furtherWork}.
+
+\medskip
+% Misceláneos
+\np{No estoy seguro de cómo meter lo que sigue, requiere de una explicación más larga.}
+% Profundizar y pulir el highlighting the conceptos primarios y la estratificacion de conceptos
+To sum up, there are several simple features which help structure the way a student sees his programming activity.
+\emph{Object literals} and \emph{collection literals} reduce boilerplate on object creation, 
+since we think that the excess of bureaucracy to create an object helps to build up 
+the belief that using objects or collections is far more complicated than using numbers or strings, which in turns leads to \emph{primitive obsession} \cite{primitive obsession}.
+% Objetos no como un elemento de la IDE -Ozono: nueva referencia global, sino como un elemnto del lenguaje. Evita referencias globales.
+
+Each Wollok file hast to be defined as \emph{program}, \emph{library} or \emph{test}.
+Only programs and tests can be run. Libraries can only be \emph{imported} from programs or tests.
+This concepts push students onto modularizing their programs into smaller units that can be reutilized.

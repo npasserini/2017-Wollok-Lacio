@@ -24,6 +24,7 @@ Therefore, we think that is much to gain from a good programming environment whi
 The Wollok programming environment includes a lot of features that provide guidance to the student.
 \emph{Content assist} shows the students what are his possibilities at any moment and feeds automatically into the code the most usual constructs, 
 allowing the student to concentrate less on syntax and more in the modelling of the exercise problem.
+\emph{Quick-fixes} allow Wollok not only to highlight problems in the student's code but also to propose automatic solutions for some usual mistakes.
 \emph{Advanced code navigation} and \emph{smart reference searches} allow the programmer to better understand the dependencies in his program.
 \np{¿Se les ocurre cómo mejorar eso?}
 Moreover, \emph{automatic class diagrams} provide a high level view of the program and also helps understanding.
@@ -48,8 +49,11 @@ if an object does understand a message, if a wrong argument is passed, if incomp
 In enviroments without this capability it takes more time to detect errors.
 Moreover, it is not uncommon that a type mistake produces a runtime error in a place different from where the mistake was done, producing confussion.
 
-Still, providing a type inferer for a language such as Wollok has its subleties, which deserves an independent study \cite{type inferer}.
-\np{no sé qué más decir de esto}
+Still, providing a type inferer for a language such as Wollok has many subleties, which deserves an independent study \cite{type inferer}.
+On one side we require it to be able to work without type annotations and at the same time provide feedback useful for an unexperienced programmer.
+On the other side, the type system is rather complex;
+for example, the presence of stand-alone objects requires the type system to handle \emph{structural types}, since a named type system would not allow them to be treated polymorphically.
+Also, we want to be able to treat polymorphically stand alone objects with class-based objects.
 
 \subsubsection{Checkeos y validaciones}
  

@@ -17,11 +17,9 @@ This transition has sometimes been traumatic, because the process to define an o
 With our new approach, the tools they first learnt are going to continue being available through all the course, together with the new ones that are incorporated in later lectures.
 This is also consistent with some modern industrial OO languages that allow to define both classes or standalone objects, such as Scala \cite{Oder04a}.
 
-\np{Acá tal vez podríamos poner un ejemplo que muestre eso... aunque me queda un poco desordenado poner esto antes del ejemplo más básico, escucho propuestas.}
-
 \medskip
 Also we reduced to a minimum the syntax and the most basic constructs of the language.
-While this objective was already present in our previous work, the implementation strategy of Wollok \cf \ref{sec:implementation} allows us to go much further in accomplishing this goal.
+While this objective was already present in our previous work, the implementation strategy of Wollok \cf Sec. \ref{sec:implementation} allows us to go much further in accomplishing this goal.
 The example in figure \ref{fig:helloWorld/wollok} shows how the classical hello world would look in Wollok.
 To build this first program students are not required to know about typing, scoping or packaging.
 The only required construct is the \lstinline[language=Wollok]{program} and the only command is a message send.
@@ -48,11 +46,10 @@ Another concept we propose to emphasize in the first programming courses is the 
 The most basic feature in Wollok to controlling side effects is the ability to 
 differentiate variables (defined using \lstinline[language=Wollok]{var})
 from constants (defined using \lstinline[language=Wollok]{val}).
-One step forward is to incorporate an \emph{effect system} \cite{effect system}, \cf \ref{sec:furtherWork}.
+One step forward is to incorporate an \emph{effect system} \cite{effect system}, \cf Sec. \ref{sec:furtherWork}.
 
 \medskip
 % Misceláneos
-\np{No estoy seguro de cómo meter lo que sigue, requiere de una explicación más larga.}
 % Profundizar y pulir el highlighting the conceptos primarios y la estratificacion de conceptos
 To sum up, there are several simple features which help structure the way a student sees his programming activity.
 \emph{Object literals} and \emph{collection literals} reduce boilerplate on object creation, 
@@ -61,5 +58,40 @@ the belief that using objects or collections is far more complicated than using 
 % Objetos no como un elemento de la IDE -Ozono: nueva referencia global, sino como un elemnto del lenguaje. Evita referencias globales.
 
 Each Wollok file has to be defined as \emph{program}, \emph{library} or \emph{test}.
-Only programs and tests can be run. Libraries can only be \emph{imported} from programs or tests.
+Only programs and tests can be run. Libraries can only be \emph{imported} from programs, tests or other libraries.
 This concepts push students onto modularizing their programs into smaller units that can be reutilized.
+
+Figure \ref{fig:polymorphism} shows some of the mentioned features.
+The programs includes two objects which are treated polymorphically, collections and block closures.
+Students should be able to build such a program after four lectures.
+In the first lecture we introduce objects, messages, methods and references;
+in the second one we focus on polymorphism;
+and in the following two we work with blocks and collections.
+
+\np{Acá falta hablar de la diferencia entre objeto y referencia}
+
+\begin{figure}[h]
+ \centering
+ \begin{lstlisting}[language=Wollok]
+	program myProgram {
+		val optimistic = object {
+			method hiThere() {
+				"Hi, what an amazing day !"
+			}
+		}
+
+		val pesimistic = object {
+			method hiThere() {
+				"Don't talk to me, it's a terrible day!"
+			}
+		}
+		
+		val all = #[optimistic, pesimistic]
+		
+		console.println(all.map[p| p.hiThere()])
+	}
+ \end{lstlisting}
+ 
+ \caption{\small Simple polymorphism example.}
+ \label{fig:polymorphism}
+\end{figure}

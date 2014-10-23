@@ -80,13 +80,13 @@ and in the following two we work with blocks and collections.
 			}
 		}
 
-		val pesimistic = object {
+		val pessimistic = object {
 			method hiThere() {
 				"Don't talk to me, it's a terrible day!"
 			}
 		}
 		
-		val all = #[optimistic, pesimistic]
+		val all = #[optimistic, pessimistic]
 		
 		console.println(all.map[p| p.hiThere()])
 	}

@@ -32,7 +32,7 @@ Moreover, \emph{automatic class diagrams} provide a high level view of the progr
 % Detect mistakes
 Also, the programming environment has many tools intended to help detecting mistakes, even while the student is writing code.
 \emph{Syntax highlighting} helps identify the most simple mistakes by providing immediate feedback when something is not right. 
-Moreover, the enviromnent provides \emph{real-time highlights} for syntactic mistakes.
+Moreover, the environment provides \emph{real-time highlights} for syntactic mistakes.
 Finally, the \emph{type inferer} allows to detect more subtle mistakes.
 All these tools allows the student to gain more control of his code, keeping him away from feeling lost, 
 which is otherwise a common situation for a student walking his first steps into programming.
@@ -42,15 +42,15 @@ which is otherwise a common situation for a student walking his first steps into
 
 \medskip
 % Type inferer
-The type inferer is one of the most distintive characteristics of the Wollok programming environment.
+The type inferer is one of the most distinctive characteristics of the Wollok programming environment.
 We think that type inference is key to a simple programming environment.
 On one side, it allows to detect lots of common mistakes \emph{before running the program}:
 if an object does understand a message, if a wrong argument is passed, if incompatible types are mixed or even miss-spellings.
-In enviroments without this capability it takes more time to detect errors.
-Moreover, it is not uncommon that a type mistake produces a runtime error in a place different from where the mistake was done, producing confussion.
+In environments without this capability it takes more time to detect errors.
+Moreover, it is not uncommon that a type mistake produces a runtime error in a place different from where the mistake was done, producing confusion.
 
-Still, providing a type inferer for a language such as Wollok has many subleties, which deserves an independent study \cite{type inferer}.
-On one side we require it to be able to work without type annotations and at the same time provide feedback useful for an unexperienced programmer.
+Still, providing a type inferer for a language such as Wollok has many subtleties, which deserves an independent study \cite{type inferer}.
+On one side we require it to be able to work without type annotations and at the same time provide feedback useful for an inexperienced programmer.
 On the other side, the type system is rather complex;
 for example, the presence of stand-alone objects requires the type system to handle \emph{structural types}, since a named type system would not allow them to be treated polymorphically.
 Also, we want to be able to treat polymorphically stand alone objects with class-based objects.

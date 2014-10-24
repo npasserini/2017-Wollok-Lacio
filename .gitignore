@@ -4,6 +4,7 @@
 *.log
 *.out
 *.backup
+*~
 /tmp
 /main.synctex.gz
 .project

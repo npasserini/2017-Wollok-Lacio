@@ -33,12 +33,12 @@ if an object does understand a message, if a wrong argument is passed, if incomp
 In environments without this capability it takes more time to detect errors.
 Moreover, it is not uncommon that a type mistake produces a runtime error in a place different from where the mistake was done, producing confusion.
 
-Still, providing a type inferer for a language such as Wollok has many subtleties, which deserves an independent study \cite{type inferer}.
+Still, providing a type inferer for a language such as Wollok has many subtleties, which deserves an independent study \cite{passerini_nicolas_extensible_2014}.
 On one side we require it to be able to work without type annotations and at the same time provide feedback useful for an inexperienced programmer.
 On the other side, the type system is rather complex;
 for example, the presence of stand-alone objects requires the type system to handle \emph{structural types}, since a named type system would not allow them to be treated polymorphically.
 Also, we want to be able to treat polymorphically stand alone objects with class-based objects.
 
-\subsubsection{Checks and Validations}
+\subsection{Checks and Validations}
 
 The IDE provides a way of showing some interesting checks and validations. This validations are organized and showed in a common way, using a dedicated section of the user interface for their display. In this way the IDE can be used to teach main concepts, not only showing syntax errors. Some of the errors are described in the \secref{ChecksAndValidations}

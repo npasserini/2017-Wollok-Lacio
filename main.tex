@@ -1,4 +1,4 @@
-\documentclass[preprint,10pt]{sigplanconf}
+\documentclass[preprint,10pt,nocopyrightspace]{sigplanconf}
 % \documentclass{article}
 \usepackage[T1]{fontenc} %%%key to get copy and paste for the code!
 \usepackage[utf8]{inputenc} %%% to support copy and paste with accents for frnehc stuff
@@ -66,47 +66,11 @@ as well as the teachers and students that provided feedback from their use of th
 % IRSES MEALS (no. 295261). 
 
 {
-	\small
-	\bibliographystyle{abbrv}
-	\bibliography{wollok,Teaching,scg}
+\small
+\bibliographystyle{abbrv}
+\bibliography{wollok,Teaching,scg}
 }
 
-\newpage
-\appendix
-\section{Implementation}
-\label{sec:implementation}
-\np{Qué podemos decir de esto}
-
-\section{Images}
-Imágenes y otros detalles de wollok que no entran en las 6/7 páginas del artículo
-
-	\begin{figure}[p]
-	    \centering
-		\includegraphics[scale=0.5]{images/wollok-paper-outline.png}
-	    \caption{Outline View: muestra un resumen del contenido del archivo}
-	    \label{fig:outline.png}
-	\end{figure}
-	
-	\begin{figure}[p]
-	    \centering
-		\includegraphics[scale=0.5]{images/wollok-paper-check-problemsview.png}
-	    \caption{Vista de Problemas: errores y warnings}
-	    \label{fig:problemsview.png}
-	\end{figure}
-	
-	\begin{figure}[p]
-	    \centering
-		\includegraphics[scale=0.5]{images/wollok-paper-codetemplates.png}
-	    \caption{Code Assist: templates para crear código rápidamente}
-	    \label{fig:codetemplates.png}
-	\end{figure}
-
-	\begin{figure}[p]
-	    \centering
-		\includegraphics[scale=0.5]{images/wollok-paper-check-noMethodOnThis.png}
-	    \caption{Checkeo de método inexistente en this}
-	    \label{fig:check-noMethodOnThis.png}
-	\end{figure}
-
+\input{appendix.tex}
 
 \end{document}

@@ -2,7 +2,7 @@
 \label{sec:implementation}
 
 Wollok language is developed on top of Xtext\footnote{http://www.eclipse.org/Xtext/}, which is an Eclipse\footnote{https://www.eclipse.org/home/index.php} project aiming to provide a set of tools for language development. It’s what is now called a Language Workbench\footnote{http://martinfowler.com/articles/languageWorkbench.html}.
-This allows us to get rid of all the necessary effort required to build a language from scratch, like coding a parser or lexical analyser. But also it also gives us seamless integration with the Eclipse IDE. Being a language workbench means that it already concerns we already mentioned would be really useful for new programmers, like: content assist, quick fixes, cross-references searches, etc.
+This allows us to get rid of all the necessary effort required to build a language from scratch, like coding a parser or lexical analyser. But also it also gives us seamless integration with the Eclipse IDE. Being a language workbench means that it already concerns we already mentioned would be really useful for new programmers, like: content assist (\figref{codetemplates.png}), quick fixes (\figref{quickfix.png}), cross-references searches, etc.
 
 \subsection{Backend}
 
@@ -21,7 +21,7 @@ This debugger can even be abstracted into a reusable XText component for any oth
 \subsection{Type System}
 
 XText type system is currently implemented on top of XSemantics\footnote{http://xsemantics.sourceforge.net}, a DSL for writing rules for XText languages. XSemantics is itself made with XText.
-This allows us to develop our type system in a declarative way.
+This allows us to develop our type system in a declarative way. The type system can be seen in action in \figref{check-messageSending.png}.
 
 \subsection{Development}
 
@@ -77,6 +77,28 @@ The Wollok Development Environment provides a number of feature for a rich progr
     \caption{Detection of an error on sending a message to \emph{this}}
     \label{fig:check-noMethodOnThis.png}
 \end{figure}
+
+\begin{figure}[ht]
+    \centering
+	\includegraphics[scale=0.5]{images/wollok-paper-quickfix.png}
+    \caption{Quick fix tool for common errors and mistakes}
+    \label{fig:quickfix.png}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+	\includegraphics[scale=0.5]{images/wollok-paper-check-unusedVariable.png}
+    \caption{Detection of unused variables}
+    \label{fig:check-unusedVariable.png}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+	\includegraphics[scale=0.5]{images/wollok-paper-check-messageSending.png}
+    \caption{Type system in action, detecting not defined method for the message sent}
+    \label{fig:check-messageSending.png}
+\end{figure}
+
 
 \subsection{Software availability}
 

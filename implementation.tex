@@ -2,7 +2,7 @@
 \label{sec:implementation}
 
 Wollok language is developed on top of Xtext\footnote{http://www.eclipse.org/Xtext/}, which is an Eclipse\footnote{https://www.eclipse.org/home/index.php} project aiming to provide a set of tools for language development. It’s what is now called a Language Workbench\footnote{http://martinfowler.com/articles/languageWorkbench.html}.
-This allows us to get rid of all the necessary effort required to build a language from scratch, like coding a parser or lexical analyser. But also it also gives us seamless integration with the Eclipse IDE. Being a language workbench means that it already concerns we already mentioned would be really useful for new programmers, like: content assist (\figref{codetemplates.png}), quick fixes (\figref{quickfix.png}), cross-references searches, etc.
+This allows us to get rid of all the necessary effort required to build a language from scratch, like coding a parser or lexical analyser. But also it also gives us seamless integration with the Eclipse IDE. Being a language workbench means that it already addresses concerns we already mentioned would be really useful for new programmers, like: content assist (\figref{codetemplates.png}), quick fixes (\figref{quickfix.png}), cross-references searches, etc.
 
 \subsection{Backend}
 
@@ -12,9 +12,12 @@ All three have their pro’s and con’s. For Wollok we decided to go on with op
 We prioritized simplicity for developers, \eg avoiding java code generation, and also full control of the execution in backend. 
 
 The price for this is that we’ve lost the \emph{out-of-the-box} type checking code generation through API would give us, and also the XText debugger.
-Although the first one wouldn’t have applied anyway without some effort for customizing XText, since Wollok is a completely type annotations-free language, and text bases its default type system on some sort of annotations.
+Although the first one wouldn’t have applied anyway without some effort for
+customizing XText, since Wollok is a completely type annotations-free language,
+and XText bases its default type system on some sort of annotations.
 
-For the debugger, we have just developed a custom eclipse plugin which already provides around 80% of any industrial type language debugger.
+For the debugger, we have just developed a custom eclipse plugin which already
+provides around 80\% of any industrial type language debugger.
 
 This debugger can even be abstracted into a reusable XText component for any other interpreted language.
 
@@ -29,7 +32,8 @@ As with any software testing is really important, but unlike any common applicat
 Wollok mixes up several techniques for testing its development.
 Part of the interpreter logic is being tested with unit test in JUnit. While for some other aspects that are more tied up with xtext and eclipse components we are using XPect\footnote{http://www.xpect-tests.org}, a unit and integration-testing framework for Xtext languages.
 XPect is in turn also developed as an XText language.
-It provides a declarative way to annotation Wollok programs with expected behaviour like validator’s errors/warnings, or code completions,  etc.
+It provides a declarative way to annotate Wollok programs with expected
+behaviour like validator’s errors/warnings, or code completions,  etc.
 
 \section{The Wollok Software}
 \seclabel{wollokSoftware}

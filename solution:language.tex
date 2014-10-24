@@ -26,7 +26,7 @@ The only required construct is the \lstinline[language=Wollok]{program} and the 
 Both the receiver and the parameters are built-in objects which will be handled in the same way as user-defined objects.
 The concepts required to understand this program are no more than program, object, message and argument passing.
 
-\begin{figure}[h]
+\begin{figure}[ht]
  \centering
  \begin{lstlisting}[language=Wollok]
 	program {
@@ -46,7 +46,7 @@ Another concept we propose to emphasize in the first programming courses is the 
 The most basic feature in Wollok to controlling side effects is the ability to 
 differentiate variables (defined using \lstinline[language=Wollok]{var})
 from constants (defined using \lstinline[language=Wollok]{val}).
-One step forward is to incorporate an \emph{effect system} \cite{effect system}, \cf Sec. \ref{sec:furtherWork}.
+One step forward is to incorporate an \emph{effect system} \cite{nielson_type_1999}, \cf Sec. \ref{sec:furtherWork}.
 
 \medskip
 % Misceláneos
@@ -54,7 +54,7 @@ One step forward is to incorporate an \emph{effect system} \cite{effect system},
 To sum up, there are several simple features which help structure the way a student sees his programming activity.
 \emph{Object literals} and \emph{collection literals} reduce boilerplate on object creation, 
 since we think that the excess of bureaucracy to create an object helps to build up 
-the belief that using objects or collections is far more complicated than using numbers or strings, which in turns leads to \emph{primitive obsession} \cite{primitive obsession}.
+the belief that using objects or collections is far more complicated than using numbers or strings, which in turns leads to \emph{primitive obsession} \cite{fowler_refactoring:_1999}.
 % Objetos no como un elemento de la IDE -Ozono: nueva referencia global, sino como un elemnto del lenguaje. Evita referencias globales.
 
 Each Wollok file has to be defined as \emph{program}, \emph{library} or \emph{test}.
@@ -70,7 +70,7 @@ and in the following two we work with blocks and collections.
 
 \np{Acá falta hablar de la diferencia entre objeto y referencia}
 
-\begin{figure}[h]
+\begin{figure}[ht]
  \centering
  \begin{lstlisting}[language=Wollok]
 	program myProgram {

@@ -1,0 +1,43 @@
+\section{Discussion}
+\label{sec:discussion}
+
+% Discussion of actual solution \emph{vs.} initial constraints from \ref{sec:problem}. Explain the space of the solution, why we made it this way.
+There are number of discussions that arised while evaluating the experiences
+with our previous tools in courses, and that were taked into account in Wollok's
+design.
+
+One of them is whether the learning experience should provide a way to reuse
+code while still in the form of pure objects without classes.
+We detected that while working only with objects, on the first part of the
+course, it's common to end-up with excersices where there will be at least some
+sort of duplicated code between objects.
+On this matter Ozono provided a mechanism based on prototypes, similar to that
+found in Self language\cite{Ungar87self:the, Ungar91organizingprograms}. That
+allowed full reuse of code (both behavior and state).
+On the other hand, contrarily to what we suspected while designing Ozono, we've
+found that in practice, introducing prototyping didn't smooth the transition
+between objects and classes. Actually it made it harder.
+In addition, prototyping is an excellent abstract model for pure object
+languages, keeping it simple and incredible powerful. But there are almost no popular or industrial
+languages implementing it (besides Javascript which is not exactly as standard
+Self prototyping). 
+
+
+So Wollok doesn't provide any form of inter-object reusage (besides classes).
+When duplicated code appears as part of the course, it's important to
+highlight that to students, and delay solving code duplication later with
+classes.
+
+\medskip
+
+
+Se podría hablar de la discusión sobre si proveer formas de compartir comportamiento sin clases, como clonado.
+También de la necesidad de crear colecciones independientemente, aunque es un poco específico de Ozono.
+
+\medskip
+Acercar la experiencia de aprendizaje a las prácticas industriales: 
+(acá el palo de que la imagen sólo existe en smalltalk, y en la industria nadie la usa. 
+Atrás de eso, la idea de archivos, y poder compartir con SVC. Por último la idea de actualizarse a un lenguaje con influencia de lenguajes modernos como xtend, scala, ruby, etc.)
+
+
+% Evaluation of the solution. How does the solution meet the criteria? Where does it succeed or fails...

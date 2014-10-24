@@ -1,5 +1,7 @@
 \appendix
 
+\input{implementation.tex}
+
 \section{Examples of Checks and validations}
 \seclabel{ChecksAndValidations}
 
@@ -7,9 +9,6 @@ All the results of the checking and the validation of the program is shown in on
 There are different types of problems, because these checks and validations are not only used to show type errors or syntax errors, but also to encourage some properties of the program we consider as main topics in the learning process of an OO language.
 
 Here there is a list of all the validations and checking the tool is performing, and a brief reason why they are useful in the teaching of an object oriented language.
-
-Todos los checkeos y problemas
-generados se muestran agrupados en una vista dedicada a tal fín (Problems).
 
 \begin{itemize}
   \item \textbf{Syntax Errors}: in this category arises all the errors detected by the parser and the lexical analyser of the language.
@@ -32,40 +31,5 @@ generados se muestran agrupados en una vista dedicada a tal fín (Problems).
 
   \item \textbf{Type Errors}: the errors are useful for the validation of the compatibility between the references, its possible types, and the messages sent to them, this is performed by the type system and its inferer (\eg message sending, assignation of variables).
 \end{itemize}
-
-
-\section{Implementation}
-\label{sec:implementation}
-\np{Qué podemos decir de esto}
-
-\section{Images}
-
-	\begin{figure}[p]
-	    \centering
-		\includegraphics[scale=0.5]{images/wollok-paper-outline.png}
-	    \caption{Outline View: This view shows the structure of the file.}
-	    \label{fig:outline.png}
-	\end{figure}
-	
-	\begin{figure}[p]
-	    \centering
-		\includegraphics[scale=0.5]{images/wollok-paper-check-problemsview.png}
-	    \caption{Problems View: shows the different problems detected by the IDE }
-	    \label{fig:problemsview.png}
-	\end{figure}
-	
-	\begin{figure}[p]
-	    \centering
-		\includegraphics[scale=0.5]{images/wollok-paper-codetemplates.png}
-	    \caption{Code Assist: code templates for easy edition}
-	    \label{fig:codetemplates.png}
-	\end{figure}
-
-	\begin{figure}[p]
-	    \centering
-		\includegraphics[scale=0.5]{images/wollok-paper-check-noMethodOnThis.png}
-	    \caption{Detection of an error on sending a message to \emph{this}}
-	    \label{fig:check-noMethodOnThis.png}
-	\end{figure}
 
 

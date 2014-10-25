@@ -7,29 +7,26 @@ with our previous tools in courses, and that were taked into account in Wollok's
 design.
 
 One of them is whether the learning experience should provide a way to reuse
-code while still in the form of pure objects without classes.
+code while still in the form of stand-alone objects without classes.
 We detected that while working only with objects, on the first part of the
 course, it's common to end-up with excersices where there will be at least some
 sort of duplicated code between objects.
-On this matter Ozono provided a mechanism based on prototypes, similar to that
-found in Self language\cite{Ungar87self:the, Ungar91organizingprograms}. That
-allowed full reuse of code (both behavior and state).
-On the other hand, contrarily to what we suspected while designing Ozono, we've
-found that in practice, introducing prototyping didn't smooth the transition
-between objects and classes. Actually it made it harder.
-In addition, prototyping is an excellent abstract model for pure object
-languages, keeping it simple and incredible powerful. But there are almost no popular or industrial
-languages implementing it (besides Javascript which is not exactly as standard
-Self prototyping). 
+Therefore, later versions of Ozono introduced a mechanism based on prototypes, 
+similar to that found in Self language\cite{Ungar87self:the, Ungar91organizingprograms}. 
+That allowed full reuse of code (both behavior and state definition).
 
+However, practice has shown that introducing prototyping did not smooth the transition between objects and classes. Actually it made it harder.
+% In addition, prototyping is an excellent abstract model for pure object languages, keeping it simple and incredible powerful.
+% But there are almost no popular or industrial languages implementing it (besides Javascript which is not exactly as standard Self prototyping). 
+Therefore, we decided that Wollok should not provide a way of code-reuse between stand-alone objects.
+Examples have to be carefully selected to avoid confronting students to problems they will not be able to solve gracefully.
+% When duplicated code appears as part of the course, it's important to highlight that to students, and delay solving code duplication later with classes. 
+% This subject will be analysed later when we can have results of the application of this approach instead of the one of Ozono.
 
-So Wollok doesn't provide any form of inter-object reusage (besides classes).
-When duplicated code appears as part of the course, it's important to
-highlight that to students, and delay solving code duplication later with
-classes. This subject will be analysed later when we can have results of the application of this approach instead of the one of Ozono.
-
+\medskip 
 Another interesting point of discussion is the way to integrate a visual tools to improve the understanding of the program. There many different solutions to this problem. One approach used in other similar tools, like BlueJ \cite{bennedsen_bluej_2010}. But this projects uses UML as a diagram format for showing the information. This choose of using UML for us is not the best option, because it does includes a lot of information that is not relevant for the inexperienced programmer. We are exploring the idea to have custom diagram formats only showing information that is relevant to the teaching process. Furthermore, we are analysing the possibility of adding more attractive diagrams, like board games, or adding custom images to the objects. Allowing the creation of basic board games, and presenting the information in a more attractive way. This idea is explored in Gobstones \cite{lopez_nombre_2012} but with a fixed board.
 
-Finally, an important design issue addressed by Wollok is the use of text files instead of image based as a way of storing the programs. This decision was taken with the objective of ease the process of switching to an industrial language, as most of them use this way. This also allows the use of industrial tools like Version Control Systems, Collaborative tools and code revisions.
+\np{Si hacemos una versión larga tenemos que extender esto.}
+Finally, an important design issue addressed by Wollok is the use of text files instead of image based as a way of storing the programs. This decision was taken with the objective of ease the process of switching to an industrial language, as most of them use this way. This also allows the use of industrial tools like Version Control Systems, collaborative tools and code revisions.
 
 % Evaluation of the solution. How does the solution meet the criteria? Where does it succeed or fails...

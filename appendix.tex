@@ -9,16 +9,22 @@
 All the results of the checking and the validation of the program is shown in one integrated view, it is called \emph{Problems}. The figure \figref{problemsview.png} shows a view of this feature. 
 There are different types of problems, because these checks and validations are not only used to show type errors or syntax errors, but also to encourage some properties of the program we consider as main topics in the learning process of an OO language.
 
-Here there is a list of all the validations and checking the tool is performing, and a brief reason why they are useful in the teaching of an object oriented language.
+Here is a list of all the validations and checks the tool supports, and a
+brief reason why they are useful while teaching object oriented programming.
 
 \begin{itemize}
-  \item \textbf{Syntax Errors}: in this category arises all the errors detected by the parser and the lexical analyser of the language.
+  \item \textbf{Syntax Errors}: this category involves all the errors detected
+  by the parser and the lexical analyser of the language.
   \item \textbf{Style Errors}: this category is useful to teach good practices and to start to talk about code quality, reuse and code sharing.
 	\begin{itemize}
-		\item \textit{Case in Name}: respecting the difference case conventions for names (\eg using camel case starting with lower case for variables, using camel case starting with upper case for classes).
+		\item \textit{Case in Names}: respecting the difference case conventions for
+		names (\eg using \textit{camelCase} starting with lower case for variables,
+		using camel case starting with upper case for classes).
 		\item \textit{Order and grouping}: inside the definition of an object or class the internal references are declared first, then the constructors and finally the methods.
 		\item \textit{Modularization}: the classes can only be defined in a library and not in the main program.		
-		\item \textit{Duplicated references}: it is impossible to declare a reference using a name already used, this encourage the idea of not having shadowing and improves the readability of the program.
+		\item \textit{Duplicated references}: it is impossible to declare a reference
+		using a name already used. This encourage the idea of not having shadowing and
+		improves the readability of the program.
 	\end{itemize}
   \item \textbf{References resolution problems}: this errors are useful to detect and avoid references to undeclared variables and also errors in the sending of messages.
   
@@ -28,7 +34,9 @@ Here there is a list of all the validations and checking the tool is performing,
 	  \item \textit{Messages to this}: sending messages to this is a special case, here we can check the existence of the correct method by the number and type of the arguments, even without using type inference.
 	\end{itemize}
 	
-  \item \textbf{Reference usage}: these errors are useful for the detection of erroneous or old code (\eg unused variables or references, sending messages to never assigned variables, using variables instead of values, existence of the overridden method.
+  \item \textbf{Reference usage}: these errors are useful for the detection of
+  erroneous or \textit{dead code} (\eg unused variables or references, sending
+  messages to never assigned variables, using variables instead of values, existence of the overridden method.
 
   \item \textbf{Type Errors}: the errors are useful for the validation of the compatibility between the references, its possible types, and the messages sent to them, this is performed by the type system and its inferer (\eg message sending, assignation of variables).
 \end{itemize}

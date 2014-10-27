@@ -24,9 +24,43 @@ Examples have to be carefully selected to avoid confronting students to problems
 % This subject will be analysed later when we can have results of the application of this approach instead of the one of Ozono.
 
 \medskip 
-Another interesting point of discussion is the way to integrate a visual tools to improve the understanding of the program. There many different solutions to this problem. One approach used in other similar tools, like BlueJ \cite{bennedsen_bluej_2010}. But this projects uses UML as a diagram format for showing the information. This choose of using UML for us is not the best option, because it does includes a lot of information that is not relevant for the inexperienced programmer. We are exploring the idea to have custom diagram formats only showing information that is relevant to the teaching process. Furthermore, we are analysing the possibility of adding more attractive diagrams, like board games, or adding custom images to the objects. Allowing the creation of basic board games, and presenting the information in a more attractive way. This idea is explored in Gobstones \cite{lopez_nombre_2012} but with a fixed board.
+Another interesting point of discussion is the way to integrate a visual tools
+to improve the understanding of the program. There are many different solutions
+to this problem. One approach used by several tools, like BlueJ
+\cite{bennedsen_bluej_2010} involves strict UML as a diagram format for showing
+the information.
+We think that this decistion is not the best option, because UML  
+includes a lot of information that is not relevant for the inexperienced programmer. 
+We are exploring the idea to have custom diagram formats only showing information that 
+is relevant to the teaching process. Furthermore, we are analysing the possibility of 
+adding more attractive diagrams, like board games, or adding custom images and
+animations to objects.
+Allowing the creation of basic board games, and presenting the information in a more attractive way. 
+This idea is explored in Gobstones \cite{lopez_nombre_2012} but with a fixed board.
+
+\medskip
+Regarding the language grammar and syntax we have at least two points that need
+to be discussed. One is whether Wollok should introduce alternative
+advanced syntax for several constructions like property access, or message
+sending. The objective of this alternative syntax would be to reduce the amount
+of code and syntax elements (\eg parenthesis, dot for sending messages, or calling getters and
+setters). Modern languages such as Scala\cite{Oder04a} and
+XTend \footnote{http://www.eclipse.org/xtend/} provide such syntax sugar.
+Although we need to be careful because this shouldn't confuse novice programmers.
+
+The second point regarding syntax (and actually the whole language) is whether
+the language should support some kind of type-level programming. Starting from
+type annotations (to fix types for example for parameters, or variables), but
+also type aliases, which could come handy given the fact that Wollok has
+structural-types. This of course would be an advance topic for the course.
+Probably the last topic. Again this concern shouldn't confuse the student all
+over the course until reached the point where types are introduced.
 
 \np{Si hacemos una versión larga tenemos que extender esto.}
-Finally, an important design issue addressed by Wollok is the use of text files instead of image based as a way of storing the programs. This decision was taken with the objective of ease the process of switching to an industrial language, as most of them use this way. This also allows the use of industrial tools like Version Control Systems, collaborative tools and code revisions.
+Finally, an important design issue addressed by Wollok is the use of text files instead of image
+ based as a way of storing the programs. This decision was taken with the objective of ease the 
+process of switching to an industrial language, as most of them use this way. 
+This also allows the use of industrial tools like Version Control Systems, collaborative tools 
+and code revisions.
 
 % Evaluation of the solution. How does the solution meet the criteria? Where does it succeed or fails...

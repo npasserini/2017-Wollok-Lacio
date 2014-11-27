@@ -1,0 +1,271 @@
+\documentclass{beamer}
+
+\usecolortheme[named=blue]{structure}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+  \setbeamertemplate{items}[ball]
+  \setbeamertemplate{theorems}[numbered]
+  \setbeamertemplate{footline}[frame number]
+}
+\usepackage{beamerthemesplit}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+
+\newcommand{\code}[1]{\texttt{\small{#1}}}
+\hypersetup{%
+  colorlinks=true,
+  urlcolor=blue,
+  linkcolor=blue,
+  pdfborderstyle={/S/U/W 1}
+}
+
+\definecolor{javared}{rgb}{0.6,0,0} % for strings
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
+
+\lstdefinelanguage{scala}{
+  morekeywords={abstract,case,catch,class,def,%
+    do,else,extends,false,final,finally,%
+    for,if,implicit,import,match,mixin,%
+    new,null,object,override,package,%
+    private,protected,requires,return,sealed,%
+    super,this,throw,trait,true,try,%
+    type,val,var,while,with,yield},
+  otherkeywords={=>,<-,<\%,<:,>:,\#,@,>,<},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[n]{/*}{*/},
+  morestring=[b]",
+  morestring=[b]',
+  morestring=[b]"""
+}
+\lstset{
+%   frame=tb,
+  language=Scala,
+  aboveskip=3mm,
+  belowskip=3mm,
+  columns=flexible,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{javapurple}\bfseries,
+  stringstyle=\color{javared},
+  commentstyle=\color{javagreen},
+  morecomment=[s][\color{javadocblue}]{/**}{*/},
+  numbers=none,
+  numberstyle=\tiny\color{black},
+  stepnumber=2,
+  numbersep=10pt,
+  showspaces=false,
+  showstringspaces=false,
+  tabsize=4
+}
+
+\title
+  [A type inference algorithm for OO dynamic languages supporting blocks and generic types]
+  {A type inference algorithm for OO dynamic languages supporting blocks and generic types}
+\author[Passerini, Fernandes, Tesone]{%
+  Javier Fernandes\inst{1,2} \and
+  Nicolás Passerini\inst{1,2,4} \\
+  Pablo Tesone\inst{3,1,2,4}
+}  
+
+\institute{
+  \inst{1}Universidad Nacional de Quilmes
+  \and
+  \inst{2}Universidad Nacional de San Martin
+  \and
+  \inst{3}Universidad Nacional del Oeste
+  \and
+  \inst{4}Universidad Tecnológica Nacional - F.R. Buenos Aires.
+}
+
+\date[WISIT 2014]{\small Workshop de Ingeniería en Sistemas y Tecnologías de la Información \\ 28/11/2014}
+\subject{Computational Sciences}
+
+%\logo{\includegraphics[height=1.0cm]{fsu_logo.pdf}}
+
+\begin{document}
+  \frame
+  {
+    \titlepage
+  }
+
+  \frame
+  {
+    \frametitle{Agenda}
+    \tableofcontents
+  }
+
+\defverbatim[colored]\helloWorldJava{
+\begin{lstlisting}[language=Java]
+		package examples;
+		
+		public class HelloWorld {
+			public static void main(String[] args) {
+				System.out.println("Hello World");
+			}
+		}
+\end{lstlisting}
+}
+
+\section{Problema}
+\frame{
+	\frametitle{¿Por qué es difícil aprender OOP?}	
+	\begin{itemize}
+    \item Enfoque en un lenguaje particular
+    \item Demasiados conceptos
+    \medskip
+    \helloWorldJava
+    \pause
+    \item Entornos de desarrollo pobres
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Conclusión: deficiencias de aprendizaje}	
+	\begin{itemize}
+		\item Bajos niveles de aprobación
+		\item Se propician malas prácticas
+		\item Poca comprensión de los fundamentos del paradigma
+	\end{itemize}
+}
+
+\section{Un poco de historia: Ozono}
+\frame{
+	\frametitle{Nuestra primera propuesta}
+	\begin{enumerate}
+		\item Pensar en el recorrido\footnote{Paper de Lombardi, Passerini y Cesario, 2007}
+		\begin{itemize}
+			\item Introducir los conceptos gradualmente.
+			\item Arrancar por los fundamentales:
+				\\\hspace{2em} objeto - mensaje - referencia - polimorfismo
+			\item Postergar los accesorios: 
+				\\\hspace{2em} clases - herencia - ...
+		\end{itemize}
+
+		\pause
+		\medskip
+		\item Construir una herramienta específica
+		\begin{itemize}
+			\item Lenguaje de programación
+			\item Entorno de desarrollo
+		\end{itemize}
+	\end{enumerate}
+}
+
+\frame{
+	\frametitle{Ozono}	
+	\begin{itemize}
+		\item Entorno de objetos sin clases
+		\item Basado en Pharo
+		\begin{itemize}
+		 \item Basado en imagen (no archivos)
+		 \item Dinámico
+		 \item Diagrama automático de objetos
+		\end{itemize}
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{7 años de aprendizaje}	
+	Ozono fue una linda experiencia:
+	\begin{itemize}
+		\item Subieron los niveles de aprobación (de 40 - 50\% a 80 - 90\%)
+		\item Exportado a otras universidades: UNQ, UNSAM, UNO, FRD, ...
+		\item Comunidad $>$ 30 desarrolladores
+		\item Proyectos de investigación		
+	\end{itemize}
+
+	\bigskip
+	Peeero...
+}
+
+\frame{
+	\frametitle{7 años de aprendizaje}	
+	\begin{itemize}
+		\item No provee una transición a clases
+		\pause
+		\item Falencias en el ambiente
+			\begin{itemize}
+				\item Muy atado a pharo (ej: Debugger)
+				\item Herramientas no preparadas para el aprendizaje
+			\end{itemize}
+		\pause
+		\item A veces... extrañamos los tipos
+			\begin{itemize}
+				\item Las herramientas no pueden ayudar al programador
+				\item Errores simples son difíciles de detectar.
+			\end{itemize}
+		\pause
+		\item Lejano al \emph{mainstream}
+			\begin{itemize}
+				\item Basado en imagen
+				\item No usa herramientas estándares de la industria
+			\end{itemize}
+		
+	\end{itemize}
+}
+
+\section{Lo que viene: Wollok}
+\frame{
+	\frametitle{Wollok the language}	
+	\begin{itemize}
+    \item Integra clases y objetos
+    \item Sintaxis \emph{educativa}
+			\begin{itemize}
+				\item Énfasis en los conceptos a transmitir (ej: method, val/var).
+				\item Se eliminan conceptos innecesarios
+				\item \emph{Moderna}: literales, bloques, etc.
+			\end{itemize}
+    \item Inferencia de tipos
+    \item Basado en archivos
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{¿Qué debería tener un entorno de desarrollo?}	
+	\begin{itemize}
+		\item \emph{Autocomplete}
+		\item Navegación (ej: "Ir a la implementación")
+		\item Búsqueda inteligente (ej: referencias, implementaciones, usos)
+		\item Wizards
+		\item Refactors automáticos
+		\item Herramientas de debugging
+		\item Herramientas de trabajo en grupo
+		\item Herramientas de visualización de código
+	\end{itemize}
+}
+
+\section{Conclusiones y trabajo futuro}
+\frame{
+	\frametitle{Conclusions}	
+	\begin{itemize}
+    \item The algorithm provides useful type information.
+    \item Computes generic types for blocks and collections.
+    \item Supports recursive programs.
+		\item Can type parameters, instance variables, local variables and any expression.
+		\item Works on Pharo programs without modifications.
+		\item Useful testbench for testing new ideas
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Further Work}	
+	\begin{itemize}
+		\item Metrics (both about precision and performance).
+		\item Integration to Pharo tools.
+		\item Scalability and performance in order to analyse bigger programs.
+		\medskip
+		\item Formal proofs
+		\item Use it to analyse Pharo core libraries.
+	\end{itemize}
+}
+\end{document}
+

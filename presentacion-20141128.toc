@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.33pt}
+\beamer@sectionintoc {1}{Problema}{3}{0}{1}
+\beamer@sectionintoc {2}{Un poco de historia: Ozono}{6}{0}{2}
+\beamer@sectionintoc {3}{Lo que viene: Wollok}{14}{0}{3}
+\beamer@sectionintoc {4}{Demo}{16}{0}{4}
+\beamer@sectionintoc {5}{Conclusiones y trabajo futuro}{17}{0}{5}

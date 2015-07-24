@@ -9,3 +9,7 @@
 /main.synctex.gz
 .project
 .texlipse
+*.nav
+*.snm
+*.toc
+*.vrb

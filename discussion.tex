@@ -4,10 +4,49 @@
 % Discussion of actual solution \emph{vs.} initial constraints from \ref{sec:problem}. Explain the space of the solution, why we made it this way.
 % Evaluation of the solution. How does the solution meet the criteria? Where does it succeed or fails...
 
-There are number of discussions that arised while evaluating the experiences with our previous tools in courses 
-and that were have taken into account in Wollok's design.
+A common point of controversy is whether is is worth to create a brand new language and toolset, 
+instead of building our pedagogical ideas on top of existing ones, such as Self, Ruby, Smalltalk or even Eiffel.
+In our experience, begginning programmers require different features from their working environment that advanced programmers
+and the right selection of tools and concepts can produce substantial improvements in the learning process.
+Therefore, we believe that the possibility of fine tuning provided by a specialized environment largely pays for the additional effort.
+% y que muestran las grandes posibilidades que se dan a partir de esta decisión inicial: imports, tests y manejo de propiedades.
+
+The design of Wollok import system illustrates the kind of decissions we are able to make thanks to having a specialized learning language and toolset.
+By \emph{import system} we mean the way that a programming language allows the programmer to refer in one unit of code (for example a file) to program entities defined elsewhere.
 
 \medskip
+In many languages, like C or Ruby, the default behavior is that one can only refer to \emph{programming entities} (such as classes, functions, etc) defined in the same 
+file\footnote{Even, in many cases, the definition must occur in the file before the usage to be legal.}
+These languages usually provide the notion of an \emph{include}, 
+which somehow has the effect of copying the contents of the included program file into another one.
+The unstructured nature of this reuse mechanism has many drawbacks, 
+because it yields a single namespace with the contents of the two or more files, 
+without a clear mechanism to deal with name conflicts.
+Also, file-based includes often require the programmer to be aware of the organization of the program files in directories in order to properly locate the file to be included.
+Certainly we do not desire to confront beginning programmers with this kind of subleties.
+
+Other languages, such as Java or C\# provide a more structured way to handle imports. 
+In this case, a \emph{classpath} is defined, which contains all the definitions (\ie classes) in a \emph{project}.
+To univocally identify classes, they are organized in \emph{packages} and each class \emph{full name} is the concatenation of the name of the package with the proper name of the class.
+By using the full name of the class, it can be referenced from any file in the project.
+Also, the \emph{import} directive allows the program to reference the imported class by its simple name (without package).
+In this way, name clashes are avoided, at the cost of introducing a new concept: the package.
+
+Although packages are interesting programming entities because they enable programmers to better organise larger programs, 
+they are of little use for a beginner, since his programs are not yet big enough to take advantage of dividing them into packages.
+Moreover, this model forces the programmer to define each class in a package\footnote{It is a bad programming practice to leave classes in the \emph{root package}.}, 
+and therefore the concept of package has to be introduced right in the first lecture, 
+incrementing the set of minimal concepts required for the student to grasp in order to build his first program.
+
+\medskip
+
+Wollok's imports try to combine both models in the most suitable way for initial programming students.
+On one hand, in the first part of the course, programs fit into one single file. 
+Therefore, it is simpler for students if the default scope is only one file, postponing the introduction of more advanced concepts.
+With this in mind, we leave aside package definitions; each file automatically introduces a java-like package without an explicit declaration.
+
+
+\bigskip
 % Prototype-based inheritance
 One of them is whether the learning experience should provide a way to reuse
 code while still in the form of stand-alone objects without classes.

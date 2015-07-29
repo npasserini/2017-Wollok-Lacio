@@ -1,4 +1,4 @@
-\documentclass[preprint,10pt,nocopyrightspace]{sigplanconf}
+\documentclass[conference, a4paper]{IEEEtran}
 % \documentclass{article}
 \usepackage[T1]{fontenc} %%%key to get copy and paste for the code!
 \usepackage[utf8]{inputenc} %%% to support copy and paste with accents for frnehc stuff
@@ -24,36 +24,24 @@
 \input{macros}
 
 \begin{document}
-\title{Wollok -- Relearning How To Teach Object-Oriented Programming}
-\authorinfo{Javier Fernandes}
-  {Universidad Nacional de Quilmes \\ Universidad Nacional de San Martín}
-  {javier.fernandes@gmail.com}
-  
-\authorinfo{Nicolás Passerini}
-  {UTN -- F.R. Buenos Aires \\ Universidad Nacional de Quilmes \\ Universidad Nacional de San Martín}
-  {npasserini@gmail.com}
-  
-\authorinfo{Pablo Tesone}
-  {UTN -- F.R. Buenos Aires \\ Universidad Nacional de Quilmes \\ Universidad Nacional del Oeste \\ Universidad Nacional de San Martín}
-  {tesonep@gmail.com}
+\title{Wollok -- Relearning How To Teach \\ Object-Oriented Programming}
+
+\author{\IEEEauthorblockN{
+Nicolás Passerini\IEEEauthorrefmark{1}\IEEEauthorrefmark{2}\IEEEauthorrefmark{4},
+Javier Fernandes\IEEEauthorrefmark{1}\IEEEauthorrefmark{2},
+Pablo Tesone\IEEEauthorrefmark{3} and 
+Débora Fortini\IEEEauthorrefmark{2}\IEEEauthorrefmark{4}}
+
+\IEEEauthorblockA{\IEEEauthorrefmark{1}Universidad Nacional de Quilmes}
+\IEEEauthorblockA{\IEEEauthorrefmark{2}Universidad Nacional de San Martín}
+\IEEEauthorblockA{\IEEEauthorrefmark{3}Universidad Nacional del Oeste}
+\IEEEauthorblockA{\IEEEauthorrefmark{4}Universidad Tecnológica Nacional - Facultad Regional Buenos Aires}}
+
 
 \date{\today}
 \maketitle
 
-\begin{abstract}
-Students often have difficulties in learning how to program in an object-oriented style. 
-One of the causes of this problem is that object-oriented languages require the programmer to be familiarized with a big amount of non-trivial concepts. 
-For several years we have been teaching introductory OOP courses using an \emph{incremental learning path}, 
-which starts with a simplified OOP model consisting only of objects, messages and references. 
-This learning path is supported by a customized development environment which enables the creation of programs using this \emph{simplified programming model}, 
-and allows us to postpone the introduction of more abstract concepts like classes or inheritance. 
-
-In this work we propose an enhancement to this learning path focusing on the transitions between the stages of the course. 
-We also present a new educational programming language named Wollok, which allows maximizing the accuracy in the selection of concepts to present. 
-Finally, Wollok is accompanied by a programming environment which has lots of tools to guide the student and to help detecting mistakes
-and at the same time is in line with the most common professional practices.
-\end{abstract}
-
+\input{abstract}
 \input{introduction}
 \input{problem}
 \input{solution:language}
@@ -64,7 +52,7 @@ and at the same time is in line with the most common professional practices.
 \input{relatedWorks}
 \input{conclusion}
 
-\subsection{Acknowledgements}
+\section*{Acknowledgements}
 We want to thank all the people who participated in the ObjectBrowser, Loop, Hoope and Ozono projects, 
 as well as the teachers and students that provided feedback from their use of those tools, leading us to the ideas presented here.
 % This work was supported by Ministry of Higher Education and Research, Nord-Pas de Calais Regional Council, FEDER through the 'Contrat de

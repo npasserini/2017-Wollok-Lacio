@@ -1,4 +1,4 @@
-\section{Implementation}
+\subsection{Implementation}
 \label{sec:implementation}
 
 The way wollok is implemented is essential to enable us to build a fully customized educational language with a industrial-level toolset.
@@ -10,11 +10,20 @@ Also we require a flexible implementation that allows the language to evolve, en
 The current implementation of Wollok language is built on top of Xtext\footnote{http://www.eclipse.org/Xtext/}, 
 which is an Eclipse\footnote{https://www.eclipse.org/home/index.php}-based Language Workbench\cite{fowler2005language}.
 By providing a set of tools for language development, the Xtext workbench allows us to get rid of some the necessary effort required to build a language and IDE.
-Starting from a grammar defined as an extended BNF, the workbench provides several parts of the required infrastructure: 
-a parser, an object-oriented AST representation, an editor capable of showing errors, basic content-assist (\figref{codetemplates.png}) and cross-references search, 
+Out from the language grammar, which is defined as an extended BNF, the workbench provides several parts of the infrastructure a language requires: 
+a parser, an object-oriented AST representation, 
+an editor capable of syntax and error highlighting (\figref{check-noMethodOnThis.png}), 
+basic content-assist (\figref{codetemplates.png}) and cross-references search, 
 and other tools attached to the IDE, such as structured views of the code.
 Also, it gives us support for implementing more advanced tools such as quick-fixes (\figref{quickfix.png}), refactorings and a debugger.
 The IDE is integrated into the Eclipse platform, which in turn also helped us integrating with other Eclipse tools, such as the JUnit test runner.
+
+\begin{figure}[ht]
+    \centering
+	\includegraphics[scale=0.5]{images/wollok-paper-check-noMethodOnThis.png}
+    \caption{Detection of an error on sending a message to \emph{this}}
+    \label{fig:check-noMethodOnThis.png}
+\end{figure}
 
 \begin{figure}[ht]
     \centering
@@ -68,8 +77,6 @@ The Wollok Development Environment provides a number of feature for a rich progr
 
 \begin{itemize}
  \item Text editor with syntax highlight.
- \item Content assist
- \item Code templates
  \item Auto-build and checks along with quick fixes.
  \item Problems and warning (markers) tracking both in editors, files, and view problems. See section \secref{ChecksAndValidations}
  \item Run and debug integration with eclipse launcher framework. Providing a debug perspective integration, as well as a console.
@@ -94,14 +101,6 @@ The Wollok Development Environment provides a number of feature for a rich progr
 
 \begin{figure}[ht]
     \centering
-	\includegraphics[scale=0.5]{images/wollok-paper-check-noMethodOnThis.png}
-    \caption{Detection of an error on sending a message to \emph{this}}
-    \label{fig:check-noMethodOnThis.png}
-\end{figure}
-
-
-\begin{figure}[ht]
-    \centering
 	\includegraphics[scale=0.5]{images/wollok-paper-check-unusedVariable.png}
     \caption{Detection of unused variables}
     \label{fig:check-unusedVariable.png}
@@ -113,8 +112,3 @@ The Wollok Development Environment provides a number of feature for a rich progr
     \caption{Type system in action, detecting not defined method for the message sent}
     \label{fig:check-messageSending.png}
 \end{figure}
-
-\subsection{Software availability}
-Wollok is open-sourced and distributed under LGPLv3 License\footnote{http://www.gnu.org/copyleft/lgpl.html}.
-Source code and documentation can be found in Bitbucket (\url{https://bitbucket.org/uqbar-project/wollok}) 
-And mirrored at Github (\url{https://github.com/uqbar-project/wollok})

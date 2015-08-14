@@ -4,8 +4,9 @@
 % Context, exposed with the \textbf{most precise terms possible} (don't open unwanted doors for the reader)
 
 % Los cursos se enfocan en sintaxis y usan lenguajes inadecuados.
-One cause behind the difficulties in learning OOP is that courses often focus on syntax and the particular characteristics of a
-programming language, leading students to concentrate on these relatively unimportant details rather than the underlying object-oriented modelling skills. 
+One cause behind the difficulties in learning OOP is that courses often focus on syntax and the particular characteristics of a programming language, 
+leading students to concentrate on these relatively unimportant details,
+rather than the underlying object-oriented modelling skills. 
 Also, the use of industrial languages to introduce OOP requires the student to understand several concepts before being able to run his first program. \cite{kolling_problem_1999}
 
 % Ejemplo con Java.
@@ -54,18 +55,20 @@ To give a beginning student a chance to cope with this increased complexity, bet
 The failure of students to understand the essential object-oriented concepts shows both in academy as in industry.
 In academic environments we find very low completion rates in introductory OO courses.
 Moreover, students in their very beginning of an informatics career which fail their introductory programming courses, are often likely to give up their studies \cite{milne_2002}.
-In industrial development, we find that these hindrances reduce the opportunity of students to apply
-the concepts of the paradigm effectively in their further
-professional practice, resulting in several IT-projects not taking
-advantage of the possibilities offered by the potential of good
-object-oriented practices \cite{lombardi_instances_2007}.
+In industrial development, we find that these hindrances reduce the opportunity of students to apply the concepts of the paradigm effectively in their further professional practice, 
+resulting in several IT-projects not taking advantage of the possibilities offered by the potential of good object-oriented practices \cite{lombardi_instances_2007}.
 
 \medskip 
 
 % Factual solution tracks, to position...
 \np{Contar algo de otras propuestas anteriores a la nuestra}
 
-Our previous work in this area is based on the proposal to change the order of subjects in OOP introductory coures \cite{lombardi_instances_2007}.
+Our previous work in this area is based on the proposal to change the order of subjects in OOP introductory coures \cite{lombardi_instances_2007}, 
+starting with a \emph{Simplified Programming Model} (SPM) which includes only the most basic OOP concepts, such as objects, messages, references, methods and dynamic dispatch.
+The aim of the SPM is to provide students with the minimal set of concepts that allows them to write OO programs, exploiting polymorphism right from the beginning of the course.
+This foundations allow for an \emph{Incremental Learning Path}, \ie more abstract concepts can be added later, 
+giving the student the time to be familiarized with one concept before introducing the next one.
+
 To enable this we provide a simplified OO language with an ad-hoc educational programming environment 
 named Ozono\footnote{The name has been changing along these years. Other names for our programming environment have been ObjectBrowser, Loop and Hoope}, 
 in which students can create objects and define their behavior directly, without the need for classes and inheritance \cite{griggio_programming_2011}.
@@ -73,8 +76,9 @@ Ozono is based on Smalltalk\footnote{The latest version currently in use in univ
 and thus it is a \textit{dynamic language}.
 
 We take special advantage of the dynamic characteristic of the language because it allows very simple uses of polymorphism, 
-\ie any two objects that understand a common set of messages can be treated polymorphically without worrying about inheritance or \emph{interface} implementation.
-This enables the students to exploit polymorphism already in their programs after only two or three lectures.
+\ie any two objects that understand a common set of messages can be treated polymorphically without worrying about inheritance or \emph{interface} implementation,
+which is indispensable if we want them to exploit polymorphism already in their programs after only two or three lectures.
+
 \np{Qué otras ventajas queremos contar?}
 
 \medskip

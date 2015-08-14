@@ -1,12 +1,39 @@
 \section{Implementation}
 \label{sec:implementation}
 
-Wollok language is developed on top of Xtext\footnote{http://www.eclipse.org/Xtext/}, which is an Eclipse\footnote{https://www.eclipse.org/home/index.php} project aiming to provide a set of tools for language development. It’s what is now called a Language Workbench\footnote{http://martinfowler.com/articles/languageWorkbench.html}.
-This allows us to get rid of all the necessary effort required to build a language from scratch, like coding a parser or lexical analyser. But also it also gives us seamless integration with the Eclipse IDE. Being a language workbench means that it already addresses concerns we already mentioned would be really useful for new programmers, like: content assist (\figref{codetemplates.png}), quick fixes (\figref{quickfix.png}), cross-references searches, etc.
+The way wollok is implemented is essential to enable us to build a fully customized educational language with a industrial-level toolset.
+After many years of experience in the Ozono project and its predecessor, we arrived to the conclussion that
+the limitations of a language implemented as an embedded DSL produce hindrances in the learning process (\cf Sec. \ref{sec:newLanguage}).
+Still, giving up the embedded implementation strategy is not conceivable if we have to create all the required tools "from scratch".
+Also we require a flexible implementation that allows the language to evolve, enabling and supporting our research activities.
 
+The current implementation of Wollok language is built on top of Xtext\footnote{http://www.eclipse.org/Xtext/}, 
+which is an Eclipse\footnote{https://www.eclipse.org/home/index.php}-based Language Workbench\cite{fowler2005language}.
+By providing a set of tools for language development, the Xtext workbench allows us to get rid of some the necessary effort required to build a language and IDE.
+Starting from a grammar defined as an extended BNF, the workbench provides several parts of the required infrastructure: 
+a parser, an object-oriented AST representation, an editor capable of showing errors, basic content-assist (\figref{codetemplates.png}) and cross-references search, 
+and other tools attached to the IDE, such as structured views of the code.
+Also, it gives us support for implementing more advanced tools such as quick-fixes (\figref{quickfix.png}), refactorings and a debugger.
+The IDE is integrated into the Eclipse platform, which in turn also helped us integrating with other Eclipse tools, such as the JUnit test runner.
+
+\begin{figure}[ht]
+    \centering
+	\includegraphics[scale=0.5]{images/wollok-paper-codetemplates.png}
+    \caption{Code Assist: code templates for easy edition}
+    \label{fig:codetemplates.png}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+	\includegraphics[scale=0.5]{images/wollok-paper-quickfix.png}
+    \caption{Quick fix tool for common errors and mistakes}
+    \label{fig:quickfix.png}
+\end{figure}
+
+% Interpreter
 \subsection{Backend}
-
-Given our Wollok grammar in a pseudo BNF form, Xtext then provides us with the parser and AST represented as Java ECore models part of the EMF project\footnote{http://www.eclipse.org/modeling/emf/}. Then there are several options for the backend when working with XText. The three most classics are: (1) to generate code through templates, (2) to generate Java code through an specific API, (3) to make your own way with a Java interpreter.
+Given our Wollok grammar in a pseudo BNF form, Xtext then provides us with the parser and AST represented as Java ECore models part of the EMF project\footnote{http://www.eclipse.org/modeling/emf/}. 
+Then there are several options for the backend when working with XText. The three most classics are: (1) to generate code through templates, (2) to generate Java code through an specific API, (3) to make your own way with a Java interpreter.
 
 All three have their pro’s and con’s. For Wollok we decided to go on with option 3, meaning that Wollok is a fully interpreted language, with its backend being a Java application.
 We prioritized simplicity for developers, \eg avoiding java code generation, and also full control of the execution in backend. 
@@ -22,12 +49,10 @@ provides around 80\% of any industrial type language debugger.
 This debugger can even be abstracted into a reusable XText component for any other interpreted language.
 
 \subsection{Type System}
-
 XText type system is currently implemented on top of XSemantics\footnote{http://xsemantics.sourceforge.net}, a DSL for writing rules for XText languages. XSemantics is itself made with XText.
 This allows us to develop our type system in a declarative way. The type system can be seen in action in \figref{check-messageSending.png}.
 
 \subsection{Development}
-
 As with any software testing is really important, but unlike any common application, testing a language has many difficulties.
 Wollok mixes up several techniques for testing its development.
 Part of the interpreter logic is being tested with unit test in JUnit. While for some other aspects that are more tied up with xtext and eclipse components we are using XPect\footnote{http://www.xpect-tests.org}, a unit and integration-testing framework for Xtext languages.
@@ -39,7 +64,6 @@ behaviour like validator’s errors/warnings, or code completions,  etc.
 \seclabel{wollokSoftware}
 
 \subsection{Features}
-
 The Wollok Development Environment provides a number of feature for a rich programming experience, like:
 
 \begin{itemize}
@@ -70,24 +94,11 @@ The Wollok Development Environment provides a number of feature for a rich progr
 
 \begin{figure}[ht]
     \centering
-	\includegraphics[scale=0.5]{images/wollok-paper-codetemplates.png}
-    \caption{Code Assist: code templates for easy edition}
-    \label{fig:codetemplates.png}
-\end{figure}
-
-\begin{figure}[ht]
-    \centering
 	\includegraphics[scale=0.5]{images/wollok-paper-check-noMethodOnThis.png}
     \caption{Detection of an error on sending a message to \emph{this}}
     \label{fig:check-noMethodOnThis.png}
 \end{figure}
 
-\begin{figure}[ht]
-    \centering
-	\includegraphics[scale=0.5]{images/wollok-paper-quickfix.png}
-    \caption{Quick fix tool for common errors and mistakes}
-    \label{fig:quickfix.png}
-\end{figure}
 
 \begin{figure}[ht]
     \centering
@@ -103,9 +114,7 @@ The Wollok Development Environment provides a number of feature for a rich progr
     \label{fig:check-messageSending.png}
 \end{figure}
 
-
 \subsection{Software availability}
-
 Wollok is open-sourced and distributed under LGPLv3 License\footnote{http://www.gnu.org/copyleft/lgpl.html}.
 Source code and documentation can be found in Bitbucket (\url{https://bitbucket.org/uqbar-project/wollok}) 
 And mirrored at Github (\url{https://github.com/uqbar-project/wollok})

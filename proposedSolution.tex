@@ -1,4 +1,3 @@
-
 \section{A Customized Programming Environment}
 \label{sec:environment}
 
@@ -10,23 +9,78 @@ The Wollok programming environment includes a lot of features that provide guida
 allowing the student to concentrate less on syntax and more in the modelling of the exercise problem.
 \emph{Quick-fixes} allow Wollok not only to highlight problems in the student's code but also to propose automatic solutions for some usual mistakes.
 \emph{Advanced code navigation} and \emph{smart reference searches} allow the programmer to better understand the dependencies in his program.
-\np{¿Se les ocurre cómo mejorar eso?}
 Moreover, \emph{automatic class diagrams} provide a high level view of the program and also helps understanding.
 
 % Detect mistakes
-Also, the programming environment has many tools intended to help detecting mistakes, even while the student is writing code.
+\subsection{Detecting mistakes}
+The programming environment has many tools intended to help detecting mistakes.
+We make special emphasis in detecting errors \emph{while} the student is writing code. \np{Acá se podría hablar más}
 \emph{Syntax highlighting} helps identify the most simple mistakes by providing immediate feedback when something is not right. 
-Moreover, the environment provides \emph{real-time highlights} for syntactic mistakes.
+Moreover, the environment provides \emph{real-time highlights} for several kinds of mistakes (\cf \figref{check-noMethodOnThis.png}).
 Finally, the \emph{type inferer} allows to detect more subtle mistakes.
-All these tools allow the student to gain more control of his code, keeping him away from feeling lost, 
-which is otherwise a common situation for a student walking his first steps into programming.
+
+\begin{figure}[ht]
+    \centering
+	\includegraphics[scale=0.5]{images/wollok-paper-check-noMethodOnThis.png}
+    \caption{Detection of an error on sending a message to \emph{this}}
+    \label{fig:check-noMethodOnThis.png}
+\end{figure}
 
 % Este no sé cómo ponerlo, es muy crítica al smalltalk.
 % 8-reducir errores frustrantes: se cancela la edicion por tener 1 solo editor de metodo por ves (poder visualizar más que un sólo método simul), evitar errores de imagenes)
 
-\medskip
+This validations are organized and shown in a unified way, using a dedicated section of the user interface for their display.
+All the results of the checking and the validation of the program is shown in one integrated view, it is called \emph{Problems View}, Fig. \figref{problemsview.png} shows a view of this feature. 
+
+\begin{figure}[ht]
+    \centering
+	\includegraphics[scale=0.5]{images/wollok-paper-check-problemsview.png}
+    \caption{Problems View: shows the different problems detected by the IDE }
+    \label{fig:problemsview.png}
+\end{figure}
+
+Checks and validations are not only used to show type errors or syntax errors, 
+but also to encourage some properties of the program we consider as main topics in the learning process of an OO language.
+Here is a list of all the validations and checks the tool supports, and a brief reason why they are useful while teaching object oriented programming:
+
+\begin{itemize}
+  \item \textbf{Syntax Errors}: this category involves all the errors detected by the parser and the lexical analyser of the language.
+  \item \textbf{Style Errors}: this category is useful to teach good practices and to start to talk about code quality, reuse and code sharing.
+	\begin{itemize}
+		\item \textit{Case in Names}: respecting the difference case conventions for
+		names (\eg using \textit{camelCase} starting with lower case for variables,
+		using camel case starting with upper case for classes).
+		\item \textit{Order and grouping}: inside the definition of an object or class the internal references are declared first, then the constructors and finally the methods.
+		\item \textit{Modularization}: the classes can only be defined in a library and not in the main program.		
+		\item \textit{Duplicated references}: it is impossible to declare a reference using a already used name. 
+			This encourages the idea of avoiding name shadowing and improves the readability of the program.
+	\end{itemize}
+  \item \textbf{References resolution problems}: this errors are useful to detect and avoid references to undeclared variables and also errors in the sending of messages.
+  
+	\begin{itemize}
+	  \item \textit{Undeclared references}: from local variables, parameters or internal fields of objects and classes.
+	  \item \textit{Undefined constructors}: checking for the number and type of the parameters.
+	  \item \textit{Messages to this}: sending messages to this is a special case, here we can check the existence of the correct method by the number and type of the arguments, even without using type inference.
+	\end{itemize}
+	
+  \item \textbf{Reference usage}: 
+		these errors are useful for the detection of erroneous or \textit{dead code}, such as unused variables or references, 
+		sending messages to never assigned variables, using variables instead of values, existence of the overridden method.
+		\figref{} shows an example of an unused variable error.
+
+  \item \textbf{Type Errors}: the errors are useful for the validation of the compatibility between the references, its possible types, and the messages sent to them, this is performed by the type system and its inferer (\eg message sending, assignation of variables).
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+	\includegraphics[scale=0.5]{images/wollok-paper-check-unusedVariable.png}
+    \caption{Detection of unused variables}
+    \label{fig:check-unusedVariable.png}
+\end{figure}
+
+\subsection{Type Inference}
 % Type inferer
-The type inferer is one of the most distinctive characteristics of the Wollok programming environment.
+Another distinctive characteristic of the Wollok project is the type inferer.
 We think that type inference is key to a simple programming environment.
 On one side, it allows to detect lots of common mistakes \emph{before running the program}:
 if an object does understand a message, if a wrong argument is passed, if incompatible types are mixed or even miss-spellings.
@@ -38,9 +92,29 @@ On one side we require it to be able to work without type annotations and at the
 On the other side, the type system is rather complex;
 for example, the presence of stand-alone objects requires the type system to handle \emph{structural types}, since a named type system would not allow them to be treated polymorphically.
 Also, we want to be able to treat polymorphically stand alone objects with class-based objects.
+\figref{check-messageSending.png} shows an error detected by the type inferer and how it shows the information to the programmer.
+Notice that the inferred type for the object \code{ufo} is a structural type: \code{fly}
 
-Implementation details are described in \secref{implementation}.
+\begin{figure}[ht]
+    \centering
+	\includegraphics[scale=0.5]{images/wollok-paper-check-messageSending.png}
+    \caption{Type system in action, detecting not defined method for the message sent}
+    \label{fig:check-messageSending.png}
+\end{figure}
 
-\subsection{Checks and Validations}
+\subsection{Beyond showing mistakes}
+The IDE does is not restricted to showing what is wrong, but also generates proposals known as \emph{quick fixes}.
+\figref{quickfix.png} shows an example of one of such proposals. 
+In this case the IDE detects that we are sending a message that the receiver does not understand and proposes to create the corresponding method.
 
-The IDE provides a way of showing some interesting checks and validations. This validations are organized and showed in a common way, using a dedicated section of the user interface for their display. In this way the IDE can be used to teach main concepts, not only showing syntax errors. Some of the errors are described in the \secref{ChecksAndValidations}
+\begin{figure}[ht]
+    \centering
+	\includegraphics[scale=0.5]{images/wollok-paper-quickfix.png}
+    \caption{Quick fix tool for common errors and mistakes}
+    \label{fig:quickfix.png}
+\end{figure}
+
+All these tools allow the student to gain more control of his code, keeping him away from feeling lost, 
+which is otherwise a common situation for a student walking his first steps into programming.
+In this way the IDE becomes useful in the objective of teaching programming concepts, instead of only showing syntax errors.
+

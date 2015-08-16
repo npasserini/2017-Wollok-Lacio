@@ -1,17 +1,29 @@
 \section{Classroom Experience with wollok}
 \label{experience}
 
-Since March 2015 Wollok is being used on the Universidad Nacional de San Martín, on a subject named Algoritmos 1, where the main purpose is to introduce OOP to students with minimal experience on structured programming.
-In this sections we tell our experience using for the first time, this new language to teach OOP concepts.
+Since March 2015 Wollok is being used on the Universidad Nacional de San Martín, on a subject named Algoritmos 1, 
+where the main purpose is to introduce OOP to students with minimal experience on structured programming.
+In this sections we tell our experience using, for the first time, this new language to teach OOP concepts.
 
-%Lo simple que les resulto a los chicos trabajar con una IDE
-First of all, lets describe how the introduction of the students to a new IDE was. In Wollok IDE, there are just two windows, one to code objects and classes, and the other to test the objects behavior (the Repl). The use of the first window resulted very easy for them since they are coding everything in one single place, using IDE tools just as auto completion, syntax correction and syntax coloring. For more advanced student, Wollok lets you separate the code in different files, but at first, you can have everything together so you can see all the object and the relations between them.
-The syntax for the REPL is the same, with the advantge that you can see at any moment without any extra work the state of any object you defined. Just writing on the REPL window the name of the object, shows its state, without any print method defined.
+% Lo simple que les resulto a los chicos trabajar con una IDE
+First, lets describe how the introduction of the students to a new IDE was. 
+In Wollok IDE, there are just two windows, one to code objects and classes, and the other to test the objects behavior (the REPL). 
+The use of the first window resulted very easy for them since they are coding everything in one single place, using IDE tools just as auto completion, syntax correction and highlighting. 
+For more advanced students, Wollok lets you separate the code in different files, but at first, you can have everything together so you can see all the object and the relations between them.
+The syntax for the REPL is the same, with the advantge that you can see at any moment without any extra work the state of any object you defined. 
+Just writing on the REPL window the name of the object, shows its state, without any print method defined.
 
-%La simple migración de objetos a clases.
-Writing the definition of a class is not very different from writing the definition of an object, the difference is in the concept. So, we first explain to them what an object is, we write the definition of it, we see how it works. Once the students are familiar with objects and the way in which they relate with each other, we move to show how to define objects using classes, so we can create multiple objects, with the same definition, and different state.
+% La simple migración de objetos a clases.
+Writing the definition of a class is not very different from writing the definition of an object, the difference is in the concept. 
+So, we first explain to them what an object is, we write the definition of it, we see how it works. 
+Once the students are familiar with objects and the way in which they relate with each other, we move to show how to define objects using classes, so we can create multiple objects, with the same definition, and different state.
 
-%Los patrones de diseño que aparecieron que son muy modernos, con el uso de objetos. Era muy simple ver que usaban objetos donde antes se usaban value objects.
-Some design patterns just appeared. Modelling with design patterns is not an essential part of our subject, we just introduce them to OO paradigm. But we have seen how some design pattern just appear, resulting very natural for the students. For example, having a single object with some information that other objects need (Singleton), since Wollok named objects are globally are accessible\footnote{accessibility rules are still under discussion \cf Sec.\ref{sec:discussion}}. Also, since defining classes and objects in Wollok is very succint, it is frequent the emergence of small objects that configure quiet complex colaboration patterns such as Strategies or States\cite{Gamm93b}.
+% Los patrones de diseño que aparecieron que son muy modernos, con el uso de objetos. Era muy simple ver que usaban objetos donde antes se usaban value objects.
+Some design patterns just appeared. 
+Modelling with design patterns is not an essential part of our subject, we just introduce them to OO paradigm. 
+But we have seen how some design pattern just appear, resulting very natural for the students. 
+For example, having a single object with some information that other objects need (Singleton), 
+since Wollok named objects are globally are accessible\footnote{accessibility rules are still under discussion \cf Sec.\ref{sec:discussion}}. 
+Also, since defining classes and objects in Wollok is very succint, it is frequent the emergence of small objects that configure quiet complex colaboration patterns such as Strategies or States\cite{Gamm93b}.
 
 

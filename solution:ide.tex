@@ -22,7 +22,7 @@ Finally, the \emph{type inferer} allows to detect more subtle mistakes.
 \begin{figure}[ht]
     \centering
 	\includegraphics[scale=0.5]{images/wollok-paper-check-noMethodOnThis.png}
-    \caption{Detection of an error on sending a message to \emph{this}}
+    \caption{Detection of an error sending a message to \emph{this} which doesn't exist}
     \label{fig:check-noMethodOnThis.png}
 \end{figure}
 
@@ -52,7 +52,7 @@ Here is a list of all the validations and checks the tool supports, and a brief 
 		using camel case starting with upper case for classes).
 		\item \textit{Order and grouping}: inside the definition of an object or class the internal references are declared first, then the constructors and finally the methods.
 		\item \textit{Modularization}: the classes can only be defined in a library and not in the main program.		
-		\item \textit{Duplicated references}: it is impossible to declare a reference using a already used name. 
+		\item \textit{Duplicated references}: it is impossible to declare a reference using an already used name. 
 			This encourages the idea of avoiding name shadowing and improves the readability of the program.
 	\end{itemize}
   \item \textbf{References resolution problems}: this errors are useful to detect and avoid references to undeclared variables and also errors in the sending of messages.
@@ -66,7 +66,7 @@ Here is a list of all the validations and checks the tool supports, and a brief 
   \item \textbf{Reference usage}: 
 		these errors are useful for the detection of erroneous or \textit{dead code}, such as unused variables or references, 
 		sending messages to never assigned variables, using variables instead of values, existence of the overridden method.
-		\figref{} shows an example of an unused variable error.
+		\figref{check-unusedVariable.png} shows an example of an unused variable error.
 
   \item \textbf{Type Errors}: the errors are useful for the validation of the compatibility between the references, its possible types, and the messages sent to them, this is performed by the type system and its inferer (\eg message sending, assignation of variables).
 \end{itemize}
@@ -103,7 +103,7 @@ Notice that the inferred type for the object \code{ufo} is a structural type: \c
 \end{figure}
 
 \subsection{Beyond showing mistakes}
-The IDE does is not restricted to showing what is wrong, but also generates proposals known as \emph{quick fixes}.
+The IDE is not restricted to showing what is wrong, but also generates proposals known as \emph{quick fixes}.
 \figref{quickfix.png} shows an example of one of such proposals. 
 In this case the IDE detects that we are sending a message that the receiver does not understand and proposes to create the corresponding method.
 

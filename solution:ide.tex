@@ -11,6 +11,21 @@ allowing the student to concentrate less on syntax and more in the modelling of 
 \emph{Advanced code navigation} and \emph{smart reference searches} allow the programmer to better understand the dependencies in his program.
 Moreover, \emph{automatic class diagrams} provide a high level view of the program and also helps understanding.
 
+\medskip
+
+Unlike many traditional OO programming environments, which are image-based, Wollok is file-based.
+While we have found solid grounds for taking this decission (\cf \secref{file-based}), 
+we also recognize the importance of a \emph{live object environment}, 
+\ie a work space in which the programmer can interact with live objects by sending them messages.
+As in many file-based OO and scripting languages, in Wollok this kind of interaction is achieved through an interactive console or 
+REPL\footnote{Read-eval-print-loop \cite{hey2014computing}.}
+The interactive console allows the programmer to inspect the state of his program or modify it, both at the end of an execution or in the middle of a debug session.
+However, right now we do not provide a way to modify the program while it is running, as it happens in classigal image-based environments.
+This kind of features have been postponed because we we think that modifying the code in the middle of a program run 
+usually has subtle consecuences that are difficult to grasp for an unexperienced programmer.
+It is not uncommon to see that students get confused when they try to modify live code, 
+so there is a high price to pay with little to gain in return.
+
 % Detect mistakes
 \subsection{Detecting mistakes}
 The programming environment has many tools intended to help detecting mistakes.

@@ -4,7 +4,7 @@ img_extIsRegExp=false
 img_extensions=.eps .jpg .jpeg .png .pdf .ps .fig .gif
 kileprversion=2
 kileversion=2.1.3
-lastDocument=main.tex
+lastDocument=conclusion.tex
 masterDocument=
 name=wollok
 pkg_extIsRegExp=false
@@ -63,8 +63,18 @@ Indentation Mode=normal
 Mode=LaTeX
 ReadWrite=true
 
+[document-settings,item:implementation.tex]
+Bookmarks=
+Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
+Highlighting=LaTeX
+Indentation Mode=normal
+Mode=LaTeX
+ReadWrite=true
+
 [document-settings,item:introduction.tex]
-Bookmarks=57
+Bookmarks=
 Encoding=UTF-8
 FoldedColumns=
 FoldedLines=
@@ -93,14 +103,17 @@ Indentation Mode=cppstyle
 Mode=LaTeX
 ReadWrite=true
 
-[document-settings,item:presentacion-20150822.tex]
+[document-settings,item:problem.tex]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=LaTeX
 Indentation Mode=cppstyle
 Mode=LaTeX
+ReadWrite=true
 
-[document-settings,item:problem.tex]
+[document-settings,item:proposedSolution.tex]
 Bookmarks=
 Encoding=UTF-8
 FoldedColumns=
@@ -130,20 +143,6 @@ Indentation Mode=cppstyle
 Mode=BibTeX
 ReadWrite=true
 
-[document-settings,item:solution:ide.tex]
-Bookmarks=
-Encoding=UTF-8
-Highlighting=LaTeX
-Indentation Mode=cppstyle
-Mode=LaTeX
-
-[document-settings,item:solution:implementation.tex]
-Bookmarks=
-Encoding=UTF-8
-Highlighting=LaTeX
-Indentation Mode=cppstyle
-Mode=LaTeX
-
 [document-settings,item:solution:language.tex]
 Bookmarks=
 Encoding=UTF-8
@@ -155,7 +154,7 @@ Mode=LaTeX
 ReadWrite=true
 
 [document-settings,item:wollok.bib]
-Bookmarks=0
+Bookmarks=
 Encoding=UTF-8
 FoldedColumns=
 FoldedLines=
@@ -194,16 +193,6 @@ mode=LaTeX
 open=false
 order=0
 
-[item:bare_conf.tex]
-archive=true
-column=0
-encoding=
-highlight=
-line=0
-mode=
-open=false
-order=-1
-
 [item:conclusion.tex]
 archive=true
 column=0
@@ -224,19 +213,19 @@ mode=LaTeX
 open=false
 order=3
 
-[item:experience.tex]
+[item:implementation.tex]
 archive=true
 column=0
-encoding=
-highlight=
+encoding=UTF-8
+highlight=LaTeX
 line=0
-mode=
+mode=LaTeX
 open=false
-order=-1
+order=6
 
 [item:introduction.tex]
 archive=true
-column=208
+column=34
 encoding=UTF-8
 highlight=LaTeX
 line=68
@@ -246,43 +235,43 @@ order=2
 
 [item:macros.tex]
 archive=true
-column=30
+column=15
 encoding=UTF-8
 highlight=LaTeX
-line=1
+line=23
 mode=LaTeX
 open=false
 order=4
 
 [item:main.tex]
 archive=true
-column=102
+column=0
 encoding=UTF-8
 highlight=LaTeX
-line=58
+line=38
 mode=LaTeX
 open=true
-order=2
-
-[item:presentacion-20150822.tex]
-archive=true
-column=16
-encoding=UTF-8
-highlight=LaTeX
-line=315
-mode=LaTeX
-open=false
-order=1
+order=0
 
 [item:problem.tex]
+archive=true
+column=149
+encoding=UTF-8
+highlight=LaTeX
+line=179
+mode=LaTeX
+open=false
+order=5
+
+[item:proposedSolution.tex]
 archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=81
+line=0
 mode=LaTeX
 open=false
-order=5
+order=4
 
 [item:relatedWorks.tex]
 archive=true
@@ -304,26 +293,6 @@ mode=BibTeX
 open=false
 order=5
 
-[item:solution:ide.tex]
-archive=true
-column=24
-encoding=UTF-8
-highlight=LaTeX
-line=34
-mode=LaTeX
-open=true
-order=0
-
-[item:solution:implementation.tex]
-archive=true
-column=0
-encoding=UTF-8
-highlight=LaTeX
-line=8
-mode=LaTeX
-open=true
-order=1
-
 [item:solution:language.tex]
 archive=true
 column=65
@@ -336,10 +305,10 @@ order=-1
 
 [item:wollok.bib]
 archive=true
-column=18
+column=21
 encoding=UTF-8
 highlight=BibTeX
-line=22
+line=98
 mode=BibTeX
 open=false
 order=6
@@ -384,35 +353,41 @@ CursorLine=96
 JumpList=
 ViMarks=.,96,127,[,96,127,],96,127
 
+[view-settings,view=0,item:implementation.tex]
+CursorColumn=0
+CursorLine=0
+JumpList=
+ViMarks=
+
 [view-settings,view=0,item:introduction.tex]
-CursorColumn=208
+CursorColumn=34
 CursorLine=68
 JumpList=
-ViMarks=.,57,10,[,57,10,],57,10
+ViMarks=.,68,33,[,68,22,],68,33
 
 [view-settings,view=0,item:macros.tex]
-CursorColumn=30
-CursorLine=1
+CursorColumn=15
+CursorLine=23
 JumpList=
-ViMarks=.,1,29,[,1,26,],1,29
+ViMarks=.,23,14,[,23,13,],23,14
 
 [view-settings,view=0,item:main.tex]
-CursorColumn=102
-CursorLine=58
+CursorColumn=0
+CursorLine=38
 JumpList=
-ViMarks=.,58,71,[,58,49,],58,71
-
-[view-settings,view=0,item:presentacion-20150822.tex]
-CursorColumn=16
-CursorLine=315
-JumpList=
-ViMarks=.,319,41,[,319,39,],319,41
+ViMarks=.,54,8,[,54,8,],54,8
 
 [view-settings,view=0,item:problem.tex]
-CursorColumn=0
-CursorLine=81
+CursorColumn=149
+CursorLine=179
 JumpList=
-ViMarks=.,80,0,[,81,0,],-1,-1
+ViMarks=.,179,55,[,179,56,],179,55
+
+[view-settings,view=0,item:proposedSolution.tex]
+CursorColumn=0
+CursorLine=0
+JumpList=
+ViMarks=.,-1,-1,[,-1,-1,],-1,-1,a,-1,-1
 
 [view-settings,view=0,item:relatedWorks.tex]
 CursorColumn=0
@@ -426,18 +401,6 @@ CursorLine=0
 JumpList=
 ViMarks=
 
-[view-settings,view=0,item:solution:ide.tex]
-CursorColumn=24
-CursorLine=34
-JumpList=
-ViMarks=
-
-[view-settings,view=0,item:solution:implementation.tex]
-CursorColumn=0
-CursorLine=8
-JumpList=
-ViMarks=
-
 [view-settings,view=0,item:solution:language.tex]
 CursorColumn=65
 CursorLine=13
@@ -445,7 +408,7 @@ JumpList=
 ViMarks=.,13,64,[,13,60,],13,64
 
 [view-settings,view=0,item:wollok.bib]
-CursorColumn=18
-CursorLine=22
+CursorColumn=21
+CursorLine=98
 JumpList=
-ViMarks=.,0,0,[,0,0,],0,0
+ViMarks=.,101,0,[,98,0,],101,0

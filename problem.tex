@@ -62,6 +62,7 @@ resulting in several IT-projects not taking advantage of the possibilities offer
 
 % Factual solution tracks, to position...
 \np{Contar algo de otras propuestas anteriores a la nuestra}
+\pt{No se si pondria algo, ya estan en los trabajos anteriores que estan citando. Podemos decir que lean el tuyo con carlono.}
 
 Our previous work in this area is based on the proposal to change the order of subjects in OOP introductory coures \cite{lombardi_instances_2007}, 
 starting with a \emph{Simplified Programming Model} (SPM) which includes only the most basic OOP concepts, such as objects, messages, references, methods and dynamic dispatch.
@@ -69,7 +70,7 @@ The aim of the SPM is to provide students with the minimal set of concepts that 
 This foundations allow for an \emph{Incremental Learning Path}, \ie more abstract concepts can be added later, 
 giving the student the time to be familiarized with one concept before introducing the next one.
 
-To enable this we provide a simplified OO language with an ad-hoc educational programming environment 
+To enable this we provided a simplified OO language with an ad-hoc educational programming environment 
 named Ozono\footnote{The name has been changing along these years. Other names for our programming environment have been ObjectBrowser, Loop and Hoope}, 
 in which students can create objects and define their behavior directly, without the need for classes and inheritance \cite{griggio_programming_2011}.
 Ozono is based on Smalltalk\footnote{The latest version currently in use in universities is based on a Smalltalk dialect named Pharo \cite{black_pharo_2010}.}.
@@ -77,9 +78,10 @@ and thus it is a \textit{dynamic language}.
 
 We take special advantage of the dynamic characteristic of the language because it allows very simple uses of polymorphism, 
 \ie any two objects that understand a common set of messages can be treated polymorphically without worrying about inheritance or \emph{interface} implementation,
-which is indispensable if we want them to exploit polymorphism already in their programs after only two or three lectures.
+which is indispensable if we want them to exploit polymorphism already in their programs after only two or three lectures. 
 
-\np{Qué otras ventajas queremos contar?}
+Another interesting advantage is the ability to interact with the objects directly, sending different messages to them and see how they react. 
+This interactive sessions increases the understanding of the paradigm and the way the responsibilities are distributed in an object oriented program.
 
 \medskip
 This approach produced impressive results and therefore has been adopted in other courses and universities.
@@ -111,15 +113,16 @@ which in traditional approaches are normally postponed to a second OOP course.
 % (c) las ideas nuevas... y wollok como herramienta para dar soporte a esas ideas.
 
 % Our solution: approach
-Still, the experience of eight years in four universities\footnote{Ozono is currently used in Universidad Tecnológica Nacional, F. R. Buenos Aires and F.R. Delta, 
-Universidad Nacional de Quilmes, Universidad Nacional de San Martín and Universidad Nacional del Oeste.}
+Still, the experience of eight years in four universities\footnote{Ozono is currently used in Universidad Tecnológica Nacional, F. R. Buenos Aires and F.R. Delta and 
+Universidad Nacional de Quilmes; and it have been used in Universidad Nacional de San Martín and Universidad Nacional del Oeste.}
 and thousands of students has provided us with new insights of the learning process, 
 which is what lead us to introduce several adjustements in our approach.
 
 In the first place, starting with a \emph{classless} language mandates a change of language and enviroment in the middle of the course,
 which is confusing for some students. 
-To solve this, we propose to integrate \emph{class-based} and \emph{self-defined} objects in the same language.
+To solve this, we propose to integrate \emph{class-based} and \emph{standalone objects} in the same language.
 \np{Ver bien qué nombres les ponemos y definir los conceptos antes.}
+\pt{Me incline por standalone object, porque es lo que se usa despues.}
 
 Second, we think that the absence of static typing information (which Ozono inherits from Smalltalk) prevents our programming environment to aid the students in finding some typical beginner mistakes.
 Still, we do not want to force the students to add type annotations to their code, because that would distract them from the concepts we want to focus on.
@@ -145,7 +148,8 @@ Therefore, we think that a file-based approach will shorten the distance between
 Moreover, image-based enviromnents tend to blur the distinction between the programming environment and the program under development,
 which can embody great possibilities for advanced programmers but often does not more than confuse beginners.
 Also being file-based allows the usage of the most popular code
-repositories such as Git, and also reduces the gap for integrating the language with existing tools like code-reviewing, static code analysers and code coverage tools.
+repositories such as Git, and also reduces the gap for integrating the language with existing tools like code-reviewing, static code analysers and code coverage tools. 
+This tools can be easily integrated to the programming environment, giving the student the a simplify introduction to these professional tools.
 
 Finally, the programming enviroment incorporates several advanced characteristics from professional environments, 
 which improves the coding experience, and at the same time allows the student to familiarize himself with the kind of tools he will face in his later professional activity.
@@ -160,7 +164,7 @@ is not found in other previous programming environments neither educational nor 
 Therefore, the distinctive characteristic of these tools is the search for a programming toolset which 
 (a) supports our pedagogical approach,
 (b) feeds the student with a set of tools which are adequate to his current knowledge
-and (c) gently prepares him to be using industrial-level tools.
+and (c) gently prepares him to be using industrial-level tools constitutes a novel way of dealing with the problems of OOP teaching.
 
 A big amount of effort in our research has been put in looking for solutions that can solve the apparent controversy between the objectives (b) and (c).
 Often, the rich set of tools an industrial language or programming environment offers, cannot be exploited by an unexperienced programmer or even confuses him.
@@ -173,6 +177,5 @@ and a programming environment which provides the exact tools a student can take 
 % satisfied. They should be sound and believable. Analysis of the criteria.
 % Imagine that you are another guy having this problem do the constraint
 % matches yours so that you could apply the solution
-\np{Esto tenía ganas de decir pero no me doy cuenta dónde ponerlo... no sé si volarlo y ya.}
-So far we have focused on university students which have had a previous subject on inperative programming.
-It is a pending job to adapt these ideas to teenagers or more generally students without any prior programming experience.
+The current study and development has been focused on university students which have had a previous subject on inperative programming.
+The natural extension of this work is the adaptation of these ideas to teenagers or more generally students without any prior programming experience.

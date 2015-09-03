@@ -1,0 +1,329 @@
+\documentclass{beamer}
+
+\usecolortheme[named=blue]{structure}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+  \setbeamertemplate{items}[ball]
+  \setbeamertemplate{theorems}[numbered]
+  \setbeamertemplate{footline}[frame number]
+}
+\usepackage{beamerthemesplit}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+
+\newcommand{\code}[1]{\texttt{\small{#1}}}
+\hypersetup{%
+  colorlinks=true,
+  urlcolor=blue,
+  linkcolor=blue,
+  pdfborderstyle={/S/U/W 1}
+}
+
+\definecolor{javared}{rgb}{0.6,0,0} % for strings
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
+
+\lstdefinelanguage{scala}{
+  morekeywords={abstract,case,catch,class,def,%
+    do,else,extends,false,final,finally,%
+    for,if,implicit,import,match,mixin,%
+    new,null,object,override,package,%
+    private,protected,requires,return,sealed,%
+    super,this,throw,trait,true,try,%
+    type,val,var,while,with,yield},
+  otherkeywords={=>,<-,<\%,<:,>:,\#,@,>,<},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[n]{/*}{*/},
+  morestring=[b]",
+  morestring=[b]',
+  morestring=[b]"""
+}
+\lstset{
+%   frame=tb,
+  language=Scala,
+  aboveskip=3mm,
+  belowskip=3mm,
+  columns=flexible,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{javapurple}\bfseries,
+  stringstyle=\color{javared},
+  commentstyle=\color{javagreen},
+  morecomment=[s][\color{javadocblue}]{/**}{*/},
+  numbers=none,
+  numberstyle=\tiny\color{black},
+  stepnumber=2,
+  numbersep=10pt,
+  showspaces=false,
+  showstringspaces=false,
+  tabsize=4
+}
+
+\title
+  [Wollok: Relearning to teach OO programming.]
+  {Wollok: Relearning to teach OO programming.}
+\author[Passerini, Fernandes, Tesone]{%
+  Javier Fernandes\inst{1,2} \and
+  Nicolás Passerini\inst{1,2,4} \\
+  Pablo Tesone\inst{3,1,2,4} \and
+  Débora Fortini\inst{1,4}
+}  
+
+\institute{
+  \inst{1}Universidad Nacional de Quilmes
+  \and
+  \inst{2}Universidad Nacional de San Martin
+  \and
+  \inst{3}Universidad Nacional del Oeste
+  \and
+  \inst{4}Universidad Tecnológica Nacional - F.R. Buenos Aires.
+}
+
+\date[WISIT 2014]{\small Workshop de Ingeniería en Sistemas y Tecnologías de la Información \\ 28/11/2014}
+\subject{Computational Sciences}
+
+%\logo{\includegraphics[height=1.0cm]{fsu_logo.pdf}}
+
+\begin{document}
+  \frame
+  {
+    \titlepage
+  }
+
+  \frame
+  {
+    \frametitle{Agenda}
+    \tableofcontents
+  }
+
+\defverbatim[colored]\helloWorldJava{
+\begin{lstlisting}[language=Java]
+		package examples;
+		
+		public class HelloWorld {
+			public static void main(String[] args) {
+				System.out.println("Hello World");
+			}
+		}
+\end{lstlisting}
+}
+
+\section{Problema}
+\frame{
+	\frametitle{¿Por qué es difícil aprender OOP?}	
+	\begin{itemize}
+    \item Enfoque en un lenguaje particular
+    \item Demasiados conceptos
+    \medskip
+    \helloWorldJava
+    \pause
+    \item Entornos de desarrollo pobres
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Conclusión: deficiencias de aprendizaje}	
+	\begin{itemize}
+		\item Bajos niveles de aprobación
+		\item Se propician malas prácticas
+		\item Poca comprensión de los fundamentos del paradigma
+	\end{itemize}
+}
+
+\section{Un poco de historia: Ozono}
+\frame{
+	\frametitle{Nuestra primera propuesta}
+	\begin{enumerate}
+		\item Pensar en el recorrido\footnote{Paper de Lombardi, Passerini y Cesario, 2007}
+		\begin{itemize}
+			\item Introducir los conceptos gradualmente.
+			\item Arrancar por los fundamentales:
+				\\\hspace{2em} objeto - mensaje - referencia - polimorfismo
+			\item Postergar los accesorios: 
+				\\\hspace{2em} clases - herencia - ...
+		\end{itemize}
+
+		\pause
+		\medskip
+		\item Construir una herramienta específica
+		\begin{itemize}
+			\item Lenguaje de programación
+			\item Entorno de desarrollo			
+		\end{itemize}
+	\end{enumerate}
+}
+
+\frame{
+	\frametitle{Ozono}	
+	\begin{itemize}
+		\item Entorno de objetos sin clases
+		\item Basado en Pharo
+		\begin{itemize}
+		 \item Basado en imagen (no archivos)
+		 \item Dinámico
+		 \item Diagrama automático de objetos
+		\end{itemize}
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{7 años de aprendizaje}	
+	Ozono fue una linda experiencia:
+	\begin{itemize}
+		\item Subieron los niveles de aprobación (de 40 - 50\% a 80 - 90\%)
+		\item Exportado a otras universidades: UNQ, UNSAM, UNO, FRD, ...
+		\item Comunidad $>$ 30 desarrolladores
+		\item Proyectos de investigación		
+	\end{itemize}
+
+	\bigskip
+	Peeero...
+}
+
+\frame{
+	\frametitle{7 años de aprendizaje}	
+	\begin{itemize}
+		\item No provee una transición a clases
+		\pause
+		\item Falencias en el ambiente
+			\begin{itemize}
+				\item Muy atado a pharo (ej: Debugger)
+				\item Herramientas no preparadas para el aprendizaje
+			\end{itemize}
+		\pause
+		\item A veces... extrañamos los tipos
+			\begin{itemize}
+				\item Las herramientas no pueden ayudar al programador
+				\item Errores simples son difíciles de detectar.
+			\end{itemize}
+		\pause
+		\item Lejano al \emph{mainstream}
+			\begin{itemize}
+				\item Basado en imagen
+				\item No usa herramientas estándares de la industria
+			\end{itemize}
+		
+	\end{itemize}
+}
+
+\section{Nueva propuesta: Wollok}
+\frame{
+	\frametitle{Wollok the language}	
+	\begin{itemize}
+    \item Integra clases y objetos
+    \item Sintaxis \emph{educativa}
+			\begin{itemize}
+				\item Énfasis en los conceptos a transmitir (ej: method, val/var).
+				\item Se eliminan conceptos innecesarios
+				\item \emph{Moderna}: literales, bloques, etc.
+			\end{itemize}
+    \item Inferencia de tipos
+    \item Basado en archivos
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{¿Por qué nuestro propio lenguaje?}
+	Porque lo puedo customizar 100\%
+	\pause
+	\begin{itemize}
+		\item Sintaxis precisa
+			\begin{itemize}
+				\item method keyword
+				\item return obligatorio
+			\end{itemize}
+		\item Más fácil detección de errores
+		\item APIs no sobrecargadas (ej: colecciones)
+		\item Import system
+		\item Framework de testing integrado
+		\pause
+		\item Minimizar los conceptos a aprender
+			\begin{itemize}
+			 \item Propiedades (vs. métodos + variables)
+			 \item Constructores muy básicos
+			\end{itemize}
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Algunos detalles}	
+	\begin{itemize}
+		\item Todo es un mensaje, es obligatorio escribir objeto.mensaje()
+		\item Valores y variables
+		\item Literales para listas y conjuntos (próximamente diccionarios)
+		\item Variables pueden tener valor inicial
+		\item Objetos pueden extender de clases
+		\item Precedencia de operadores
+		\item Sintaxis abreviada $a += 10$
+		\item Manejo de excepciones "try" / "catch" / "then always"
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Algunas discusiones}	
+	\begin{itemize}
+		\item Los objetos tienen scope global
+		\item Object literals $=>$ ¿forma de compartir código?
+		\item El if no es un mensaje
+		\item Constructores
+		\item Imagen vs. archivos
+		\item Mixins
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{¿Qué debería tener un entorno de desarrollo?}	
+	\begin{itemize}
+		\item \emph{Autocomplete}
+		\item Navegación (ej: "Ir a la implementación")
+		\item Búsqueda inteligente (ej: referencias, implementaciones, usos)
+		\item Wizards
+		\item Refactors automáticos
+		\item Quick fixes
+		\item Herramientas de debugging
+		\item Herramientas de trabajo en grupo
+		\item Herramientas de visualización de código
+	\end{itemize}
+}
+
+
+\section{Demo}
+\frame{
+      \frametitle{Demo}
+}
+
+\section{Conclusiones y trabajo futuro}
+\frame{
+	\frametitle{Conclusions}	
+	\begin{itemize}
+	  \item	Necesitamos herramientas y lenguajes específicos para la enseñanza.
+	  \item La forma de enseñanza debe estar guiada por el público al que esta dirigido.
+	  \item Repensar en el recorrido.
+	  \item Elegir buenos ejemplos.
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Further Work}	
+	\begin{itemize}
+	  \item Integrar una versión colaborativa Web
+	  \item Desarrollar nuevas herramientas de refactors
+	  \item Integrar una interfaz gráfica interactiva.
+	  \item Herramientas simplificadas de SCM.
+	  \item Pruebas en ambientes de enseñanza universitarios y secundarios.
+	\end{itemize}
+}
+
+\frame{
+  \frametitle{Muchas gracias}.
+}
+\end{document}
+

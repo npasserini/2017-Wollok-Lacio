@@ -1,0 +1,162 @@
+\documentclass{beamer}
+
+\usecolortheme[named=blue]{structure}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+  \setbeamertemplate{items}[ball]
+  \setbeamertemplate{theorems}[numbered]
+  \setbeamertemplate{footline}[frame number]
+}
+\usepackage{beamerthemesplit}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+
+\newcommand{\code}[1]{\texttt{\small{#1}}}
+\hypersetup{%
+  colorlinks=true,
+  urlcolor=blue,
+  linkcolor=blue,
+  pdfborderstyle={/S/U/W 1}
+}
+
+\definecolor{javared}{rgb}{0.6,0,0} % for strings
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
+
+\lstdefinelanguage{scala}{
+  morekeywords={abstract,case,catch,class,def,%
+    do,else,extends,false,final,finally,%
+    for,if,implicit,import,match,mixin,%
+    new,null,object,override,package,%
+    private,protected,requires,return,sealed,%
+    super,this,throw,trait,true,try,%
+    type,val,var,while,with,yield},
+  otherkeywords={=>,<-,<\%,<:,>:,\#,@,>,<},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[n]{/*}{*/},
+  morestring=[b]",
+  morestring=[b]',
+  morestring=[b]"""
+}
+\lstset{
+%   frame=tb,
+  language=Scala,
+  aboveskip=3mm,
+  belowskip=3mm,
+  columns=flexible,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{javapurple}\bfseries,
+  stringstyle=\color{javared},
+  commentstyle=\color{javagreen},
+  morecomment=[s][\color{javadocblue}]{/**}{*/},
+  numbers=none,
+  numberstyle=\tiny\color{black},
+  stepnumber=2,
+  numbersep=10pt,
+  showspaces=false,
+  showstringspaces=false,
+  tabsize=4
+}
+
+\title
+  [Wollok: en el aula y tras bastidores.]
+  {Wollok: en el aula y tras bastidores.}
+\author[Passerini, Fernandes, Tesone]{%
+  Javier Fernandes\inst{1,2} \and
+  Nicolás Passerini\inst{1,2,4} \\
+  Pablo Tesone\inst{3,1,2,4} \and
+  Débora Fortini\inst{1,4}
+}  
+
+\institute{
+  \inst{1}Universidad Nacional de Quilmes
+  \and
+  \inst{2}Universidad Nacional de San Martin
+  \and
+  \inst{3}Universidad Nacional del Oeste
+  \and
+  \inst{4}Universidad Tecnológica Nacional - F.R. Buenos Aires.
+}
+
+\date[WISIT 2015]{\small Workshop de Ingeniería en Sistemas y Tecnologías de la Información \\ 19/09/2015}
+\subject{Computational Sciences}
+
+%\logo{\includegraphics[height=1.0cm]{fsu_logo.pdf}}
+
+\begin{document}
+  \frame
+  {
+    \titlepage
+  }
+
+  \frame
+  {
+    \frametitle{Agenda}
+    \tableofcontents
+  }
+
+\section{Introduccion}
+\frame{
+	\frametitle{¿Qué es Wollok?}	
+	\begin{itemize}
+    \item a 
+    \item b 
+    \item c
+	\end{itemize}
+}
+
+\section{Desarrollo de Wollok}
+\frame{
+	\frametitle{Desarrollo de Wollok}	
+	\begin{itemize}
+		\item OpenSource: GitHub 
+		\item SCM: maven, tycho, travis
+		\item TDD: JUnit, XPect
+	\end{itemize}
+}
+
+\section{Features Avanzados}
+\frame{
+	\frametitle{Features Avanzados}	
+	\begin{itemize}
+    \item A
+    \item B
+	\end{itemize}
+}
+
+\section{Wollok Game}
+\frame{
+	\frametitle{Wollok Game}
+	\begin{itemize}
+		\item s
+		\item a
+		\item b
+		\item o
+	\end{itemize}
+}
+
+\section{Experiencia en el Aula}
+\frame{
+	\frametitle{Experiencia en el Aula}	
+	\begin{itemize}
+		\item s
+		\item a
+		\item s
+	\end{itemize}
+}
+
+
+\frame{
+  \frametitle{Muchas gracias}.
+}
+\end{document}
+

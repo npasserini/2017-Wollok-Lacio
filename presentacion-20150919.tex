@@ -1,5 +1,7 @@
 \documentclass{beamer}
 
+\usepackage{graphicx}
+
 \usecolortheme[named=blue]{structure}
 
 \mode<presentation>
@@ -9,7 +11,19 @@
   \setbeamertemplate{items}[ball]
   \setbeamertemplate{theorems}[numbered]
   \setbeamertemplate{footline}[frame number]
+  
+% custom colors
+  \setbeamercolor{structure}{fg=red!90!black}
+  
+  \setbeamerfont{section number projected}{%
+  	family=\rmfamily,series=\bfseries,size=\normalsize
+  }
+  \setbeamercolor{section number projected}{bg=red,fg=white}
+  
 }
+
+% \usecolortheme{spruce}
+
 \usepackage{beamerthemesplit}
 \usepackage{graphics}
 \usepackage{graphicx}
@@ -21,8 +35,8 @@
 \newcommand{\code}[1]{\texttt{\small{#1}}}
 \hypersetup{%
   colorlinks=true,
-  urlcolor=blue,
-  linkcolor=blue,
+  urlcolor=red,
+  linkcolor=red,
   pdfborderstyle={/S/U/W 1}
 }
 
@@ -67,14 +81,20 @@
   tabsize=4
 }
 
+\newcommand{\screenshot}[1]{\centerline{%
+    \includegraphics[height=7.8cm,transparent]{#1}}}  % 7.8in
+
 \title
-  [Wollok: en el aula y tras bastidores.]
-  {Wollok: en el aula y tras bastidores.}
+  [Wollok: en el aula y más allá]
+  {Wollok: en el aula y más allá}
 \author[Passerini, Fernandes, Tesone]{%
   Javier Fernandes\inst{1,2} \and
   Nicolás Passerini\inst{1,2,4} \\
   Pablo Tesone\inst{3,1,2,4} \and
-  Débora Fortini\inst{1,4}
+  Débora Fortini\inst{1,4} \and
+  Nahuel Palumbo, \and
+  Juan Contardo, \and
+  Carlos Raffellini
 }  
 
 \institute{
@@ -106,32 +126,126 @@
 
 \section{Introduccion}
 \frame{
-	\frametitle{¿Qué es Wollok?}	
-	\begin{itemize}
-    \item a 
-    \item b 
-    \item c
-	\end{itemize}
+	\frametitle{¿Qué es Wollok?}
+	// TODO introducir un toque wollok
+	// seria bueno algún screenshot también	
 }
 
 \section{Desarrollo de Wollok}
 \frame{
 	\frametitle{Desarrollo de Wollok}	
 	\begin{itemize}
-		\item OpenSource: GitHub 
-		\item SCM: maven, tycho, travis
-		\item TDD: JUnit, XPect
+		\item OpenSource: LGPLv3 
+		\item Stack: Eclipse XText + Xtend Lang
+		\item SCM:
+			\begin{itemize}
+			  	\item \textbf{Código}: GitHub
+			  	(\href{https://github.com/uqbar-project/wollok}{uqbar-project/wollok})
+			 	\item \textbf{Build}: Maven + Tycho
+			 	\item \textbf{Continuous Integration}: Travis
+			 	\item \textbf{Continuous Deployment}
+			 	\item \textbf{Coverage}: coveralls + jacoco
+			 \end{itemize}
+		\item Testing \& TDD
 	\end{itemize}
 }
+
+\frame{
+	\frametitle{Desarrollo de Wollok}
+	\framesubtitle{Continuous Integration \& Deployment}	
+	\begin{itemize}
+	  	\item \textbf{GitFlow}
+	  		\begin{itemize}
+	  		  \item Feature Branches
+	  		  \item Pull-Requests
+	  		  \item $dev \rightarrow master \leftarrow  hotfixes$ 
+			\end{itemize}	 
+		\item \textbf{Integration}:
+			\begin{itemize}
+			  \item Travis
+			  \item compile, test, coverage, deploy
+			\end{itemize}
+		\item Deployment:
+				\begin{itemize}
+				  \item \textbf{Productos} (IDE): multiples pataformas
+				  \item \textbf{Update Sites}
+				  \item \textbf{WDK}
+				  \item 2 Ambientes: Stable \& Dev
+				\end{itemize}
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Desarrollo de Wollok}
+	\framesubtitle{Testing \& TDD}	
+	\begin{itemize}
+	  	\item 87\% Cobertura 	
+	  	\item \textbf{Runtime}      % SCREEN: ACA MOSTRAMOS UN SCREENSHOT DE UN TEST
+	  		\begin{itemize}
+	  		  \item Testean ejecución
+	  		  \item Interprete
+	  		  \item \textbf{JUnit + iDSL}
+			\end{itemize}	 
+		\item \textbf{Estáticos}
+			\begin{itemize}
+			  \item \textbf{Checkeos}: XPect  % SCREEN: ACA MOSTRAMOS UN TEXT XPECT
+			  \item \textbf{Type System}: JUnit + iDSL
+			  \item \textbf{Autocomplete}: XPect
+			  \item \textbf{Formateo}: JUnit + iDSL
+			\end{itemize}
+		\item \textbf{Pendientes}
+			\begin{itemize}
+			  \item Quick-Fixes
+			  \item Refactors
+			\end{itemize}
+	\end{itemize}
+}
+
+%
+% FEATURE AVANZADOS
+%
 
 \section{Features Avanzados}
 \frame{
 	\frametitle{Features Avanzados}	
 	\begin{itemize}
-    \item A
-    \item B
+    \item Debugger
+    \item Tests
+    \item Sublime Plugins 
+    \item I18N
 	\end{itemize}
 }
+
+
+\frame{
+	\frametitle{Sublime Support}
+	
+	\begin{itemize}
+	    \item WDK
+	    	\begin{itemize}
+	    		\item No IDE
+	    		\item $\sim70$MB (vs $\sim140$)
+	    		\item Headless: wchecker, winterpreter, wtest
+	    	\end{itemize}
+	    \item Syntax highlight
+	    \item Templates 
+	    \item Linter
+	\end{itemize}
+	
+% 	\begin{center}
+% 		\begin{figure}
+% 			\includegraphics[width=1\textwidth,height=1\textheight,natwidth=800,natheight=561]{images/wollok-wisit-sublime-syntax.eps}
+% 			\hfill
+% 			\includegraphics[width=1\textwidth,height=1\textheight,natwidth=800,natheight=558]{images/wollok-wisit-sublime-linter.eps}
+% 		\end{figure}
+% 	\end{center}
+}
+
+
+
+%
+% WOLLOK GAME
+%
 
 \section{Wollok Game}
 \frame{

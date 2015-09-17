@@ -185,7 +185,7 @@
 			\end{itemize}	 
 		\item \textbf{Estáticos}
 			\begin{itemize}
-			  \item \textbf{Checkeos}: XPect  % SCREEN: ACA MOSTRAMOS UN TEXT XPECT
+			  \item \textbf{Chequeos}: XPect  % SCREEN: ACA MOSTRAMOS UN TEXT XPECT
 			  \item \textbf{Type System}: JUnit + iDSL
 			  \item \textbf{Autocomplete}: XPect
 			  \item \textbf{Formateo}: JUnit + iDSL
@@ -196,6 +196,61 @@
 			  \item Refactors
 			\end{itemize}
 	\end{itemize}
+}
+
+\frame{
+	\frametitle{Testing \& TDD}
+	\framesubtitle{Runtime}
+	Testeo del intérprete
+	\begin{center}
+		\begin{figure}
+			\includegraphics[height=0.8\textheight,natwidth=1212,natheight=446]{images/wollok-tests-runtime.eps}
+		\end{figure}
+	\end{center}
+}
+
+\frame{
+	\frametitle{Testing \& TDD}
+	\framesubtitle{Chequeos Estáticos}
+	Testeo de Chequeos Estáticos
+	\begin{center}
+		\begin{figure}
+			\includegraphics[height=0.8\textheight,natwidth=1720,natheight=372]{images/wollok-tests-checkeos.eps}
+		\end{figure}
+	\end{center}
+}
+
+\frame{
+	\frametitle{Testing \& TDD}
+	\framesubtitle{Autocomplete}
+	Testeo del Autocomplete
+	\begin{center}
+		\begin{figure}
+			\includegraphics[height=0.8\textheight,natwidth=2106,natheight=398]{images/wollok-tests-autocomplete.eps}
+		\end{figure}
+	\end{center}
+}
+
+\frame{
+	\frametitle{Testing \& TDD}
+	\framesubtitle{Formatter}
+	Testeo del Formatter
+	\begin{center}
+		\begin{figure}
+			\includegraphics[height=0.8\textheight,natwidth=1380,natheight=436]{images/wollok-tests-formatter.eps}
+		\end{figure}
+	\end{center}
+}
+
+\frame{
+	\frametitle{Testing \& TDD}
+	\framesubtitle{Type System}
+	Testeo del Type System
+	\begin{center}
+		\begin{figure}
+			\includegraphics[height=0.8\textheight,natwidth=836,natheight=444]{images/wollok-tests-typesystem.eps}
+		\end{figure}
+	\end{center}
 }
 
 %
@@ -213,10 +268,19 @@
 	\end{itemize}
 }
 
+\frame{
+	\frametitle{Debugger}
+	\begin{itemize}
+	    \item UI integrada a Eclipse Debug
+	    \item Breakpoints: agregar, remover, deshabilitar, etc
+	    \item Step, into, out 
+	    \item Inspeccionar variables
+	\end{itemize}
+}
+
 
 \frame{
-	\frametitle{Sublime Support}
-	
+	\frametitle{Sublime Support}	
 	\begin{itemize}
 	    \item WDK
 	    	\begin{itemize}
@@ -233,6 +297,7 @@
 
 \frame{
 	\frametitle{Sublime Support}
+	\framesubtitle{Syntax Highlight}	
 	\begin{center}
 		\begin{figure}
 			\includegraphics[height=0.8\textheight,natwidth=800,natheight=561]{images/wollok-wisit-sublime-syntax.eps}
@@ -242,6 +307,7 @@
 
 \frame{
 	\frametitle{Sublime Support}
+	\framesubtitle{Linter}
 	\begin{center}
 		\begin{figure}
 			\includegraphics[height=0.8\textheight,natwidth=800,natheight=558]{images/wollok-wisit-sublime-linter.eps}

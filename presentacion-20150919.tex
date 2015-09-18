@@ -122,10 +122,86 @@
   }
 
 \section{Introduccion}
+\defverbatim[colored]\helloWorldJava{
+\begin{lstlisting}[language=Java]
+		package examples;
+		
+		public class HelloWorld {
+			public static void main(String[] args) {
+				System.out.println("Hello World");
+			}
+		}
+\end{lstlisting}
+}
+
+\frame{
+	\frametitle{¿Por qué es difícil aprender OOP?}	
+	\begin{itemize}
+    \item Enfoque en un lenguaje particular
+    \item Demasiados conceptos
+    \medskip
+    \helloWorldJava
+    \pause
+    \item \textbf{Entornos de desarrollo} limitados o inadecuados
+    \item Aprender a programar exige \textbf{aprender a abstraer}
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Antecedentes}
+	\textbf{Ozono} \hfill \texttt{\footnotesize http://ozono.uqbar-project.org/}	
+	\begin{itemize}
+		\item Basado en Smalltalk
+		\item \textbf{Recorrido incremental}
+		\\\hspace{2em} Metamodelo simplificado: sin clases ni herencia
+		\\\hspace{2em} Foco en objeto - mensaje - referencia - polimorfismo
+		\item Herramientas de visualización de código
+		\\\hspace{2em} Diagramas de objetos / clases
+	\end{itemize}
+	
+	\pause\bigskip
+	\textbf{Gobstones} \hfill \texttt{\footnotesize http://www.gobstones.org/}
+	\begin{itemize}
+		\item Cuidadosa selección de los elementos sintácticos
+		\item Elimina la necesidad de entrada-salida
+		\item Separación entre elementos con efecto y elementos puros
+	\end{itemize}
+}
+
 \frame{
 	\frametitle{¿Qué es Wollok?}
-	// TODO introducir un toque wollok
-	// seria bueno algún screenshot también	
+	\begin{itemize}
+	 \item Lenguaje + muchas herramientas
+	 \item Optimizados para la enseñanza
+	 \item Cercanos a las herramientas profesionales \emph{mainstream}
+	 \item Proyecto abierto
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{¿Qué es Wollok? - Pensado para enseñar}
+	\begin{itemize}
+		\item Sintaxis cuidada 
+			\begin{itemize}
+			  \item selección de keywords
+			  \item return obligatorio
+			  \item énfasis en objetos y mensajes
+			  \hspace{2em} {\small (aunque no todo es objeto mensaje)}
+			\end{itemize}
+		\item Combina object-based con class-based programming
+		\item APIs minimalistas (ej: colecciones)
+		\item Import system
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{¿Qué es Wollok? - Cercano al mainstream}
+	\begin{itemize}
+		\item Ambiente de objetos basado en archivos
+		\item Framework de testing integrado
+		\item Literales para listas y conjuntos (próximamente diccionarios)
+		\item Manejo de excepciones 
+	\end{itemize}
 }
 
 \section{Desarrollo de Wollok}

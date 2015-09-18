@@ -19,6 +19,7 @@
   	family=\rmfamily,series=\bfseries,size=\normalsize
   }
   \setbeamercolor{section number projected}{bg=red,fg=white}
+  \setbeamercolor{frametitle in head}{fg=Brown,bg=Brown!20}
   
 }
 
@@ -135,7 +136,8 @@
 }
 
 \frame{
-	\frametitle{¿Por qué es difícil aprender OOP?}	
+	\frametitle{Introducción}
+	\framesubtitle{¿Por qué es difícil aprender OOP?}	
 	\begin{itemize}
     \item Enfoque en un lenguaje particular
     \item Demasiados conceptos
@@ -148,8 +150,12 @@
 }
 
 \frame{
-	\frametitle{Antecedentes}
-	\textbf{Ozono} \hfill \texttt{\footnotesize http://ozono.uqbar-project.org/}	
+	\frametitle{Introducción}
+	\framesubtitle{Antecedentes}
+	\includegraphics[width=9,
+			 	height=9,natwidth=66,natheight=50]{images/ozono-icon.png}
+	\textbf{Ozono} \hfill \texttt{\footnotesize
+	\href{http://ozono.uqbar-project.org/}{http://ozono.uqbar-project.org/}}
 	\begin{itemize}
 		\item Basado en Smalltalk
 		\item \textbf{Recorrido incremental}
@@ -160,7 +166,10 @@
 	\end{itemize}
 	
 	\pause\bigskip
-	\textbf{Gobstones} \hfill \texttt{\footnotesize http://www.gobstones.org/}
+	\includegraphics[width=9,
+			 	height=9,natwidth=313,natheight=365]{images/gobstones-icon.png}
+	\textbf{Gobstones} \hfill \texttt{\footnotesize
+	\href{http://www.gobstones.org/}{http://www.gobstones.org/}}
 	\begin{itemize}
 		\item Cuidadosa selección de los elementos sintácticos
 		\item Elimina la necesidad de entrada-salida
@@ -169,7 +178,8 @@
 }
 
 \frame{
-	\frametitle{¿Qué es Wollok?}
+	\frametitle{Introducción}
+	\framesubtitle{¿Qué es Wollok?}
 	\begin{itemize}
 	 \item Lenguaje + muchas herramientas
 	 \item Optimizados para la enseñanza
@@ -179,7 +189,8 @@
 }
 
 \frame{
-	\frametitle{¿Qué es Wollok? - Pensado para enseñar}
+	\frametitle{Introducción}
+	\framesubtitle{¿Qué es Wollok? - Pensado para enseñar}
 	\begin{itemize}
 		\item Sintaxis cuidada 
 			\begin{itemize}
@@ -195,7 +206,8 @@
 }
 
 \frame{
-	\frametitle{¿Qué es Wollok? - Cercano al mainstream}
+	\frametitle{Introducción}
+	\framesubtitle{¿Qué es Wollok? - Cercano al mainstream}
 	\begin{itemize}
 		\item Ambiente de objetos basado en archivos
 		\item Framework de testing integrado
@@ -408,17 +420,23 @@
 \frame{
 	\frametitle{Wollok Game}
 	\framesubtitle{FarmVille}
-	FarmVille - Demo
+	\textbf{FarmVille} - Demo
+	
+	\begin{center}
+		\begin{figure}
+			\includegraphics[width=0.4\textwidth,height=0.6\textheight,natwidth=500,natheight=529]{images/wollok-game-farmville.png}
+		\end{figure}
+	\end{center}
 }
 
 \frame{
 	\frametitle{Wollok Game}
 	\framesubtitle{Sokoban}
-	Sokoban - Demo
+	\textbf{Sokoban} - Demo
 	
 	\begin{center}
 		\begin{figure}
-			\includegraphics[width=0.6\textwidth,height=0.6\textheight,natwidth=1288,natheight=1056]{images/wollok-game-sokoban.png}
+			\includegraphics[width=0.4\textwidth,height=0.6\textheight,natwidth=258,natheight=289]{images/wollok-game-sokoban.png}
 		\end{figure}
 	\end{center}
 }
@@ -446,7 +464,7 @@
 \section{Experiencia en el Aula}
 \frame{
 	\frametitle{Experiencia en el Aula}
-	Los alumnos apropian intuitivamente las herramientas
+	Los alumnos se apropian intuitivamente de las herramientas
 	\begin{itemize}
 		\item Integración class-based / object-based
 		\item El REPL resulta más intuitivo que los workspaces de Smalltalk

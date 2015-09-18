@@ -209,13 +209,18 @@
 	\frametitle{Desarrollo de Wollok}	
 	\begin{itemize}
 		\item OpenSource: LGPLv3 
-		\item Stack: Eclipse XText + Xtend Lang
+		\item Stack: \includegraphics[width=9,
+			 	height=9,natwidth=32,natheight=32]{images/eclipse-icon.png} Eclipse XText +
+			 	Xtend Lang
 		\item SCM:
 			\begin{itemize}
-			  	\item \textbf{Código}: GitHub
+			  	\item \textbf{Código}: \includegraphics[width=9,
+			 	height=9,natwidth=16,natheight=16]{images/github-icon.png} GitHub
 			  	(\href{https://github.com/uqbar-project/wollok}{uqbar-project/wollok})
 			 	\item \textbf{Build}: Maven + Tycho
-			 	\item \textbf{Continuous Integration}: Travis
+			 	\item \textbf{Continuous Integration}:
+			 	\includegraphics[width=9,
+			 	height=9,natwidth=50,natheight=50]{images/travis-ci-icon.png} Travis
 			 	\item \textbf{Continuous Deployment}
 			 	\item \textbf{Coverage}: coveralls + jacoco
 			 \end{itemize}
@@ -277,10 +282,10 @@
 \frame{
 	\frametitle{Testing \& TDD}
 	\framesubtitle{Runtime}
-	Testeo del intérprete
+	Testeo del Intérprete
 	\begin{center}
 		\begin{figure}
-			\includegraphics[height=0.8\textheight,natwidth=1212,natheight=446]{images/wollok-tests-runtime.eps}
+			\includegraphics[width=1\textwidth,height=0.6\textheight,natwidth=836,natheight=444]{images/wollok-tests-runtime.eps}
 		\end{figure}
 	\end{center}
 }
@@ -291,43 +296,21 @@
 	Testeo de Chequeos Estáticos
 	\begin{center}
 		\begin{figure}
-			\includegraphics[height=0.8\textheight,natwidth=1720,natheight=372]{images/wollok-tests-checkeos.eps}
+			\includegraphics[width=1\textwidth,height=0.6\textheight,natwidth=1720,natheight=372]{images/wollok-tests-checkeos.eps}
 		\end{figure}
 	\end{center}
 }
 
-\frame{
-	\frametitle{Testing \& TDD}
-	\framesubtitle{Autocomplete}
-	Testeo del Autocomplete
-	\begin{center}
-		\begin{figure}
-			\includegraphics[height=0.8\textheight,natwidth=2106,natheight=398]{images/wollok-tests-autocomplete.eps}
-		\end{figure}
-	\end{center}
-}
-
-\frame{
-	\frametitle{Testing \& TDD}
-	\framesubtitle{Formatter}
-	Testeo del Formatter
-	\begin{center}
-		\begin{figure}
-			\includegraphics[height=0.8\textheight,natwidth=1380,natheight=436]{images/wollok-tests-formatter.eps}
-		\end{figure}
-	\end{center}
-}
-
-\frame{
-	\frametitle{Testing \& TDD}
-	\framesubtitle{Type System}
-	Testeo del Type System
-	\begin{center}
-		\begin{figure}
-			\includegraphics[height=0.8\textheight,natwidth=836,natheight=444]{images/wollok-tests-typesystem.eps}
-		\end{figure}
-	\end{center}
-}
+% \frame{
+% 	\frametitle{Testing \& TDD}
+% 	\framesubtitle{Type System}
+% 	Testeo del Type System
+% 	\begin{center}
+% 		\begin{figure}
+% 			\includegraphics[width=1\textwidth,height=0.6\textheight,natwidth=836,natheight=444]{images/wollok-tests-typesystem.eps}
+% 		\end{figure}
+% 	\end{center}
+% }
 
 %
 % FEATURE AVANZADOS
@@ -345,18 +328,33 @@
 }
 
 \frame{
-	\frametitle{Debugger}
+	\frametitle{Features Avanzados}
+	\framesubtitle{Debugger}
+	Debugger
 	\begin{itemize}
 	    \item UI integrada a Eclipse Debug
 	    \item Breakpoints: agregar, remover, deshabilitar, etc
 	    \item Step, into, out 
 	    \item Inspeccionar variables
+	    \item Diagrama de Objetos
 	\end{itemize}
 }
 
+\frame{
+	\frametitle{Features Avanzados}
+	\framesubtitle{Tests}
+	Tests
+	\begin{center}
+		\begin{figure}
+			\includegraphics[width=1\textwidth,height=0.6\textheight,natwidth=1734,natheight=498]{images/tests.png}
+		\end{figure}
+	\end{center}
+}
 
 \frame{
-	\frametitle{Sublime Support}	
+	\frametitle{Features Avanzados}
+	\framesubtitle{Soporte para Sublime}
+	Soporte para Sublime
 	\begin{itemize}
 	    \item WDK
 	    	\begin{itemize}
@@ -404,6 +402,38 @@
 		\item Mejorar la comprensión de conceptos.
 		\item Visualización de comportamiento
 		\item Motivación en el aprendizaje fomentando la participación.
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{Wollok Game}
+	\framesubtitle{FarmVille}
+	FarmVille - Demo
+}
+
+\frame{
+	\frametitle{Wollok Game}
+	\framesubtitle{Sokoban}
+	Sokoban - Demo
+}
+
+\frame{
+	\frametitle{Wollok Game}
+	\framesubtitle{Futuro}
+	
+	\begin{itemize}
+		\item + Tipos de \textbf{Juegos}
+		\begin{itemize}
+		  \item Survival
+		  \item Por turnos
+		\end{itemize}
+		\item + Tipos de \textbf{Interacciones}
+		\item Features Gráficos
+		\begin{itemize}
+		  \item Animaciones
+		  \item Fondos infinitos
+		  \item Distintos vistas (lateral, isométrica, etc)
+		\end{itemize}
 	\end{itemize}
 }
 

@@ -152,8 +152,8 @@
 \frame{
 	\frametitle{Introducción}
 	\framesubtitle{Antecedentes}
-	\includegraphics[width=9,
-			 	height=9,natwidth=66,natheight=50]{images/ozono-icon.png}
+	\includegraphics[width=9pt,
+			 	height=9pt,natwidth=66pt,natheight=50pt]{images/ozono-icon.png}
 	\textbf{Ozono} \hfill \texttt{\footnotesize
 	\href{http://ozono.uqbar-project.org/}{http://ozono.uqbar-project.org/}}
 	\begin{itemize}
@@ -166,8 +166,8 @@
 	\end{itemize}
 	
 	\pause\bigskip
-	\includegraphics[width=9,
-			 	height=9,natwidth=313,natheight=365]{images/gobstones-icon.png}
+	\includegraphics[width=9pt,
+			 	height=9pt,natwidth=313pt,natheight=365pt]{images/gobstones-icon.png}
 	\textbf{Gobstones} \hfill \texttt{\footnotesize
 	\href{http://www.gobstones.org/}{http://www.gobstones.org/}}
 	\begin{itemize}
@@ -184,12 +184,11 @@
 	 \item Lenguaje + muchas herramientas
 	 \item Optimizados para la enseñanza
 	 \item Cercanos a las herramientas profesionales \emph{mainstream}
-	 \item Proyecto abierto
 	\end{itemize}
 	
 	\begin{center}
 		\begin{figure}
-			\includegraphics[width=1\textwidth,height=0.6\textheight,natwidth=701,natheight=310]{images/wollok-learning-path.png}
+			\includegraphics[height=0.5\textheight,natwidth=701,natheight=310]{images/wollok-learning-path.png}
 		\end{figure}
 	\end{center}
 	
@@ -197,14 +196,13 @@
 
 \frame{
 	\frametitle{Introducción}
-	\framesubtitle{¿Qué es Wollok? - Pensado para enseñar}
+	\framesubtitle{¿Qué es Wollok? - Un entorno optimizado para la enseñanza}
 	\begin{itemize}
 		\item Sintaxis cuidada 
 			\begin{itemize}
 			  \item selección de keywords
 			  \item return obligatorio
-			  \item énfasis en objetos y mensajes
-			  \hspace{2em} {\small (aunque no todo es objeto mensaje)}
+			  \item énfasis en objetos y mensajes {\footnotesize (aunque no todo es objeto mensaje)}
 			\end{itemize}
 		\item Combina object-based con class-based programming
 		\item APIs minimalistas (ej: colecciones)
@@ -214,12 +212,14 @@
 
 \frame{
 	\frametitle{Introducción}
-	\framesubtitle{¿Qué es Wollok? - Cercano al mainstream}
+	\framesubtitle{Cuidado: No perderle pisada la evolución de las herramientas industriales}
 	\begin{itemize}
 		\item Ambiente de objetos basado en archivos
 		\item Framework de testing integrado
-		\item Literales para listas y conjuntos (próximamente diccionarios)
-		\item Manejo de excepciones 
+		\item Sintaxis concisa y "moderna"\\
+		{\footnotesize Ej: lambdas, literales para colecciones, excepciones, constructores}
+		\item Sistema de tipos \emph{pluggeable} (en proceso)
+		\item Mixins (planificado)
 	\end{itemize}
 }
 
@@ -228,18 +228,18 @@
 	\frametitle{Desarrollo de Wollok}	
 	\begin{itemize}
 		\item OpenSource: LGPLv3 
-		\item Stack: \includegraphics[width=9,
-			 	height=9,natwidth=32,natheight=32]{images/eclipse-icon.png} Eclipse XText +
+		\item Stack: \includegraphics[width=9pt,
+			 	height=9pt,natwidth=32,natheight=32]{images/eclipse-icon.png} Eclipse XText +
 			 	Xtend Lang
 		\item SCM:
 			\begin{itemize}
-			  	\item \textbf{Código}: \includegraphics[width=9,
-			 	height=9,natwidth=16,natheight=16]{images/github-icon.png} GitHub
+			  	\item \textbf{Código}: \includegraphics[width=9pt,
+			 	height=9pt,natwidth=16pt,natheight=16pt]{images/github-icon.png} GitHub
 			  	(\href{https://github.com/uqbar-project/wollok}{uqbar-project/wollok})
 			 	\item \textbf{Build}: Maven + Tycho
 			 	\item \textbf{Continuous Integration}:
-			 	\includegraphics[width=9,
-			 	height=9,natwidth=50,natheight=50]{images/travis-ci-icon.png} Travis
+			 	\includegraphics[width=9pt,
+			 	height=9pt,natwidth=50pt,natheight=50pt]{images/travis-ci-icon.png} Travis
 			 	\item \textbf{Continuous Deployment}
 			 	\item \textbf{Coverage}: coveralls + jacoco
 			 \end{itemize}
@@ -304,7 +304,7 @@
 	Testeo del Intérprete
 	\begin{center}
 		\begin{figure}
-			\includegraphics[width=1\textwidth,height=0.6\textheight,natwidth=836,natheight=444]{images/wollok-tests-runtime.eps}
+			\includegraphics[width=1\textwidth,natwidth=836,natheight=444]{images/wollok-tests-runtime.eps}
 		\end{figure}
 	\end{center}
 }
@@ -315,7 +315,7 @@
 	Testeo de Chequeos Estáticos
 	\begin{center}
 		\begin{figure}
-			\includegraphics[width=1\textwidth,height=0.45\textheight,natwidth=1720,natheight=372]{images/wollok-tests-checkeos.eps}
+			\includegraphics[width=1\textwidth,natwidth=1720,natheight=372]{images/wollok-tests-checkeos.eps}
 		\end{figure}
 	\end{center}
 }
@@ -367,7 +367,7 @@
 	Tests
 	\begin{center}
 		\begin{figure}
-			\includegraphics[width=1\textwidth,height=0.6\textheight,natwidth=1734,natheight=498]{images/tests.png}
+			\includegraphics[width=1\textwidth,natwidth=1734,natheight=498]{images/tests.png}
 		\end{figure}
 	\end{center}
 }
@@ -506,11 +506,12 @@
 }
 
 \frame{
-  \frametitle{Muchas gracias}.
-  Muchas Gracias !
+  \frametitle{Muchas gracias}
+  {\LARGE ¡Muchas Gracias!}
+  \bigskip
   \begin{center}
 		\begin{figure}
-			\includegraphics[width=0.6\textwidth,height=0.4\textheight,natwidth=815,natheight=342]{images/logo-fun.png}
+			\includegraphics[width=0.6\textwidth,natwidth=815,natheight=342]{images/logo-fun.png}
 		\end{figure}
 	\end{center}
 }

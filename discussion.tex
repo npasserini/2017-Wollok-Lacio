@@ -4,117 +4,21 @@
 % Discussion of actual solution \emph{vs.} initial constraints from \ref{sec:problem}. Explain the space of the solution, why we made it this way.
 % Evaluation of the solution. How does the solution meet the criteria? Where does it succeed or fails...
 
-\subsection{A brand new language}
-\label{sec:newLanguage}
 % Hacer o no hacer un lenguaje nuevo.
 A common point of controversy is whether is is worth to create a brand new language and toolset, 
 instead of building our pedagogical ideas on top of existing ones, such as Self, Ruby, Smalltalk or even Eiffel.
 In our experience, begginning programmers require different features from their working environment that advanced programmers
 and the right selection of tools and concepts can produce substantial improvements in the learning process.
 Therefore, we believe that the possibility of fine tuning provided by a specialized environment largely pays for the additional effort.
+
+Each semester, a group of more than 20 teachers in 3 different universities share their experience with the language and tools and discuss about new features and changes to the system. 
+Every modification is guided by a shared understanding about how to teach OOP \cite{lombardi_instances_2007,lombardi_carlos_alumnos_2008,griggio_programming_2011,spigariol_lucas_ensenando_2013}
 % y que muestran las grandes posibilidades que se dan a partir de esta decisión inicial: imports, tests y manejo de propiedades.
 
-The design of Wollok import system illustrates the kind of decissions we are able to make thanks to having a specialized learning language and toolset.
-By \emph{import system} we mean the way that a programming language allows the programmer to refer in one unit of code (for example a file) to program entities defined elsewhere.
+A good example about teaching-specific language-design decisions is Wollok import system,
+\ie the way that a programming language allows the programmer to refer in one unit of code (for example a file) to program entities defined elsewhere.
+The import system allows the student to write his first very simple programs without knowing about packages or modularization, which are far too complex for him at the beginning. Still, later in the course modularization concepts are introduced and even the language forces the student to separate his code in different units. 
+A full description of how the import system works and other syntax decisions can be found in \cite{javier_fernandes_wollok_2014}.
 
-\medskip
-In many languages, like C or Ruby, the default behavior is that one can only refer to \emph{programming entities} (such as classes, functions, etc) defined in the same 
-file\footnote{Even, in many cases, the definition must occur in the file before the usage to be legal.}
-These languages usually provide the notion of an \emph{include}, 
-which somehow has the effect of copying the contents of the included program file into another one.
-The unstructured nature of this reuse mechanism has many drawbacks, 
-because it yields a single namespace with the contents of the two or more files, 
-without a clear mechanism to deal with name conflicts.
-Also, file-based includes often require the programmer to be aware of the organization of the program files in directories in order to properly locate the file to be included.
-Certainly we do not desire to confront beginning programmers with this kind of subleties.
-
-Other languages, such as Java or C\# provide a more structured way to handle imports. 
-In this case, a \emph{classpath} is defined, which contains all the definitions (\ie classes) in a \emph{project}.
-To univocally identify classes, they are organized in \emph{packages} and each class \emph{full name} is the concatenation of the name of the package with the proper name of the class.
-By using the full name of the class, it can be referenced from any file in the project.
-Also, the \emph{import} directive allows the program to reference the imported class by its simple name (without package).
-In this way, name clashes are avoided, at the cost of introducing a new concept: the package.
-
-Although packages are interesting programming entities because they enable programmers to better organise larger programs, 
-they are of little use for a beginner, since his programs are not yet big enough to take advantage of dividing them into packages.
-Moreover, this model forces the programmer to define each class in a package\footnote{It is a bad programming practice to leave classes in the \emph{root package}.}, 
-and therefore the concept of package has to be introduced right in the first lecture, 
-incrementing the set of minimal concepts required for the student to grasp in order to build his first program.
-
-\medskip
-
-Wollok's imports try to combine both models in the most suitable way for initial programming students.
-On one hand, in the first part of the course, programs fit into one single file. 
-Therefore, it is simpler for students if the default scope is only one file, postponing the introduction of more advanced concepts.
-With this in mind, we leave aside package definitions; each file automatically introduces a java-like package without an explicit declaration.
-
-\subsection{Image-based vs. file-based environments}
-\label{sec:file-based}
-The second big controversy in Wollok design is the use of text files instead of storing the program in an \emph{image}.
-The most traditional way of storing dynamic OO programs is to use image files, as seen in OO environments such as Smalltalk, Self or Newspeak.
-These systems to not differentiate between program data (objects) and code (classes and methods). 
-In fact, methods and classes are objects too.
-
-While it has been claimed that these systems are well suited for OO learning, our experience contradicts this assertion.
-On one hand, beginners are uncapable of exploiting the benefits of these model. 
-For example, the idea of having classes as \emph{first-class citizens} frequently confuses them and therefore many teachers prefer to skip topic in introductory courses. \np{cite needed}.
-Another great feature of this model is the posibility of modifying code without stopping the program, 
-but, again, it is very difficult for a beginner to understand the subleties of modifying live code while-it-is-running 
-and they usually feel more secure restarting the program after each modification.
-
-We believe that any programming employs some kind of separation between program and data. 
-Even in systems in which both are modelled as objects, they will have two different life cycles: 
-objects representing program code have to be changed by the programmer
-and objects representing data have to be modified by the end user.
-If a programming enviroment blurres this separation, 
-it is because it is intended for advanced programmers which clearly understand the nature of both kind of objects 
-and handle each of them appropriately.
-While we value the augmented flexibility of this model, we find that beginners cannot exploit it.
-Also, the Wollok REPL provides a way for the student to interact with his live objects and inspect his object-environment by sending messages.
-
-In an image-based systems, an object created for a test will be kept in the image for ever if there is a reference to it.
-This is the case for stand-alone objects in Ozono, and any object referenced by them.
-While writing unit tests in this kind of environment, the programmer has to be aware of it and aquires the responsibility of avoiding side effects between tests.
-A file-based description always intrinsically provides a known starting point for running tests, 
-allowing for the use of unit testing in a very early stage of the course,
-while postponing the introduction of the more subtle concepts.
-
-\subsection{Language syntax}
-% Prototype-based inheritance
-Another issue that has been largely discussed while defining the language 
-is whether we should provide code-reuse mechanism while still in the form of stand-alone objects without classes.
-We have detected that in the early stages of the course, before introducing classes or inheritance, 
-it is easy to end up in situations in which it is difficult to avoid duplicating code.
-Therefore, later versions of Ozono have introduced prototype-based inheritance mechanism, 
-similar to that found in Self language\cite{Ungar87self:the, Ungar91organizingprograms}. 
-
-However, practice has shown that introducing this kind of inheritance did not smooth the transition between objects and classes. Actually it made it harder.
-% In addition, prototyping is an excellent abstract model for pure object languages, keeping it simple and incredible powerful.
-% But there are almost no popular or industrial languages implementing it (besides Javascript which is not exactly as standard Self prototyping). 
-Therefore, we decided to cut off any code-reuse mechanism for stand-alone objects.
-In this scenario, the first batteries of exercises have to be carefully selected, 
-in order to avoid confronting students with problems will not be able to solve gracefully.
-% When duplicated code appears as part of the course, it's important to highlight that to students, and delay solving code duplication later with classes. 
-% This subject will be analysed later when we can have results of the application of this approach instead of the one of Ozono.
-
-\medskip
-Regarding the language grammar and syntax we have at least two points that need to be discussed. 
-% Special syntax for property access
-One is whether Wollok should introduce alternative
-advanced syntax for several constructions like property access, or message
-sending. The objective of this alternative syntax would be to reduce the amount
-of code and syntax elements (\eg parenthesis, dot for sending messages, or calling getters and
-setters). Modern languages such as Scala\cite{Oder04a} and
-XTend \footnote{http://www.eclipse.org/xtend/} provide such syntactic sugar.
-However, we need to be careful because this shouldn't confuse novice programmers.
-
-% Type annotations
-The second point regarding syntax (and actually the whole language) is whether
-the language should support some kind of type-level programming. Starting from
-type annotations (to fix types for example for parameters, or variables), but
-also type aliases, which could come handy given the fact that Wollok has
-structural-types. This of course would be an advance topic for the course.
-Probably the last topic. Again this concern shouldn't confuse the student all
-over the course until reached the point where types are introduced.
-
+\bigskip
 

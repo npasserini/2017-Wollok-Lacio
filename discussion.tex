@@ -4,6 +4,8 @@
 % Discussion of actual solution \emph{vs.} initial constraints from \ref{sec:problem}. Explain the space of the solution, why we made it this way.
 % Evaluation of the solution. How does the solution meet the criteria? Where does it succeed or fails...
 
+\subsection{A brand new language}
+\label{sec:newLanguage}
 % Hacer o no hacer un lenguaje nuevo.
 A common point of controversy is whether is is worth to create a brand new language and toolset, 
 instead of building our pedagogical ideas on top of existing ones, such as Self, Ruby, Smalltalk or even Eiffel.
@@ -20,5 +22,20 @@ A good example about teaching-specific language-design decisions is Wollok impor
 The import system allows the student to write his first very simple programs without knowing about packages or modularization, which are far too complex for him at the beginning. Still, later in the course modularization concepts are introduced and even the language forces the student to separate his code in different units. 
 A full description of how the import system works and other syntax decisions can be found in \cite{javier_fernandes_wollok_2014}.
 
-\bigskip
+\subsection{To IDE or not to IDE}
+Another frequent controversy between software programmers is about the convenience of using an IDE or a simpler text editor for writing code. In the last decade, several languages, frameworks and other tools have became popular for which there are fewer visual or integrated environments. 
 
+This scarcity of tools has diverse roots. In some cases, the lack of type information undermines the possibility to implement features such as code completion, automatic refactorings or code navigation.
+In other cases the velocity of change in languages and frameworks makes it impossible for the tools to catch up.
+Frequently there is also a matter of taste, some (maybe younger) developers prefer lighter programming environments.
+In the teaching environment, it has been claimed that providing the student with too much tools will make them dependent of those tools.
+
+In our view, tools that simplify day to day work can not be neglected. We recognize that the availability of tools for several modern tecnologies is limited, but still we see that professional programmers make use of a good amount of tools to program consistently and efficiently.
+Proof of this is that the most popular text editors in industry are those that allow for additions in the form of plugins, where the programmer can create his own personalized development environment.
+Other tools that are not integrated into the development environment, are inserted into the development process by other means; for example a continuous integration process may run a \emph{linter} on each commit, check the build and run tests.
+
+So, instead of a discussion about whether we need powerful tools, we rather see an evolution from heavy monolithic environments with lots of tools onto an ecosystem of light tools that have different ways to integrate with each other allowing a developer or team to create a unique environment which accomodates to their specific needs and taste. 
+
+Still, in our specific case, we opted for an \emph{integrated} environment, because it simplifies the set up for beginners as they only have to install one piece of software which comes with all the tools they will need for the course. In more advanced courses, we think that it could be a good idea to let the students build their own environments.
+
+Finally, we think that teaching programming should include teaching the best practices that we see in the professional world. A student which knows the best practices and tools that are used in professional software development will have a significant advantage over those who lack these knowledge.

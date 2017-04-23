@@ -4,22 +4,34 @@
 % Context
 % (a) hay que arrancar introduciendo nuestra visión, contando por qué enseñamos objetos de determinada manera, por qué hicimos Ozono.
 
-% La importancia de arrancar con objetos. -- No sé si arrancar con esto.
-\emph{Object-oriented programming} (OOP) has become the \textit{de facto} standard programming paradigm in industrial software development.
-Therefore, in the last years software engineering curricula have put more emphasis in object-oriented courses.
+
+% La importancia de arrancar con objetos.
+%\emph{Object-oriented programming} (OOP) has become the \textit{de facto} standard programming paradigm in industrial software development.
+%Therefore, in the last years software engineering curricula have put more emphasis in object-oriented courses.
 % Furthermore, opinion in the community is divided as if it should be the first programming model to be presented. 
 % Problem
-Still, students often have difficulties in learning how to program in an object-oriented style which show up both in academic and in industrial environments.
+%Still, students often have difficulties in learning how to program in an object-oriented style which show up both in academic and in industrial environments.
 
-Several causes have been blamed for the difficulties in OOP learning.
-First, OO courses tend to focus too much on syntax and the particular characteristics of a language, instead of focusing on OOP distinctive characteristics.
-Second, many OO languages used in introductory courses do require to grasp a lot of quite abstract concepts before being able to build a first program.
-Finally, poor programming environments are used, although we are at a time where an unexperienced programmer could be making great use of the guidance a good programming environment could provide. These problems are not exclusive of OO courses, they are present in all the general programming courses \cite{singh2012}.
+%- aprender a programar se ha revelado como una tarea difícil.
+Teaching how to programm has revealed itself a difficult task \cite{dijkstra_89a, jenkins2002difficulty}.
+%- detectamos en particular tres aspectos presentes en muchos cursos iniciales de programación que entorpecen (hinder) el aprendizaje: uso de un lenguaje complejo, muchos conceptos para primer programa, entornos no pensados para las necesidades específicas.
+We have individualized three specific aspects present in many initial programming courses that hinder  the learning process: 
+a complex programming language,
+too much concepts needed for a first working program and
+programming environment that are not conceived for the specific needs of an initial student \cite{singh2012}.
+
+%First, OO courses tend to focus too much on syntax and the particular characteristics of a language, instead of focusing on OOP distinctive characteristics.
+%Second, many OO languages used in introductory courses do require to grasp a lot of quite abstract concepts before being able to build a first program.
+%Finally, poor programming environments are used, although we are at a time where an unexperienced programmer could be making great use of the guidance a good programming environment could provide. These problems are not exclusive of OO courses, they are present in all the general programming courses.
+
+%- múltiples iniciativas de entornos y lenguajes pedagógicos, para distintos públicos y con distintos objetivos.
 
 \medskip 
 
 % Known tracks for solutions
 % here you want to show that you are not an idiot not knowing what have been around
+
+%- en particular en objetos hay iniciativas, tanto de presentar un modelo inicial simplificado, como de definir lenguajes y entornos de propósito pedagógico.
 
 % Primero hablar de lenguajes específicos para enseñar
 There have been several proposals to address the difficulties in introductory OO courses 
@@ -34,35 +46,41 @@ The great differences between these programming languages and environments show 
 The tools are of little use without this pedagogical view.
 For example, some educational languages and environments are designed to be used in \textit{object-first} approaches, 
 \ie for students without any previous programming knowledge \cite{arnow_introduction_1998, bruce_library_2001}.
-% Children
-Other languages are focused on teaching to children or teenagers, such as Scratch \cite{malan_scratch_2007} and Etoys \cite{lee_empowering_2011}. 
-% Visualization
-Finally, there are many approaches which emphasize the importance of \emph{visualization tools} 
-to simplify the understanding of the underlying programming model \cite{cooper_teaching_2003, roberts_designing_1998}.
 
 \medskip
 % Nuestro trabajo
-
+%- en nuestra experiencia dando cursos iniciales de OOP, adoptamos un modelo simplificado inicial que prescinde de la noción de clase. Después de algunas semanas, pasamos al modelo clásico de OOP, basado en clases y herencia. Diseñamos e implementamos una serie de entornos iniciales para soportar este modelo que utilizamos en la primer parte del curso. Estos entornos eran adaptaciones del lenguaje y la herramienta principal de edición de Smalltalk, que es el lenguaje que usábamos para el resto del curso. Nos fue rebien (este párrafo está en la intro actual).
 Previous works from our team \cite{lombardi_instances_2007,lombardi_carlos_alumnos_2008,griggio_programming_2011,spigariol_lucas_ensenando_2013} have described an approach consisting of
 (a) a novel path to introduce OO concepts, focusing on objects, messages and polymorphism first, while delaying the introduction of classes and inheritance and 
 (b) a reduced and graphical programming environment which supports the order in which we introduce the concepts, by allowing to build OO programs without the need of classes.
 Our approach focuses on the concepts of object, message, reference and object polymorphism, while delaying the introduction of more abstract concepts such as types, classes and inheritance.
 These way of organizing a course provides a more gentle learning curve to students and allows them to write completely working programs from the first classes.
 
+%- A pesar del éxito, los entornos que implementamos no nos resultaron satisfactorios en algunos aspectos entre los que mencionamos: 
+While this approach proved to be successful in providing the students with a more profound knowledge of OOP at the same time as raising pass rates, 
+we feel that there is still room for improvement, in four areas:
+%  a. la gran distancia entre la experiencia en la materia y la realidad de la industria, tanto en el lenguaje como en las herramientas de desarrollo utilizadas
+(a) the difference between the experience in the classroom and the reality in (most) professional environments, both in the language as in the development tools.
+%  b. el salto entre el modelo simplificado y el modelo clásico que se daba en el curso, principalmente por la diferencia en las herramientas de desarrollo.
+(b) the gap between the simplified programming model and the classical model, mostly because of the differences between the development tools
+%  c. atarnos a un lenguaje industrial, que nos limita para definir con precisión las herramientas pedagógicas.
+(c) adherence to an industrial language limited pedagogical decisions
+
 % What our solution is \ct{Set} and \ct{OrderedCollection} (so that the reader knows where the paper is going)
 % Contribution of the paper
 % (b) lo que aprendimos en estos 8 años haciendo eso, que nos lleva a querer darle una vuelta más.
-While this approach proved to be successful in providing the students with a more profound knowledge of OOP at the same time as raising pass rates, 
-we feel that there is still room for improvement, in four areas:
-(a) integrating object-based and class-based programs together,
-(b) creating automatic ways to produce a graphical user interface (GUI),
-(c) enhancing the programming environment with a type inference tool \cite{Miln78a} that helps avoiding some common mistakes
-and (d) narrowing the distance between our language and tools with those more frequently used in industrial development.
+As a result, we decided to conceive both a programming language and an accompanying development environment, that follows closely following the pedagogical approach we advocate for an initial OOP course. 
+The main goal of this paper is to describe Wollok\footnote{
+	\url{http://www.wollok.org/}. 
+	Source code and documentation can be found in Github 
+	(\url{https://github.com/uqbar-project/wollok}).
+	Wollok is open-source and distributed under LGPLv3 License 
+	(\url{http://www.gnu.org/copyleft/lgpl.html}).}, 
+the tool we created that reunites language and environment. We point out the pedagogical considerations that suggested us to build Wollok, and how they influence various of its design decisions. We also report briefly our two-year experience using this tool in initial OOP courses.
 
-In this paper, we describe our pedagogical approach to teaching OOP\footnote{For space reasons, this paper is focused on the differences with our previous works. 
-For a more comprehensive description of the base ideas, please refer to \cite{lombardi_instances_2007,lombardi_carlos_alumnos_2008,spigariol_lucas_ensenando_2013}.}.
-Also, we describe a new language named Wollok, which we built to enable putting this ideas into practice in actual courses\footnote{Wollok is open-sourced and distributed under LGPLv3 License\footnote{http://www.gnu.org/copyleft/lgpl.html}.
-Source code and documentation can be found in Github (\url{https://github.com/uqbar-project/wollok}).}.
+%In this paper, we describe our pedagogical approach to teaching OOP\footnote{For space reasons, this paper is focused on the differences with our previous works. 
+%For a more comprehensive description of the base ideas, please refer to \cite{lombardi_instances_2007,lombardi_carlos_alumnos_2008,spigariol_lucas_ensenando_2013}.}.
+%Also, we describe a new language named Wollok, which we built to enable putting this ideas into practice in actual courses.
 
 \np{No sé si hablar de los temas de colecciones, son un poco particulares de Ozono.
 También del environment se podrían decir más cosas que sólo el sistema de tipos.}
@@ -70,7 +88,9 @@ También del environment se podrían decir más cosas que sólo el sistema de ti
 
 \medskip 
 % Paper structure
-The rest of the paper is structured as follows. In \secref{problem} we present the problems of learning Object Oriented programming, and the consequences of this difficulties to the students. \secref{wollokLanguage} describes the proposed language and the design goals and ideas we take in consideration for it. In \secref{environment} we describe the integrated development environment we have developed for Wollok and all the features it has and how they are useful for the teaching of programming skills. \secref{discussion} analyses the different design decisions we have taken, while \secref{related} compares our solution with another similar approaches. Finally, we summarize our contributions in \secref{conclusion},
-along with some possible lines of further work derived from this initial ideas. As an appendix we have Sections \ref{sec:implementation}, \ref{sec:wollokSoftware} and \ref{sec:ChecksAndValidations} which give more details about the implementation.
+%The rest of the paper is structured as follows. 
+In \secref{problem} we present the problems of learning Object Oriented programming, and the consequences of this difficulties to the students. \secref{wollokLanguage} describes the proposed language and the design goals and ideas we take in consideration for it. In \secref{environment} we describe the integrated development environment we have developed for Wollok and all the features it has and how they are useful for the teaching of programming skills. \secref{discussion} analyses the different design decisions we have taken, while \secref{related} compares our solution with another similar approaches. Finally, we summarize our contributions in \secref{conclusion},
+along with some possible lines of further work derived from this initial ideas. 
+%As an appendix we have Sections \ref{sec:implementation}, \ref{sec:wollokSoftware} and \ref{sec:ChecksAndValidations} which give more details about the implementation.
 
 

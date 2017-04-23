@@ -1,133 +1,68 @@
-\section{Problem Description}
+%\section{Problem Description}
+\section{Why Wollok?}
 \label{sec:problem}
 
 % Context, exposed with the \textbf{most precise terms possible} (don't open unwanted doors for the reader)
+% Probably set the vocabulary before to cut any misinterpretation
 
+%En la misma dirección, propongo una sección 2 bien cortita, donde nos limitemos a señalar los aspectos que apoyan lo que vamos a decir de Wollok. Y tal vez no todos, contar solamente 
+%- lo del primer programa. Sobre esto, me gustaría reforzar que este programa de OO no tiene nada, con lo cual estamos desviando el foco. Se puede meter la clase Golondrina, y un main que cree una golondrina, la haga comer, y le pregunte la energía. Y fijate todo lo que hay que hacer para tener un primer ejemplo "posta-OO". Incluiría en la lista a la consola, porque no haría ejemplos con consola en Wollok.
 % Los cursos se enfocan en sintaxis y usan lenguajes inadecuados.
-One cause behind the difficulties in learning OOP is that courses often focus on syntax and the particular characteristics of a programming language, 
-leading students to concentrate on these relatively unimportant details,
-rather than the underlying object-oriented modelling skills. 
-Also, the use of industrial languages to introduce OOP requires the student to understand several concepts before being able to run his first program. \cite{kolling_problem_1999}
-
+One cause behind the difficulties in learning OOP is the use of industrial languages, which require the student to understand several concepts before being able to run his first program \cite{kolling_problem_1999}.
 % Ejemplo con Java.
-By focusing on those details, many students fail to comprehend the essential model that transcends particular programming languages \cite{the_joint_task_force_on_computing_curricula_computing_2001}. 
-Figure \ref{fig:helloWorld} shows a typical first program, written in Java \cite{arnold_java_1996}.
-To get this program running, the student has to walk through a minefield of complex concepts: packages, classes, scoping, types, arrays and class methods among others.
-However, he is still unable to do more basic OO programming, such as sending a message to an object.
+Figure \ref{fig:helloWorld} shows an example of a possible first program, written in Java \cite{arnold_java_1996}.
+To get this program running, the student has to walk through a minefield of complex concepts: packages, classes, scoping, types, arrays, printing to standard output and class methods 
+before being able to have a first object and send a message to it.
 
 \begin{figure}[ht]
  \centering
  \begin{lstlisting}[language=Java]
 	package examples;
 	
-	public class HelloWorld {
+	public class Accumulator {
+		private int total = 0;
+		
+		public int getCurrentTotal() { return total; }
+		public void add(amount) { total += amount; }
+
 		public static void main(String[] args) {
-			System.out.println("Hello World");
+			Accumulator accum = new Accumulator();
+			accum.add(2);
+			accum.add(5);
+			accum.add(8);
+			System.out.println(accum.getCurrentTotal());
 		}
 	}
  \end{lstlisting}
- 
  \caption{\small Sample initial Java program which diverts student attention from the most important concepts.}
  \label{fig:helloWorld}
 \end{figure}
 
+%- en particular, el ruido que le hace a los alumnos arrancar con clases.
+% TODO, no estoy seguro de cómo encararlo ni de si es lo más importante.
+
 % Por eso los pibes no aprenden
-For all these reasons, courses tend to spend too much time concentrated on the mechanistic details of programming constructs, 
-leaving too little time to become fluent on the distinctive characters of OOP, 
-such as identifying objects and their knowledge \emph{relationships}, assigning \emph{responsibilities} 
-and taking advantage of \emph{encapsulation} and \emph{polymorphism} to make programs more robust and extensible.
+%- la tensión entre que te vaya bien en la materia y el uso de las ideas en la industria.
+% TODO Iría por acá?
+Courses tend to spend too much time concentrated on the details of programming constructs of a specific language, leaving too little time to become fluent on the distinctive characters of OOP. 
+%such as identifying objects and their knowledge \emph{relationships}, assigning \emph{responsibilities} 
+%and taking advantage of \emph{encapsulation} and \emph{polymorphism} to make programs more robust and extensible.
 
 % Además necesitamos environments
-To make things worse, frequently the students do not have proper tools that could help them overcoming all the obstacles.
-Already in 1999, Kolling \etal had established the importance of environments in introductory courses \cite{kolling_problem_1999}. 
-He stated that earlier introductory courses focused on the development of algorithms in procedural or functional languages. 
-To do this, an editor and a compiler was all that was needed for the practical part of the work. 
-Modern courses now use object-oriented languages and subject material taught includes testing, debugging and code reuse. 
-This creates the need to deal with multiple source files and multiple program development tools from the very start. 
-To give a beginning student a chance to cope with this increased complexity, better environment support is needed. 
+Moreover, frequently the students do not have proper tools that could help them overcoming all the obstacles.
+This might not be a problem for introductory other introductory courses, focused in on the development of algorithms in procedural or functional languages, 
+but has a significative importance for object-oriented courses that want to deal with larger programs in multiple files, teaching concepts such as testing, debugging and code reuse\cite{kolling_problem_1999}. 
 
 \medskip
-
-% Probably set the vocabulary before to cut any misinterpretation
-% Problem
-
-% Consecuencias en la acadamia y en la industria
-The failure of students to understand the essential object-oriented concepts shows both in academy as in industry.
-In academic environments we find very low completion rates in introductory OO courses.
-Moreover, students in their very beginning of an informatics career which fail their introductory programming courses, are often likely to give up their studies \cite{milne_2002}.
-In industrial development, we find that these hindrances reduce the opportunity of students to apply the concepts of the paradigm effectively in their further professional practice, 
-resulting in several IT-projects not taking advantage of the possibilities offered by the potential of good object-oriented practices \cite{lombardi_instances_2007}.
-
-\medskip 
 
 % Factual solution tracks, to position...
 \np{Contar algo de otras propuestas anteriores a la nuestra}
 \pt{No se si pondria algo, ya estan en los trabajos anteriores que estan citando. Podemos decir que lean el tuyo con carlono.}
 
-Our previous work in this area is based on the proposal to change the order of subjects in OOP introductory coures \cite{lombardi_instances_2007}, 
-starting with a \emph{Simplified Programming Model} (SPM) which includes only the most basic OOP concepts, such as objects, messages, references, methods and dynamic dispatch.
-The aim of the SPM is to provide students with the minimal set of concepts that allows them to write OO programs, exploiting polymorphism right from the beginning of the course.
-This foundations allow for an \emph{Incremental Learning Path}, \ie more abstract concepts can be added later, 
-giving the student the time to be familiarized with one concept before introducing the next one.
-
-To enable this we provided a simplified OO language with an ad-hoc educational programming environment 
-named Ozono\footnote{The name has been changing along these years. Other names for our programming environment have been ObjectBrowser, Loop and Hoope}, 
-in which students can create objects and define their behavior directly, without the need for classes and inheritance \cite{griggio_programming_2011}.
-Ozono is based on Smalltalk\footnote{The latest version currently in use in universities is based on a Smalltalk dialect named Pharo \cite{black_pharo_2010}.}.
-and thus it is a \textit{dynamic language}.
-
-We take special advantage of the dynamic characteristic of the language because it allows very simple uses of polymorphism, 
-\ie any two objects that understand a common set of messages can be treated polymorphically without worrying about inheritance or \emph{interface} implementation,
-which is indispensable if we want them to exploit polymorphism already in their programs after only two or three lectures. 
-
-Another interesting advantage is the ability to interact with the objects directly, sending different messages to them and see how they react. 
-This interactive sessions increases the understanding of the paradigm and the way the responsibilities are distributed in an object oriented program.
-
-\medskip
-This approach produced impressive results and therefore has been adopted in other courses and universities.
-The simplified programming model, allows the students to spend more time working with the essential concepts of the OO paradigm.
-This, in turn allows for more practice and more complex exercises, even incorporating more advanced OO techniques such as \emph{design patterns} \cite{Gamm03a},
-which in traditional approaches are normally postponed to a second OOP course.
-
-% Esto podría extender la descripción del problema
-%  Ozono hereda muchos de los problemas de los entornos Smalltalk
-
-% Smalltalk, however, lacks other important facilities: no visualisation tools for class
-% relations are available. The main problem with this lies in the Smalltalk language 
-% itself: since it is not statically typed, it is not possible to extract usage relations fromo
-% its source code. No indication exists before runtime as to the call relationships
-% between classes. Inheritance relationships as shown in the browser do not present
-% the relationships of one application but rather the whole Smalltalk environment and
-% so the browser is not used as an application modelling tool. .
-% Reports about the use of Smalltalk systems for teaching also point to another
-% problem: its size. While the language itself (in terms of the number of constructs) is
-% small, the class library and tools are large and often confusing. Several authors
-% reported difficulties with the students ability to cope with the environment [7, 8],
-% especially that experimentation and self directed learning was not working well
-% because students were overwhelmed by the system. They also found that the
-% functionality of the browser should be limited, since its power and flexibility caused
-% more problems than it solved. \cite{kolling_problem_1999}.
-
-
 % Our solution in a nutshell.
 % (c) las ideas nuevas... y wollok como herramienta para dar soporte a esas ideas.
 
-% Our solution: approach
-Still, the experience of eight years in four universities\footnote{Ozono is currently used in Universidad Tecnológica Nacional, F. R. Buenos Aires and F.R. Delta and 
-Universidad Nacional de Quilmes; and it have been used in Universidad Nacional de San Martín and Universidad Nacional del Oeste.}
-and thousands of students has provided us with new insights of the learning process, 
-which is what lead us to introduce several adjustements in our approach.
-
-In the first place, starting with a \emph{classless} language mandates a change of language and enviroment in the middle of the course,
-which is confusing for some students. 
-To solve this, we propose to integrate \emph{class-based} and \emph{standalone objects} in the same language.
-\np{Ver bien qué nombres les ponemos y definir los conceptos antes.}
-\pt{Me incline por standalone object, porque es lo que se usa despues.}
-
-Second, we think that the absence of static typing information (which Ozono inherits from Smalltalk) prevents our programming environment to aid the students in finding some typical beginner mistakes.
-Still, we do not want to force the students to add type annotations to their code, because that would distract them from the concepts we want to focus on.
-We propose to settle this apparent controversy by enhancing our programming environment with a type inferer.
-By doing so, the student is not required to care about type annotations, and at the same type we can detect some programming mistakes and aid the student in solving them.
+\np{A lo que sigue hasta el final de la seeción le falta una pasada.}
 
 Last, we have detected that sometimes the students which seem to understand the main concepts and can apply them in interesting ways to create medium to complex program, 
 then have a hard time translating this knowledge to their professional activity.
@@ -142,21 +77,6 @@ it allows to define both classes and standalone objects,
 incorporates a basic type inferer
 and provides a simple syntax to define unit tests.
 
-A big difference with Ozono and other educational OO languages is that Wollok is a \emph{file-based} language.
-While we recognize the value of the \emph{image-based} approaches, we also are aware that most industrial programming enviroments are file-based.
-Therefore, we think that a file-based approach will shorten the distance between the classroom and the professional activity, which is one of our main goals.
-Moreover, image-based enviromnents tend to blur the distinction between the programming environment and the program under development,
-which can embody great possibilities for advanced programmers but often does not more than confuse beginners.
-Also being file-based allows the usage of the most popular code
-repositories such as Git, and also reduces the gap for integrating the language with existing tools like code-reviewing, static code analysers and code coverage tools. 
-This tools can be easily integrated to the programming environment, giving the student the a simplify introduction to these professional tools.
-
-Finally, the programming enviroment incorporates several advanced characteristics from professional environments, 
-which improves the coding experience, and at the same time allows the student to familiarize himself with the kind of tools he will face in his later professional activity.
-For that matter, the environment incorporates content assist, automatic refactorings, advanced code navigation, 
-language semantics-aware search tools and error highlighting \emph{while-you-type}
-
-\medskip
 % Contribution
 While neither the language itself nor the programming environment contain novel features that are unseen in industrial tools,
 the assemblage of selected features, each one carefully selected due to its educational value,

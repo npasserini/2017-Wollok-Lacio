@@ -1,42 +1,59 @@
-\section{Wollok: The Language}
+\section{The Wollok Language}
 \label{sec:wollokLanguage}
 
 % Free form, variable number of sections, technical details.
 % But in general do not mix solution and discussions/possible variation let that for discussion
 
-Wollok is a brand new language, built to specifically give support to our pedagogical approach.
-Many ideas have been inherited from our previous projects, such as Ozono or Loop. 
-The most important of these inherited characteristics is the ability to create objects and treat them polymorphically without the need of type annotations, classes or inheritance.
-Also, as its predecessors and unlike other pedagogical tools, Wollok is a \emph{general purpose} language, \ie it is not tied to any specific domain.
+Wollok is a brand new language, built to specifically give support to our pedagogical approach. 
+Wollok provides aextremely simple programming model, which allows the students to create programs that including objects, messages and polymorphism, but without the need for more abstract concepts such as classes, inheritance or type annotations.
+Later in the course, Wollok allows for the incremental introduction of more abstract concepts,
+providing a smooth transition into a full-fledged OO programming model.
 
-\medskip
-One of the main objectives of building a new language is to provide a smoother transition from the first phase of the course,
-in which students use a \emph{simplified programming model} (SPM) and the second phase, in which they use a full-fledged OOP language.
-With our previous programming tools students were required to discard, in the middle of the course, the programming model and enviromnent they already knew and were used to.
-This transition has sometimes been traumatic, because the process to define an object has to be re-learnt and the tools they had been using up to that point are no longer available.
-With our new approach, the tools they first learnt are going to continue being available through all the course, together with the new ones that are incorporated in later lectures.
-This is also consistent with some modern industrial OO languages that allow to define both classes or standalone objects, such as Scala \cite{Oder04a}.
-
-\medskip
-Also we reduced to a minimum the syntax and the most basic constructs of the language.
-While this objective was already present in our previous work, the implementation strategy of Wollok allows us to go much further in accomplishing this goal, \cf Sec. \ref{sec:implementation}.
-The example in figure \ref{fig:helloWorld/wollok} shows how the classical hello world would look in Wollok.
-To build this first program students are not required to know about typing, scoping or packaging.
-The only required construct is the \lstinline[language=Wollok]{program} and the only command is a message send.
-Both the receiver and the parameters are built-in objects which will be handled in the same way as user-defined objects.
-The concepts required to understand this program are no more than program, object, message and argument passing.
+The example in figure \ref{fig:helloWorld/wollok} shows an example first program in a Wollok-based OO introductory course.
+Syntax has been reduced to a minimum and the basic constructs of the language match exactly the concepts we want to transmit, \eg \code{var} is used to define variables and \code{method} is used to define methods.
 
 \begin{figure}[ht]
  \centering
  \begin{lstlisting}[language=Wollok]
-	program {
-		console.println("Hello World!")
+	object accumulator {
+		var total = 0
+		
+		method getCurrentTotal() { return total }
+		method add(amount) { total += amount }
 	}
  \end{lstlisting}
  
  \caption{\small Sample initial Wollok program.}
  \label{fig:helloWorld/wollok}
 \end{figure}
+
+\medskip 
+
+We put special emphasis in avoiding input and output (I/O). 
+Normally, writing to standard output as it is shown in Fig. \ref{fig:helloWorld} will be considered a problem in industrial software construction.
+Therefore, teaching our students to try out their programs in this way is introducing a bad practice that will have to be \emph{unlearned} later.
+On the other hand, we need some kind of user interaction to be able to see the behavior of our programs and proper handling of user interaction is way beyond the scope of an initial OO course.
+
+The first tool we introduce to try out a program without requiring I/O is a \emph {read-eval-print-loop} (REPL). Running a program in the REPL brings all defined objects to live and allows the user to interact with them sending messages, as shown in Fig. {fig:repl}. 
+The REPL handles all I/O and the student is only required to write the desired \emph{domain object}.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[scale=0.6]{images/accumulator-repl.png}
+ \caption{\small Sample usage of the accumulator program in the REPL}
+ \label{fig:repl}
+\end{figure}
+
+
+%This is also consistent with some modern industrial OO languages that allow to define both classes or standalone objects, such as Scala \cite{Oder04a}.
+
+\medskip
+
+To build this first program students are not required to know about typing, scoping or packaging.
+The only required construct is the \code{program} and the only command is a message send.
+Both the receiver and the parameters are built-in objects which will be handled in the same way as user-defined objects.
+The concepts required to understand this program are no more than program, object, message and argument passing.
+
 
 \medskip
 % Effect

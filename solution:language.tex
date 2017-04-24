@@ -47,29 +47,53 @@ The REPL handles all I/O and the student is only required to write the desired \
 
 %This is also consistent with some modern industrial OO languages that allow to define both classes or standalone objects, such as Scala \cite{Oder04a}.
 
-\medskip
+%To build this first program students are not required to know about typing, scoping or packaging.
+%The only required construct is the \code{program} and the only command is a message send.
+%Both the receiver and the parameters are built-in objects which will be handled in the same way as user-defined objects.
+%The concepts required to understand this program are no more than program, object, message and argument passing.
 
-To build this first program students are not required to know about typing, scoping or packaging.
-The only required construct is the \code{program} and the only command is a message send.
-Both the receiver and the parameters are built-in objects which will be handled in the same way as user-defined objects.
-The concepts required to understand this program are no more than program, object, message and argument passing.
+Shortly after in the course, we introduce unit testing which slowly replace the REPL as the main form of interacting with objects. Figure \ref{fig:test} shows a sample test for the previous program. 
 
+\begin{figure}[ht]
+ \centering
+ \begin{lstlisting}[language=Wollok]
+ 	import accumulator.*
 
-\medskip
+	test "accumulator starts with 0" {
+		accumulator.add(2)
+		accumulator.add(5)
+		accumulator.add(8)
+		assert.equals(15, accumulator.getCurrentTotal())		
+	}
+   
+	test "accumulator starts with 0" {
+		assert.equals(0, accumulator.getCurrentTotal())
+	}
+ \end{lstlisting}
+ 
+ \caption{\small Sample initial Wollok program.}
+ \label{fig:helloWorld/wollok}
+\end{figure}
+
+Again here Wollok is fine-tuned for our pedagogical objectives.
+For example, tests have to be written in a separate file, which introduces the student into some basic knowledge of modularization.
+Also, the test runner guarantees that there is no interaction between tests: the messages sent to the accumulator in the first test will not affect the state of the accumulator in the second test\np{sería lindo tener una cita a alguna regla de unit testing que proponga esto}.
+
+\bigkip 
 % Effect
 \np{Esto requeriría una mención en la intro, o en general una explicación más detallada.}
 Another concept we propose to emphasize in the first programming courses is the control of side effects, 
 \ie a programmer should be aware of the potential side effects of each portion of code.
 The most basic feature in Wollok to control side effects is the ability to 
-differentiate variables (defined using \lstinline[language=Wollok]{var})
-from constants (defined using \lstinline[language=Wollok]{val}).
+differentiate variables (defined using \code{var})
+from constants (defined using \code{const}).
 One step forward is to incorporate an \emph{effect system} \cite{nielson_type_1999}, \cf Sec. \ref{sec:furtherWork}.
 
 \medskip
 % Misceláneos
 % Profundizar y pulir el highlighting the conceptos primarios y la estratificacion de conceptos
 To sum up, there are several simple features which help structure the way a student sees his programming activity.
-\emph{Object literals} and \emph{collection literals} reduce boilerplate on object creation, 
+\emph{Collection literals} reduce boilerplate on object creation, 
 since we think that the excess of bureaucracy to create an object helps to build up 
 the belief that using objects or collections is far more complicated than using numbers or strings, which in turns leads to \emph{primitive obsession} \cite{fowler_refactoring:_1999}.
 % Objetos no como un elemento de la IDE -Ozono: nueva referencia global, sino como un elemnto del lenguaje. Evita referencias globales.

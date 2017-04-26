@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TexmakerSession quickmode="3">
-    <document bookmark2="0" line="15" file="/home/nico/checkout/papers/2017-Wollok-Lacio/introduction.tex" bookmark3="0" hasfocus="false" master="false" bookmark1="0"/>
-    <document bookmark2="0" line="59" file="/home/nico/checkout/papers/2017-Wollok-Lacio/main.tex" bookmark3="0" hasfocus="true" master="true" bookmark1="0"/>
+    <document bookmark1="0" hasfocus="false" master="false" file="/home/nico/checkout/papers/2017-Wollok-Lacio/solution:language.tex" line="95" bookmark2="0" bookmark3="0"/>
+    <document bookmark1="0" hasfocus="false" master="false" file="/home/nico/checkout/papers/2017-Wollok-Lacio/problem.tex" line="37" bookmark2="0" bookmark3="0"/>
+    <document bookmark1="0" hasfocus="true" master="true" file="/home/nico/checkout/papers/2017-Wollok-Lacio/main.tex" line="0" bookmark2="0" bookmark3="0"/>
 </TexmakerSession>

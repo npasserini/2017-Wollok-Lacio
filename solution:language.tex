@@ -59,7 +59,7 @@ Shortly after in the course, we introduce unit testing which slowly replace the 
  \begin{lstlisting}[language=Wollok]
  	import accumulator.*
 
-	test "accumulator starts with 0" {
+	test "adding 2+5+8 should give 15" {
 		accumulator.add(2)
 		accumulator.add(5)
 		accumulator.add(8)
@@ -102,38 +102,54 @@ For example, our \code{accumulator} object can be implemented as shown in Fig. \
 	}
  \end{lstlisting}
  
- \caption{\small Sample initial Wollok program.}
+ \caption{\small Another accumulator implementation, using a list.}
  \label{fig:accumulator/list}
 \end{figure}
 
-Figure \ref{fig:polymorphism} shows some of the mentioned features.
-The programs includes two objects which are treated polymorphically, collections and block closures.
-Students should be able to build such a program after four lectures.
-In the first lecture we introduce objects, messages, methods and references;
-in the second one we focus on polymorphism;
-and in the following two we work with blocks and collections.
-
-\np{¿Deberíamos hablar de la diferencia entre objeto y referencia?}
+\medskip
+Next in the course, we introduce classes.
+Once more, Wollok helps us in the transition: any pre-existent stand-alone object can be converted into a class by just changing the keyword \code{object} for \code{class}\footnote{As a matter of fact, we will also change the name, as our code convention mandates lowercase names for objects and uppercase names for classes}, as shown in Fig. \ref{fig:accumulator/classes}.
 
 \begin{figure}[ht]
  \centering
  \begin{lstlisting}[language=Wollok]
-	program myProgram {
-		val optimistic = object {
-			method hiThere() {
-				"Hi, what an amazing day !"
-			}
+	class ListBasedAccumulator {
+		var history = []
+		
+		method getCurrentTotal() { 
+			return history.sum() 
 		}
+		method add(amount) { history.add(amount) }
+	}
+ \end{lstlisting}
+ 
+ \caption{\small A third accumulator implementation, class based.}
+ \label{fig:accumulator/classes}
+\end{figure}
 
-		val pessimistic = object {
-			method hiThere() {
-				"Don't talk to me, it's a terrible day!"
-			}
+\medskip
+Figure \ref{fig:polymorphism} shows how the three previous definitions of accumulator can be used polymorphically. 
+Also it shows the usage of more advanced list messages and closures\footnote{Our pedagogical method suggests to introduce polymorphism and closures \emph{before} classes. For reasons of space we removed intermediate examples here}.
+A special mention has to be made about the fact of stand-alone objects being used in the same program and even being polymorphic with class-based objects.
+
+\begin{figure}[ht]
+ \centering
+ \begin{lstlisting}[language=Wollok]
+ 	import accumulator.*
+
+	test "adding 2+5+8 should give 15" {
+		const accumulators = [ 
+			accumulator, 
+			listBasedAccumulator,
+			new ListBasedAccumulator()
+		]
+
+		accumulators.forEach { accum =>
+			accum.add(2)
+			accum.add(5)
+			accum.add(8)
+			assert.equals(15, accum.getCurrentTotal())	
 		}
-		
-		val all = #[optimistic, pessimistic]
-		
-		console.println(all.map[p| p.hiThere()])
 	}
  \end{lstlisting}
  

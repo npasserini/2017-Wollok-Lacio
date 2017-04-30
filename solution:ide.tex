@@ -1,30 +1,30 @@
 \section{A Customized Programming Environment}
 \label{sec:environment}
 
+
+The features that influence the experience of the learning programmer are not limited to the programming language she uses. 
+The \emph{tools} through with the code is written, analyzed and evaluated have a paramount relevance for this experience, and therefore for the success of the programming courses.
+
 Beginner programmers are likely to require more guidance and make more mistakes than experienced programmers.
-Therefore, we think that is much to gain from a good programming environment which structures the programming experienced and helps the students to identify common mistakes.
+Also, the kind of support required by experienced programmer from her development environment is different from that required by a beginner, \eg an experienced programmer might select her programming environment thinking on increasing productivity.
+One very important feature a beginner requires from her programming environment is \emph{discoverability}, \ie the tools should help discover possible paths of action and gently provide feedback when the student makes a mistake, helping her to understand what was wrong and how to fix her program.
+Finally, all programmers require tools that help them understand, navigate and explore their programs.
 
-The Wollok programming environment includes a lot of features that provide guidance to the student.
-\emph{Content assist} shows the students what are his possibilities at any moment and feeds automatically into the code the most usual constructs, 
-allowing the student to concentrate less on syntax and more in the modelling of the exercise problem.
-\emph{Quick-fixes} allow Wollok not only to highlight problems in the student's code but also to propose automatic solutions for some usual mistakes.
-\emph{Advanced code navigation} and \emph{smart reference searches} allow the programmer to better understand the dependencies in his program.
-Moreover, \emph{automatic class diagrams} provide a high level view of the program and also helps understanding.
+\medskip 
 
-\medskip
+We decided to embed the Wollok language in an integrated programming environment, whose features are designed having in mind the specific needs of novice programmers.
+In our view. the tools provided by the environment are a fundamental part of the Wollok proposal, in equal terms with the language features.
 
-Unlike many traditional OO programming environments, which are image-based, Wollok is file-based.
-While we have found solid grounds for taking this decission (\cf \secref{file-based}), 
-we also recognize the importance of a \emph{live object environment}, 
-\ie a work space in which the programmer can interact with live objects by sending them messages.
-As in many file-based OO and scripting languages, in Wollok this kind of interaction is achieved through an interactive console or 
-REPL\footnote{Read-eval-print-loop \cite{hey2014computing}.}
-The interactive console allows the programmer to inspect the state of his program or modify it, both at the end of an execution or in the middle of a debug session.
-However, right now we do not provide a way to modify the program while it is running, as it happens in classigal image-based environments.
-This kind of features have been postponed because we we think that modifying the code in the middle of a program run 
-usually has subtle consecuences that are difficult to grasp for an unexperienced programmer.
-It is not uncommon to see that students get confused when they try to modify live code, 
-so there is a high price to pay with little to gain in return.
+In particular, the Wollok environment provides tools focused to the following goals:
+\begin{itemize}
+\item To guide and easy the acual code writing.
+\item To detect several of the most common mistakes done by novices, providing adequate feedback, and even to provide possible corrections when they can be computed.
+\item Navigate an give different perspectives of the defined objects and classes.
+\item Organize the code that is produced along the course.
+\item Test and experiment with objects, both those provided by the student and those provided by Wollok.
+\end{itemize}
+
+We remark that several of the tools that the Wollok environment provides are common, in exact or approximate form, to those provided by mainstream industrial IDEs like e.g. Eclipse, Visual Studio or the Idea series. In this way, we aim to make both the programming experience more appealing to the students, and the transition to later courses and work environments softer; while giving adequate support to the learning process through the same tools.
 
 % Detect mistakes
 \subsection{Detecting mistakes}
@@ -32,7 +32,7 @@ The programming environment has many tools intended to help detecting mistakes.
 We make special emphasis in detecting errors \emph{while} the student is writing code. \np{Acá se podría hablar más}
 \emph{Syntax highlighting} helps identify the most simple mistakes by providing immediate feedback when something is not right. 
 Moreover, the environment provides \emph{real-time highlights} for several kinds of mistakes (\cf \figref{check-noMethodOnThis.png}).
-Finally, the \emph{type inferer} allows to detect more subtle mistakes.
+Finally, the environment has a (basic) \emph{type inferer} which in some cases detects more subtle mistakes.
 
 \begin{figure}[ht]
     \centering

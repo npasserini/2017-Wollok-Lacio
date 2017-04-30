@@ -17,7 +17,7 @@ In our view. the tools provided by the environment are a fundamental part of the
 
 In particular, the Wollok environment provides tools focused to the following goals:
 \begin{itemize}
-\item To guide and easy the acual code writing.
+\item To guide and ease the acual code writing.
 \item To detect several of the most common mistakes done by novices, providing adequate feedback, and even to provide possible corrections when they can be computed.
 \item Navigate an give different perspectives of the defined objects and classes.
 \item Organize the code that is produced along the course.
@@ -25,6 +25,19 @@ In particular, the Wollok environment provides tools focused to the following go
 \end{itemize}
 
 We remark that several of the tools that the Wollok environment provides are common, in exact or approximate form, to those provided by mainstream industrial IDEs like e.g. Eclipse, Visual Studio or the Idea series. In this way, we aim to make both the programming experience more appealing to the students, and the transition to later courses and work environments softer; while giving adequate support to the learning process through the same tools.
+
+\medskip
+
+% To guide and ease the acual code writing
+We have noticed that the first barrier for novices is the strictness of a programming language syntax. Frequently initial students find annoying that their program will not execute if they forget a closing brace or mispell a keyword or a variable name, in many cases even a case error stops execution or produces unexpected results.
+Syntax highlighting is very helpful by providing a very fast visual feedback about a mispelled keyword.
+Also, like many modern code editors, the Wollok IDE automatically creates a matching closing symbol each time the programmer types a parenthesis, square braket or braces. 
+Also the IDE helps correctly indenting the code inside code portions enclosed in braces or square brakets, which both helps avoiding frustrating syntax problems and starts to induce best practices about code organization.
+
+  - La decisión de permitir que en un mismo archivo fuente se definan varios objetos o clases. Esto permite que los primeros ejercicios, que aún siendo pequeños involucran varios objetos o clases, puedan resolverse en un único archivo. Después el mecanismo sencillo de modularización incluido en el lenguaje permite extendernos a varios archivos, y las facilidades de organizacion de código (de las que hablaremos a continuación) ayudan a evitar el caos de fuentes.
+- Otros que requieren un buen nivel de análisis del código.
+  - Content assist, o sea Ctrl-Space. Este creo que anda mejor para objetos bien conocidos que para clases, se puede defender diciendo que nos concentramos en la ayuda que proporcionamos at the very beginning.
+ 
 
 % Detect mistakes
 \subsection{Detecting mistakes}

@@ -62,9 +62,9 @@ On the other hand, runtime checks are not only slower but also open to be skippe
 Second, error reporting should provide with clear messages, explained in the same terms in which the teacher talks to the students. 
 Also, inline error reports, \eg underlining the offending code, relieves the student from the task of mapping the detected problem with the possible cause 
 
-Third, propose solutions.
-
+Third, in some situations, the IDE can propose possible automatic fixes to the detected problems.
 Figure \ref{fig:errorReporting} exemplifies these features. The mispelled identifier is underlined and if we put the mouse on the error report we get an error message and a possible fix.
+In this case, the automatic fix will insert an empty method in the adecquate position.
 
 \begin{figure}[ht]
  \centering
@@ -74,13 +74,20 @@ Figure \ref{fig:errorReporting} exemplifies these features. The mispelled identi
 \end{figure}
 
 \medskip
-Empower al chico a probar sus ideas.
+Together, this characteristics are meant to empower the student to explore different ideas, 
+providing positive feedback in case he makes a mistake.
 
+While this does not replace the more personalized feedback a teacher can provide, in several situations a sensitive automatic feedback can help the student not to stay stuck with simple errors waiting for a response.
+This in turn allows for more exercises during the course.
 
-La detección de errores quitan carga de trabajo al maestro.
-Permiten no explicar determinados temas.
+Moreover, automatic detection acts as a (basic) assistant teacher, \ie some simple topics that are not crucial for the course can be left for the student to learn by herself in the interaction with the IDE.
+This is specially efficient for some kind of errors that occur only for specific groups of students, \eg those with previous non-academic OO experience. 
+Tackling this errors in class, would imply to show a bad solution to the rest of the students, that had otherwise not thought about it. This would be a fine strategy in an advanced course, but will confuse beginners.
+Instead, we prefer let the IDE detect the mistake and show possible solutions, only for the students that effectively incurr in these kind of errors.\np{Faltaría un ejemplo.}
 
-The next topic in helping novice programmers in leearning how to program is 
+\medskip
+Los errores que analizamos salen de la experiencia en el aula.
+
 To detect several of the most common mistakes done by novices, providing adequate feedback, and even to provide possible corrections when they can be computed.
 
   - Error indications with adequate messages. De esto daría algunos ejemplos que nos parezca piola resaltar, no sería exhaustivo.

@@ -41,12 +41,25 @@ This allows the teacher to go deeper in the initial examples in playing with sev
 These concepts will arise later in the course, when students' programs increase their complexity to a level that demands for modularization (\cf \ref{sec:modularization}).
 \np{¿Esto no es una característica del lenguaje?}
 
-The Wollok IDE also has integrated a powerful \emph{code analyser} that enables for \emph{content assistance}, 
-\ie in certain contexts, the IDE can autocomplete an identifier name, or provide a list of possible completions if there are many.
+The Wollok IDE also has integrated a powerful \emph{code analyser} that enables for \emph{content assistance}\np{¿Está bien este nombre?}, 
+\ie in certain contexts, the IDE can autocomplete an identifier name, or provide a list of possible completions if there are many (\cf Fig. \ref{fig:codeCompletion}).
 This is available for all types of variables and constants and messages sent to \code{self}, \code{super} or any WKO\footnote{Current work in progress includes a type inference system that once completed should allow to add content asistance for any message send}. 
  
-% Detect mistakes
+\begin{figure}[ht]
+ \centering
+ \includegraphics[scale=0.6]{images/codeCompletion.png}
+ \caption{\small A list of suggestions from the Wollok IDE content assistance.}
+ \label{fig:codeCompletion}
+\end{figure}
+
+% Detect errors and help fixing them
 \subsection{Detecting mistakes}
+To detect several of the most common mistakes done by novices, providing adequate feedback, and even to provide possible corrections when they can be computed.
+
+  - Error indications with adequate messages. De esto daría algunos ejemplos que nos parezca piola resaltar, no sería exhaustivo.
+  - Quick fixes.
+
+
 The programming environment has many tools intended to help detecting mistakes.
 We make special emphasis in detecting errors \emph{while} the student is writing code. \np{Acá se podría hablar más}
 \emph{Syntax highlighting} helps identify the most simple mistakes by providing immediate feedback when something is not right. 

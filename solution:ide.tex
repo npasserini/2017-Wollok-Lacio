@@ -47,13 +47,27 @@ This is available for all types of variables and constants and messages sent to 
  
 \begin{figure}[ht]
  \centering
- \includegraphics[scale=0.6]{images/codeCompletion.png}
+ \includegraphics[scale=0.45]{images/codeCompletion.png}
  \caption{\small A list of suggestions from the Wollok IDE content assistance.}
  \label{fig:codeCompletion}
 \end{figure}
 
-% Detect errors and help fixing them
-\subsection{Detecting mistakes}
+\subsection{Detect mistakes and help fixing them}
+Another dimension of the programming environment is helping the programmer to recover from his mistakes. 
+
+First, we aim for \emph{static error detection} whenever possible, because it provides faster feedback than runtime checks.
+Some errors can be even reported as the programmer is typing.
+On the other hand, runtime checks are not only slower but also open to be skipped in some program executions.
+
+Second, error reporting should provide with clear messages, explained in the same terms in which the teacher talks to the students. 
+Also, inline error reports, \eg underlining the offending code, relieves the student from the task of mapping the detected problem with the possible cause (\cf fig:errorReporting). 
+
+Third, propose solutions.
+
+La detección de errores quitan carga de trabajo al maestro.
+Permiten no explicar determinados temas.
+
+The next topic in helping novice programmers in leearning how to program is 
 To detect several of the most common mistakes done by novices, providing adequate feedback, and even to provide possible corrections when they can be computed.
 
   - Error indications with adequate messages. De esto daría algunos ejemplos que nos parezca piola resaltar, no sería exhaustivo.

@@ -106,17 +106,22 @@ Each semester, we receive reports of the teachers using Wollok which include the
 %
 %Here is a list of all the validations and checks the tool supports, and a brief reason why they are useful while teaching object oriented programming:
 
-\subsection{Understanding and browsing a program}
-- Facilidades de navegación.
-  - Ctrl-O. 
-  - F3. Este es útil para usar desde los tests.
-  - Alt-flecha. Decir que es intuitivo en la era del browser.
-  - Más adelante, Ctrl-E.
+\subsection{Understanding and navigating a program}
+Simple \emph{code navigation} tools can significantly improve the programming experience.
+For example the Wollok IDE allows to go in one click from a message send to its implementation\footnote{In the cases that is identifiable by the static analyser} and a keyboard shortcut\footnote{\code{ALT + left arrow} which is familiar to students due to its universal adoption in web browsers.} to go back to the previous location.
+Fast navigation back and forth through a program allows for better understanding of the relationship between the different portions of it.
+We have seen that lack of proper navigation tools might mislead the student to avoid correct modularization of their program, as they run into difficulties coping with a program that is divided in several small pieces.
 
-Otras herramientas
-- Esquema. Me viene muy cómodo. Además de dar una vista a vuelo de pájaro de los objetos y clases definidos, es una facilidad adicional de navegación. Destacar que distingue los métodos con y sin efecto.
+Also, code visualization tools help understanding bigger programs and are as useful for beginners as they are for experienced programmers.
+The Wollok IDE provides an outline view (\cf Fig. \ref{fig:outline}) and automatic static diagrams (\cf Fig. \ref{fig:staticDiagram}).
+These higher-level views of the program, allow the student to gain practice in abstracting herself of the details of some portions of a program, understanding her objects and classes as black boxes that provide some services, instead of attempting to have all of them in her head at all times, which is a necessary skill for being able to participate in a largern project.
 
-Yo agregaría diagramas.
+% No puse nada de:
+% - Ctrl-O, es medio difícil de explicar, no sé.
+% - Tampoco sé bien bien qué decir del Ctrl-E
+% - Destacar que distingue los métodos con y sin efecto, si bien esto es un feature interesante, creo que es medio descolgado en este punto o habría que hablar más largo sobre por qué esa diferenciación que no está en ningún lado, creo.
+
+\np{Faltan las imágenes}
 
 \subsection{Encouraging best programming practices}
 Organize the code that is produced along the course.

@@ -86,55 +86,57 @@ Tackling this errors in class, would imply to show a bad solution to the rest of
 Instead, we prefer let the IDE detect the mistake and show possible solutions, only for the students that effectively incurr in these kind of errors.\np{Faltaría un ejemplo.}
 
 \medskip
-Los errores que analizamos salen de la experiencia en el aula.
 
-To detect several of the most common mistakes done by novices, providing adequate feedback, and even to provide possible corrections when they can be computed.
+%  - Error indications with adequate messages. De esto daría algunos ejemplos que nos parezca piola resaltar, no sería exhaustivo.
+%  - Quick fixes.
 
-  - Error indications with adequate messages. De esto daría algunos ejemplos que nos parezca piola resaltar, no sería exhaustivo.
-  - Quick fixes.
+Finally, the great majority of validations and automatic proposals, are the result of our experience in the classroom, looking at the students using the Wollok language and IDE, as well as other languages and tools we have used in the past.
+Each semester, we receive reports of the teachers using Wollok which include the type of errors the students make most often, trying to improve the network of validations and proposals, in order to improve the learning experience.
 
+%\medskip
+%This validations are organized and shown in a unified way, using a dedicated section of the user interface for their display.
+%All the results of the checking and the validation of the program is shown in one integrated view, it is called \emph{Problems View}, Fig. \figref{problemsview.png} shows a view of this feature. 
+%
+%\begin{figure}[ht]
+%    \centering
+%	\includegraphics[scale=0.5]{images/wollok-paper-check-problemsview.png}
+%    \caption{Problems View: shows the different problems detected by the IDE }
+%    \label{fig:problemsview.png}
+%\end{figure}
+%
+%Here is a list of all the validations and checks the tool supports, and a brief reason why they are useful while teaching object oriented programming:
 
-The programming environment has many tools intended to help detecting mistakes.
-We make special emphasis in detecting errors \emph{while} the student is writing code. \np{Acá se podría hablar más}
-\emph{Syntax highlighting} helps identify the most simple mistakes by providing immediate feedback when something is not right. 
-Moreover, the environment provides \emph{real-time highlights} for several kinds of mistakes (\cf \figref{check-noMethodOnThis.png}).
-Finally, the environment has a (basic) \emph{type inferer} which in some cases detects more subtle mistakes.
+\subsection{Understanding and browsing a program}
+- Facilidades de navegación.
+  - Ctrl-O. 
+  - F3. Este es útil para usar desde los tests.
+  - Alt-flecha. Decir que es intuitivo en la era del browser.
+  - Más adelante, Ctrl-E.
 
-\begin{figure}[ht]
-    \centering
-	\includegraphics[scale=0.5]{images/wollok-paper-check-noMethodOnThis.png}
-    \caption{Detection of an error sending a message to \emph{this} which doesn't exist}
-    \label{fig:check-noMethodOnThis.png}
-\end{figure}
+Otras herramientas
+- Esquema. Me viene muy cómodo. Además de dar una vista a vuelo de pájaro de los objetos y clases definidos, es una facilidad adicional de navegación. Destacar que distingue los métodos con y sin efecto.
 
-% Este no sé cómo ponerlo, es muy crítica al smalltalk.
-% 8-reducir errores frustrantes: se cancela la edicion por tener 1 solo editor de metodo por ves (poder visualizar más que un sólo método simul), evitar errores de imagenes)
+Yo agregaría diagramas.
 
-This validations are organized and shown in a unified way, using a dedicated section of the user interface for their display.
-All the results of the checking and the validation of the program is shown in one integrated view, it is called \emph{Problems View}, Fig. \figref{problemsview.png} shows a view of this feature. 
+\subsection{Encouraging best programming practices}
+Organize the code that is produced along the course.
 
-\begin{figure}[ht]
-    \centering
-	\includegraphics[scale=0.5]{images/wollok-paper-check-problemsview.png}
-    \caption{Problems View: shows the different problems detected by the IDE }
-    \label{fig:problemsview.png}
-\end{figure}
+Otras herramientas
+- Manejo de proyectos. Esto es útil para el estudiante, porque ayuda a evitar el caos de fuentes. Y también para el docente, cuando debe corregir entregas de varios alumnos.
+Contar que marca los errores a distintos niveles.
 
 Checks and validations are not only used to show type errors or syntax errors, 
 but also to encourage some properties of the program we consider as main topics in the learning process of an OO language.
-Here is a list of all the validations and checks the tool supports, and a brief reason why they are useful while teaching object oriented programming:
+
+In this way the IDE becomes useful in the objective of teaching programming concepts, instead of only showing syntax errors.
 
 \begin{itemize}
-  \item \textbf{Syntax Errors}: this category involves all the errors detected by the parser and the lexical analyser of the language.
   \item \textbf{Style Errors}: this category is useful to teach good practices and to start to talk about code quality, reuse and code sharing.
 	\begin{itemize}
 		\item \textit{Case in Names}: respecting the difference case conventions for
 		names (\eg using \textit{camelCase} starting with lower case for variables,
 		using camel case starting with upper case for classes).
 		\item \textit{Order and grouping}: inside the definition of an object or class the internal references are declared first, then the constructors and finally the methods.
-		\item \textit{Modularization}: the classes can only be defined in a library and not in the main program.		
-		\item \textit{Duplicated references}: it is impossible to declare a reference using an already used name. 
-			This encourages the idea of avoiding name shadowing and improves the readability of the program.
 	\end{itemize}
   \item \textbf{References resolution problems}: this errors are useful to detect and avoid references to undeclared variables and also errors in the sending of messages.
   
@@ -158,6 +160,7 @@ Here is a list of all the validations and checks the tool supports, and a brief 
     \caption{Detection of unused variables}
     \label{fig:check-unusedVariable.png}
 \end{figure}
+
 
 \subsection{Type Inference}
 % Type inferer
@@ -183,19 +186,4 @@ Notice that the inferred type for the object \code{ufo} is a structural type: \c
     \label{fig:check-messageSending.png}
 \end{figure}
 
-\subsection{Beyond showing mistakes}
-The IDE is not restricted to showing what is wrong, but also generates proposals known as \emph{quick fixes}.
-\figref{quickfix.png} shows an example of one of such proposals. 
-In this case the IDE detects that we are sending a message that the receiver does not understand and proposes to create the corresponding method.
-
-\begin{figure}[ht]
-    \centering
-	\includegraphics[scale=0.5]{images/wollok-paper-quickfix.png}
-    \caption{Quick fix tool for common errors and mistakes}
-    \label{fig:quickfix.png}
-\end{figure}
-
-All these tools allow the student to gain more control of his code, keeping him away from feeling lost, 
-which is otherwise a common situation for a student walking his first steps into programming.
-In this way the IDE becomes useful in the objective of teaching programming concepts, instead of only showing syntax errors.
 

@@ -106,6 +106,12 @@ Each semester, we receive reports of the teachers using Wollok which include the
 %
 %Here is a list of all the validations and checks the tool supports, and a brief reason why they are useful while teaching object oriented programming:
 
+%  \item \textbf{References resolution problems}: this errors are useful to detect and avoid references to undeclared variables and also errors in the sending of messages.
+%	\begin{itemize}
+%	  \item \textit{Undeclared references}: from local variables, parameters or internal fields of objects and classes.
+%	  \item \textit{Undefined constructors}: checking for the number and type of the parameters.
+%	  \item \textit{Messages to this}: sending messages to this is a special case, here we can check the existence of the correct method by the number and type of the arguments, even without using type inference.
+
 \subsection{Understanding and navigating a program}
 Simple \emph{code navigation} tools can significantly improve the programming experience.
 For example the Wollok IDE allows to go in one click from a message send to its implementation\footnote{In the cases that is identifiable by the static analyser} and a keyboard shortcut\footnote{\code{ALT + left arrow} which is familiar to students due to its universal adoption in web browsers.} to go back to the previous location.
@@ -129,6 +135,18 @@ These higher-level views of the program, allow the student to gain practice in a
 % - Destacar que distingue los métodos con y sin efecto, si bien esto es un feature interesante, creo que es medio descolgado en este punto o habría que hablar más largo sobre por qué esa diferenciación que no está en ningún lado, creo.
 
 \subsection{Encouraging best programming practices}
+A major part of the IDE is devoted to enforce good programming practices, which we consider as a main topic in a programming learning course.
+For example, it compels the programmer to a predefined order inside a class definition, \ie grouping all variables and constants in the first place, then constructors and finally methods. 
+Also it establishes some basic rules about naming and restricts the usage of global variables.
+
+While the specific rules could be debated forever, and independently of the conventions chosen,
+we think that good programming practices have to be taught from the very beginning.
+In their first programs, students might not be able to appreciate the advantages of good variable names or correct code indentation, these are attributes that are more easily appreciated on larger programs.
+Therefore, we have to actively enforce them, and have them get used to writing and reading good quality code.
+We do not want them to acquire bad programming practices that will be difficult to \emph{unlearn} later.
+\np{Si hay lugar se podría agregar una imagen para ejemplificar algunos errores}
+
+\medskip
 Organize the code that is produced along the course.
 
 Otras herramientas
@@ -142,20 +160,7 @@ In this way the IDE becomes useful in the objective of teaching programming conc
 
 \begin{itemize}
   \item \textbf{Style Errors}: this category is useful to teach good practices and to start to talk about code quality, reuse and code sharing.
-	\begin{itemize}
-		\item \textit{Case in Names}: respecting the difference case conventions for
-		names (\eg using \textit{camelCase} starting with lower case for variables,
-		using camel case starting with upper case for classes).
-		\item \textit{Order and grouping}: inside the definition of an object or class the internal references are declared first, then the constructors and finally the methods.
-	\end{itemize}
-  \item \textbf{References resolution problems}: this errors are useful to detect and avoid references to undeclared variables and also errors in the sending of messages.
   
-	\begin{itemize}
-	  \item \textit{Undeclared references}: from local variables, parameters or internal fields of objects and classes.
-	  \item \textit{Undefined constructors}: checking for the number and type of the parameters.
-	  \item \textit{Messages to this}: sending messages to this is a special case, here we can check the existence of the correct method by the number and type of the arguments, even without using type inference.
-	\end{itemize}
-	
   \item \textbf{Reference usage}: 
 		these errors are useful for the detection of erroneous or \textit{dead code}, such as unused variables or references, 
 		sending messages to never assigned variables, using variables instead of values, existence of the overridden method.

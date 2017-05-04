@@ -146,28 +146,11 @@ Therefore, we have to actively enforce them, and have them get used to writing a
 We do not want them to acquire bad programming practices that will be difficult to \emph{unlearn} later.
 \np{Si hay lugar se podría agregar una imagen para ejemplificar algunos errores}
 
-\medskip
-Organize the code that is produced along the course.
-
-Otras herramientas
-- Manejo de proyectos. Esto es útil para el estudiante, porque ayuda a evitar el caos de fuentes. Y también para el docente, cuando debe corregir entregas de varios alumnos.
-Contar que marca los errores a distintos niveles.
-
-Checks and validations are not only used to show type errors or syntax errors, 
-but also to encourage some properties of the program we consider as main topics in the learning process of an OO language.
-
-In this way the IDE becomes useful in the objective of teaching programming concepts, instead of only showing syntax errors.
-
-\begin{itemize}
-  \item \textbf{Style Errors}: this category is useful to teach good practices and to start to talk about code quality, reuse and code sharing.
-  
-  \item \textbf{Reference usage}: 
+\textbf{Reference usage}: 
 		these errors are useful for the detection of erroneous or \textit{dead code}, such as unused variables or references, 
 		sending messages to never assigned variables, using variables instead of values, existence of the overridden method.
 		\figref{check-unusedVariable.png} shows an example of an unused variable error.
 
-  \item \textbf{Type Errors}: the errors are useful for the validation of the compatibility between the references, its possible types, and the messages sent to them, this is performed by the type system and its inferer (\eg message sending, assignation of variables).
-\end{itemize}
 
 \begin{figure}[ht]
     \centering
@@ -176,6 +159,16 @@ In this way the IDE becomes useful in the objective of teaching programming conc
     \label{fig:check-unusedVariable.png}
 \end{figure}
 
+\medskip
+At a higher level, the Wollok IDE is designed to help the students organize the code they produce along the course. 
+Projects have a predefined directory structure including both files for class/object definitions and tests.
+Frequently this is also accompanied by a source code repository such as GIT or SVN,
+which not only helps organization but also improves collaboration in group assignments
+and serves as communication tool with the teacher.
+
+Without adecquate guidance, a group of novices, who have yet not assimilated an autonomous organization discipline, will usually encounter difficulties structuring their code or coordinating their work.
+For example, in the absence of better tools it is ordinary to see members of a work group share code by sending \emph{zips} by e-mail between each other.
+The time spent trying to reconcile different versions of the program or even trying to understand which is the latest one, distracts them from learning the actual topics of the course.
 
 \subsection{Type Inference}
 % Type inferer

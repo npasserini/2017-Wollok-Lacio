@@ -144,19 +144,16 @@ we think that good programming practices have to be taught from the very beginni
 In their first programs, students might not be able to appreciate the advantages of good variable names or correct code indentation, these are attributes that are more easily appreciated on larger programs.
 Therefore, we have to actively enforce them, and have them get used to writing and reading good quality code.
 We do not want them to acquire bad programming practices that will be difficult to \emph{unlearn} later.
-\np{Si hay lugar se podría agregar una imagen para ejemplificar algunos errores}
 
-\textbf{Reference usage}: 
-		these errors are useful for the detection of erroneous or \textit{dead code}, such as unused variables or references, 
-		sending messages to never assigned variables, using variables instead of values, existence of the overridden method.
-		\figref{check-unusedVariable.png} shows an example of an unused variable error.
-
+As an example, Fig. \figref{check-unusedVariable.png} shows an example of an unused variable error.
+Unused, \emph{dead code} tends to appear after a refactoring or after trying different solutions to a problem. 
+Quick detection of this kind of errors will help the student to identify the bad practice and train her avoiding its appearance.
 
 \begin{figure}[ht]
     \centering
 	\includegraphics[scale=0.5]{images/wollok-paper-check-unusedVariable.png}
     \caption{Detection of unused variables}
-    \label{fig:check-unusedVariable.png}
+    \label{fig:check-unusedVariable}
 \end{figure}
 
 \medskip

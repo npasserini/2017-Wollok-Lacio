@@ -168,12 +168,41 @@ For example, in the absence of better tools it is ordinary to see members of a w
 The time spent trying to reconcile different versions of the program or even trying to understand which is the latest one, distracts them from learning the actual topics of the course.
 
 \subsection{Tests and experiments}
-Test and experiment with objects, both those provided by the student and those provided by Wollok.
-  
-- Detalles del REPL que no contamos antes: distingue mensajes con y sin efecto, admite variables con scope = sesión de REPL.
-- Vista del resultado de la ejecución de tests.
+\np{Hay cosas relacionadas con esto que ya están dichas en Why Wollok?}
+Another significant learning experience the IDE provides is to be able to experiment with objects.
+Novice students frequently have not enough training in working with the kind of abstract manipulations that often is required by any non-trivial programming.
+For that matter, we propose to start the course using tools that provide a more direct manipulation of objects, and allow them to get familiarized with the main concepts of OOP.
+
+The REPL provides a simple environment for direct object manipulation. 
+The programmer can send messages to his WKOs, and see how they respond. 
+In some courses, we even start on the REPL, sending messages to objects provided by the teacher.
+In this way, students get familiarized with the most important concepts of the OO paradigm: \emph{object} and \emph{message}, before going into the details about how these objects have been implemented.
+
+The REPL also allows the programmer to define local variables, which are useful to remember intermediate results to be used in further operations\np{no sé qué otra palabra poner acá},
+which greatly increases the set of possible experiments.
+By letting them play with their objects in the REPL, we have succeeded in completely avoiding the need for undesired debugging practices, such as introducing \code{println} along their code.
+
+\medskip
+
+Moreover, as the REPL interaction grows, very soon the students themselves realize that they are doing repetitive operations there and start looking for automation;
+at this moment, \emph{automatic tests} are introduced.
+
+It is important to notice that the test requires a higher level of abstraction than the REPL.
+In the latter, the interaction is direct: the user can ask a question and see one of her objects answering it.
+In the former the user writes the question with its corresponding answer, runs the test and, when she receives a \emph{green bar}, has to interpret that the object answered what was expected, without ever seeing it.
+Without a REPL (or another similar tool) the student is required to imagine something that he has never seen before. 
+The REPL is available for them all along the course, but once they become more fluent with automated tests, they need the REPL with less frequence.\np{Provisorion, hay que revisar qué queremos decir exactamente.}
+
+\np{Falta: Vista del resultado de la ejecución de tests.}
+
+\np{Esta sección admitiría mucho para decir en el further work, como 
+(a) convertir automáticamente una sesión de REPL,
+(b) qué hacer en caso de modificaciones al código mientras el REPL está activo o
+(c) diagramas dinámicos de objetos sobre el estado actual del repl (o del debugger).}
 
 \subsection{Type Inference}
+\np{Esto sigue acá mayormente porque no supe si borrar todo, o ponerlo en further work o qué.}
+
 % Type inferer
 Another distinctive characteristic of the Wollok project is the type inferer.
 We think that type inference is key to a simple programming environment.

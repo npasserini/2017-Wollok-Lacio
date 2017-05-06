@@ -18,13 +18,19 @@ The \code{accumulator} object is defined as a stand-alone (\ie it has no visible
  \begin{lstlisting}[language=Wollok]
 	object accumulator {
 		var total = 0
+		var evens = 0
 		
 		method getCurrentTotal() { return total }
-		method add(amount) { total += amount }
+		method add(amount) { 
+		  total += amount 
+			if (amount % 2 == 0) { evens += 1 }
+		}
+		method evenCount() { return evens }
 	}
  \end{lstlisting}
  
- \caption{\small Sample initial Wollok program.}
+ \caption{\small Sample initial Wollok \carlostext{object definition}. \carlostext{\cl{OJO agregué un método en todas las versiones.}}
+}
  \label{fig:helloWorld/wollok}
 \end{figure}
 
@@ -35,13 +41,13 @@ Normally, writing to standard output as it is shown in Fig. \ref{fig:helloWorld}
 Therefore, teaching our students to try out their programs in this way is introducing a bad practice that will have to be \emph{unlearned} later.
 On the other hand, we need some kind of user interaction to be able to see the behavior of our programs and proper handling of user interaction is way beyond the scope of an initial OO course.
 
-The first tool we introduce to try out a program without requiring I/O is a \emph {read-eval-print-loop} (REPL). Running a program in the REPL brings all defined objects to live and allows the user to interact with them sending messages, as shown in Fig. {fig:repl}. 
+The first tool we introduce to try out a program without requiring I/O is a \emph {read-eval-print-loop} (REPL). Running a program in the REPL brings all defined objects to live and allows the user to interact with them sending messages, as shown in Fig.~\ref{fig:repl}. 
 The REPL handles all I/O and the student is only required to write the desired \emph{domain object}.
 
 \begin{figure}[ht]
  \centering
  \includegraphics[scale=0.6]{images/accumulator-repl.png}
- \caption{\small Sample usage of the accumulator program in the REPL}
+ \caption{\small Sample usage of the accumulator \carlostext{object} in the REPL}
  \label{fig:repl}
 \end{figure}
 
@@ -77,14 +83,24 @@ Shortly after in the course, we introduce unit testing which slowly replace the 
 \end{figure}
 
 Again here Wollok is fine-tuned for our pedagogical objectives.
-For example, tests have to be written in a separate file, which introduces the student into some basic knowledge of modularization.
-Also, the test runner guarantees that there is no interaction between tests: the messages sent to the accumulator in the first test will not affect the state of the accumulator in the second test\np{sería lindo tener una cita a alguna regla de unit testing que proponga esto}.
+\carlostext{In particular, the test runner guarantees that there is no interaction between tests: the messages sent to the accumulator in the first test will not affect the state of the accumulator in the second test\np{sería lindo tener una cita a alguna regla de unit testing que proponga esto}.
+
+Furthermore, tests have to be written in a separate file.
+On the other hand, the objects (and later on, classes) defined in a different file must be accesible from the test file. To this end, Wollok includes a simple form of the \texttt{\textbf{import}} directive, that refers to a object/class definition file in the same folder than the test file. In this way, some basic knowledge of modularization is subtly introduced at the very beginning of the course\footnote{\carlostext{The assimilation of the \texttt{import} directive, as early as in the second week, was not problematic in our experience using Wollok for first-year programming courses.}}.}
+
+%Tests have to be written in a separate file; the directive \texttt{
+%\textbf{import} accumulator.*} at the beginning of the example indicates that all the objects (and later on, classes) defined in the file called \texttt{accumulator.wlk} are available to be used in the test. In this way, some basic knowledge of modularization is subtly introduced at the very beginning of the course\footnote{\carlostext{The assimilation of the \texttt{import} directive at the second week, was not problematic in our experience using Wollok for first-year programming courses.}}. 
+%Furthermore, }
+%For example, tests have to be written in a separate file, which introduces the student into some basic knowledge of modularization.
+%Also, 
+%the test runner guarantees that there is no interaction between tests: the messages sent to the accumulator in the first test will not affect the state of the accumulator in the second test\np{sería lindo tener una cita a alguna regla de unit testing que proponga esto}.
 
 \medskip
 % Misceláneos
 % Profundizar y pulir el highlighting the conceptos primarios y la estratificacion de conceptos
 Another simple feature that is very helpful in the initial steps of the course is the presence of literals for lists (\eg \code{[1,2,3]}) and sets (\eg \code{\#\{1,2,3\}}).
-This allows us to increase the complexity of examples that we can build without introducing classes.
+This allows us to \carlostext{use collections, and therefore} increase the complexity of examples that we can build \carlostext{before}\cl{aca decia ``without''} introducing classes.
+\carlostext{We even briefly introduce \emph{closures} at the initial stage of the course.}
 For example, our \code{accumulator} object can be implemented as shown in Fig. \ref{fig:accumulator/list}.
 %Also \emph{Collection literals} reduce boilerplate on object creation, 
 %since we think that the excess of bureaucracy to create an object helps to build up 
@@ -100,6 +116,9 @@ For example, our \code{accumulator} object can be implemented as shown in Fig. \
 			return history.sum() 
 		}
 		method add(amount) { history.add(amount) }
+		method evenCount() { 
+		  return history.count({n => n % 2 == 0})
+		}
 	}
  \end{lstlisting}
  
@@ -121,6 +140,9 @@ Once more, Wollok helps us in the transition: any pre-existent stand-alone objec
 			return history.sum() 
 		}
 		method add(amount) { history.add(amount) }
+		method evenCount() { 
+		  return history.count({n => n % 2 == 0})
+		}
 	}
  \end{lstlisting}
  
@@ -130,6 +152,7 @@ Once more, Wollok helps us in the transition: any pre-existent stand-alone objec
 
 \medskip
 Figure \ref{fig:polymorphism} shows how the three previous definitions of accumulator can be used polymorphically. 
+\cl{la siguiente frase, incluyendo el footnote, es reemplazada por el texto que propongo agregar al introducir colecciones.}
 Also it shows the usage of more advanced list messages and closures\footnote{In our approach, we introduce polymorphism and closures \emph{before} classes. For reasons of space we skipped those intermediate examples here.}.
 A special mention has to be made about the fact of stand-alone objects being used in the same program and even being polymorphic with class-based objects.
 
@@ -167,4 +190,5 @@ Another concept we propose to emphasize in the first programming courses is the 
 The most basic feature in Wollok to control side effects is the ability to 
 differentiate variables (defined using \code{var})
 from constants (defined using \code{const}).
-One step forward is to incorporate an \emph{effect system} \cite{nielson_type_1999}, \cf Sec. \ref{sec:furtherWork}.
+\carlostext{Moreover, methods not including a \texttt{return} expression are considered as void, i.e. they do not yield a value and no operation can be applied to them. Furthermore, the REPL do not show any text as result of the evaluation of void methods, as can be seen in Fig.~\ref{fig:repl}.}\cl{esta frase hay que pulirla.}
+One step forward is to incorporate an \emph{effect system} \cite{nielson_type_1999}, \cf Sec. \ref{sec:furtherWork}. \cl{tal vez convenga mover la oración entera, desde ``one step forward'', al final.}

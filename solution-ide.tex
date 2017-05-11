@@ -193,38 +193,36 @@ In the latter, the interaction is direct: the user can ask a question and see on
 In the former the user writes the question with its corresponding answer, runs the test and, when she receives a \emph{green bar}, has to interpret that the object answered what was expected, without ever seeing it.
 Without a REPL (or another similar tool) the student is required to imagine something that he has never seen before. 
 The REPL is available for them all along the course, but once they become more fluent with automated tests, they need the REPL with less frequence.\np{Provisorio, hay que revisar qué queremos decir exactamente.}
-
 \begin{figure}[ht]
+
     \centering
 	\includegraphics[scale=0.6]{images/testRunner.png}
     \caption{Test runner view after a sucessful test run.}
     \label{fig:testRunner.png}
 \end{figure}
 
-\subsection{Type Inference}
-\np{Esto sigue acá mayormente porque no supe si borrar todo, o ponerlo en further work o qué.}
-
+%\subsection{Type Inference}
 % Type inferer
-Another distinctive characteristic of the Wollok project is the type inferer.
-We think that type inference is key to a simple programming environment.
-On one side, it allows to detect lots of common mistakes \emph{before running the program}:
-if an object does understand a message, if a wrong argument is passed, if incompatible types are mixed or even miss-spellings.
-In environments without this capability it takes more time to detect errors.
-Moreover, it is not uncommon that a type mistake produces a runtime error in a place different from where the mistake was done, producing confusion.
-
-Still, providing a type inferer for a language such as Wollok has many subtleties, which deserves an independent study \cite{passerini_nicolas_extensible_2014}.
-On one side we require it to be able to work without type annotations and at the same time provide feedback useful for an inexperienced programmer.
-On the other side, the type system is rather complex;
-for example, the presence of stand-alone objects requires the type system to handle \emph{structural types}, since a named type system would not allow them to be treated polymorphically.
-Also, we want to be able to treat polymorphically stand alone objects with class-based objects.
-\figref{check-messageSending.png} shows an error detected by the type inferer and how it shows the information to the programmer.
-Notice that the inferred type for the object \code{ufo} is a structural type: \code{fly}
-
-\begin{figure}[ht]
-    \centering
-	\includegraphics[scale=0.5]{images/wollok-paper-check-messageSending.png}
-    \caption{Type system in action, detecting not defined method for the message sent}
-    \label{fig:check-messageSending.png}
-\end{figure}
-
-
+%Another distinctive characteristic of the Wollok project is the type inferer.
+%We think that type inference is key to a simple programming environment.
+%On one side, it allows to detect lots of common mistakes \emph{before running the program}:
+%if an object does understand a message, if a wrong argument is passed, if incompatible types are mixed or even miss-spellings.
+%In environments without this capability it takes more time to detect errors.
+%Moreover, it is not uncommon that a type mistake produces a runtime error in a place different from where the mistake was done, producing confusion.
+%
+%Still, providing a type inferer for a language such as Wollok has many subtleties, which deserves an independent study \cite{passerini_nicolas_extensible_2014}.
+%On one side we require it to be able to work without type annotations and at the same time provide feedback useful for an inexperienced programmer.
+%On the other side, the type system is rather complex;
+%for example, the presence of stand-alone objects requires the type system to handle \emph{structural types}, since a named type system would not allow them to be treated polymorphically.
+%Also, we want to be able to treat polymorphically stand alone objects with class-based objects.
+%\figref{check-messageSending.png} shows an error detected by the type inferer and how it shows the information to the programmer.
+%Notice that the inferred type for the object \code{ufo} is a structural type: \code{fly}
+%
+%\begin{figure}[ht]
+%    \centering
+%	\includegraphics[scale=0.5]{images/wollok-paper-check-messageSending.png}
+%    \caption{Type system in action, detecting not defined method for the message sent}
+%    \label{fig:check-messageSending.png}
+%\end{figure}
+%
+%

@@ -23,18 +23,22 @@ We have found that often students are afraid to search for solutions not seen in
 which leads them to restricting themselves into a smaller set of concepts and tools they feel more secure about.
 A controlled environment empowers students to look around and explore new possibilities.
 
-\medskip
-
+\section{Future Work}
 % Now we could do this or that.
 \label{sec:furtherWork}
-One major objective in our future work is the integration of more \emph{automatic user interaction} tools into the Wollok environment.
-Our objective is to enable the students to have visual and interactive programs without requiring them to learn the subleties of GUI building, 
-extending the ideas in Gobstones \cite{lopez_nombre_2012} to object-oriented domains.
-Some advances in this area can be seen in our previous work named Hoope \cite{estefania_miguel_hoope_2013}.
-
-The second major objective is to continue improving the detection of programming errors.
-A cornerstone to achieve this goal is the type inferer, which is our current focus.
+One continuous focus of attention for the Wollok IDE development team are the detection programming errors, bad practices, quick fixes, content assistance and refactorings.
+A cornerstone to achieve these goals is the type inferer, which is one of our current main objectives.
+Still, providing a type inferer for a language such as Wollok has many subtleties, which deserves an independent study \cite{passerini_nicolas_extensible_2014}.
 The other half of our future work in this area is a powerfull \emph{effect system} \cite{nielson_type_1999}.
+
+Also, we intend to implement several improvements to the REPL, which we expect to have great impact in the programming experience.
+In the first place we want to propagate several of the features of the basic editor to the REPL, such as content assistance.
+Then, we would like to enable code modifications while a program is running in the REPL.
+%Still, to be effective for novices, we require to develop a strategy to impact changes in code that might have been executed and will not be executed again, such as a variable initializer: in a naïve implementation, changing it would not affect an already instantiated object.
+%This kind of \emph{hot} changes can confuse even experienced programmers, so we think it is imperative to think of a specific strategy which beginners can take advantage of.
+% ... referencia a scala Worksheets. https://github.com/scala-ide/scala-worksheet/wiki/Getting-Started
+After a reload, the REPL should re-execute all the previous expressions in the REPL and display the new results (\cf Scala Worksheets\footnote{\url{https://github.com/scala-ide/scala-worksheet}}).
+Finally, we would like an automatic conversion from a REPL session to suite of tests.
 
 Another characteristic of programming in the real world is the need to work in teams. 
 The success of object-oriented languages is partly due to their advantages in group projects. 
@@ -42,12 +46,6 @@ It is necessary teach our students about the techniques needed for teamwork, rig
 To do this, it is essential that the environment has some form of support for group work \cite{kolling_problem_1999}.
 Therefore, we plan to create simplified tools to integrate wollok te \emph{version control systems}.
 
-Also we are working in adding more automatic refactor tools, and a better type inference implementation. 
-Even working on adding an effect system to detect correct usage of the language and the code conventions.
-
-One of the important development steps to be done is the implementation of a web version or a lighter version, using less hardware requirements, 
-with the aim to run the solution in small netbooks like the ones in the \emph{Conectar-Igualdad} program\footnote{http://www.conectarigualdad.gob.ar/}.
-
-Finally, in the educational use of the tool, we will be testing it in different educational environments to get feedback about the learning experience; 
-generating learning material (\eg examples, exercises, guides). As the focus of the tool is to provide a new way of teaching programming skills. 
-For this objective, we will be working in collaboration with Universities, Teachers and non profit organizations.
+Also there are some initiatives to build web-based or lighter versions of the IDE and the interpreter.
+This will allow Wollok to be used in context where the availability of powerful computers is restricted.
+There exists a (limited) Wollok web editor integrated to the Mumuki\footnote{\url{http://mumuki.io/}} platform, which yet has not been fully tested with students.

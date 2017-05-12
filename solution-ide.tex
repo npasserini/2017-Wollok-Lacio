@@ -135,6 +135,22 @@ These higher-level views of the program, allow the student to gain practice in a
 % - Destacar que distingue los métodos con y sin efecto, si bien esto es un feature interesante, creo que es medio descolgado en este punto o habría que hablar más largo sobre por qué esa diferenciación que no está en ningún lado, creo.
 
 \subsection{Encouraging best programming practices}
+In our opinion, good practics should be taught from the very beginning of programming curricula. This claim is independent of the recurrent debate about rules and conventions. 
+Our experience shows that it is unlikely that novice programmers appreciate the advantages of e.g. good variable names or correct code indentation, these being attributes that are more easily appreciated on larger programs.
+Therefore, we have to actively enforce them, and have them get used to writing and reading good quality code.
+
+Several features of the language and code editor aim to promote, or enforce, good programming practices.
+For example, it compels the programmer to a predefined order inside a class definition, \ie grouping all variables and constants in the first place, then constructors and finally methods. 
+Also it establishes some basic rules about naming and restricts the usage of global variables.
+We also mention that autocompletion of braces and square brackets eases the adoption of adequate indentation.
+
+Moreover, some bad programming habits are detected by the error detection of the IDE. 
+As an example, Fig. \figref{check-unusedVariable.png} shows an example of an unused variable error.
+Unused, \emph{dead code} tends to appear after a refactoring or after trying different solutions to a problem. 
+Quick detection of this kind of errors will help the student to identify the bad practice and train her avoiding its appearance.
+
+
+\commented{
 A major part of the IDE is devoted to enforce good programming practices, which we consider as a main topic in a programming learning course.
 For example, it compels the programmer to a predefined order inside a class definition, \ie grouping all variables and constants in the first place, then constructors and finally methods. 
 Also it establishes some basic rules about naming and restricts the usage of global variables.
@@ -148,6 +164,7 @@ We do not want them to acquire bad programming practices that will be difficult 
 As an example, Fig. \figref{check-unusedVariable.png} shows an example of an unused variable error.
 Unused, \emph{dead code} tends to appear after a refactoring or after trying different solutions to a problem. 
 Quick detection of this kind of errors will help the student to identify the bad practice and train her avoiding its appearance.
+}
 
 \begin{figure}[ht]
     \centering
@@ -157,15 +174,25 @@ Quick detection of this kind of errors will help the student to identify the bad
 \end{figure}
 
 \medskip
-At a higher level, the Wollok IDE is designed to help the students organize the code they produce along the course. 
-Projects have a predefined directory structure including both files for class/object definitions and tests.
-Frequently this is also accompanied by a source code repository such as GIT or SVN,
-which not only helps organization but also improves collaboration in group assignments
-and serves as communication tool with the teacher.
+At a higher level, the Wollok IDE is designed to help the students to put in order the code they produce along the course. 
+Source files are organized in \emph{projects}, that have a predefined directory structure including both files for class/object definitions and tests.
+The generated file structure is adequate to the use of a source code repository such as GIT or SVN, that improves collaboration in group assignments and serves as communication tool with teachers.
+%Frequently this is also accompanied by a source code repository such as GIT or SVN, which not only helps organization but also improves collaboration in group assignments and serves as communication tool with the teacher.
 
-Without adecquate guidance, a group of novices, who have yet not assimilated an autonomous organization discipline, will usually encounter difficulties structuring their code or coordinating their work.
-For example, in the absence of better tools it is ordinary to see members of a work group share code by sending \emph{zips} by e-mail between each other.
+These features the frequent difficulties novice programmers find to organize their source files, and inparticular, to coordinate work in group assignments.
+We note to this respect that it is ordinary to see members of a work group share code by sending \emph{zips} by e-mail between each other.
 The time spent trying to reconcile different versions of the program or even trying to understand which is the latest one, distracts them from learning the actual topics of the course.
+Hence the benefit of providing suitable source organization tools, besides the promotion of good development practices it implies.
+
+%We note that without adequate IDE support, the organization of source files often pose difficulties to novice programmers. In particular, the coordination of work for group assignments can be problematic. 
+%For example, 
+%%in the absence of adequate tools 
+%it is ordinary to see members of a work group share code by sending \emph{zips} by e-mail between each other.
+%The time spent trying to reconcile different versions of the program or even trying to understand which is the latest one, distracts them from learning the actual topics of the course.
+%
+%Without adequate guidance, a group of novices, who have yet not assimilated an autonomous organization discipline, will usually encounter difficulties structuring their code or coordinating their work.
+%For example, in the absence of better tools it is ordinary to see members of a work group share code by sending \emph{zips} by e-mail between each other.
+%The time spent trying to reconcile different versions of the program or even trying to understand which is the latest one, distracts them from learning the actual topics of the course.
 
 \subsection{Tests and experiments}
 \commented{

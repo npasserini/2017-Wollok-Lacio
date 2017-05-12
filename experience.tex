@@ -10,33 +10,10 @@ Also, many of the ideas in Wollok where present in other tools we had previously
 In several cases, approval rates changed from 25\%--30\% to 80\%-90\%.
 %, helping educate professionals with world-class performances both in the industrial as in the academic field. \np{No sé, suena muy agrandado?}
 
-\medskip
 % Lo simple que les resulto a los chicos trabajar con una IDE
-\commented{
-First, lets describe how the introduction of the students to a new IDE was. 
-In Wollok IDE, there are just two windows, one to code objects and classes, and the other to test the objects behavior (the REPL). 
-The use of the first window resulted very easy for them since they are coding everything in one single place, using IDE tools just as auto completion, syntax correction and highlighting. 
-For more advanced students, Wollok lets you separate the code in different files, but at first, you can have everything together so you can see all the object and the relations between them.
-The syntax for the REPL is the same, with the advantge that you can see at any moment without any extra work the state of any object you defined. 
-Just writing on the REPL window the name of the object, shows its state, without any print method defined.
-
-% La simple migración de objetos a clases.
-Writing the definition of a class is not very different from writing the definition of an object, the difference is in the concept. 
-So, we first explain to them what an object is, we write the definition of it, we see how it works. 
-Once the students are familiar with objects and the way in which they relate with each other, we move to show how to define objects using classes, so we can create multiple objects, with the same definition, and different state.
-
-% Los patrones de diseño que aparecieron que son muy modernos, con el uso de objetos. Era muy simple ver que usaban objetos donde antes se usaban value objects.
-Some design patterns just appeared. 
-Modelling with design patterns is not an essential part of our subject, we just introduce them to OO paradigm. 
-But we have seen how some design pattern just appear, resulting very natural for the students. 
-For example, having a single object with some information that other objects need (Singleton), 
-since Wollok named objects are globally are accessible.
-Also, since defining classes and objects in Wollok is very succint, it is frequent the emergence of small objects that configure quiet complex colaboration patterns such as Strategies or States\cite{Gamm93b}.
-}
-
 Let us describe the first experience of a new student with Wollok.
-At the very beginning, the student start by interacting with just two windows: the code editor, that points to an initial source file, and the REPL.
-All the coding is done inside the editor, that includes the features of highlighting, autocompletion, and error detection/correction we described in Section X. The streamlined WKO syntax of Wollok allows to complete the definition of simple objects with a minimum of elements. A menu option allows to access to the REPL, where the defined WKOs can be accesed by their global names, so that it is straightforward to interact with them. In the interaction through the REPL, void methods are easily distinguished from those returning a value. Furthermore, typing just an object name results in a simplified internal view, that displays the attributes along with their values.
+At the very beginning, the student starts by interacting with just two windows: the code editor, that points to an initial source file, and the REPL.
+All the coding is done inside the editor, that includes the features of highlighting, autocompletion, and error detection/correction we described in Section \ref{sec:detectMistakes}. The streamlined WKO syntax of Wollok allows to complete the definition of simple objects with a minimum of elements. A menu option allows to access to the REPL, where the defined WKOs can be accesed by their global names, so that it is straightforward to interact with them. In the interaction through the REPL, void methods are easily distinguished from those returning a value. Furthermore, typing just an object name results in a simplified internal view, that displays the attributes along with their values.
 
 Further on, the language and IDE features permit a gentle introduction to each successive concept we work with in the course. 
 In particular, the absence of explicit type information allows for a simple implementation of polymorphism between WKOs: it suffices to have different objects that define methods for the same message.

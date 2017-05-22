@@ -13,6 +13,7 @@ The example in figure \ref{fig:helloWorld/wollok} shows an example first program
 Syntax has been reduced to a minimum and the basic constructs of the language match exactly the concepts we want to transmit, \eg \code{var} is used to define variables and \code{method} is used to define methods.
 The \code{accumulator} object is defined as a stand-alone (\ie it has no visible class), automatically instantiated and \emph{well-known} (\ie globally accesible) object (WKO).
 
+\vspace{-3mm}
 \begin{figure}[ht]
  \centering
  \begin{lstlisting}[language=Wollok]
@@ -26,11 +27,10 @@ The \code{accumulator} object is defined as a stand-alone (\ie it has no visible
 			if (amount % 2 == 0) { evens += 1 }
 		}
 		method evenCount() { return evens }
-	}
- \end{lstlisting}
- 
- \caption{\small Sample initial Wollok object definition.}
- \label{fig:helloWorld/wollok}
+	}\end{lstlisting}
+\vspace{-3mm}
+\caption{\small Sample initial Wollok object definition.}
+\label{fig:helloWorld/wollok}
 \end{figure}
 
 \medskip 
@@ -60,6 +60,7 @@ The REPL handles all I/O and the student is only required to write the desired \
 
 Shortly after in the course, we introduce unit testing which slowly replace the REPL as the main form of interacting with objects. Figure \ref{fig:test} shows a sample test for the previous program. 
 
+\vspace{-3mm}
 \begin{figure}[ht]
  \centering
  \begin{lstlisting}[language=Wollok]
@@ -74,11 +75,10 @@ Shortly after in the course, we introduce unit testing which slowly replace the 
    
 	test "accumulator starts with 0" {
 		assert.equals(0, accumulator.getCurrentTotal())
-	}
- \end{lstlisting}
- 
- \caption{\small Sample test Wollok program.}
- \label{fig:test}
+	}\end{lstlisting}
+\vspace{-3mm}
+\caption{\small Sample test Wollok program.}
+\label{fig:test}
 \end{figure}
 
 Again here Wollok is fine-tuned for our pedagogical objectives.
@@ -105,6 +105,7 @@ For example, our \code{accumulator} object can be implemented as shown in Fig. \
 %since we think that the excess of bureaucracy to create an object helps to build up 
 %the belief that using objects or collections is far more complicated than using numbers or strings, which in turns leads to \emph{primitive obsession} \cite{fowler_refactoring:_1999}.
 
+\vspace{-3mm}
 \begin{figure}[ht]
  \centering
  \begin{lstlisting}[language=Wollok]
@@ -118,9 +119,8 @@ For example, our \code{accumulator} object can be implemented as shown in Fig. \
 		method evenCount() {
 		  return history.count({n => n % 2 == 0})
 		}
-	}
- \end{lstlisting}
- 
+	}\end{lstlisting}
+\vspace{-3mm}
  \caption{\small Another accumulator implementation, using a list.}
  \label{fig:accumulator/list}
 \end{figure}
@@ -129,6 +129,7 @@ For example, our \code{accumulator} object can be implemented as shown in Fig. \
 Next in the course, we introduce classes.
 Once more, Wollok helps us in the transition: any pre-existent stand-alone object can be converted into a class by just changing the keyword \code{object} for \code{class}\footnote{As a matter of fact, we will also change the name, as our code convention mandates lowercase names for objects and uppercase names for classes}, as shown in Fig. \ref{fig:accumulator/classes}.
 
+\vspace{-3mm}
 \begin{figure}[ht]
  \centering
  \begin{lstlisting}[language=Wollok]
@@ -142,11 +143,10 @@ Once more, Wollok helps us in the transition: any pre-existent stand-alone objec
 		method evenCount() { 
 		  return history.count({n => n % 2 == 0})
 		}
-	}
- \end{lstlisting}
- 
- \caption{\small A third accumulator implementation, class based.}
- \label{fig:accumulator/classes}
+	}\end{lstlisting}
+\vspace{-3mm}
+\caption{\small A third accumulator implementation, class based.}
+\label{fig:accumulator/classes}
 \end{figure}
 
 \medskip
@@ -155,6 +155,7 @@ Figure \ref{fig:polymorphism} shows how the three previous definitions of accumu
 Also it shows the usage of more advanced list messages and closures\footnote{In our approach, we introduce polymorphism and closures \emph{before} classes. For reasons of space we skipped those intermediate examples here.}.
 A special mention has to be made about the fact of stand-alone objects being used in the same program and even being polymorphic with class-based objects.
 
+\vspace{-3mm}
 \begin{figure}[ht]
  \centering
  \begin{lstlisting}[language=Wollok]
@@ -173,17 +174,13 @@ A special mention has to be made about the fact of stand-alone objects being use
 			accum.add(8)
 			assert.equals(15, accum.getCurrentTotal())	
 		}
-	}
- \end{lstlisting}
- 
- \caption{\small Simple polymorphism example.}
- \label{fig:polymorphism}
+	}\end{lstlisting}
+\vspace{-3mm}
+\caption{\small Simple polymorphism example.}
+\label{fig:polymorphism}
 \end{figure}
 
-
-\bigskip 
 % Effect
-\np{Esto requeriría una mención en la intro, o en general una explicación más detallada.}
 Another concept we propose to emphasize in the first programming courses is the control of side effects, 
 \ie a programmer should be aware of the potential side effects of each portion of code.
 The most basic feature in Wollok to control side effects is the ability to 

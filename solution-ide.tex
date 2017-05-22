@@ -41,7 +41,7 @@ This allows the teacher to go deeper in the initial examples in playing with sev
 These concepts will arise later in the course, when students' programs increase their complexity to a level that demands for modularization (\cf \ref{sec:modularization}).
 \np{¿Esto no es una característica del lenguaje?}
 
-The Wollok IDE also has integrated a powerful \emph{code analyser} that enables for \emph{content assistance}\np{¿Está bien este nombre?}, 
+The Wollok IDE also provides \emph{content assist}, 
 \ie in certain contexts, the IDE can autocomplete an identifier name, or provide a list of possible completions if there are many (\cf Fig. \ref{fig:codeCompletion}).
 This is available for all types of variables and constants and messages sent to \code{self}, \code{super} or any WKO\footnote{Current work in progress includes a type inference system that once completed should allow to add content asistance for any message send}. 
  
@@ -126,7 +126,7 @@ These higher-level views of the program, allow the student to gain practice in a
 \begin{figure}[ht]
  \centering
  \includegraphics[scale=0.5]{images/outline.png}
- \caption{\small Example of a simple error detection.}
+ \caption{\small Static diagram and outline.}
  \label{fig:outline}
 \end{figure}
 
@@ -217,7 +217,6 @@ We observe that while the REPL is available all along the course, once the stude
 Also, we remark that by the combination of REPL and tests, we have succeeded in completely avoiding the need for undesired debugging practices, such as the inclusion of \code{println} expressions along the code.
 
 \begin{figure}[ht]
-
     \centering
 	\includegraphics[scale=0.6]{images/testRunner.png}
     \caption{Test runner view after a sucessful test run.}

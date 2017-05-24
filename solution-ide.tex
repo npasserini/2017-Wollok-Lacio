@@ -2,8 +2,8 @@
 \label{sec:environment}
 
 
-The features that influence the experience of the learning programmer are not limited to the programming language she uses. 
-The \emph{tools} through with the code is written, analyzed and evaluated have a paramount relevance for this experience, and therefore for the success of the programming courses.
+The features that influence the experience of the learning programmer are not limited to the programming language used. 
+The \emph{tools} used to write, analyse and evaluate the code have a paramount relevance for this experience, and therefore for the success of the programming courses.
 
 Beginner programmers are likely to require more guidance and make more mistakes than experienced programmers.
 Also, the kind of support required by experienced programmer from her development environment is different from that required by a beginner, \eg an experienced programmer might select her programming environment thinking on increasing productivity.
@@ -17,8 +17,8 @@ In our view. the tools provided by the environment are a fundamental part of the
 
 In particular, the Wollok environment provides tools focused to the following goals:
 \begin{itemize}
-\item To guide and ease the acual code writing.
-\item To detect several of the most common mistakes done by novices, providing adequate feedback, and even to provide possible corrections when they can be computed.
+\item To guide and ease the actual code writing.
+\item To detect several of the most common mistakes done by novices, providing adequate feedback, and even to provide possible corrections whenever is possible.
 \item Navigate an give different perspectives of the defined objects and classes.
 \item Organize the code that is produced along the course.
 \item Test and experiment with objects, both those provided by the student and those provided by Wollok.
@@ -37,7 +37,7 @@ Other approaches have addressed this problem using block-based or visual program
 While we value those ideas, we think that mainstream programming is and will continue to be text-based, therefore, non-textual programming can be useful for younger students, but at universitary level it is better to provide tools that help dealing with syntax problems rather than continue circumventing them.
 
 At a bigger scale, Wollok admits the definition of several objects and/or classes in the same file. 
-This allows the teacher to go deeper in the initial examples in playing with several objects and polymorphism, without requiring the students to struggle with imports and packages.
+Allowing the teacher to go deeper in the initial examples using several objects and polymorphism, without requiring the students to struggle with imports and packages.
 These concepts will arise later in the course, when students' programs increase their complexity to a level that demands for modularization (\cf \ref{sec:modularization}).
 \np{¿Esto no es una característica del lenguaje?}
 
@@ -78,7 +78,7 @@ In this case, the automatic fix will insert an empty method in the adecquate pos
 Together, these characteristics are meant to empower the student to explore different ideas, 
 providing positive feedback in case he makes a mistake.
 
-While this does not replace the more personalized feedback a teacher can provide, in several situations a sensitive automatic feedback can help the student not to stay stuck with simple errors waiting for a response.
+While this does not replace the more personalized feedback a teacher  provides, in several situations a sensitive automatic feedback helps the student not to stay stuck with simple errors waiting for a response.
 This in turn allows for more exercises during the course.
 
 Moreover, automatic detection acts as a (basic) assistant teacher, \ie some simple topics that are not crucial for the course can be left for the student to learn by herself in the interaction with the IDE.
@@ -121,7 +121,7 @@ We have seen that lack of proper navigation tools might mislead the student to a
 
 Also, code visualization tools help understanding bigger programs and are as useful for beginners as they are for experienced programmers.
 The Wollok IDE provides an outline view and automatic static diagrams (\cf Fig. \ref{fig:outline}).
-These higher-level views of the program, allow the student to gain practice in abstracting herself of the details of some portions of a program, understanding her objects and classes as black boxes that provide some services, instead of attempting to have all of them in her head at all times, which is a necessary skill for being able to participate in a larger project.
+These higher-level views of the program, allow the student to gain practice in abstracting herself of the details of some portions of a program, understanding her objects and classes as black boxes that provide some services, instead of attempting to have all of them in her head at all times. This level of abstraction is a necessary skill for being able to participate in a larger project.
 
 \begin{figure}[ht]
  \centering
@@ -137,8 +137,8 @@ These higher-level views of the program, allow the student to gain practice in a
 
 \subsection{Encouraging best programming practices}
 In our opinion, good practics should be taught from the very beginning of programming curricula. This claim is independent of the recurrent debate about rules and conventions. 
-Our experience shows that it is unlikely that novice programmers appreciate the advantages of e.g. good variable names or correct code indentation, these being attributes that are more easily appreciated on larger programs.
-Therefore, we have to actively enforce them, and have them get used to writing and reading good quality code.
+Our experience shows that it is unlikely that novice programmers appreciate the advantages of e.g. good variable names or correct code indentation, as these attributes are more easily appreciated on larger programs.
+Therefore, we have to actively enforce them, and get them used to writing and reading good quality code.
 
 Several features of the language and code editor aim to promote, or enforce, good programming practices.
 For example, it compels the programmer to a predefined order inside a class definition, \ie grouping all variables and constants in the first place, then constructors and finally methods. 
@@ -146,9 +146,9 @@ Also it establishes some basic rules about naming and restricts the usage of glo
 We also mention that autocompletion of braces and square brackets eases the adoption of adequate indentation.
 
 Moreover, some bad programming habits are detected by the error detection of the IDE. 
-As an example, Fig. \figref{check-unusedVariable.png} shows an example of an unused variable error.
+As an example, Fig. \figref{check-unusedVariable} shows an example of an unused variable error.
 Unused, \emph{dead code} tends to appear after a refactoring or after trying different solutions to a problem. 
-Quick detection of this kind of errors will help the student to identify the bad practice and train her avoiding its appearance.
+Quick detection of this kind of errors will help the student to identify the bad practice and train her to avoid its appearance.
 
 
 \commented{
@@ -177,11 +177,11 @@ Quick detection of this kind of errors will help the student to identify the bad
 \medskip
 At a higher level, the Wollok IDE is designed to help the students to put in order the code they produce along the course. 
 Source files are organized in \emph{projects}, that have a predefined directory structure including both files for class/object definitions and tests.
-The generated file structure is adequate to the use of a source code repository such as GIT or SVN, that improves collaboration in group assignments and serves as communication tool with teachers.
+The generated file structure is adequate to the use of a source code repository such as GIT or SVN, improving collaboration in group assignments and serving as a communication tool with teachers.
 %Frequently this is also accompanied by a source code repository such as GIT or SVN, which not only helps organization but also improves collaboration in group assignments and serves as communication tool with the teacher.
 
-These features the frequent difficulties novice programmers find to organize their source files, and inparticular, to coordinate work in group assignments.
-We note to this respect that it is ordinary to see members of a work group share code by sending \emph{zips} by e-mail between each other.
+These features solve the frequent difficulties novice programmers find to organize their source files, and in particular, to coordinate work in group assignments.
+We note to this respect that it is normal to see members of a work group sharing code by sending e-mail with \emph{zip files} between each other.
 The time spent trying to reconcile different versions of the program or even trying to understand which is the latest one, distracts them from learning the actual topics of the course.
 Hence the benefit of providing suitable source organization tools, besides the promotion of good development practices it implies.
 
@@ -196,10 +196,10 @@ Hence the benefit of providing suitable source organization tools, besides the p
 %The time spent trying to reconcile different versions of the program or even trying to understand which is the latest one, distracts them from learning the actual topics of the course.
 
 \subsection{Tests and experiments}
-As we described in Section \ref{sec:wollokLanguage}, Wollok provides, as ways to work with the defined objects and classes, the REPL and the definition of tests.
+As we described in Section \ref{sec:wollokLanguage}, Wollok provides two ways of working with the defined objects and classes: the REPL and the definition of tests.
 
 The REPL provides a simple environment for direct object manipulation; it is the first tool to interact with objects that we introduce in the course.
-The programmer can just send messages to the WKOs he defines, and see how they respond. 
+The programmer can just send messages to the WKOs she defines, and see how they respond. 
 In some courses, we even \emph{start} on the REPL, sending messages to objects provided by the teacher.
 In this way, students get familiarized with the most important concepts of the OO paradigm: \emph{object} and \emph{message}, before going into the details about how these objects have been implemented.
 
@@ -211,7 +211,7 @@ at this moment, \emph{automatic tests} are introduced.
 Fig. \ref{fig:testRunner.png} shows the test runner tool output for the test shown in Fig. \ref{fig:test}.
 
 It is important to notice that the test requires a \emph{higher level of abstraction} than the REPL.
-Now the student has to anticipate the result that some expression should yield, write explicitly both expression an expected result, and interpret a \emph{green bar} as a signal that the answer yielded was the expected, without ever seeing it.
+Now the student has to anticipate the result that some expression should yield. Writing explicitly both the expression and the expected result, and interpreting a \emph{green bar} as a signal that the answer yielded was the expected, without ever seeing it.
 
 We observe that while the REPL is available all along the course, once the students become more fluent with automated tests, they use the REPL with less frequence.
 Also, we remark that by the combination of REPL and tests, we have succeeded in completely avoiding the need for undesired debugging practices, such as the inclusion of \code{println} expressions along the code.

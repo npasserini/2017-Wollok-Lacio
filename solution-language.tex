@@ -4,9 +4,9 @@
 % Free form, variable number of sections, technical details.
 % But in general do not mix solution and discussions/possible variation let that for discussion
 
-Wollok is a brand new language, built to specifically give support to our pedagogical approach. 
-Wollok provides an extremely simple programming model, which allows the students to create programs that including objects, messages and polymorphism, but without the need for more abstract concepts such as classes, inheritance or type annotations.
-Later in the course, Wollok allows for the incremental introduction of more abstract concepts,
+Wollok is a brand new language, built to specifically give support to our pedagogical approach~\cite{lombardi_instances_2007,lombardi_carlos_alumnos_2008}. 
+Wollok provides an extremely simple programming model, which allows the students to create programs containing objects, messages and polymorphism, without the need for more abstract concepts such as classes, inheritance or type annotations.
+Later in the course, Wollok allows the incremental introduction of more abstract concepts,
 providing a smooth transition into a full-fledged OO programming model.
 
 The example in figure \ref{fig:helloWorld/wollok} shows an example first program in a Wollok-based OO introductory course.
@@ -37,11 +37,11 @@ The \code{accumulator} object is defined as a stand-alone (\ie it has no visible
 
 We put special emphasis in avoiding input and output (I/O). 
 Normally, writing to standard output as it is shown in Fig. \ref{fig:helloWorld} will be considered a problem in industrial software construction.
-Therefore, teaching our students to try out their programs in this way is introducing a bad practice that will have to be \emph{unlearned} later.
-On the other hand, we need some kind of user interaction to be able to see the behavior of our programs and proper handling of user interaction is way beyond the scope of an initial OO course.
+Therefore, teaching the students to try out their programs in this way is introducing a bad practice that will have to be \emph{unlearned} later.
+On the other hand, we need some kind of user interaction to be able to see the behaviour of our programs. However, proper handling of user interaction is way beyond the scope of an initial OO course.
 
-The first tool we introduce to try out a program without requiring I/O is a \emph {read-eval-print-loop} (REPL). Running a program in the REPL brings all defined objects to live and allows the user to interact with them sending messages, as shown in Fig.~\ref{fig:repl}. 
-The REPL handles all I/O and the student is only required to write the desired \emph{domain object}.
+The first tool we introduce to try out a program without requiring I/O is a \emph {read-eval-print-loop}~(REPL). Running a program in the REPL brings all defined objects to live and allows the user to interact with them sending messages, as shown in Fig.~\ref{fig:repl}. 
+The REPL handles all I/O and the student is only required to write the desired messages to a \emph{domain object}.
 
 \begin{figure}[ht]
  \centering
@@ -81,11 +81,11 @@ Shortly after in the course, we introduce unit testing which slowly replace the 
 \label{fig:test}
 \end{figure}
 
-Again here Wollok is fine-tuned for our pedagogical objectives.
+Again, Wollok is fine-tuned for our pedagogical objectives.
 In particular, the test runner guarantees that there is no interaction between tests: the messages sent to the accumulator in the first test will not affect the state of the accumulator in the second test\np{sería lindo tener una cita a alguna regla de unit testing que proponga esto}.
 
 Furthermore, tests have to be written in a separate file.
-On the other hand, the objects (and later on, classes) defined in a different file must be accesible from the test file. To this end, Wollok includes a simple form of the \texttt{\textbf{import}} directive, that refers to a object/class definition file in the same folder than the test file. In this way, some basic knowledge of modularization is subtly introduced early in the course\footnote{The assimilation of the \texttt{import} directive, as early as in the second week, was not problematic in our experience using Wollok for first-year programming courses.}.
+However, this decision introduces a problem. The objects (and later on, classes) defined in a different file must be accesible from the test file. To this end, Wollok includes a simple form of the \texttt{\textbf{import}} directive, that refers to a object/class definition file in the same folder than the test file. In this way, some basic knowledge of modularization is subtly introduced early in the course\footnote{The assimilation of the \texttt{import} directive, as early as in the second week, was not problematic in our experience using Wollok for first-year programming courses.}.
 
 %Tests have to be written in a separate file; the directive \texttt{
 %\textbf{import} accumulator.*} at the beginning of the example indicates that all the objects (and later on, classes) defined in the file called \texttt{accumulator.wlk} are available to be used in the test. In this way, some basic knowledge of modularization is subtly introduced at the very beginning of the course\footnote{\carlostext{The assimilation of the \texttt{import} directive at the second week, was not problematic in our experience using Wollok for first-year programming courses.}}. 
@@ -153,7 +153,7 @@ Once more, Wollok helps us in the transition: any pre-existent stand-alone objec
 Figure \ref{fig:polymorphism} shows how the three previous definitions of accumulator can be used polymorphically. 
 \cl{la siguiente frase, incluyendo el footnote, es reemplazada por el texto que propongo agregar al introducir colecciones.}
 Also it shows the usage of more advanced list messages and closures\footnote{In our approach, we introduce polymorphism and closures \emph{before} classes. For reasons of space we skipped those intermediate examples here.}.
-A special mention has to be made about the fact of stand-alone objects being used in the same program and even being polymorphic with class-based objects.
+A special mention has to be made about the fact that stand-alone objects are used in the same program and even they are polymorphic with class-based objects.
 
 \vspace{-3mm}
 \begin{figure}[ht]

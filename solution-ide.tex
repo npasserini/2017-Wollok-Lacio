@@ -10,21 +10,21 @@ Also, the kind of support required by experienced programmer from her developmen
 One very important feature a beginner requires from her programming environment is \emph{discoverability}, \ie the tools should help discover possible paths of action and gently provide feedback when the student makes a mistake, helping her to understand what was wrong and how to fix her program.
 Finally, all programmers require tools that help them understand, navigate and explore their programs.
 
-\medskip 
-
 We decided to embed the Wollok language in an integrated programming environment, whose features are designed having in mind the specific needs of novice programmers.
 In our view. the tools provided by the environment are a fundamental part of the Wollok proposal, in equal terms with the language features.
-
 In particular, the Wollok environment provides tools focused to the following goals:
 \begin{itemize}
+\vspace*{-1mm}
 \item To guide and ease the actual code writing.
+\vspace*{-1mm}
 \item To detect several of the most common mistakes done by novices, providing adequate feedback, and even to provide possible corrections whenever is possible.
-\item Navigate an give different perspectives of the defined objects and classes.
-\item Organize the code that is produced along the course.
-\item Test and experiment with objects, both those provided by the student and those provided by Wollok.
+\vspace*{-1mm}
+\item To navigate an give different perspectives of the defined objects and classes.
+\vspace*{-1mm}
+\item To test and experiment with objects, both those provided by the student and those provided by Wollok.
 \end{itemize}
 
-We remark that several of the tools that the Wollok environment provides are common, in exact or approximate form, to those provided by mainstream industrial IDEs like e.g. Eclipse, Visual Studio or the Idea series. In this way, we aim to make both the programming experience more appealing to the students, and the transition to later courses and work environments softer; while giving adequate support to the learning process through the same tools.
+	We remark that several of the tools that the Wollok environment provides are common, in exact or approximate form, to those provided by mainstream industrial IDEs like e.g. Eclipse, Visual Studio or the Idea series. In this way, we aim to make both the programming experience more appealing to the students, and the transition to later courses and work environments softer; while giving adequate support to the learning process through the same tools.
 
 
 
@@ -32,7 +32,7 @@ We remark that several of the tools that the Wollok environment provides are com
 \subsection{Basic guidance for writing code}
 We have noticed that the syntactic strictness of programming languages imposes a harsh barrier on novice programmers. 
 Errors due to mispelled keywords or lack of proper delimiter (brace/bracket/parenthesis) match are both frequent and frustrating to them\footnote{Of course, block-based and visual programming tools make these problems just vanish. As we describe in the discussion, such tools would not be adequate for the intended uses of Wollok.}.
-The Wollok IDE code editor offer several basic features that help to mitigate such frustrations. We mention syntax highlighting, automatic insertion of the closing delimiter when the opening counterpart is typed, and the proposal of a proper indentation scheme for the code being written. We remark that the latter feature also aims to improve readability of code, and also to induce good code organization practices.
+The Wollok IDE code editor offer several basic features that help to mitigate such frustrations. We mention syntax highlighting, automatic insertion of the closing delimiter when the opening one is typed, and the proposal of a proper indentation scheme. We remark that the latter feature also aims to improve readability of code, and also to induce good code organization practices.
 
 The Wollok IDE also provides \emph{content assist}, 
 \ie in certain contexts, the IDE can autocomplete an identifier name, or provide a list of possible completions if there are many (\cf Fig. \ref{fig:codeCompletion}).
@@ -186,14 +186,14 @@ Therefore, we prefer let the IDE detect the mistake and show possible solutions,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Understanding and navigating a program}
-Simple \emph{code navigation} tools can significantly improve the programming experience.
-For example the Wollok IDE allows to go in one click from a message send to its implementation\footnote{In the cases that is identifiable by the static analyser} and a keyboard shortcut\footnote{\code{ALT + left arrow} which is familiar to students due to its universal adoption in web browsers.} to go back to the previous location.
-Fast navigation back and forth through a program allows for better understanding of the relationship between the different portions of it.
-We have seen that lack of proper navigation tools might mislead the student to avoid correct modularization of their program, as they run into difficulties coping with a program that is divided in several small pieces.
+Code navigation and visualization tools can significantly improve the programming experience.
+We note that in our teaching (and also industrial) experience, lack of such tools might mislead students (resp. developers) to avoid correct modularization of their program, as they run into difficulties coping with a program that is divided in several small pieces.
 
-Also, code visualization tools help understanding bigger programs and are as useful for beginners as they are for experienced programmers.
-The Wollok IDE provides an outline view and automatic static diagrams (\cf Fig. \ref{fig:outline}).
-These higher-level views of the program, allow the student to gain practice in abstracting herself of the details of some portions of a program, understanding her objects and classes as black boxes that provide some services, instead of attempting to have all of them in her head at all times. This level of abstraction is a necessary skill for being able to participate in a larger project.
+The Wollok IDE offers several keyboard/mouse shortcuts for code navigation, allowing e.g. to jump for a class reference (tipically, for instance creation) to its definition and a message send to the corresponding method (when such method can be determined), and back-and-forth navigation on code portions resembling that of Web browsers.
+These tooles allow a better understanding of the relationship between the different portions of the code being developed by a student.
+
+Some code visualization tools are available as well. An outline view and automatically generated static diagrams (\cf Fig. \ref{fig:outline} right and left resp.) provide streamlined views of the classes and WKOs defined. Clicking a class, WKO or method pops up the corresponding definition in the code editor.
+We claim thatthese tools are particularly useful to induce students to abstract themselves from the details of some portions of a program, understanding objects and classes as black boxes that provide some services, instead of attempting to have all of them in their head at all times. This level of abstraction is a necessary skill for being able to participate in larger projects.
 
 \begin{figure}[ht]
  \centering
@@ -202,72 +202,107 @@ These higher-level views of the program, allow the student to gain practice in a
  \label{fig:outline}
 \end{figure}
 
-% No puse nada de:
-% - Ctrl-O, es medio difícil de explicar, no sé.
-% - Tampoco sé bien bien qué decir del Ctrl-E
-% - Destacar que distingue los métodos con y sin efecto, si bien esto es un feature interesante, creo que es medio descolgado en este punto o habría que hablar más largo sobre por qué esa diferenciación que no está en ningún lado, creo.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Encouraging best programming practices}
-In our opinion, good practics should be taught from the very beginning of programming curricula. This claim is independent of the recurrent debate about rules and conventions. 
-Our experience shows that it is unlikely that novice programmers appreciate the advantages of e.g. good variable names or correct code indentation, as these attributes are more easily appreciated on larger programs.
-Therefore, we have to actively enforce them, and get them used to writing and reading good quality code.
-
-Several features of the language and code editor aim to promote, or enforce, good programming practices.
-For example, it compels the programmer to a predefined order inside a class definition, \ie grouping all variables and constants in the first place, then constructors and finally methods. 
-Also it establishes some basic rules about naming and restricts the usage of global variables.
-We also mention that autocompletion of braces and square brackets eases the adoption of adequate indentation.
-
-Moreover, some bad programming habits are detected by the error detection of the IDE. 
-As an example, Fig. \figref{check-unusedVariable} shows an example of an unused variable error.
-Unused, \emph{dead code} tends to appear after a refactoring or after trying different solutions to a problem. 
-Quick detection of this kind of errors will help the student to identify the bad practice and train her to avoid its appearance.
-
-
-\commented{
-A major part of the IDE is devoted to enforce good programming practices, which we consider as a main topic in a programming learning course.
-For example, it compels the programmer to a predefined order inside a class definition, \ie grouping all variables and constants in the first place, then constructors and finally methods. 
-Also it establishes some basic rules about naming and restricts the usage of global variables.
-
-While the specific rules could be debated forever, and independently of the conventions chosen,
-we think that good programming practices have to be taught from the very beginning.
-In their first programs, students might not be able to appreciate the advantages of good variable names or correct code indentation, these are attributes that are more easily appreciated on larger programs.
-Therefore, we have to actively enforce them, and have them get used to writing and reading good quality code.
-We do not want them to acquire bad programming practices that will be difficult to \emph{unlearn} later.
-
-As an example, Fig. \figref{check-unusedVariable.png} shows an example of an unused variable error.
-Unused, \emph{dead code} tends to appear after a refactoring or after trying different solutions to a problem. 
-Quick detection of this kind of errors will help the student to identify the bad practice and train her avoiding its appearance.
-}
-
-\begin{figure}[ht]
-    \centering
-	\includegraphics[scale=0.6]{images/wollok-paper-check-unusedVariable.png}
-    \caption{Detection of unused variables}
-    \label{fig:check-unusedVariable}
-\end{figure}
-
-\medskip
-At a higher level, the Wollok IDE is designed to help the students to put in order the code they produce along the course. 
+The Wollok IDE also includes some tools to help students to manage the whole set of code produced along a course.
 Source files are organized in \emph{projects}, that have a predefined directory structure including both files for class/object definitions and tests.
-The generated file structure is adequate to the use of a source code repository such as GIT or SVN, improving collaboration in group assignments and serving as a communication tool with teachers.
-%Frequently this is also accompanied by a source code repository such as GIT or SVN, which not only helps organization but also improves collaboration in group assignments and serves as communication tool with the teacher.
-
-These features solve the frequent difficulties novice programmers find to organize their source files, and in particular, to coordinate work in group assignments.
+The generated file structure is adequate to the use of a source code repository such as GIT or SVN.
+These features alleviate the frequent difficulties novice programmers find to organize their source files, and in particular, to coordinate work in group assignments.
 We note to this respect that it is normal to see members of a work group sharing code by sending e-mail with \emph{zip files} between each other.
 The time spent trying to reconcile different versions of the program or even trying to understand which is the latest one, distracts them from learning the actual topics of the course.
 Hence the benefit of providing suitable source organization tools, besides the promotion of good development practices it implies.
 
-%We note that without adequate IDE support, the organization of source files often pose difficulties to novice programmers. In particular, the coordination of work for group assignments can be problematic. 
-%For example, 
-%%in the absence of adequate tools 
-%it is ordinary to see members of a work group share code by sending \emph{zips} by e-mail between each other.
-%The time spent trying to reconcile different versions of the program or even trying to understand which is the latest one, distracts them from learning the actual topics of the course.
+%At a higher level, the Wollok IDE is designed to help the students to put in order the code they produce along the course. 
+%Source files are organized in \emph{projects}, that have a predefined directory structure including both files for class/object definitions and tests.
+%The generated file structure is adequate to the use of a source code repository such as GIT or SVN, improving collaboration in group assignments and serving as a communication tool with teachers.
+%%Frequently this is also accompanied by a source code repository such as GIT or SVN, which not only helps organization but also improves collaboration in group assignments and serves as communication tool with the teacher.
 %
-%Without adequate guidance, a group of novices, who have yet not assimilated an autonomous organization discipline, will usually encounter difficulties structuring their code or coordinating their work.
-%For example, in the absence of better tools it is ordinary to see members of a work group share code by sending \emph{zips} by e-mail between each other.
+%These features solve the frequent difficulties novice programmers find to organize their source files, and in particular, to coordinate work in group assignments.
+%We note to this respect that it is normal to see members of a work group sharing code by sending e-mail with \emph{zip files} between each other.
 %The time spent trying to reconcile different versions of the program or even trying to understand which is the latest one, distracts them from learning the actual topics of the course.
+%Hence the benefit of providing suitable source organization tools, besides the promotion of good development practices it implies.
+
+
+%Simple \emph{code navigation} tools can significantly improve the programming experience.
+%For example the Wollok IDE allows to go in one click from a message send to its implementation\footnote{In the cases that is identifiable by the static analyser} and a keyboard shortcut\footnote{\code{ALT + left arrow} which is familiar to students due to its universal adoption in web browsers.} to go back to the previous location.
+%Fast navigation back and forth through a program allows for better understanding of the relationship between the different portions of it.
+%We have seen that lack of proper navigation tools might mislead the student to avoid correct modularization of their program, as they run into difficulties coping with a program that is divided in several small pieces.
+%
+%Also, code visualization tools help understanding bigger programs and are as useful for beginners as they are for experienced programmers.
+%The Wollok IDE provides an outline view and automatic static diagrams (\cf Fig. \ref{fig:outline}).
+%These higher-level views of the program, allow the student to gain practice in abstracting herself of the details of some portions of a program, understanding her objects and classes as black boxes that provide some services, instead of attempting to have all of them in her head at all times. This level of abstraction is a necessary skill for being able to participate in a larger project.
+%
+%\begin{figure}[ht]
+ %\centering
+ %\includegraphics[scale=0.5]{images/outline.png}
+ %\caption{\small Static diagram and outline.}
+ %\label{fig:outline}
+%\end{figure}
+%
+%% No puse nada de:
+%% - Ctrl-O, es medio difícil de explicar, no sé.
+%% - Tampoco sé bien bien qué decir del Ctrl-E
+%% - Destacar que distingue los métodos con y sin efecto, si bien esto es un feature interesante, creo que es medio descolgado en este punto o habría que hablar más largo sobre por qué esa diferenciación que no está en ningún lado, creo.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Encouraging best programming practices}
+%In our opinion, good practics should be taught from the very beginning of programming curricula. This claim is independent of the recurrent debate about rules and conventions. 
+%Our experience shows that it is unlikely that novice programmers appreciate the advantages of e.g. good variable names or correct code indentation, as these attributes are more easily appreciated on larger programs.
+%Therefore, we have to actively enforce them, and get them used to writing and reading good quality code.
+%
+%Several features of the language and code editor aim to promote, or enforce, good programming practices.
+%For example, it compels the programmer to a predefined order inside a class definition, \ie grouping all variables and constants in the first place, then constructors and finally methods. 
+%Also it establishes some basic rules about naming and restricts the usage of global variables.
+%We also mention that autocompletion of braces and square brackets eases the adoption of adequate indentation.
+%
+%Moreover, some bad programming habits are detected by the error detection of the IDE. 
+%As an example, Fig. \figref{check-unusedVariable} shows an example of an unused variable error.
+%Unused, \emph{dead code} tends to appear after a refactoring or after trying different solutions to a problem. 
+%Quick detection of this kind of errors will help the student to identify the bad practice and train her to avoid its appearance.
+%
+%
+%\commented{
+%A major part of the IDE is devoted to enforce good programming practices, which we consider as a main topic in a programming learning course.
+%For example, it compels the programmer to a predefined order inside a class definition, \ie grouping all variables and constants in the first place, then constructors and finally methods. 
+%Also it establishes some basic rules about naming and restricts the usage of global variables.
+%
+%While the specific rules could be debated forever, and independently of the conventions chosen,
+%we think that good programming practices have to be taught from the very beginning.
+%In their first programs, students might not be able to appreciate the advantages of good variable names or correct code indentation, these are attributes that are more easily appreciated on larger programs.
+%Therefore, we have to actively enforce them, and have them get used to writing and reading good quality code.
+%We do not want them to acquire bad programming practices that will be difficult to \emph{unlearn} later.
+%
+%As an example, Fig. \figref{check-unusedVariable.png} shows an example of an unused variable error.
+%Unused, \emph{dead code} tends to appear after a refactoring or after trying different solutions to a problem. 
+%Quick detection of this kind of errors will help the student to identify the bad practice and train her avoiding its appearance.
+%}
+%
+%\begin{figure}[ht]
+    %\centering
+	%\includegraphics[scale=0.6]{images/wollok-paper-check-unusedVariable.png}
+    %\caption{Detection of unused variables}
+    %\label{fig:check-unusedVariable}
+%\end{figure}
+%
+%\medskip
+%At a higher level, the Wollok IDE is designed to help the students to put in order the code they produce along the course. 
+%Source files are organized in \emph{projects}, that have a predefined directory structure including both files for class/object definitions and tests.
+%The generated file structure is adequate to the use of a source code repository such as GIT or SVN, improving collaboration in group assignments and serving as a communication tool with teachers.
+%%Frequently this is also accompanied by a source code repository such as GIT or SVN, which not only helps organization but also improves collaboration in group assignments and serves as communication tool with the teacher.
+%
+%These features solve the frequent difficulties novice programmers find to organize their source files, and in particular, to coordinate work in group assignments.
+%We note to this respect that it is normal to see members of a work group sharing code by sending e-mail with \emph{zip files} between each other.
+%The time spent trying to reconcile different versions of the program or even trying to understand which is the latest one, distracts them from learning the actual topics of the course.
+%Hence the benefit of providing suitable source organization tools, besides the promotion of good development practices it implies.
+%
+%%We note that without adequate IDE support, the organization of source files often pose difficulties to novice programmers. In particular, the coordination of work for group assignments can be problematic. 
+%%For example, 
+%%%in the absence of adequate tools 
+%%it is ordinary to see members of a work group share code by sending \emph{zips} by e-mail between each other.
+%%The time spent trying to reconcile different versions of the program or even trying to understand which is the latest one, distracts them from learning the actual topics of the course.
+%%
+%%Without adequate guidance, a group of novices, who have yet not assimilated an autonomous organization discipline, will usually encounter difficulties structuring their code or coordinating their work.
+%%For example, in the absence of better tools it is ordinary to see members of a work group share code by sending \emph{zips} by e-mail between each other.
+%%The time spent trying to reconcile different versions of the program or even trying to understand which is the latest one, distracts them from learning the actual topics of the course.
 
 
 

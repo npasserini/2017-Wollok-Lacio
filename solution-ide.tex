@@ -26,25 +26,18 @@ In particular, the Wollok environment provides tools focused to the following go
 
 We remark that several of the tools that the Wollok environment provides are common, in exact or approximate form, to those provided by mainstream industrial IDEs like e.g. Eclipse, Visual Studio or the Idea series. In this way, we aim to make both the programming experience more appealing to the students, and the transition to later courses and work environments softer; while giving adequate support to the learning process through the same tools.
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Basic guidance for writing code}
-% To guide and ease the acual code writing
-We have noticed that the first barrier for novices is the strictness of a programming language syntax. Frequently initial students find annoying that their program will not execute if they forget a closing brace or mispell a keyword or a variable name, in many cases even a case error stops execution or produces unexpected results.
-Syntax highlighting is very helpful by providing a very fast visual feedback about a mispelled keyword.
-Also, like many modern code editors, the Wollok IDE automatically creates a matching closing symbol each time the programmer types a parenthesis, square bracket or brace. 
-Also the IDE helps correctly indenting the code inside code portions enclosed in braces or square brackets, which both helps avoiding frustrating syntax problems and starts to induce best practices about code organization.
-
-Other approaches have addressed this problem using block-based or visual programming tools \np{Cita a alguno}. 
-While we value those ideas, we think that mainstream programming is and will continue to be text-based, therefore, non-textual programming can be useful for younger students, but at universitary level it is better to provide tools that help dealing with syntax problems rather than continue circumventing them.
-
-At a bigger scale, Wollok admits the definition of several objects and/or classes in the same file. 
-Allowing the teacher to go deeper in the initial examples using several objects and polymorphism, without requiring the students to struggle with imports and packages.
-These concepts will arise later in the course, when students' programs increase their complexity to a level that demands for modularization. 
-%(\cf \ref{sec:modularization}).
-\np{¿Esto no es una característica del lenguaje?}
+We have noticed that the syntactic strictness of programming languages imposes a harsh barrier on novice programmers. 
+Errors due to mispelled keywords or lack of proper delimiter (brace/bracket/parenthesis) match are both frequent and frustrating to them\footnote{Of course, block-based and visual programming tools make these problems just vanish. As we describe in the discussion, such tools would not be adequate for the intended uses of Wollok.}.
+The Wollok IDE code editor offer several basic features that help to mitigate such frustrations. We mention syntax highlighting, automatic insertion of the closing delimiter when the opening counterpart is typed, and the proposal of a proper indentation scheme for the code being written. We remark that the latter feature also aims to improve readability of code, and also to induce good code organization practices.
 
 The Wollok IDE also provides \emph{content assist}, 
 \ie in certain contexts, the IDE can autocomplete an identifier name, or provide a list of possible completions if there are many (\cf Fig. \ref{fig:codeCompletion}).
-This is available for all types of variables and constants and messages sent to \code{self}, \code{super} or any WKO\footnote{Current work in progress includes a type inference system that once completed should allow to add content asistance for any message send}. 
+This is available for all types of variables and constants and messages sent to \code{self}, \code{super} or any WKO\footnote{Extending autocomplete to every message send is a difficult task, due to the lack of explicit type information. 
+Current work in progress includes a \emph{type inferer} that will improve the content assistance capabilities of Wollok.}. 
  
 \begin{figure}[ht]
  \centering
@@ -53,20 +46,63 @@ This is available for all types of variables and constants and messages sent to 
  \label{fig:codeCompletion}
 \end{figure}
 
+At a bigger scale, Wollok admits the definition of several objects and/or classes in the same file. 
+This allows the teacher to go deeper in the initial examples using several objects and polymorphism, without requiring the students to struggle with imports and packages.
+These concepts will arise later in the course, when students' programs increase their complexity to a level that demands for modularization. 
+%(\cf \ref{sec:modularization}).
+
+
+%% To guide and ease the acual code writing
+%We have noticed that the first barrier for novices is the strictness of a programming language syntax. Frequently initial students find annoying that their program will not execute if they forget a closing brace or mispell a keyword or a variable name, in many cases even a case error stops execution or produces unexpected results.
+%Syntax highlighting is very helpful by providing a very fast visual feedback about a mispelled keyword.
+%Also, like many modern code editors, the Wollok IDE automatically creates a matching closing symbol each time the programmer types a parenthesis, square bracket or brace. 
+%Also the IDE helps correctly indenting the code inside code portions enclosed in braces or square brackets, which both helps avoiding frustrating syntax problems and starts to induce best practices about code organization.
+%
+%Other approaches have addressed this problem using block-based or visual programming tools \np{Cita a alguno}. 
+%While we value those ideas, we think that mainstream programming is and will continue to be text-based, therefore, non-textual programming can be useful for younger students, but at universitary level it is better to provide tools that help dealing with syntax problems rather than continue circumventing them.
+%
+%At a bigger scale, Wollok admits the definition of several objects and/or classes in the same file. 
+%Allowing the teacher to go deeper in the initial examples using several objects and polymorphism, without requiring the students to struggle with imports and packages.
+%These concepts will arise later in the course, when students' programs increase their complexity to a level that demands for modularization. 
+%%(\cf \ref{sec:modularization}).
+%\np{¿Esto no es una característica del lenguaje?}
+%
+%The Wollok IDE also provides \emph{content assist}, 
+%\ie in certain contexts, the IDE can autocomplete an identifier name, or provide a list of possible completions if there are many (\cf Fig. \ref{fig:codeCompletion}).
+%This is available for all types of variables and constants and messages sent to \code{self}, \code{super} or any WKO\footnote{Current work in progress includes a type inference system that once completed should allow to add content asistance for any message send}. 
+ %
+%\begin{figure}[ht]
+ %\centering
+ %\includegraphics[scale=0.45]{images/codeCompletion.png}
+ %\caption{\small A list of suggestions from the Wollok IDE content assistance.}
+ %\label{fig:codeCompletion}
+%\end{figure}
+%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Detect mistakes and help fixing them}
 \label{sec:detectMistakes}
-Another dimension of the programming environment is helping the programmer to recover from his mistakes. 
+The Wollok IDE is able to detect statically (i.e. prior to evaluation) several mistakes made frequently by students. Besides basic errors like non-matching delimiters, mispelled keywords and references to undefined identifiers, the code analysis performed by Wollok verifies the following.
+\begin{enumerate}
+\item 
+Class definitions must follow a definite order: variable declaration, followed by constructors, followed by methods. This aims to promote good code organization practices in students.
+\item 
+Unused or never-assigned variables are indicated as warnings. The ability to separate warnings from errors opens the way to add more checks of possible bad smells in student code.
+\item 
+Similarly, a variable read just once is marked as a warning, since it could be inlined.
+\item 
+Some cases of type error related to message send are detected. This includes all self-sends and messages sent to WKOs.
+\item 
+Some subtler mistakes are also detected, e.g. a method must return in either all execution branches or none, an abstract class cannot be instantiated.
+\end{enumerate}
 
-First, we aim for \emph{static error detection} whenever possible, because it provides faster feedback than runtime checks.
-Some errors can be even reported as the programmer is typing.
-On the other hand, runtime checks are not only slower but also open to be skipped in some program executions.
+These errors are, in fact, detected while the student is typing a program, and shown in the editor. Like in several modern code editors, the source line is marked with an error sign. When the student passes the pointer over that sign, an explanatory message is shown.
+Special care has been put in the messages, to explain mistakes in the same terms in which the teacher talks to students.
+Moreover, in some situations, the IDE proposes possible \emph{automatic fixes} to the detected problems.
 
-Second, error reporting should provide with clear messages, explained in the same terms in which the teacher talks to the students. 
-Also, inline error reports, \eg underlining the offending code, relieves the student from the task of mapping the detected problem with the possible cause 
-
-Third, in some situations, the IDE can propose possible automatic fixes to the detected problems.
-Figure \ref{fig:errorReporting} exemplifies these features. The mispelled identifier is underlined and if we put the mouse on the error report we get an error message and a possible fix.
-In this case, the automatic fix will insert an empty method in the adecquate position.
+Figure \ref{fig:errorReporting} exemplifies this feature along with the rendering of a code error. The mispelled identifier is underlined and if we pass over the mouse on the error report, we get an error message together a possible fix.
+In this case, the automatic fix will insert an empty method in the adecquate position. 
 
 \begin{figure}[ht]
  \centering
@@ -75,45 +111,80 @@ In this case, the automatic fix will insert an empty method in the adecquate pos
  \label{fig:errorReporting}
 \end{figure}
 
-\medskip
-Together, these characteristics are meant to empower the student to explore different ideas, 
-providing positive feedback in case he makes a mistake.
-
-While this does not replace the more personalized feedback a teacher  provides, in several situations a sensitive automatic feedback helps the student not to stay stuck with simple errors waiting for a response.
-This in turn allows for more exercises during the course.
-
-Moreover, automatic detection acts as a (basic) assistant teacher, \ie some simple topics that are not crucial for the course can be left for the student to learn by herself in the interaction with the IDE.
-This is specially efficient for some kind of errors that occur only for specific groups of students, \eg those with previous non-academic OO experience. 
-Tackling this errors in class, would imply to show a bad solution to the rest of the students, that had otherwise not thought about it. This would be a fine strategy in an advanced course, but will confuse beginners.
-Instead, we prefer let the IDE detect the mistake and show possible solutions, only for the students that effectively incurr in these kind of errors.\np{Faltaría un ejemplo.}
+These features aim to give a quick visualization and a proper understanding of coding mistakes. In this way, we intend to empower students to explore different ideas, providing positive feedback in case of mistakes.
+While this does not replace the more personalized feedback a teacher provides, in several situations a sensitive automatic feedback helps students not to stay stuck with simple errors, waiting for teacher or colleague assistance.
+This in turn allows for more agile lab classes, and therefore to the possibility of abarcating more exercises during a course.
 
 \medskip
+We note that automatic detection acts as a (basic) assistant teacher, \ie some simple topics that are not crucial for the course can be left for the student to learn by herself in the interaction with the IDE, instead to being explained in class.
+This is specially useful for some errors that only some students are likely to make.
+Tackling this errors in class, would imply to show a bad solution to the rest of the students, that had otherwise not thought about it. While anticipating errors could be a fine strategy in an advanced course, it mostly confuse beginners.
+Therefore, we prefer let the IDE detect the mistake and show possible solutions, only for the students that effectively incur in these kind of errors.\np{Faltaría un ejemplo.}
 
-%  - Error indications with adequate messages. De esto daría algunos ejemplos que nos parezca piola resaltar, no sería exhaustivo.
-%  - Quick fixes.
 
-Finally, the great majority of validations and automatic proposals, are the result of our experience in the classroom, looking at the students using the Wollok language and IDE, as well as other languages and tools we have used in the past.
-Each semester, we receive reports of the teachers using Wollok which include the type of errors the students make most often, trying to improve the network of validations and proposals, in order to improve the learning experience.
 
-%\medskip
-%This validations are organized and shown in a unified way, using a dedicated section of the user interface for their display.
-%All the results of the checking and the validation of the program is shown in one integrated view, it is called \emph{Problems View}, Fig. \figref{problemsview.png} shows a view of this feature. 
+%Another dimension of the programming environment is helping the programmer to recover from his mistakes. 
+%
+%First, we aim for \emph{static error detection} whenever possible, because it provides faster feedback than runtime checks.
+%Some errors can be even reported as the programmer is typing.
+%On the other hand, runtime checks are not only slower but also open to be skipped in some program executions.
+%
+%Second, error reporting should provide with clear messages, explained in the same terms in which the teacher talks to the students. 
+%Also, inline error reports, \eg underlining the offending code, relieves the student from the task of mapping the detected problem with the possible cause 
+%
+%Third, in some situations, the IDE can propose possible automatic fixes to the detected problems.
+%Figure \ref{fig:errorReporting} exemplifies these features. The mispelled identifier is underlined and if we put the mouse on the error report we get an error message and a possible fix.
+%In this case, the automatic fix will insert an empty method in the adecquate position.
 %
 %\begin{figure}[ht]
-%    \centering
-%	\includegraphics[scale=0.5]{images/wollok-paper-check-problemsview.png}
-%    \caption{Problems View: shows the different problems detected by the IDE }
-%    \label{fig:problemsview.png}
+ %\centering
+ %\includegraphics[scale=0.5, trim={0 0 0.15cm 0},clip]{images/errorReporting.png}
+ %\caption{\small Example of a simple error detection.}
+ %\label{fig:errorReporting}
 %\end{figure}
 %
-%Here is a list of all the validations and checks the tool supports, and a brief reason why they are useful while teaching object oriented programming:
+%\medskip
+%Together, these characteristics are meant to empower the student to explore different ideas, 
+%providing positive feedback in case he makes a mistake.
+%
+%While this does not replace the more personalized feedback a teacher  provides, in several situations a sensitive automatic feedback helps the student not to stay stuck with simple errors waiting for a response.
+%This in turn allows for more exercises during the course.
+%
+%Moreover, automatic detection acts as a (basic) assistant teacher, \ie some simple topics that are not crucial for the course can be left for the student to learn by herself in the interaction with the IDE.
+%This is specially efficient for some kind of errors that occur only for specific groups of students, \eg those with previous non-academic OO experience. 
+%Tackling this errors in class, would imply to show a bad solution to the rest of the students, that had otherwise not thought about it. This would be a fine strategy in an advanced course, but will confuse beginners.
+%Instead, we prefer let the IDE detect the mistake and show possible solutions, only for the students that effectively incurr in these kind of errors.\np{Faltaría un ejemplo.}
+%
+%\medskip
+%
+%%  - Error indications with adequate messages. De esto daría algunos ejemplos que nos parezca piola resaltar, no sería exhaustivo.
+%%  - Quick fixes.
+%
+%Finally, the great majority of validations and automatic proposals, are the result of our experience in the classroom, looking at the students using the Wollok language and IDE, as well as other languages and tools we have used in the past.
+%Each semester, we receive reports of the teachers using Wollok which include the type of errors the students make most often, trying to improve the network of validations and proposals, in order to improve the learning experience.
+%
+%%\medskip
+%%This validations are organized and shown in a unified way, using a dedicated section of the user interface for their display.
+%%All the results of the checking and the validation of the program is shown in one integrated view, it is called \emph{Problems View}, Fig. \figref{problemsview.png} shows a view of this feature. 
+%%
+%%\begin{figure}[ht]
+%%    \centering
+%%	\includegraphics[scale=0.5]{images/wollok-paper-check-problemsview.png}
+%%    \caption{Problems View: shows the different problems detected by the IDE }
+%%    \label{fig:problemsview.png}
+%%\end{figure}
+%%
+%%Here is a list of all the validations and checks the tool supports, and a brief reason why they are useful while teaching object oriented programming:
+%
+%%  \item \textbf{References resolution problems}: this errors are useful to detect and avoid references to undeclared variables and also errors in the sending of messages.
+%%	\begin{itemize}
+%%	  \item \textit{Undeclared references}: from local variables, parameters or internal fields of objects and classes.
+%%	  \item \textit{Undefined constructors}: checking for the number and type of the parameters.
+%%	  \item \textit{Messages to this}: sending messages to this is a special case, here we can check the existence of the correct method by the number and type of the arguments, even without using type inference.
 
-%  \item \textbf{References resolution problems}: this errors are useful to detect and avoid references to undeclared variables and also errors in the sending of messages.
-%	\begin{itemize}
-%	  \item \textit{Undeclared references}: from local variables, parameters or internal fields of objects and classes.
-%	  \item \textit{Undefined constructors}: checking for the number and type of the parameters.
-%	  \item \textit{Messages to this}: sending messages to this is a special case, here we can check the existence of the correct method by the number and type of the arguments, even without using type inference.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Understanding and navigating a program}
 Simple \emph{code navigation} tools can significantly improve the programming experience.
 For example the Wollok IDE allows to go in one click from a message send to its implementation\footnote{In the cases that is identifiable by the static analyser} and a keyboard shortcut\footnote{\code{ALT + left arrow} which is familiar to students due to its universal adoption in web browsers.} to go back to the previous location.
@@ -136,6 +207,8 @@ These higher-level views of the program, allow the student to gain practice in a
 % - Tampoco sé bien bien qué decir del Ctrl-E
 % - Destacar que distingue los métodos con y sin efecto, si bien esto es un feature interesante, creo que es medio descolgado en este punto o habría que hablar más largo sobre por qué esa diferenciación que no está en ningún lado, creo.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Encouraging best programming practices}
 In our opinion, good practics should be taught from the very beginning of programming curricula. This claim is independent of the recurrent debate about rules and conventions. 
 Our experience shows that it is unlikely that novice programmers appreciate the advantages of e.g. good variable names or correct code indentation, as these attributes are more easily appreciated on larger programs.
@@ -196,6 +269,9 @@ Hence the benefit of providing suitable source organization tools, besides the p
 %For example, in the absence of better tools it is ordinary to see members of a work group share code by sending \emph{zips} by e-mail between each other.
 %The time spent trying to reconcile different versions of the program or even trying to understand which is the latest one, distracts them from learning the actual topics of the course.
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Tests and experiments}
 As we described in Section \ref{sec:wollokLanguage}, Wollok provides two ways of working with the defined objects and classes: the REPL and the definition of tests.
 

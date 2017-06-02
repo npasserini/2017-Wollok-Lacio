@@ -78,21 +78,21 @@ The main goal of this paper is to describe Wollok\footnote{
 	(\url{http://www.gnu.org/copyleft/lgpl.html}).}, 
 the tool we created that reunites language and environment. We point out the pedagogical considerations that suggested us to build Wollok, and how they influence various of its design decisions. We also report briefly our two-year experience using this tool in initial OOP courses.
 
-%In this paper, we describe our pedagogical approach to teaching OOP\footnote{For space reasons, this paper is focused on the differences with our previous works. 
-%For a more comprehensive description of the base ideas, please refer to \cite{lombardi_instances_2007,lombardi_carlos_alumnos_2008,spigariol_lucas_ensenando_2013}.}.
-%Also, we describe a new language named Wollok, which we built to enable putting this ideas into practice in actual courses.
-
-\np{No sé si hablar de los temas de colecciones, son un poco particulares de Ozono.
-También del environment se podrían decir más cosas que sólo el sistema de tipos.}
-\pt{Yo no hablaria de nada de eso.}
-
 \medskip
 \input{relatedWorks}
+
+Wollok combines some characteristics that are typically present in academical environments with others that are more easily seen in industrial ones, aiming to enrich them to fulfill the specific needs of novice programmers and the proper development of a first OOP course.
+Its most noticeable characteristics are:
+(1) the possibility of using self-defined objects to support an introduction to the topic that postpones the introduction of the concept of class,
+(2) the possibility of combining self-defined with class-based code objects in the same program,
+(3) the decission of offering an IDE with edition and code management capabilities that are fine-tuned for unexperienced programmers
+and (4) that both the language as the IDE share similarities with their industrial counterparts, in order to soften the later transition to the professional tools.
 
 \medskip 
 % Paper structure
 %The rest of the paper is structured as follows. 
-In \secref{problem} we present the problems of learning Object Oriented programming, and the consequences of this difficulties to the students. \secref{wollokLanguage} describes the proposed language and the design goals and ideas we take in consideration for it. In \secref{environment} we describe the integrated development environment we have developed for Wollok and all the features it has and how they are useful for the teaching of programming skills. \secref{discussion} analyses the different design decisions we have taken
+In \secref{problem} we present the problems of learning Object Oriented programming, and the consequences of this difficulties to the students. \secref{wollokLanguage} describes the proposed language and the design goals and ideas we take in consideration for it. 
+In \secref{environment} we describe the integrated development environment we have developed for Wollok and all the features it has and how they are useful for the teaching of programming skills. \secref{discussion} analyses the different design decisions we have taken
 %, while \secref{related} compares our solution with another similar approaches. 
 Finally, we summarize our contributions in \secref{conclusion},
 along with some possible lines of further work derived from this initial ideas. 

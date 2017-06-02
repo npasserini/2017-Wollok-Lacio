@@ -1,25 +1,25 @@
-\section{Related Work}
-\label{sec:related}
+%\section{Related Work}
+%\label{sec:related}
 
 % Other solutions in the domain, and a real comparison of our contribution with solutions from other people.
 
 % Agregar referencia al paper de Fidel, y otros
 
 % Base tomada del paper de ESUG 2011
+In recent years a several pedagogical programming environment have arised, with diverse purposes.
+Some of them make use of block-based or visual programming, 
+such as Scratch \cite{malan_scratch_2007}, Etoys \cite{lee_empowering_2011} and Kodu \cite{kodu};
+in our vision these tools are suitable for stimulating interest in programming and for being used in secondary education.
+Others focus on a first universitary programming course, such as Gobstones \cite{lopez_nombre_2012}
+\cl{ver si el artículo sobre Gobstones tiene related work}.
+Finally, there are works that share our interest in a first OOP course, 
+such as BlueJ \cite{bennedsen_bluej_2010} and Loop \cite{griggio_programming_2011}.\np{alguno más?}
+Other educators propose to use industrial languages in introductory courses.
+\cl{Por otro lado, también existen propuestas para usar lenguajes industriales en cursos iniciales de programación con objetos (citas a Meyer diciendo eso sobre Eiffel, alguno sobre Smalltalk, tal vez alguno que use Java).}
 
-The first aspect to analyse is the shape of OOP introductory courses.
-Vilmer \etal \cite{vilner_2007} presents a work exposing the advantages of the implementation of object-first introductory courses. 
-Also, Moritz \etal \cite{moritz_2005} presents a way of starting the learning of a programming language using an object-first way using multimedia and intelligent tutoring.
-Another interesting work in this area is the one from Sajaniemi \etal \cite{Sajaniemi_teachingprogramming:} who presents another way to introduce the main concepts.
-All this authors propose to use an industrial language, such as Java or C\#, but they do not address the problems arising from the use of these languages.
-On the other hand, Lopez \etal \cite{lopez_nombre_2012} present a successful way of teaching using functional-first in an introductory course. 
-
-Another aspect to analyse is the use of an industrial programming language or a custom one. 
-In this subject, the approcah of Lopez \etal \cite{lopez_nombre_2012} is similar to ours, but in a functional-first solution. 
-As Wollok, his language is focused on the main concepts of the paradigm.
-Another custom language specifically built to focus on the main concepts of OOP is BlueJ \cite{bennedsen_bluej_2010}. 
-This implementation shares with Wollok the idea to simplify the language, but it is class centered. 
-Wollok is both class and object centered, so we avoid need to teach classes to start learning the basic concepts of the paradigm.
-
-There are interesting works in the Visual languages as a way of teaching OOP: Scratch \cite{malan_scratch_2007}, Etoys \cite{lee_empowering_2011} and Kodu \cite{kodu}. 
-Still, all of them are far away of a professional development environment, so the transition to a industrial level work is not so easy as with Wollok.
+Wollok combines some characteristics that are typically present in academical environments with others that are more easily seen in industrial ones, aiming to enrich them to fulfill the specific needs of novice programmers and the proper development of a first OOP course.
+Its most noticeable characteristics are:
+(1) the possibility of using self-defined objects to support an introduction to the topic that postpones the introduction of the concept of class,
+(2) the possibility of combining self-defined with class-based code objects in the same program,
+(3) the decission of offering an IDE with edition and code management capabilities that are fine-tuned for unexperienced programmers
+and (4) that both the language as the IDE share similarities with their industrial counterparts, in order to soften the later transition to the professional tools.

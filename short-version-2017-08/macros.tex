@@ -1,0 +1,118 @@
+\newboolean{showcomments}
+\setboolean{showcomments}{false}
+\ifthenelse{\boolean{showcomments}}
+  {\newcommand{\bnote}[2]{
+	\fbox{\bfseries\sffamily\scriptsize#1}
+    {\sf\small$\blacktriangleright$\textit{#2}$\blacktriangleleft$}
+    % \marginpar{\fbox{\bfseries\sffamily#1}}
+   }
+   \newcommand{\cvsversion}{\emph{\scriptsize$-$Id: macros.tex,v 1.1.1.1 2007/02/28 13:43:36 bergel Exp $-$}}
+  }
+  {\newcommand{\bnote}[2]{}
+   \newcommand{\cvsversion}{}
+  } 
+
+
+\newcommand{\here}{\bnote{***}{CONTINUE HERE}}
+\newcommand{\nb}[1]{\bnote{NB}{#1}}
+
+\newcommand{\fix}[1]{\bnote{FIX}{#1}}
+%%%% add your own macros 
+
+\newcommand{\np}[1]{\bnote{Nico}{#1}}
+\newcommand{\jf}[1]{\bnote{Javi}{#1}}
+\newcommand{\pt}[1]{\bnote{Pablo}{#1}}
+\newcommand{\cl}[1]{\bnote{Carlos}{#1}}
+
+\newcommand{\carlostext}[1]{{\color{red}#1}}
+\graphicspath{{figures/}}
+%%% 
+
+
+\newcommand{\figref}[1]{Figure~\ref{fig:#1}}
+\newcommand{\figlabel}[1]{\label{fig:#1}}
+\newcommand{\tabref}[1]{Table~\ref{tab:#1}}
+\newcommand{\layout}[1]{#1}
+\newcommand{\commented}[1]{}
+\newcommand{\secref}[1]{Section \ref{sec:#1}}
+\newcommand{\seclabel}[1]{\label{sec:#1}}
+
+%\newcommand{\ct}[1]{\textsf{#1}}
+\newcommand{\code}[1]{\textsf{#1}}
+\newcommand{\stMethod}[1]{\textsf{#1}}
+\newcommand{\sep}{\texttt{>>}\xspace}
+\newcommand{\stAssoc}{\texttt{->}\xspace}
+
+\newcommand{\stBar}{$\mid$}
+\newcommand{\stSelector}{$\gg$}
+\newcommand{\ret}{\^{}}
+\newcommand{\msup}{$>$}
+%\newcommand{\ret}{$\uparrow$\xspace}
+
+\newcommand{\myparagraph}[1]{\noindent\textbf{#1.}}
+\newcommand{\eg}{\emph{e.g.,}\xspace}
+\newcommand{\ie}{\emph{i.e.,}\xspace}
+\newcommand{\etal}{\emph{et al.,}\xspace}
+\newcommand{\ct}[1]{{\textsf{#1}}\xspace}
+\newcommand{\cf}{\emph{cf.}\xspace}
+
+\newcommand{\defaultScale}{0.55}
+\newcommand{\pic}[3]{
+   \begin{figure}[h]
+   \begin{center}
+   \includegraphics[scale=\defaultScale]{#1}
+   \caption{#2}
+   \label{#3}
+   \end{center}
+   \end{figure}
+}
+
+\newcommand{\twocolumnpic}[3]{
+   \begin{figure*}[!ht]
+   \begin{center}
+   \includegraphics[scale=\defaultScale]{#1}
+   \caption{#2}
+   \label{#3}
+   \end{center}
+   \end{figure*}}
+
+\newcommand{\infe}{$<$}
+\newcommand{\supe}{$\rightarrow$\xspace}
+\newcommand{\di}{$\gg$\xspace}
+\newcommand{\adhoc}{\textit{ad-hoc}\xspace}
+
+\usepackage{url}            
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\sffamily}}}
+\makeatother
+% Now actually use the newly defined style.
+\urlstyle{leo}
+
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize\ttfamily,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  tabsize=2,                       % sets default tabsize to 2 spaces
+}
+
+\lstdefinelanguage{Wollok}{
+  keywords={program, console, var, const, object, method, test, import, return, class},
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}

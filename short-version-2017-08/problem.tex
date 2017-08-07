@@ -1,0 +1,105 @@
+%\section{Problem Description}
+\section{Why Wollok?}
+\label{sec:problem}
+
+% Context, exposed with the \textbf{most precise terms possible} (don't open unwanted doors for the reader)
+% Probably set the vocabulary before to cut any misinterpretation
+
+%En la misma dirección, propongo una sección 2 bien cortita, donde nos limitemos a señalar los aspectos que apoyan lo que vamos a decir de Wollok. Y tal vez no todos, contar solamente 
+%- lo del primer programa. Sobre esto, me gustaría reforzar que este programa de OO no tiene nada, con lo cual estamos desviando el foco. Se puede meter la clase Golondrina, y un main que cree una golondrina, la haga comer, y le pregunte la energía. Y fijate todo lo que hay que hacer para tener un primer ejemplo "posta-OO". Incluiría en la lista a la consola, porque no haría ejemplos con consola en Wollok.
+% Los cursos se enfocan en sintaxis y usan lenguajes inadecuados.
+One cause behind the difficulties in learning OOP is the use of industrial languages, which require the student to understand several concepts before being able to run his first program \cite{kolling_problem_1999}.
+% Ejemplo con Java.
+Figure \ref{fig:helloWorld} shows an example of a possible first program, written in Java \cite{arnold_java_1996}.
+To get this program running, the student has to walk through a minefield of complex concepts: packages, classes, scoping, types, arrays, printing to standard output and class methods; just to have a first object and send a message to it.
+
+\vspace{-3mm}
+\begin{figure}[ht]
+ \centering
+ \begin{lstlisting}[language=Java]
+	package examples;
+	
+	public class Accumulator {
+		private int total = 0;
+		
+		public int getCurrentTotal() { return total; }
+		public void add(amount) { total += amount; }
+
+		public static void main(String[] args) {
+			Accumulator accum = new Accumulator();
+			accum.add(2);
+			accum.add(5);
+			accum.add(8);
+			System.out.println(accum.getCurrentTotal());
+		}
+	}\end{lstlisting}
+\vspace{-3mm}
+\caption{\small Sample initial Java program which diverts student attention from the most important concepts.}
+\label{fig:helloWorld}
+\end{figure}
+
+%- en particular, el ruido que le hace a los alumnos arrancar con clases.
+% TODO, no estoy seguro de cómo encararlo ni de si es lo más importante.
+
+% Por eso los pibes no aprenden
+%- la tensión entre que te vaya bien en la materia y el uso de las ideas en la industria.
+% TODO Iría por acá?
+Courses tend to spend too much time concentrated on the details of programming constructs of a specific language, leaving too little time to become fluent on the distinctive characteristics of OOP. 
+%such as identifying objects and their knowledge \emph{relationships}, assigning \emph{responsibilities} 
+%and taking advantage of \emph{encapsulation} and \emph{polymorphism} to make programs more robust and extensible.
+% Además necesitamos environments
+Moreover, frequently the students do not have proper tools that could help them to overcome all the obstacles.
+Hence we advocate the use of a pedagogically conceived programming language that allows to build simple programs from a \emph{minimum} of concepts, along with a programming environment specifically tailored for the needs of novice programmers.
+%This might not be a problem for other introductory courses focused on the development of algorithms in procedural or functional languages, 
+%but it has a significative importance for object-oriented courses where we want to deal with larger programs in multiple files and to teach concepts such as testing, debugging and code reuse~\cite{kolling_problem_1999}. 
+
+\medskip
+
+% Factual solution tracks, to position...
+\np{Contar algo de otras propuestas anteriores a la nuestra}
+\pt{No se si pondria algo, ya estan en los trabajos anteriores que estan citando. Podemos decir que lean el tuyo con carlono.}
+
+% Our solution in a nutshell.
+% (c) las ideas nuevas... y wollok como herramienta para dar soporte a esas ideas.
+
+\np{A lo que sigue hasta el final de la seeción le falta una pasada.}
+
+We have also detected that sometimes, students who seem to understand the main concepts and can apply them in interesting ways to create medium to complex program have a hard time translating this knowledge to their professional activity.
+We think that bringing the activities in the course as close as possible to professional practice could help mitigate this problem.
+%a good mitigation plan for this problem starts with 
+For that matter, we aim to incorporate industrial practices such as 
+%code repositories and 
+unit tests, adapting them to the possibilities of students with little or no programming experience.
+
+\medskip
+% Our solution: environment
+%The renewed approach is supported with a new programming language, named Wollok, and a programming environment which aids students to write, test and run programs.
+Wollok is designed to give support to our pedagogical approach: 
+it allows to define both classes and standalone objects, 
+includes an industrial-like, simplified IDE, 
+and 
+%incorporates a basic type inferer and 
+provides a simple syntax to define unit tests as well as a graphical interface to run them.
+
+% Contribution
+While neither the language itself nor the programming environment contain novel features that are unseen in industrial tools,
+the assemblage of selected features, each one carefully selected due to its educational value,
+is not found in other previous programming environments, neither educational nor industrial.
+Therefore, the distinctive characteristic of our solution is the search for a programming toolset which 
+(a) supports our pedagogical approach,
+(b) feeds the student with a set of tools which are adequate to his current knowledge
+and (c) gently prepares him to be using industrial-level tools. This approach constitutes a novel way of dealing with the problems of OOP teaching.
+
+A big amount of effort in our research has been put in looking for solutions that can solve the apparent controversy between the objectives (b) and (c).
+Often, the rich set of tools an industrial language or programming environment offers cannot be exploited by an inexperienced programmer or even worst they confuse the inexperienced student.
+On the other hand, we think that poor programming environments fail to help students to make their first steps in programming, which in turn trims the possibilities of introductory courses.
+Therefore, there is much to gain from a language that has the exact features a teacher desires to teach
+and a programming environment which provides the exact tools a student can take advantage of at each time of his learning process.
+
+% Constraints that influenced the solution (because the solution is not
+% universal) \emph{e.g.} our requirements for a solution, possibly not all
+% satisfied. They should be sound and believable. Analysis of the criteria.
+% Imagine that you are another guy having this problem do the constraint
+% matches yours so that you could apply the solution
+%The current study and development have been focused on university students which have had a previous subject on imperative programming.
+%The natural extension of this work is the adaptation of these ideas to teenagers or, more generally, students without any prior programming experience.

@@ -52,6 +52,7 @@ In this way, we avoid the discussion of I/O related features at the beginning of
  \caption{\small Sample usage of the accumulator object in the REPL}
  \label{fig:repl}
 \end{figure}
+\vspace{-1mm}
 
 
 %This is also consistent with some modern industrial OO languages that allow to define both classes or standalone objects, such as Scala \cite{Oder04a}.
@@ -61,8 +62,8 @@ In this way, we avoid the discussion of I/O related features at the beginning of
 %Both the receiver and the parameters are built-in objects which will be handled in the same way as user-defined objects.
 %The concepts required to understand this program are no more than program, object, message and argument passing.
 
-\medskip
 Shortly after in the course, we introduce unit testing which slowly replaces the REPL as the main form of interacting with objects. Figure \ref{fig:test} shows a sample test for the previous program. 
+\vspace{-5mm}
 
 \begin{figure}[ht]
  \centering
@@ -75,13 +76,11 @@ Shortly after in the course, we introduce unit testing which slowly replaces the
 		accumulator.add(8)
 		assert.equals(15, accumulator.getCurrentTotal())		
 	}
-   
 	test "accumulator starts with 0" {
 		assert.equals(0, accumulator.getCurrentTotal())
 	}\end{lstlisting}
 \vspace{-3mm}
 \caption{\small Sample test Wollok program.}
-\vspace{-5mm}
 \label{fig:test}
 \end{figure}
 
@@ -91,7 +90,9 @@ In particular, the test runner guarantees that there is no interaction between t
 Furthermore, tests have to be written in a separate file.
 %However, this decision introduces a problem: the objects (and later on, classes) defined in a different file must be accesible from the test file. With this purpose, Wollok includes a simple form of the \texttt{\textbf{import}} directive, which refers to a object/class definition file in the same folder than the test file. 
 A simple form of the \texttt{\textbf{import}} directive allows to refer to the objects (and later on, classes) defined in other files.
-In this way, some basic knowledge of modularization is subtly introduced early in the course\footnote{The assimilation of the \texttt{import} directive, as early as in the second week, was not problematic in our experience using Wollok for first-year programming courses.}.
+In this way, some basic knowledge of modularization is subtly introduced early in the course%
+%\footnote{The assimilation of the \texttt{import} directive, as early as in the second week, was not problematic in our experience using Wollok for first-year programming courses.}
+.
 
 %Tests have to be written in a separate file; the directive \texttt{
 %\textbf{import} accumulator.*} at the beginning of the example indicates that all the objects (and later on, classes) defined in the file called \texttt{accumulator.wlk} are available to be used in the test. In this way, some basic knowledge of modularization is subtly introduced at the very beginning of the course\footnote{\carlostext{The assimilation of the \texttt{import} directive at the second week, was not problematic in our experience using Wollok for first-year programming courses.}}. 

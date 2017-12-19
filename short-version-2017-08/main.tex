@@ -1,4 +1,4 @@
-\documentclass[conference, a4paper]{IEEEtran}
+\documentclass[a4paper]{IEEEtran}
 % \documentclass{article}
 \usepackage[T1]{fontenc} %%%key to get copy and paste for the code!
 \usepackage[utf8]{inputenc} %%% to support copy and paste with accents for frnehc stuff
@@ -17,7 +17,8 @@
 \usepackage{stmaryrd}
 \usepackage{enumerate}
 
-\usepackage[pdftex,colorlinks=true,pdfstartview=FitV,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+%\usepackage[pdftex,colorlinks=true,pdfstartview=FitV,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage[pdftex,draft,bookmarks=false,colorlinks=false]{hyperref}
 \usepackage{xspace}
 \usepackage{listings}
 
@@ -42,11 +43,14 @@
 \IEEEauthorblockA{\IEEEauthorrefmark{4}Universidad Tecnológica Nacional -- Facultad Regional Buenos Aires}
 }
 
+\IEEEpubid{978-1-5386-2376-3/17/\$31.00 \copyright 2017 IEEE}
+
 \date{\today}
 \maketitle
 
 \input{abstract}
 \input{introduction}
+
 \input{problem}
 \input{solution-language}
 \input{solution-ide}

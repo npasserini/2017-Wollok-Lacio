@@ -1,0 +1,69 @@
+\documentclass[conference, a4paper]{IEEEtran}
+% \documentclass{article}
+\usepackage[T1]{fontenc} %%%key to get copy and paste for the code!
+\usepackage[utf8]{inputenc} %%% to support copy and paste with accents for frnehc stuff
+\usepackage{times}
+\usepackage[scaled=0.85]{helvet}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{xspace}
+\usepackage[usenames,dvipsnames,table]{xcolor}
+\usepackage{alltt}
+\usepackage{latexsym}
+\usepackage{url}            
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{enumerate}
+
+\usepackage[pdftex,colorlinks=true,pdfstartview=FitV,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{xspace}
+\usepackage{listings}
+
+\input{macros}
+
+\begin{document}
+\title{Wollok: language + IDE for a gentle and \\industry-aware introduction to OOP}
+
+\author{\IEEEauthorblockN{
+	Nicolás Passerini\IEEEauthorrefmark{1}\IEEEauthorrefmark{2},
+	Carlos Lombardi\IEEEauthorrefmark{1},
+	Javier Fernandes\IEEEauthorrefmark{1},
+	Pablo Tesone\IEEEauthorrefmark{3}
+	and
+	Fernando Dodino\IEEEauthorrefmark{4}\IEEEauthorrefmark{1}\IEEEauthorrefmark{2}}
+
+\IEEEauthorblockA{
+	\IEEEauthorrefmark{1}Universidad Nacional de Quilmes \hspace{1cm}
+	\IEEEauthorrefmark{2}Universidad Nacional de San Martín \hspace{1cm}
+	\IEEEauthorrefmark{3}IMT Lille Douai -- Francia
+}
+\IEEEauthorblockA{\IEEEauthorrefmark{4}Universidad Tecnológica Nacional -- Facultad Regional Buenos Aires}
+}
+
+\date{\today}
+\maketitle
+
+\input{abstract}
+\input{introduction}
+\input{problem}
+\input{solution-language}
+\input{solution-ide}
+\input{results}
+\input{experience}
+\input{discussion}
+
+\input{conclusion}
+
+\section*{Acknowledgements}
+We want to thank all the people who participated in the ObjectBrowser, Loop, Hoope and Ozono projects, 
+as well as the teachers and students that provided feedback from their use of those tools, leading us to the ideas presented here.
+
+{
+\small
+\bibliographystyle{abbrv}
+\bibliography{../wollok,../Teaching,../scg}
+}
+
+\end{document}

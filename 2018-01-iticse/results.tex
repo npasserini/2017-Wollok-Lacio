@@ -1,0 +1,77 @@
+\section{Results}
+\label{sec:results}
+Since March 2015 Wollok is being used on the Universidad Nacional de San Martín. 
+In 2016 the Universidad Nacional de Quilmes and Universidad Tecnológica Nacional also started using Wollok in their introductory courses.
+In 2017 Wollok started being used also in a High School. \np{Pendiente poner bien el nombre y confirmar con Fede Aloi.}
+
+All together, it has been used in about 25 introductory OOP courses and by almost than 1000 students.
+Also, many of the ideas in Wollok where present in other tools we had previously developed, going back to 2006. In these 12 years, our ideas, although always evolving, have been applied by more than 100 teachers and 6000 students. 
+In several cases, approval rates changed from 25\%--30\% to 80\%-90\%.
+%, helping educate professionals with world-class performances both in the industrial as in the academic field. \np{No sé, suena muy agrandado?}
+
+\subsection*{Método}
+% Previa, notas sobre metodología, esto no iría acá.
+Nuestra metodología de validación se compone de dos partes. 
+En una primera etapa realizamos un análisis cualitativo, basado en entrevistas a estudiantes y docentes, con un conjunto de preguntas semiabiertas. 
+
+Entre los docentes entrevistaron se incluyeron tanto docentes que habían utilizado la metodología propuesta como otros que no. En todos los casos, los docentes tienen alguna experiencia con la metoodología tienen experiencia previa con otros métodos, lo que nos permite también realizar preguntas que comparen los resultados en ambos casos.
+% Esto no sé si hace falta.
+Cabe aclarar que a pesar de que existe suficiente documentación sobre la propuesta metodológica, cada docente realiza una implementación propia, por lo que no todos los cursos se llevan acabo exactamente de la misma manera.
+
+En el caso de los estudiantes, se entrevistó a estudiantes que estaban a punto de terminar un curso que seguía la metodología propuesta y se los consultó sobre la experiencia en este curso, comparada con otras materias, las dificultades que encontraron en cada caso y las posibilidades de aplicar estos conocimientos que han tenido en otros ámbitos. También nos interesa medir el resultado final; en este sentido nos interesa una visión teórico-práctica, definida por la capacidad de la \emph{aplicación consciente} del contenido teórico, es decir, debe ser capaz de resolver problemas concretos pudiendo defende                                          r desde su comprensión de la teoría la solución que propone.
+Las entrevistas fueron realizadas en todos los casos por docentes que no participaban de cada curso en cuestión y garantizando la anonimicidad de las respuestas, para permitir que tuvieran total libertad para expresar su visión. Asimismo se buscó formar una selección de estudiantes que fuera representativa de cada curso en cuanto a las calificaciones finales obtenidas.
+
+\subsection*{Análisis cualitativo}
+
+% \emph{las fáciles}: aprobación / asistencia / notas en las entregas. 
+El análisis cualitativo expone diferentes situaciones de estudiantes que manifestaron que la cursada siguiento nuestra metoología les resultó mucho más simple que otros cursos de programación en los que habían tomado parte.
+Al mismo tiempo, manifestaron
+
+Uno resaltó que esta materia fue distinta a las anteriores por su gran contenido teórico => para justificar que la visión "primero la práctica" no elimina la base teórica, al contrario.
+
+También remarcó que la teoría lo ayudó para el trabajo. Otro dijo que lo ayudó para aprender Swift por su cuenta, varios hablaron de la aplicabilidad de lo aprendido. Alguno mencionó que era parecido a Java, incluso uno dijo que lo veía más aplicable que C++ (salí corriendo hacia la tribuna gritando gol).
+
+3. ¿Qué le parece el lenguaje?
+Destaco => "te deja abierto a la imaginación y podés hacer cosas más interesantes" (comparando con C++)
+Otro destacado => permite olvidarse de cosas que son procedurales, que no aportaban nada para aprender. 
+
+Otro tópico que se repite es la simplicidad (4/6 lo mencionan), hablan de no tipado, expresiones de orden superior, no hay que incluir librerías.
+
+5. ¿Qué te gustó del IDE?
+Mencionan bastante variado: los que más se repiten son outline (sorpresa?) y mensajes de error descriptivos, que ayudan a debuggear (gol), después aparecen testear y pushear git, diagramas, catálogo de clases
+
+6a. Conceptos más importantes de objetos: 
+Todos dicen polimorfismo, siempre antes que herencia.
+Casi todos hablan de responsabilidades.
+Menos se mencionan encapsulamiento, delegación y declaratividad.
+
+6b. Conceptos más difíciles:
+Si bien no hay muchas repeticiones, la dificultad está donde tiene que estar: asignar responsabilidades, modelar relaciones, usar el polimorfismo para no repetir código.
+Refuerza (tal vez) el putno de que los problemas sintácticos o de bajo nivel no están presentes y eso nos permite pensar en temas más interesantes.
+
+%\emph{correlaciones}: sí, hay que registrar asistencia. Se puede armar una app que simplifique esto, mismo los ayudantes van marcando quién está, no creo que sea necesario tomar lista después de la semana 4/5 si tenés ayudantes.
+
+%+muy difícil: medir \emph{participación}. En algunas clases podrías tener un ayudante marcando quiénes hacen preguntas o comentarios, o sea, que hagan eso solo.
+
+%difícil y técnico: \emph{uso de Wollok}. Se me ocurre tener usuarios, y que metan en un repo todo lo que hacen. A la Mumuki. Con esto puede resultar fácil (o no-tan-difícil) entender qué ejercicios de qué guía/s hizo cada uno.
+
+%Qué \emph{errores} tienen es difícil medirlo, con un IDE que recompila todo el tiempo. Tal vez se puedan medir excepciones que saltan en el REPL. O tests que dan rojo. Un indicador que puede ser interesante es la frecuencia de ejecución de tests.
+
+%Lo negativo
+4. Críticas al lenguaje
+
+a. Las que lo distancian de lenguajes conocidos previamente
+- no hay bucles for/while
+- crear objetos con "object"
+- alguno extrañaba el punto y coma
+
+b.¿qué le falta?
+  4- Interfaces explícitas (6 propone usar clases abstractas)
+  5- Clases públicas y privadas
+
+Hay muchas cosas que tardaron en descubrir o no encontraron.
+
+Ante la pregunta ¿qué le falta? hay ideas interesantes pero aisladas, sin muchas coincidencias: más documentación, usarlo desde el editor sin el IDE, algún mensaje no tan descriptivo, mejores relaciones en el diagrama estático, ayuda para armar los imports.
+
+Varios detectaron problemas relacionados con la estabilidad o lentitud. También mencionaron que el IDE tiene demasiadas cosas que no usaron y problemas para importar desde git (justo una parte que no está tuneada).
+Y pidieron más autocompletar, y más sugerencias (lo que muestra que nos falta algo de trabajo ahí, pero también que la mayoría de los pibes valoran eso).

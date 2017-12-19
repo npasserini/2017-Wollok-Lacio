@@ -1,0 +1,49 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+% In this paper, we looked at problem P with this context and these
+% constraints. We proposed solution S. It has such good points and such not so
+% good ones. 
+
+The Wollok language and IDE have been put into practice for already two years, targeting hundreds of students.
+They have been successful in supporting an incremental learning path, allowing the users to train their OO modelling skills using a very simple programming model and providing a smooth transition to more complex models.
+
+%Defining our own programming language, allows us to give full support to the selected learning path, 
+%avoiding the need of explaining complex concepts too soon in the course or forcing the student to write \emph{boilerplate code} which he cannot yet understand.
+
+The IDE allows students to program in a controlled environment which helps them to avoid getting stuck, shows them best programming practices and empowers them to use their intuition and test their ideas.
+We have found that often students are afraid to search for solutions not seen in the class or test their own ideas, 
+which leads them to restrict themselves into a smaller set of concepts and tools they feel more secure about.
+A controlled environment empowers students to look around and explore new possibilities.
+
+Finally, the IDE provides customized versions of several industry-like tools, helping the students in getting familiarized with the kind of programming environment they will find in professional jobs.
+In our experience, good students often do not automatically become efficient professionals because they encounter difficulties in translating their academical knowledge into their professional practice.
+Letting them work with industry-like tools helps them to make this transition easier.
+
+%\section{Future Work}
+% Now we could do this or that.
+%\label{sec:furtherWork}
+\medskip
+The main focuses of attention for the Wollok IDE development team are the detection of programming errors and bad practices, and the provision of quick fixes, content assistance and refactorings.
+A cornerstone to achieve these goals is the type inferer, which is one of our current main objectives.
+Still, providing a type inferer for a language such as Wollok has many subtleties, which deserve an independent study \cite{passerini_nicolas_extensible_2014}.
+Also, we plan to include an \emph{effect system} \cite{nielson_type_1999}.
+
+Also, we intend to implement several improvements to the REPL, which we expect to have great impact in the programming experience.
+In the first place, we want to propagate several of the features of the basic editor to the REPL, such as content assistance.
+Then, we would like to enable code modifications while a program is running in the REPL.
+%Still, to be effective for novices, we require to develop a strategy to impact changes in code that might have been executed and will not be executed again, such as a variable initializer: in a naïve implementation, changing it would not affect an already instantiated object.
+%This kind of \emph{hot} changes can confuse even experienced programmers, so we think it is imperative to think of a specific strategy which beginners can take advantage of.
+% ... referencia a scala Worksheets. https://github.com/scala-ide/scala-worksheet/wiki/Getting-Started
+After a reload, the REPL should re-execute all the previous expressions in the REPL and display the new results (\cf Scala Worksheets\footnote{\url{https://github.com/scala-ide/scala-worksheet}}).
+Finally, we would like an automatic conversion from a REPL session to a suite of tests.
+
+Another characteristic of programming in the real world is the need to work in teams. 
+The success of object-oriented languages is partly due to their advantages in group projects. 
+It is necessary to teach our students about the techniques needed for teamwork, right from the beginning. 
+To do this, it is essential that the environment has some form of support for group work \cite{kolling_problem_1999}.
+Therefore, we plan to create simplified tools to integrate Wollok with \emph{version control systems}.
+
+Also there are some initiatives to build web-based or lighter versions of the IDE and the interpreter.
+This will allow Wollok to be used in context where the availability of powerful computers is restricted.
+%There exists a (limited) Wollok web editor integrated to the Mumuki\footnote{\url{http://mumuki.io/}} platform, which has not been yet fully tested with students.

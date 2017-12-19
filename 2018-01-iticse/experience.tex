@@ -1,0 +1,15 @@
+\section{Classroom Experience with wollok}
+\label{sec:experience}
+
+% Lo simple que les resulto a los chicos trabajar con una IDE
+Let us describe the first experience of a new student with Wollok.
+At the very beginning, the student starts by interacting with just two windows: the code editor, which points to an initial source file, and the REPL.
+All the coding is done inside the editor, which includes the features of highlighting, autocompletion and error detection/correction we described in Section \ref{sec:detectMistakes}. The streamlined WKO syntax of Wollok allows for defining simple objects with a minimum of elements. A menu option gives access to the REPL, where the defined WKOs can be accesed by their global names so that it is straightforward to interact with them. In the interaction through the REPL, void methods are easily distinguished from those returning a value. Furthermore, typing just an object name results in a simplified internal view that displays the attributes along with their values.
+
+Further on, the language and IDE features permit a gentle introduction to each successive concept we work with in the course. 
+In particular, the absence of explicit type information allows for a simple implementation of polymorphism between WKOs: it suffices to have different objects that define methods for the same message.
+We also remark the similarity of the syntax for WKOs and classes, described in \secref{wollokLanguage}, consent a smooth transition to the latter, motivated by the natural desire of having multiple object that share the same definition, having at the same time separate states.
+
+While introducing design patterns is not a part of the initial OOP subject, we observe that some patterns appear naturally as we evolve to more complex problem statements.
+For example the idea of Singleton is natural in  Wollok as classes and globally accesible WKOs can be combined in the same program. Moreover, short class/object definitions can be easily added to an existing Wollok program, leading to the creation of little objects that provide specific behaviours. We note that the features of Wollok favor the reification of concepts that are not linked with the state that has to be modeled or handled. Sometimes the resulting objects follow, e.g., the Strategy or State~\cite{Gamm93b} patterns.
+

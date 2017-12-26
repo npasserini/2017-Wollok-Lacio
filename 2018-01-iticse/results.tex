@@ -6,14 +6,28 @@ It has also been used at highschool level.
 
 Also, many of the ideas in Wollok where present in other tools we had previously developed, going back to 2006. 
 In these 12 years, our ideas, although always evolving, have been applied by more than 100 teachers and 6000 students. 
-In several cases, approval rates changed from 30\%--40\% to 80\%-90\%.
+In several cases, approval rates changed from 30--40\% to 80--90\%.
 %, helping educate professionals with world-class performances both in the industrial as in the academic field. \np{No sé, suena muy agrandado?}
+
+%Acá podés mechar también los exámenes. Creo que el 2do parcial que se toma en Quilmes es zarpado. Se puede decir que tienen que resolver un problema que involucra aprox x clases, el uso de herencia y polimorfismo, y que la mayor parte (tirar porcentajes) lo hace en 4 horas. 
+We considered the difficulty in exams as a metric of the knowledge level acquired by studends.
+We noticed that teachers using our proposed methodology have been consistently increasing the complexity in their final exams.
+Before implementing our methodology, the programs required to pass an OOP exam in UTN 
+used to consist of only one or two classes, with no more than 6--8 methods, and only one (fairly simple) usage of polymorphism.
+Current exams require the student to write a program with 10--15 classes and no less than 20 methods (excluding getters and setters).
+The number or polymorphical sets of classes/objects has been increased to 2--3, 
+frequently including at least one that requires to come up with a non-obvious abstraction in order to sort out the problem.
+In 2017 in UNQ, 88\% of the students that started the course took the final exam,
+96\% of those where able to complete the required program (and tests) in less than four hours.
+The final approuval rate was 79\%.
 
 \medskip
 % Para entender mejor las reacciones al uso de Wollok, realizamos encuestas y entrevistas, organizadas de acuerdo a lo que se indica en la sección de metodología. 
 For a better understanding to the effect of using Wollok, we've realized surveys and interviews, organized according to the ideas described in Section \ref{sec:methodology}.
 % Las encuestas cubrieron un universo de x estudiantes de y universidades.  ... algunos números simpáticos de las encuestas ...
 We surveyed 15 courses during 2017, obtaining 133 responses.
+% dificultad apreciada por los alumnos
+% \emph{las fáciles}: aprobación / asistencia / notas en las entregas. 
 These surveys show that 84\% of students found Wollok at least significantly easier to understand than other languages,
 and 95\% thinks that Wollok has helped them understand their mistakes and learn from them.
 At the same time 70\% of the students consider that having learnt Wollok will help them in their professional practice.
@@ -37,70 +51,66 @@ At the same time 70\% of the students consider that having learnt Wollok will he
 \label{fig:helloWorld/wollok}
 \end{figure}
 
+% En las entrevistas surgieron algunos comentarios que nos permiten suponer que algunas de las cosas que esperábamos, pasan ... tirar un par de extractos y/o análisis. 
+We consider the latter to be a major motivational point
+as students tend to decline in attention 
+when they fail to see the application of the concepts that are being taught.
+Interviews confirm that students have no problems recognizing this applicability;
+even more, in some cases they perceive more easily the applicability of the concepts taught with Wollok 
+than other concepts they had learnt using \emph{industrial} languages, such as \texttt{C++}.
+For example, several students with professional experience affirmed that 
+learning OOP with Wollok led them to improve their professional practice.
+Others indicated that having learned OOP with Wollok was of significant help 
+to learn other modern OOP languages, such as \emph{Swift}.
 
+% - que los conceptos teóricos quedan en la cabeza de los pibes
+% justificar que la visión "primero la práctica" no elimina la base teórica, al contrario.
+These insights also allow us to confirm that the subject allows the students to get a good grasp of theoretical knowledge, 
+that they are aware of the new theory they incorporated
+and that they are capable of applying these concepts in different technologies and situations.
+We have checked this assertion in the final path of initial courses as well as in following advanced OOP courses.
+For example, some courses include a final lesson in which the introduce an industrial language, such as Java.
+In other courses we have introduced a (extremely simple) \emph{game-building framework} known as Wollok Game,
+which requires the student to use their knowledge in new (frequently more complex) ways.
 
-En las entrevistas surgieron algunos comentarios que nos permiten suponer que algunas de las cosas que esperábamos, pasan ... tirar un par de extractos y/o análisis. 
+% - que Wollok los ayuda, que el IDE les cae bien
+% - que las demandas son sofisticadas.
+% O sea, armar el discurso en sintonía con lo que se viene diciendo.
 
-Creo que el objetivo no es contar los resultados de encuestas y evaluaciones, sino marcar algunos puntos que refuercen lo que decimos. P.ej. 
-- que los conceptos teóricos quedan en la cabeza de los pibes
-- que Wollok los ayuda, que el IDE les cae bien
-- que las demandas son sofisticadas.
-O sea, armar el discurso en sintonía con lo que se viene diciendo.
+%3. ¿Qué le parece el lenguaje?
+%Destaco => "te deja abierto a la imaginación y podés hacer cosas más interesantes" (comparando con C++)
+%Otro destacado => permite olvidarse de cosas que son procedurales, que no aportaban nada para aprender. 
 
-Acá podés mechar también los exámenes. Creo que el 2do parcial que se toma en Quilmes es zarpado. Se puede decir que tienen que resolver un problema que involucra aprox x clases, el uso de herencia y polimorfismo, y que la mayor parte (tirar porcentajes) lo hace en 4 horas. 
+%Otro tópico que se repite es la simplicidad (4/6 lo mencionan), hablan de no tipado, expresiones de orden superior, no hay que incluir librerías.
+%
+%5. ¿Qué te gustó del IDE?
+%Mencionan bastante variado: los que más se repiten son outline (sorpresa?) y mensajes de error descriptivos, que ayudan a debuggear (gol), después aparecen testear y pushear git, diagramas, catálogo de clases
+%
+%6a. Conceptos más importantes de objetos: 
+%Todos dicen polimorfismo, siempre antes que herencia.
+%Casi todos hablan de responsabilidades.
+%Menos se mencionan encapsulamiento, delegación y declaratividad.
+%
+%6b. Conceptos más difíciles:
+%Si bien no hay muchas repeticiones, la dificultad está donde tiene que estar: asignar responsabilidades, modelar relaciones, usar el polimorfismo para no repetir código.
+%Refuerza (tal vez) el putno de que los problemas sintácticos o de bajo nivel no están presentes y eso nos permite pensar en temas más interesantes.
 
-% dificultad apreciada por los alumnos
-% \emph{las fáciles}: aprobación / asistencia / notas en las entregas. 
-El análisis cualitativo expone diferentes situaciones de estudiantes que manifestaron que la cursada siguiento nuestra metoología les resultó mucho más simple que otros cursos de programación en los que habían tomado parte. Esta primera impresión, se sustenta luego a partir de los mayores niveles de retención y aprobación obtenidos en la generalidad de los cursos. \np{Acá faltan datos}
-
-% mayor base teórica
-Al mismo tiempo, manifestaron 
-
-Uno resaltó que esta materia fue distinta a las anteriores por su gran contenido teórico => para justificar que la visión "primero la práctica" no elimina la base teórica, al contrario.
-
-También remarcó que la teoría lo ayudó para el trabajo. Otro dijo que lo ayudó para aprender Swift por su cuenta, varios hablaron de la aplicabilidad de lo aprendido. Alguno mencionó que era parecido a Java, incluso uno dijo que lo veía más aplicable que C++ (salí corriendo hacia la tribuna gritando gol).
-
-3. ¿Qué le parece el lenguaje?
-Destaco => "te deja abierto a la imaginación y podés hacer cosas más interesantes" (comparando con C++)
-Otro destacado => permite olvidarse de cosas que son procedurales, que no aportaban nada para aprender. 
-
-Otro tópico que se repite es la simplicidad (4/6 lo mencionan), hablan de no tipado, expresiones de orden superior, no hay que incluir librerías.
-
-5. ¿Qué te gustó del IDE?
-Mencionan bastante variado: los que más se repiten son outline (sorpresa?) y mensajes de error descriptivos, que ayudan a debuggear (gol), después aparecen testear y pushear git, diagramas, catálogo de clases
-
-6a. Conceptos más importantes de objetos: 
-Todos dicen polimorfismo, siempre antes que herencia.
-Casi todos hablan de responsabilidades.
-Menos se mencionan encapsulamiento, delegación y declaratividad.
-
-6b. Conceptos más difíciles:
-Si bien no hay muchas repeticiones, la dificultad está donde tiene que estar: asignar responsabilidades, modelar relaciones, usar el polimorfismo para no repetir código.
-Refuerza (tal vez) el putno de que los problemas sintácticos o de bajo nivel no están presentes y eso nos permite pensar en temas más interesantes.
-
-%\emph{correlaciones}: sí, hay que registrar asistencia. Se puede armar una app que simplifique esto, mismo los ayudantes van marcando quién está, no creo que sea necesario tomar lista después de la semana 4/5 si tenés ayudantes.
-
-%+muy difícil: medir \emph{participación}. En algunas clases podrías tener un ayudante marcando quiénes hacen preguntas o comentarios, o sea, que hagan eso solo.
-
-%difícil y técnico: \emph{uso de Wollok}. Se me ocurre tener usuarios, y que metan en un repo todo lo que hacen. A la Mumuki. Con esto puede resultar fácil (o no-tan-difícil) entender qué ejercicios de qué guía/s hizo cada uno.
-
-%Qué \emph{errores} tienen es difícil medirlo, con un IDE que recompila todo el tiempo. Tal vez se puedan medir excepciones que saltan en el REPL. O tests que dan rojo. Un indicador que puede ser interesante es la frecuencia de ejecución de tests.
 
 %Lo negativo
-4. Críticas al lenguaje
-
-a. Las que lo distancian de lenguajes conocidos previamente
-- no hay bucles for/while
-- crear objetos con "object"
-- alguno extrañaba el punto y coma
-
-b.¿qué le falta?
-  4- Interfaces explícitas (6 propone usar clases abstractas)
-  5- Clases públicas y privadas
-
-Hay muchas cosas que tardaron en descubrir o no encontraron.
-
-Ante la pregunta ¿qué le falta? hay ideas interesantes pero aisladas, sin muchas coincidencias: más documentación, usarlo desde el editor sin el IDE, algún mensaje no tan descriptivo, mejores relaciones en el diagrama estático, ayuda para armar los imports.
-
-Varios detectaron problemas relacionados con la estabilidad o lentitud. También mencionaron que el IDE tiene demasiadas cosas que no usaron y problemas para importar desde git (justo una parte que no está tuneada).
-Y pidieron más autocompletar, y más sugerencias (lo que muestra que nos falta algo de trabajo ahí, pero también que la mayoría de los pibes valoran eso).
+%4. Críticas al lenguaje
+%
+%a. Las que lo distancian de lenguajes conocidos previamente
+%- no hay bucles for/while
+%- crear objetos con "object"
+%- alguno extrañaba el punto y coma
+%
+%b.¿qué le falta?
+%  4- Interfaces explícitas (6 propone usar clases abstractas)
+%  5- Clases públicas y privadas
+%
+%Hay muchas cosas que tardaron en descubrir o no encontraron.
+%
+%Ante la pregunta ¿qué le falta? hay ideas interesantes pero aisladas, sin muchas coincidencias: más documentación, usarlo desde el editor sin el IDE, algún mensaje no tan descriptivo, mejores relaciones en el diagrama estático, ayuda para armar los imports.
+%
+%Varios detectaron problemas relacionados con la estabilidad o lentitud. También mencionaron que el IDE tiene demasiadas cosas que no usaron y problemas para importar desde git (justo una parte que no está tuneada).
+%Y pidieron más autocompletar, y más sugerencias (lo que muestra que nos falta algo de trabajo ahí, pero también que la mayoría de los pibes valoran eso).

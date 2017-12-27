@@ -34,7 +34,7 @@ For a better understanding to the effect of using Wollok, we've realized surveys
 We surveyed 15 courses during 2017, obtaining 133 responses.
 % dificultad apreciada por los alumnos
 % \emph{las fáciles}: aprobación / asistencia / notas en las entregas. 
-These surveys show that 84\% of students found Wollok at least significantly easier to understand than other languages,
+These surveys show that 84\% of students found Wollok at least significantly easier to understand than other languages (\cf Fig. \ref{fig:surveys/languageAppreciation}),
 and 95\% thinks that Wollok has helped them understand their mistakes and learn from them.
 At the same time 70\% of the students consider that having learnt Wollok will help them in their professional practice.
 
@@ -53,13 +53,15 @@ At the same time 70\% of the students consider that having learnt Wollok will he
  
  \end{tabular}
 
- \caption{\small Student evaluation of Wollok Language and IDE.}
-\label{fig:helloWorld/wollok}
+ \caption{\small Student evaluation of Wollok Language and IDE. 
+ For each question, each student had to select between "Absolutely", "Significantly", "Partially" or "Not at all".}
+\label{fig:surveys/languageAppreciation}
 \end{figure}
 
-% En las entrevistas surgieron algunos comentarios que nos permiten suponer que algunas de las cosas que esperábamos, pasan ... tirar un par de extractos y/o análisis. 
-We consider the latter to be a major motivational point
-as students tend to decline in attention 
+% Applicability
+The similarity with professional practice was a major design objective of Wollok, 
+as we consider it to be a major motivational point.
+Students tend to decline in attention 
 when they fail to see the application of the concepts that are being taught.
 Interviews confirm that students have no problems recognizing this applicability;
 even more, in some cases they perceive more easily the applicability of the concepts taught with Wollok 
@@ -69,7 +71,12 @@ learning OOP with Wollok led them to improve their professional practice.
 Others indicated that having learned OOP with Wollok was of significant help 
 to learn other modern OOP languages, such as \emph{Swift}.
 
-% - que los conceptos teóricos quedan en la cabeza de los pibes
+%3. ¿Qué le parece el lenguaje?
+%Destaco => "te deja abierto a la imaginación y podés hacer cosas más interesantes" (comparando con C++)
+%Otro destacado => permite olvidarse de cosas que son procedurales, que no aportaban nada para aprender. 
+%Otro tópico que se repite es la simplicidad (4/6 lo mencionan), hablan de no tipado, expresiones de orden superior, no hay que incluir librerías.
+
+% Conceptos teóricos
 % justificar que la visión "primero la práctica" no elimina la base teórica, al contrario.
 These insights also allow us to confirm that the subject allows the students to get a good grasp of theoretical knowledge, 
 that they are aware of the new theory they incorporated
@@ -79,28 +86,30 @@ For example, some courses include a final lesson in which the introduce an indus
 In other courses we have introduced a (extremely simple) \emph{game-building framework} known as Wollok Game,
 which requires the student to use their knowledge in new (frequently more complex) ways.
 
+%5. ¿Qué te gustó del IDE?
+% Mencionan bastante variado: los que más se repiten son outline (sorpresa?) y mensajes de error descriptivos, que ayudan a debuggear (gol), 
+% después aparecen testear y pushear git, diagramas, catálogo de clases
+Students assign great value to the tools of the IDE.
+Some of the most appreciated tools are those that help understanding and visualization, 
+such as outline, diagrams and class catalog.
+The other most referenced characteristic of the IDE is its error reporting mechanism;
+most students mentioned it as a great help for debugging their programs.
+Finally, also integrated tooling is considered valuable, 
+such as testing facilities and git integration.
+
+
 % - que Wollok los ayuda, que el IDE les cae bien
 % - que las demandas son sofisticadas.
 % O sea, armar el discurso en sintonía con lo que se viene diciendo.
 
-%3. ¿Qué le parece el lenguaje?
-%Destaco => "te deja abierto a la imaginación y podés hacer cosas más interesantes" (comparando con C++)
-%Otro destacado => permite olvidarse de cosas que son procedurales, que no aportaban nada para aprender. 
-
-%Otro tópico que se repite es la simplicidad (4/6 lo mencionan), hablan de no tipado, expresiones de orden superior, no hay que incluir librerías.
-%
-%5. ¿Qué te gustó del IDE?
-%Mencionan bastante variado: los que más se repiten son outline (sorpresa?) y mensajes de error descriptivos, que ayudan a debuggear (gol), después aparecen testear y pushear git, diagramas, catálogo de clases
-%
 %6a. Conceptos más importantes de objetos: 
 %Todos dicen polimorfismo, siempre antes que herencia.
 %Casi todos hablan de responsabilidades.
 %Menos se mencionan encapsulamiento, delegación y declaratividad.
-%
+
 %6b. Conceptos más difíciles:
 %Si bien no hay muchas repeticiones, la dificultad está donde tiene que estar: asignar responsabilidades, modelar relaciones, usar el polimorfismo para no repetir código.
 %Refuerza (tal vez) el putno de que los problemas sintácticos o de bajo nivel no están presentes y eso nos permite pensar en temas más interesantes.
-
 
 %Lo negativo
 %4. Críticas al lenguaje

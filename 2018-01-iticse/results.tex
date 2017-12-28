@@ -97,7 +97,6 @@ most students mentioned it as a great help for debugging their programs.
 Finally, also integrated tooling is considered valuable, 
 such as testing facilities and git integration.
 
-
 % - que Wollok los ayuda, que el IDE les cae bien
 % - que las demandas son sofisticadas.
 % O sea, armar el discurso en sintonía con lo que se viene diciendo.
@@ -123,9 +122,25 @@ such as testing facilities and git integration.
 %  4- Interfaces explícitas (6 propone usar clases abstractas)
 %  5- Clases públicas y privadas
 %
-%Hay muchas cosas que tardaron en descubrir o no encontraron.
-%
-%Ante la pregunta ¿qué le falta? hay ideas interesantes pero aisladas, sin muchas coincidencias: más documentación, usarlo desde el editor sin el IDE, algún mensaje no tan descriptivo, mejores relaciones en el diagrama estático, ayuda para armar los imports.
-%
-%Varios detectaron problemas relacionados con la estabilidad o lentitud. También mencionaron que el IDE tiene demasiadas cosas que no usaron y problemas para importar desde git (justo una parte que no está tuneada).
-%Y pidieron más autocompletar, y más sugerencias (lo que muestra que nos falta algo de trabajo ahí, pero también que la mayoría de los pibes valoran eso).
+\medskip
+On the downside, 
+% Hay muchas cosas que tardaron en descubrir o no encontraron.
+we discovered that students sometimes have difficulties finding some of the features of the IDE.
+% Ante la pregunta ¿qué le falta? hay ideas interesantes pero aisladas, sin muchas coincidencias: más documentación, 
+We consider that this problem can be alleviated by both improving student documentation and building better teacher guidelines.
+
+% También mencionaron que el IDE tiene demasiadas cosas que no usaron y problemas para importar desde git (justo una parte que no está tuneada).
+Also, they criticized that the IDE can be confusing because of having too many tools they do not know how to use.
+This is a known issue, due to an implementation trade-off: 
+we intend to build a minimalistic IDE in which each tool is precisely selected according to student needs,
+but it would require a significantly bigger amount of work than current, Eclipse-based implementation.
+Even so, Eclipse is a customizable platform and the depuration of the IDE to remove superflous tools is a work in progress.
+
+
+% algún mensaje no tan descriptivo, mejores relaciones en el diagrama estático, ayuda para armar los imports.
+% Y pidieron más autocompletar, y más sugerencias (lo que muestra que nos falta algo de trabajo ahí, pero también que la mayoría de los pibes valoran eso).
+Other critics asked for improvements in error messages, autocompletion and smart suggestions, 
+which shows that the students perceive the added value of this kind of tools.
+
+% usarlo desde el editor sin el IDE, 
+% Varios detectaron problemas relacionados con la estabilidad o lentitud. 

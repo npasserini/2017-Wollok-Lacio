@@ -2,19 +2,15 @@
 \label{sec:intro}
 
 % Context
-% (a) hay que arrancar introduciendo nuestra visión, contando por qué enseñamos objetos de determinada manera, por qué hicimos Ozono.
-
+% (a) hay que arrancar introduciendo nuestra visión, contando por qué enseñamos objetos de determinada manera, por qué hicimos Ozono/Wollok.
 
 % La importancia de arrancar con objetos.
 %\emph{Object-oriented programming} (OOP) has become the \textit{de facto} standard programming paradigm in industrial software development.
 %Therefore, in the last years software engineering curricula have put more emphasis in object-oriented courses.
-% Furthermore, opinion in the community is divided as if it should be the first programming model to be presented. 
-% Problem
-%Still, students often have difficulties in learning how to program in an object-oriented style which show up both in academic and in industrial environments.
 
+% Problem
 %- aprender a programar se ha revelado como una tarea difícil.
 Teaching how to program has revealed itself a difficult task~\cite{dijkstra_89a, jenkins2002difficulty}.
-%- detectamos en particular tres aspectos presentes en muchos cursos iniciales de programación que entorpecen (hinder) el aprendizaje: uso de un lenguaje complejo, muchos conceptos para primer programa, entornos no pensados para las necesidades específicas.
 We have individualized three specific aspects present in many initial programming courses that hinder  the learning process: 
 a complex programming language,
 too many concepts needed for a first working program and
@@ -28,65 +24,51 @@ programming environment that are not conceived for the specific needs of an init
 
 \medskip 
 
-% Known tracks for solutions
-% here you want to show that you are not an idiot not knowing what have been around
-
-%- en particular en objetos hay iniciativas, tanto de presentar un modelo inicial simplificado, como de definir lenguajes y entornos de propósito pedagógico.
-
-% Primero hablar de lenguajes específicos para enseñar
-There have been several proposals to address the difficulties in introductory OO courses 
-by defining a specific language which provides a simplified programming model such as Karel++~\cite{bergin_karel++:_1996} and Mama~\cite{harrisonmama}.
-This approach has been used even outside the OO world \cite{feurzeig_programming-languages_1970, pattis_karel_1981, lopez_nombre_2012}.
-% Environments
-A step further is to provide a whole programming environment specifically designed to aid novice programmers 
-such as Squeak \cite{ingalls_back_1997}, Traffic \cite{broy_outside-method_2003} and BlueJ \cite{bennedsen_bluej_2010}. 
-
-% Object first
-The great differences between these programming languages and environments show that they have to be analysed in the light of the pedagogical approaches behind them.
-The tools are of little use without their respective pedagogical view.
-For example, some educational languages and environments are designed to be used in \textit{object-first} approaches, 
-\ie for students without any previous programming knowledge \cite{arnow_introduction_1998, bruce_library_2001}.
+\input{relatedWorks}
 
 \medskip
+
 % Nuestro trabajo
-%- en nuestra experiencia dando cursos iniciales de OOP, adoptamos un modelo simplificado inicial que prescinde de la noción de clase. Después de algunas semanas, pasamos al modelo clásico de OOP, basado en clases y herencia. Diseñamos e implementamos una serie de entornos iniciales para soportar este modelo que utilizamos en la primer parte del curso. Estos entornos eran adaptaciones del lenguaje y la herramienta principal de edición de Smalltalk, que es el lenguaje que usábamos para el resto del curso. Nos fue rebien (este párrafo está en la intro actual).
-Previous works from our team \cite{lombardi_instances_2007,lombardi_carlos_alumnos_2008,griggio_programming_2011,spigariol_lucas_ensenando_2013} have described an approach consisting of
-(a) a novel path to introduce OO concepts focusing first on objects, messages and polymorphism while delaying the introduction of classes and inheritance and 
-(b) a reduced and graphical programming environment which supports the order in which we introduce the concepts, by allowing to build OO programs without the need of classes.
-Our approach focuses on the concepts of object, message, reference and object polymorphism, while delaying the introduction of more abstract concepts such as types, classes and inheritance.
+Our pedagogical approach follows the work of Lombardi \etal
+\cite{lombardi_instances_2007,lombardi_carlos_alumnos_2008,griggio_programming_2011,spigariol_lucas_ensenando_2013,passerini2017wollok}, 
+which consists on a novel path to introduce OO concepts focusing first on objects, messages and polymorphism 
+while delaying the introduction of more abstract concepts,
+such as classes, types or inheritance.
 This way of organizing a course provides a more gentle learning curve to students and allows them to write completely working programs from the first classes.
+Also, this approach gives great importance to the programming tools used in the course, 
+stating that they should be carefully selected and customized, 
+taking into account the specific needs of beginner programmers,
+as well as the intended pedagogical view.
 
-%- A pesar del éxito, los entornos que implementamos no nos resultaron satisfactorios en algunos aspectos entre los que mencionamos: 
-While this approach proved to be successful in providing the students with a more profound knowledge of OOP at the same time as raising pass rates, 
-we feel that there is still room for improvement in three areas:
-%  a. la gran distancia entre la experiencia en la materia y la realidad de la industria, tanto en el lenguaje como en las herramientas de desarrollo utilizadas
-(a) the difference between the experience in the classroom and the reality in (most) professional environments, both in the language as in the development tools.
-%  b. el salto entre el modelo simplificado y el modelo clásico que se daba en el curso, principalmente por la diferencia en las herramientas de desarrollo.
-(b) the gap between the simplified programming model and the classical model, mostly because of the differences among the development tools
-%  c. atarnos a un lenguaje industrial, que nos limita para definir con precisión las herramientas pedagógicas.
-(c) the adherence to an industrial language limited pedagogical decisions
+As a result, we conceived both a programming language and an accompanying integrated development environment (IDE) that closely follow the aforementioned pedagogical approach. 
+Also, this new toolset is designed to overcome some disadvantages 
+found in previous projects with similar approaches,
+most noticeably related to two gaps not adecquately covered by the available tools:
+(a) between the initial, simplified programming model and the classical OOP model
+used in the late part of the courses, and
+(b) between the experience in the classroom and the reality in (most) professional environments.
+We consider that a essential part of this work is resolving the apparent contradition
+between customizing language and environment for student needs
+and at the same time keeping them close enough to their professional counterparts.
 
-% What our solution is \ct{Set} and \ct{OrderedCollection} (so that the reader knows where the paper is going)
+% What our solution is, so that the reader knows where the paper is going.
 % Contribution of the paper
-% (b) lo que aprendimos en estos 8 años hxaciendo eso, que nos lleva a querer darle una vuelta más.
-As a result, we decided to conceive both a programming language and an accompanying development environment that  closely follow the pedagogical approach we advocate for an initial OOP course. 
-The main goal of this paper is to describe Wollok\footnote{
+
+The main goal of this paper is to describe how the set of tools included in the Wollok IDE%
+\footnote{
 	\url{http://www.wollok.org/}. 
 	Source code and documentation can be found in Github 
 	(\url{https://github.com/uqbar-project/wollok}).
 	Wollok is open-source and distributed under LGPLv3 License 
 	(\url{http://www.gnu.org/copyleft/lgpl.html}).}, 
-the tool we created that reunites language and environment. We point out the pedagogical considerations that led us to build Wollok, and how they influence its design decisions. We also report briefly our two-year experience using this tool in initial OOP courses.
+contributes to support a gentle and industry-aware introduction to OOP.
 
-\medskip
-\input{relatedWorks}
-
-Wollok combines some characteristics that are typically present in academical environments with others that are more easily seen in industrial ones, aiming to enrich them to fulfill the specific needs of novice programmers and the proper development of a first OOP course.
-Its most noticeable characteristics are:
-(1) the possibility of using self-defined objects to support an introduction to the topic that postpones the introduction of the concept of class,
-(2) the possibility of combining self-defined with class-based code objects in the same program,
-(3) the decission of offering an IDE with edition and code management capabilities that are fine-tuned for unexperienced programmers
-and (4) that both the language as the IDE share similarities with their industrial counterparts, in order to soften the later transition to the professional tools.
+%Wollok combines some characteristics that are typically present in academical environments with others that are more easily seen in industrial ones, aiming to enrich them to fulfill the specific needs of novice programmers and the proper development of a first OOP course.
+%Its most noticeable characteristics are:
+%(1) the possibility of using self-defined objects to support an introduction to the topic that postpones the introduction of the concept of class,
+%(2) the possibility of combining self-defined with class-based code objects in the same program,
+%(3) the decission of offering an IDE with edition and code management capabilities that are fine-tuned for unexperienced programmers
+%and (4) that both the language as the IDE share similarities with their industrial counterparts, in order to soften the later transition to the professional tools.
 
 \medskip 
 % Paper structure

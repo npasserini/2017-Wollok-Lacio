@@ -8,8 +8,7 @@
 %\emph{Object-oriented programming} (OOP) has become the \textit{de facto} standard programming paradigm in industrial software development.
 %Therefore, in the last years software engineering curricula have put more emphasis in object-oriented courses.
 
-% Problem
-%- aprender a programar se ha revelado como una tarea difícil.
+% Problem: aprender a programar es difícil
 Teaching how to program has revealed itself a difficult task~\cite{dijkstra_89a, jenkins2002difficulty}.
 We have individualized three specific aspects present in many initial programming courses that hinder  the learning process: 
 a complex programming language,
@@ -20,15 +19,13 @@ programming environment that are not conceived for the specific needs of an init
 %Second, many OO languages used in introductory courses do require to grasp a lot of quite abstract concepts before being able to build a first program.
 %Finally, poor programming environments are used, although we are at a time where an unexperienced programmer could be making great use of the guidance a good programming environment could provide. These problems are not exclusive of OO courses, they are present in all the general programming courses.
 
-%- múltiples iniciativas de entornos y lenguajes pedagógicos, para distintos públicos y con distintos objetivos.
-
-\medskip 
-
 \input{relatedWorks}
 
 \medskip
 
-% Nuestro trabajo
+% Factual solution tracks, to position...
+The great differences between these programming languages and environments show that they have to be analysed in the light of the pedagogical approaches behind them.
+The tools are of little use without their respective pedagogical view.
 Our pedagogical approach follows the work of Lombardi \etal
 \cite{lombardi_instances_2007,lombardi_carlos_alumnos_2008,griggio_programming_2011,spigariol_lucas_ensenando_2013,passerini2017wollok}, 
 which consists on a novel path to introduce OO concepts focusing first on objects, messages and polymorphism 
@@ -40,7 +37,11 @@ stating that they should be carefully selected and customized,
 taking into account the specific needs of beginner programmers,
 as well as the intended pedagogical view.
 
-As a result, we conceived both a programming language and an accompanying integrated development environment (IDE) that closely follow the aforementioned pedagogical approach. 
+As a result, we conceived both a programming language, named Wollok,
+accompanyed by an integrated development environment (the Wollok \emph{IDE}),
+that closely follows the aforementioned pedagogical approach,
+and allows students to write, visualize, test and run programs.
+
 Also, this new toolset is designed to overcome some disadvantages 
 found in previous projects with similar approaches,
 most noticeably related to two gaps not adecquately covered by the available tools:

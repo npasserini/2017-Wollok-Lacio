@@ -35,19 +35,19 @@ before being able to have a first object and send a message to it.
 		}
 	}\end{lstlisting}
 \vspace{-3mm}
-\caption{\small Sample initial Java program which diverts student attention from the most important concepts.}
+\caption{Sample initial Java program which diverts student attention from the most important concepts.}
 \label{fig:helloWorld}
 \end{figure}
+\vspace{-3mm}
 
 %- en particular, el ruido que le hace a los alumnos arrancar con clases.
 % TODO, no estoy seguro de cómo encararlo ni de si es lo más importante.
 
 % Por eso los pibes no aprenden
 %- la tensión entre que te vaya bien en la materia y el uso de las ideas en la industria.
-% TODO Iría por acá?
 Courses tend to spend too much time concentrated on the details of programming constructs of a specific language, leaving too little time to become fluent on the distinctive characteristics of OOP. 
-%such as identifying objects and their knowledge \emph{relationships}, assigning \emph{responsibilities} 
-%and taking advantage of \emph{encapsulation} and \emph{polymorphism} to make programs more robust and extensible.
+such as identifying objects and their knowledge \emph{relationships}, assigning \emph{responsibilities} 
+and taking advantage of \emph{encapsulation} and \emph{polymorphism} to make programs more robust and extensible.
 
 % Además necesitamos environments
 Moreover, frequently the students do not have proper tools that could help them to overcome all the obstacles.
@@ -56,41 +56,117 @@ but it has a significative importance for object-oriented courses where we want 
 
 \medskip
 
-% Factual solution tracks, to position...
-\np{Contar algo de otras propuestas anteriores a la nuestra}
-\pt{No se si pondria algo, ya estan en los trabajos anteriores que estan citando. Podemos decir que lean el tuyo con carlono.}
 
-% Our solution in a nutshell.
-% (c) las ideas nuevas... y wollok como herramienta para dar soporte a esas ideas.
+\label{sec:wollokLanguage}
 
-\np{A lo que sigue hasta el final de la seeción le falta una pasada.}
+% Free form, variable number of sections, technical details.
+% But in general do not mix solution and discussions/possible variation let that for discussion
 
-Last, we have detected that sometimes the students who seem to understand the main concepts and can apply them in interesting ways to create medium to complex program have a hard time translating this knowledge to their professional activity.
-We think that a good mitigation plan for this problem starts with bringing the activities in the course as close as possible to the professional practice.
-For that matter, we incorporate industrial best practices such as code repositories and unit tests, adapting them to the possibilities of students with little or no programming experience.
+Wollok provides an extremely simple programming model which allows the students to create programs containing objects, 
+messages and polymorphism without the need for more abstract concepts such as classes, inheritance or type annotations.
+Later in the course, Wollok allows the incremental introduction of more abstract concepts,
+providing a smooth transition into a full-fledged OO programming model.
+
+The example in Figure \ref{fig:helloWorld/wollok} shows an example first program in a Wollok-based OO introductory course.
+Syntax has been reduced to a minimum and the basic constructs of the language match exactly the concepts we want to transmit, \eg \code{var} is used to define variables and \code{method} is used to define methods.
+The \code{accumulator} object is defined as a stand-alone (\ie it has no visible class), automatically instantiated and \emph{well-known} (\ie globally accesible) object (WKO).
+%This is also consistent with some modern industrial OO languages that allow to define both classes or standalone objects, such as Scala \cite{Oder04a}.
+%To build this first program students are not required to know about typing, scoping or packaging.
+%The concepts required to understand this program are no more than program, object, message and argument passing.
+
+\vspace{-3mm}
+\begin{figure}[ht]
+ \centering
+ \begin{lstlisting}[language=Wollok]
+	object accumulator {
+		var total = 0
+		var evens = 0
+		
+		method getCurrentTotal() { return total }
+		method add(amount) { 
+			total += amount 
+			if (amount % 2 == 0) { evens += 1 }
+		}
+		method evenCount() { return evens }
+	}\end{lstlisting}
+\vspace{-3mm}
+\caption{\small Sample initial Wollok object definition.}
+\label{fig:helloWorld/wollok}
+\end{figure}
+\vspace{-3mm}
+
+Normally, writing to standard output as it is shown in Figure \ref{fig:helloWorld} will be considered a problem in industrial software construction.
+Therefore, teaching the students to try out their programs in this way is introducing a bad practice that will have to be \emph{unlearned} later.
+While some kind of user interaction is required in order to see the behaviour of our programs, proper handling of user interaction is beyond the scope of an initial OO course.
+
+To avoid I/O a \emph{read-eval-print-loop}~(REPL) is provided.
+Running a program in the REPL brings all defined objects to life and allows the user to interact with them sending messages. 
+The REPL handles all I/O and the student is only required to write the desired messages to a \emph{domain object} (\cf Fig. \ref{fig:repl}).
+
+\vspace{-3mm}
+\begin{figure}[ht]
+ \centering
+ \includegraphics[scale=0.55]{images/accumulator-repl.png}
+\vspace{-3mm}
+\caption{\small Sample usage of the accumulator object in the REPL}
+\label{fig:repl}
+\end{figure}
+
+Shortly after in the course, we introduce unit testing, 
+which slowly replaces the REPL as the main form of interacting with objects. 
+The Wollok test runner simplifies unit test creation for for begginners by automatically providing \emph{test isolation} \cite{martin2008cleanCode},
+\ie global state is reset after each individual test case is run.
+For example, the messages sent to the accumulator in the first test in Figure \ref{fig:test} will not affect the state of the accumulator in the second test.
+
+\vspace{-3mm}
+\begin{figure}[ht]
+ \centering
+ \begin{lstlisting}[language=Wollok]
+ 	import accumulator.*
+
+	test "adding 2+5+8 should give 15" {
+		accumulator.add(2)
+		accumulator.add(5)
+		accumulator.add(8)
+		assert.equals(15, accumulator.getCurrentTotal())		
+	}
+   
+	test "accumulator starts with 0" {
+		assert.equals(0, accumulator.getCurrentTotal())
+	}\end{lstlisting}
+\vspace{-3mm}
+\caption{\small Sample test Wollok program.}
+\label{fig:test}
+\end{figure}
+\vspace{-3mm}
+
+% Misceláneos
+% Profundizar y pulir el highlighting the conceptos primarios y la estratificacion de conceptos
+Another simple feature that is very helpful in the initial steps of the course is the presence of literals for lists (\eg \code{[1,2,3]}) and sets (\eg \code{\#\{1,2,3\}}).
+This allows us to use collections and, therefore, increase the complexity of examples that we can build before introducing classes.
+We even briefly introduce \emph{closures} at the initial stage of the course.
+
+Next in the course, we introduce classes.
+Wollok helps us in the transition: any pre-existent stand-alone object can be converted into a class by just changing the keyword \code{object} for \code{class}%
+\footnote{As a matter of fact, we will also change the name, as our code convention mandates lowercase names for objects and uppercase names for classes}.
+Moreover, stand-alone objects can be used in the same program and even be polymorphic with class-based objects.
+Examples of all these language features can be found in \cite{passerini2017wollok}.
 
 \medskip
-% Our solution: environment
-The renewed approach is supported with a new programming language, named Wollok, and a programming environment which aids students to write, test and run programs.
-Wollok is designed to give support to our pedagogical approach; 
-it allows to define both classes and standalone objects;
-it also incorporates a basic type inferer
-and provides a simple syntax to define unit tests.
+
+Also, we have noticed that sometimes students
+have a hard time translating their knowledge to their professional activity.
+We think that a good mitigation tool ist to bring the activities in the course as close as possible to the professional practice \cite{McDermott2017AssessmentAuthenticity}.
+For that matter, we incorporate industrial best practices such as code repositories and unit tests, 
+adapting them to the possibilities of students with little or no programming experience.
 
 % Contribution
 While neither the language itself nor the programming environment contain novel features that are unseen in industrial tools,
 the assemblage of selected features, each one carefully selected due to its educational value,
 is not found in other previous programming environments, neither educational nor industrial.
-Therefore, the distinctive characteristic of our solution is the search for a programming toolset which 
-(a) supports our pedagogical approach,
-(b) feeds the student with a set of tools which are adequate to his current knowledge
-and (c) gently prepares him to be using industrial-level tools. This approach constitutes a novel way of dealing with the problems of OOP teaching.
-
-A big amount of effort in our research has been put in looking for solutions that can solve the apparent controversy between the objectives (b) and (c).
-Often, the rich set of tools an industrial language or programming environment offers cannot be exploited by an inexperienced programmer or even worst they confuse the inexperienced student.
-On the other hand, we think that poor programming environments fail to help students to make their first steps in programming, which in turn trims the possibilities of introductory courses.
-Therefore, there is much to gain from a language that has the exact features a teacher desires to teach
-and a programming environment which provides the exact tools a student can take advantage of at each time of his learning process.
+Often, the rich set of tools an industrial IDE offers cannot be exploited by an inexperienced programmer or even worst can confuse him.
+Therefore, there is much to gain from a language and IDE which provide the exact tools 
+a student can understand and take advantage of at each stage of his learning process.
 
 % Constraints that influenced the solution (because the solution is not
 % universal) \emph{e.g.} our requirements for a solution, possibly not all
@@ -99,3 +175,4 @@ and a programming environment which provides the exact tools a student can take 
 % matches yours so that you could apply the solution
 The current study and development have been focused on university students which have had a previous subject on imperative programming.
 The natural extension of this work is the adaptation of these ideas to teenagers or, more generally, students without any prior programming experience.
+

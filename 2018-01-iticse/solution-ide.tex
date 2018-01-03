@@ -103,10 +103,13 @@ The mispelled identifier is underlined and if we pass over the mouse on the erro
 In this case, the automatic fix will insert an empty method in the adecquate position. 
 
 \begin{figure}[ht]
- \centering
- \includegraphics[scale=0.5, trim={0 0 0.15cm 0},clip]{images/errorReporting.png}
- \caption{\small Example of a simple error detection.}
- \label{fig:errorReporting}
+\vspace{-2mm}
+\centering
+\includegraphics[scale=0.5, trim={0 0 0.15cm 0},clip]{images/errorReporting.png}
+\vspace{-5mm}
+\caption{\small Example of a simple error detection.}
+\label{fig:errorReporting}
+\vspace{-3mm}
 \end{figure}
 
 These features aim to give a quick visualization and a proper understanding of coding mistakes. In this way, we intend to empower students to explore different ideas, providing positive feedback in case of mistakes.
@@ -114,12 +117,15 @@ While this does not replace the more personalized feedback a teacher provides, i
 This, in turn, allows for more agile lab classes and, therefore, for the possibility of including more exercises during a course.
 
 \medskip
-We note that automatic detection acts as a (basic) assistant teacher, \ie some simple topics that are not crucial for the course can be left for the student to learn by herself in the interaction with the IDE, instead of to being explained in class.
-This is specially useful for some errors that only some students are likely to make.
-Tackling these errors in class would imply to show a bad solution to the rest of the students, who had otherwise not thought about it. While anticipating errors could be a fine strategy in an advanced course, it mostly confuse beginners.
-Therefore, we prefer to let the IDE detect the mistake and show possible solutions, only for the students that effectively incur in this kind of errors.\np{Faltaría un ejemplo.}
-
-
+Automatic detection acts as a (basic) assistant teacher, 
+\ie some simple topics that are not crucial for the course can be left for the student to learn by herself in the interaction with the IDE, 
+instead of to being explained in class.
+This is specially useful for some errors that only some students are likely to make,
+\eg students with previous experience in OO languages but without a good theoretical support.
+We prefer to avoid covering these errors in class, because it would imply to show a bad solution to the rest of the students, who had otherwise not thought about it. 
+While anticipating errors could be a fine strategy in an advanced course, it frequently confuses beginners.
+By having the IDE IDE detect the mistake and show possible solutions,
+we can tackle the problem only for the students that effectively incur in this kind of errors.
 
 %Another dimension of the programming environment is helping the programmer to recover from his mistakes. 
 %
@@ -184,20 +190,27 @@ Therefore, we prefer to let the IDE detect the mistake and show possible solutio
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Understanding and navigating a program}
-Code navigation and visualization tools can significantly improve the programming experience.
-We note that in our teaching (and also industrial) experience, lack of such tools might mislead students (resp. developers) to avoid correct modularization of their program, as they run into difficulties coping with a program that is divided in several small pieces.
+Code navigation and visualization tools can significantly improve the programming experience, both for students and practitioners.
+Lack of such tools frequently misleads students to avoid correct modularization of their program, 
+as they feel more difficult to cope with a program that is divided in several small pieces.
 
-The Wollok IDE offers several keyboard/mouse shortcuts for code navigation, allowing e.g. to jump from a class reference (tipically, for instance creation) to its definition, from a message send to the corresponding method (when such method can be determined) and back-and-forth navigation on code portions resembling that of Web browsers.
-These tools allow for a better understanding of the relationship between the different portions of the code being developed by a student.
+The Wollok IDE supports basic navigation tools, such as from a class reference to its definition, from a message send to the corresponding method (when such method can be determined) and back-and-forth navigation on code portions resembling that of Web browsers.
 
-Some code visualization tools are available as well. An outline view and automatically generated static diagrams (\cf Fig. \ref{fig:outline} right and left resp.) provide streamlined views of the classes and WKOs defined. Clicking a class, WKO or method pops up the corresponding definition in the code editor.
-We claim that these tools are particularly useful to induce students to abstract themselves from the details of some portions of a program, understanding objects and classes as black boxes that provide some services, instead of attempting to have all of them in their head at all times. This level of abstraction is a necessary skill for being able to participate in larger projects.
+Some code visualization tools are available as well. 
+An outline view and automatically generated static diagrams (\cf Fig. \ref{fig:outline} right and left resp.) provide streamlined views of the classes and WKOs defined. 
+Clicking a class, WKO or method pops up the corresponding definition in the code editor.
+These tools are useful to induce students to abstract themselves from the details of some portions of a program, 
+understanding objects and classes as black boxes that provide some services, 
+instead of attempting to have all of them in their head at all times. 
 
 \begin{figure}[ht]
- \centering
- \includegraphics[scale=0.5]{images/outline.png}
- \caption{\small Static diagram and outline.}
- \label{fig:outline}
+\vspace{-2mm}
+\centering
+\includegraphics[scale=0.45]{images/outline.png}
+\vspace{-2mm}
+\caption{Static diagram and outline.}
+\label{fig:outline}
+\vspace{-3mm}
 \end{figure}
 
 The Wollok IDE also includes some tools to help students to manage the whole set of code produced along a course.
@@ -308,24 +321,63 @@ Another benefit of providing suitable source organization tools is the enforceme
 \subsection{Tests and experiments}
 As we described in Section \ref{sec:wollokLanguage}, Wollok provides two ways of working with the defined objects and classes: the REPL and the definition of tests.
 
-The REPL provides a simple environment for direct object manipulation; it is the first tool to interact with objects that we introduce in the course.
-The programmer can just send messages to the WKOs she defines and see how they respond. 
+The REPL is first introduced and provides a simple environment for direct object manipulation.
+Running a program in the REPL brings all defined objects to life and allows the student send messages to the them and see how they respond (\cf Fig. \ref{fig:repl}).
 In some courses, we even \emph{start} on the REPL by sending messages to objects provided by the teacher.
-In this way, students get familiarized with the most important concepts of the OO paradigm: \emph{object} and \emph{message}, before going into the details about how these objects have been implemented.
-Moreover, the REPL also allows the programmer to define local variables, which are useful to remember intermediate results to be used in further operations, making it easy for the students to perform non-trivial object manipulations.
+In this way, students get familiarized with the most important concepts of the OO paradigm: \emph{object} and \emph{message}, 
+before going into the details about how these objects have been implemented.
+The REPL also allows the programmer to define local variables, 
+useful to remember intermediate results to be used in further operations, 
+allowing for more complex object manipulations.
+
+\begin{figure}[ht]
+\vspace{-2mm}
+ \centering
+ \includegraphics[scale=0.55]{images/accumulator-repl.png}
+\vspace{-3mm}
+\caption{Sample usage of the accumulator in the REPL}
+\label{fig:repl}
+\vspace{-5mm}
+\end{figure}
 
 \medskip
-As the REPL interaction grows, in a short time the students themselves realize that they are doing repetitive operations there and start looking for automation;
+As the REPL interaction grows, in a short time the students realize that they are doing repetitive operations there and start looking for automation;
 at this moment, \emph{automatic tests} are introduced.
 Fig. \ref{fig:testRunner.png} shows the test runner tool output for the test shown in Fig. \ref{fig:test}.
 
-It is important to notice that the test requires a \emph{higher level of abstraction} than the REPL.
-Now the student has to anticipate the result that some expression should yield. Writing explicitly both the expression and the expected result, and interpreting a \emph{green bar} as a signal that the answer yielded was the expected, without ever seeing it.
-
-We observe that, once the students become more fluent with automated tests, they use the REPL with less frequence, even while it is available all along the course.
-Also, we remark that by the combination of REPL and tests, we have succeeded in completely avoiding the need for undesired debugging practices, such as the inclusion of \code{println} expressions along the code.
-
 \begin{figure}[ht]
+\vspace{-3mm}
+\centering
+\begin{lstlisting}[language=Wollok]
+ 	import accumulator.*
+
+	test "adding 2+5+8 should give 15" {
+		accumulator.add(2)
+		accumulator.add(5)
+		accumulator.add(8)
+		assert.equals(15, accumulator.getCurrentTotal())		
+	}
+   
+	test "accumulator starts with 0" {
+		assert.equals(0, accumulator.getCurrentTotal())
+	}\end{lstlisting}
+\vspace{-3mm}
+\caption{Sample test Wollok program.}
+\label{fig:test}
+\vspace{-3mm}
+\end{figure}
+
+The Wollok test runner simplifies unit test creation for for begginners by automatically providing \emph{test isolation} \cite{martin2008cleanCode},
+\ie global state is reset after each individual test case is run.
+For example, the messages sent to the accumulator in the first test in Figure \ref{fig:test} will not affect the state of the accumulator in the second test.
+
+It is important to notice that the test requires a \emph{higher level of abstraction} than the REPL.
+Now the student has to anticipate the result that some expression should yield, write both the expression and the expected result 
+and interpretate a \emph{green bar} as a signal that the answer was the expected, without ever seeing it.
+
+%We observe that, once the students become more fluent with automated tests, they use the REPL with less frequence, even while it is available all along the course.
+\begin{figure}[ht]
+\vspace{-2mm}
 \centering
 \includegraphics[scale=0.6]{images/testRunner.png}
 \vspace{-2mm}

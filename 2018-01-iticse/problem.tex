@@ -99,46 +99,10 @@ Normally, writing to standard output as it is shown in Figure \ref{fig:helloWorl
 Therefore, teaching the students to try out their programs in this way is introducing a bad practice that will have to be \emph{unlearned} later.
 While some kind of user interaction is required in order to see the behaviour of our programs, proper handling of user interaction is beyond the scope of an initial OO course.
 
-To avoid I/O a \emph{read-eval-print-loop}~(REPL) is provided.
-Running a program in the REPL brings all defined objects to life and allows the user to interact with them sending messages. 
-The REPL handles all I/O and the student is only required to write the desired messages to a \emph{domain object} (\cf Fig. \ref{fig:repl}).
-
-\vspace{-3mm}
-\begin{figure}[ht]
- \centering
- \includegraphics[scale=0.55]{images/accumulator-repl.png}
-\vspace{-3mm}
-\caption{\small Sample usage of the accumulator object in the REPL}
-\label{fig:repl}
-\end{figure}
-
+To allow the student to interact with objects while avoiding I/O a \emph{read-eval-print-loop}~(REPL) is provided.
 Shortly after in the course, we introduce unit testing, 
 which slowly replaces the REPL as the main form of interacting with objects. 
-The Wollok test runner simplifies unit test creation for for begginners by automatically providing \emph{test isolation} \cite{martin2008cleanCode},
-\ie global state is reset after each individual test case is run.
-For example, the messages sent to the accumulator in the first test in Figure \ref{fig:test} will not affect the state of the accumulator in the second test.
-
-\vspace{-3mm}
-\begin{figure}[ht]
- \centering
- \begin{lstlisting}[language=Wollok]
- 	import accumulator.*
-
-	test "adding 2+5+8 should give 15" {
-		accumulator.add(2)
-		accumulator.add(5)
-		accumulator.add(8)
-		assert.equals(15, accumulator.getCurrentTotal())		
-	}
-   
-	test "accumulator starts with 0" {
-		assert.equals(0, accumulator.getCurrentTotal())
-	}\end{lstlisting}
-\vspace{-3mm}
-\caption{\small Sample test Wollok program.}
-\label{fig:test}
-\end{figure}
-\vspace{-3mm}
+These tools are described in detail in Sec. \ref{sec:testing}.
 
 % Misceláneos
 % Profundizar y pulir el highlighting the conceptos primarios y la estratificacion de conceptos

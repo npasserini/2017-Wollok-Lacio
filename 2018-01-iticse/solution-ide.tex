@@ -202,15 +202,18 @@ we can tackle the problem only for the students that effectively incur in this k
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Understanding and navigating a program}
-Code navigation and visualization tools can significantly improve the programming experience, both for students and practitioners.
+\subsection{Coping with bigger programs}
+Code navigation and visualization tools can significantly improve the programming experience, 
+both for students and practitioners.
 Lack of such tools frequently misleads students to avoid correct modularization of their program, 
 as they feel more difficult to cope with a program that is divided in several small pieces.
-
-The Wollok IDE supports basic navigation tools, such as from a class reference to its definition, from a message send to the corresponding method (when such method can be determined) and back-and-forth navigation on code portions resembling that of Web browsers.
+The Wollok IDE supports basic navigation tools, such as 
+from a class reference to its definition, 
+from a message send to the corresponding method (when such method can be determined) 
+and back-and-forth navigation on code portions resembling that of Web browsers.
 
 Some code visualization tools are available as well. 
-An outline view and automatically generated static diagrams (\cf Fig. \ref{fig:outline} right and left resp.) provide streamlined views of the classes and WKOs defined. 
+An outline view and automatically generated static diagrams (\cf Fig. \ref{fig:outline} right and left respectively) provide streamlined views of the classes and WKOs defined. 
 Clicking a class, WKO or method pops up the corresponding definition in the code editor.
 These tools are useful to induce students to abstract themselves from the details of some portions of a program, 
 understanding objects and classes as black boxes that provide some services, 
@@ -227,12 +230,17 @@ instead of attempting to have all of them in their head at all times.
 \end{figure}
 
 The Wollok IDE also includes some tools to help students to manage the whole set of code produced along a course.
-Source files are organized in \emph{projects}, which have a predefined directory structure including both files for class/object definitions and tests.
-The generated file structure is adequate to the use of a source code repository such as GIT or SVN.
-These features alleviate the frequent difficulties novice programmers find to organize their source files and, in particular, to coordinate work in group assignments.
-We note to this respect that it is normal to see members of a work group sharing code by sending e-mail with \emph{zip files} between each other.
-The time spent trying to reconcile different versions of the program, or even trying to understand which is the latest one, distracts them from learning the actual topics of the course.
-Another benefit of providing suitable source organization tools is the enforcement of good development practices.
+Source files are organized in \emph{projects}, 
+which have a predefined directory structure 
+including both files for class/object definitions and tests.
+Together with the integrated \emph{git} support, 
+these features alleviate the frequent difficulties novice programmers find 
+to organize their source files and to coordinate work in group assignments.
+This allows us to avoid the usual problems of version reconciliation
+that arise when improper techniques are used,
+such as sharing code in \emph{zip files} sent by e-mail.
+At the same time, we are teching good development practices, that will be useful in professional practice.
+
 
 %At a higher level, the Wollok IDE is designed to help the students to put in order the code they produce along the course. 
 %Source files are organized in \emph{projects}, that have a predefined directory structure including both files for class/object definitions and tests.
@@ -333,13 +341,14 @@ Another benefit of providing suitable source organization tools is the enforceme
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Tests and experiments}
 \label{sec:testing}
-As we described in Section \ref{sec:wollokLanguage}, Wollok provides two ways of working with the defined objects and classes: the REPL and the definition of tests.
+As we described in \secref{problem}, Wollok provides two ways of working with the defined objects and classes: the REPL and the definition of tests.
 
 The REPL is first introduced and provides a simple environment for direct object manipulation.
-Running a program in the REPL brings all defined objects to life and allows the student send messages to the them and see how they respond (\cf Fig. \ref{fig:repl}).
+Running a program in the REPL brings all defined objects to life,
+allowing the student send messages to the them and see how they respond (\cf Fig. \ref{fig:repl}).
 In some courses, we even \emph{start} on the REPL by sending messages to objects provided by the teacher.
-In this way, students get familiarized with the most important concepts of the OO paradigm: \emph{object} and \emph{message}, 
-before going into the details about how these objects have been implemented.
+In this way, students get familiarized with the most important concepts of OOP: \emph{object} and \emph{message}, 
+before going into the details about how these objects are implemented.
 The REPL also allows the programmer to define local variables, 
 useful to remember intermediate results to be used in further operations, 
 allowing for more complex object manipulations.
@@ -351,12 +360,12 @@ allowing for more complex object manipulations.
 \vspace{-3mm}
 \caption{Sample usage of the accumulator in the REPL}
 \label{fig:repl}
-\vspace{-5mm}
+\vspace{-4mm}
 \end{figure}
 
-\medskip
-As the REPL interaction grows, in a short time the students realize that they are doing repetitive operations there and start looking for automation;
-at this moment, \emph{automatic tests} are introduced.
+As REPL interaction grows, students realize that they are doing repetitive operations there 
+and start looking for automation.
+At this moment, \emph{automatic tests} are introduced.
 Fig. \ref{fig:testRunner.png} shows the test runner tool output for the test shown in Fig. \ref{fig:test}.
 
 \begin{figure}[ht]
@@ -375,10 +384,19 @@ Fig. \ref{fig:testRunner.png} shows the test runner tool output for the test sho
 	test "accumulator starts with 0" {
 		assert.equals(0, accumulator.getCurrentTotal())
 	}\end{lstlisting}
-\vspace{-3mm}
+\vspace{-5mm}
 \caption{Sample test Wollok program.}
 \label{fig:test}
+\end{figure}
+
+\begin{figure}[ht]
+\vspace{-2mm}
+\centering
+\includegraphics[scale=0.5]{images/testRunner.png}
 \vspace{-3mm}
+\caption{Test runner view after a sucessful test run.}
+\label{fig:testRunner.png}
+\vspace{-5mm}
 \end{figure}
 
 The Wollok test runner simplifies unit test creation for for begginners by automatically providing \emph{test isolation} \cite{martin2008cleanCode},
@@ -390,15 +408,6 @@ Now the student has to anticipate the result that some expression should yield, 
 and interpretate a \emph{green bar} as a signal that the answer was the expected, without ever seeing it.
 
 %We observe that, once the students become more fluent with automated tests, they use the REPL with less frequence, even while it is available all along the course.
-\begin{figure}[ht]
-\vspace{-2mm}
-\centering
-\includegraphics[scale=0.6]{images/testRunner.png}
-\vspace{-2mm}
-\caption{Test runner view after a sucessful test run.}
-\label{fig:testRunner.png}
-\vspace{-4mm}
-\end{figure}
 
 %\subsection{Type Inference}
 % Type inferer

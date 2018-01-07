@@ -25,7 +25,7 @@ We have individualized three specific aspects present in many initial programmin
 % Factual solution tracks, to position...
 The great differences between these programming languages and environments show that they have to be analysed in the light of the pedagogical approaches behind them.
 %The tools are of little use without their respective pedagogical view.
-Our pedagogical approach follows the work of Lombardi \etal
+We follow the work of Lombardi \etal
 \cite{lombardi_instances_2007,lombardi_carlos_alumnos_2008,spigariol_lucas_ensenando_2013,passerini2017wollok}, 
 which consists on a novel path to introduce OO concepts focusing first on objects, messages and polymorphism 
 while delaying the introduction of more abstract concepts,
@@ -39,19 +39,6 @@ as well as the intended pedagogical view.
 These ideas led us to conceive a programming language, named Wollok,
 together with am Integrated Development Environment (the Wollok \emph{IDE}).
 
-Also, this new toolset is designed to overcome some disadvantages 
-found in previous projects with similar approaches,
-most noticeably related to two gaps not adecquately covered by the available tools:
-(a) between the initial, simplified programming model and the classical OOP model
-used in the late part of the courses, and
-(b) between the experience in the classroom and the reality in (most) professional environments.
-Also, we intent to solve the apparent contradition
-between customizing language and environment for student needs
-and at the same time keeping them close enough to their professional counterparts.
-
-% What our solution is, so that the reader knows where the paper is going.
-% Contribution of the paper
-
 The main goal of this paper is to describe how the set of tools included in the Wollok IDE%
 \footnote{
 	\url{http://www.wollok.org/}. 
@@ -60,6 +47,9 @@ The main goal of this paper is to describe how the set of tools included in the 
 	Wollok is open-source and distributed under LGPLv3 License 
 	(\url{http://www.gnu.org/copyleft/lgpl.html}).}
 contribute to support a gentle and industry-aware introduction to OOP.
+
+% What our solution is, so that the reader knows where the paper is going.
+% Contribution of the paper
 
 %Wollok combines some characteristics that are typically present in academical environments with others that are more easily seen in industrial ones, aiming to enrich them to fulfill the specific needs of novice programmers and the proper development of a first OOP course.
 %Its most noticeable characteristics are:
@@ -71,11 +61,18 @@ contribute to support a gentle and industry-aware introduction to OOP.
 \medskip 
 % Paper structure
 %The rest of the paper is structured as follows. 
-In \secref{problem} we present the problems of learning Object Oriented programming, and the consequences of this difficulties to the students. \secref{wollokLanguage} describes the proposed language and design goals. 
-In \secref{environment} we describe the integrated development environment we have developed for Wollok and all the features it has and how they are useful for the teaching of programming skills. \secref{discussion} analyses the different design decisions we have taken.
+In \secref{problem} we present the problems of learning Object Oriented programming
+together with a brief introduction to our pedagogical approach. 
+\secref{methodology} describes the iterative methodology 
+used for the development of our pedagogical approach 
+and the tools that support it,
+while \secref{environment} describes some characteristics of these tools
+and their role for teaching programming skills.
+\secref{results} describes the results obtained.
+\secref{discussion} analyses some key design decisions
 %, while \secref{related} compares our solution with another similar approaches. 
-Finally, we summarize our contributions in \secref{conclusion},
-along with some possible lines of further work derived from this initial ideas. 
+and \secref{conclusion} summarises our contributions
+along with some possible lines of further work.
 %As an appendix we have Sections \ref{sec:implementation}, \ref{sec:wollokSoftware} and \ref{sec:ChecksAndValidations} which give more details about the implementation.
 
 

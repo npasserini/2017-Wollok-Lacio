@@ -1,41 +1,51 @@
 \section{The Wollok IDE}
 \label{sec:environment}
 
-The features that influence the experience of the learning programmer are not limited to the programming language used. 
-The \emph{tools} used to write, analyse and evaluate the code have a paramount relevance for this experience, and therefore for the success of the programming courses.
+The \emph{tools} used to write, analyse and evaluate the code have a paramount relevance 
+for in the experience of the learning programmer
+and therefore for the success of the programming courses.
+Beginner programmers are expected to make more mistakes both simple (\eg syntax) and conceptual, 
+as they are just in their way to comprehend the underlying theory.
+Therefore, the kind of support they needis different 
+from that required by an experienced programmer.
 
-Beginner programmers are likely to require more guidance and make more mistakes than experienced ones.
-Also, the kind of support required by a experienced programmer is different from that required by a beginner.
-One very important feature a beginner requires from her programming environment is \emph{discoverability}, 
-\ie the tools should help discover possible paths of action and gently provide feedback when the student makes a mistake, 
-helping her to understand what was wrong and how to fix the program.
-All programmers require tools that help them understand, navigate and explore their programs.
-
-We decided to embed the Wollok language in an integrated programming environment, whose features are designed having in mind the specific needs of novice programmers.
+We decided to embed the Wollok language in an integrated programming environment, 
+whose features are designed having in mind the specific needs of novice programmers.
 We consider these tools to be a fundamental part of the pedagogical approach, pursuing the following goals:
 (a) to guide and ease the actual code writing,
-(b) to detect several of the most common mistakes done by novices, providing adequate feedback, and even to suggest corrections when possible,
+(b) to detect several of the most common mistakes done by novices, 
+providing adequate feedback, and even to suggest corrections when possible,
 (c) to navigate and give different perspectives of the program,
 (d) to test and experiment with objects, both those created by the student and those provided by Wollok.
 
-We remark that several of the tools that the Wollok environment provides are common, in exact or approximate form, to those provided by mainstream industrial IDEs like Eclipse, Visual Studio or the Idea series. 
-In this way, we aim to make both the programming experience more appealing to the students, and the transition to later courses and work environments softer; 
-while giving adequate support to the learning process through the same tools.
-
-
+We remark that several of the tools that the Wollok environment provides are similar, yet customized, 
+to those provided by mainstream industrial IDEs like Eclipse, Visual Studio or the Idea series. 
+In this way, we aim to make both the programming experience more appealing to the students
+and the transition to later courses and work environments softer.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Basic guidance for writing code}
 The syntactic strictness of programming languages imposes a harsh barrier on novice programmers. 
-Errors due to mispelled keywords or lack of proper delimiter match (\eg braces) are both frequent and frustrating to them\footnote{Of course, block-based and visual programming tools make these problems just vanish. As we describe in the discussion, such tools would not be adequate for the intended uses of Wollok.}.
-The Wollok IDE code editor offers several features that help avoiding those problems, 
-including syntax highlighting, automatic insertion of the closing delimiter when the opening one is typed, and the proposal of a proper indentation scheme. 
-We remark that the latter feature also aims to improve readability of code, and also to induce good code organization practices.
+Errors due to mispelled keywords or lack of proper delimiter match (\eg braces) are both frequent and frustrating for them\footnote{Of course, block-based and visual programming tools make these problems just vanish,
+but such tools would not be adequate for the intended uses of Wollok.}.
+The Wollok IDE code editor helps avoiding those problems by providing
+syntax highlighting, 
+automatic insertion of closing delimiters, 
+and the proposal of a proper indentation scheme. 
+The latter feature also aims to improve readability of code, 
+and also to induce good code organization practices.
 
 The Wollok IDE also provides \emph{content assist}, 
-\ie in certain contexts, the IDE can autocomplete an identifier name or provide a list of possible completions if there are many (\cf Fig. \ref{fig:codeCompletion})%
+\ie in certain contexts, the IDE can autocomplete an identifier name,
+or provide a list of possible completions if there are many (\cf Fig. \ref{fig:codeCompletion})%
 \footnote{Currently this can autocomplete variables, constants and messages sent to \code{self}, \code{super} or any WKO. 
 Current work in progress includes a \emph{type inferer} that will allow to extend the content assistance capabilities to any context.}. 
+
+At a bigger scale, Wollok admits the definition of several objects and/or classes in the same file. 
+This allows for initial examples that use several objects and polymorphism 
+without requiring the students to struggle with imports and packages.
+These concepts will arise later in the course, 
+when students' programs increase their complexity to a level that demands for modularization. 
  
 \begin{figure}[ht]
 \vspace{-2mm}
@@ -44,12 +54,9 @@ Current work in progress includes a \emph{type inferer} that will allow to exten
 \vspace{-2mm}
 \caption{\small A list of suggestions from the Wollok IDE content assistance.}
 \label{fig:codeCompletion}
-\vspace{-2mm}
+\vspace{-5mm}
 \end{figure}
 
-At a bigger scale, Wollok admits the definition of several objects and/or classes in the same file. 
-This allows the teacher to go deeper in the initial examples using several objects and polymorphism without requiring the students to struggle with imports and packages.
-These concepts will arise later in the course, when students' programs increase their complexity to a level that demands for modularization. 
 %(\cf \ref{sec:modularization}).
 
 
@@ -84,45 +91,51 @@ These concepts will arise later in the course, when students' programs increase 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Detect mistakes and help fixing them}
 \label{sec:detectMistakes}
-The Wollok IDE is able to detect statically (i.e. prior to evaluation) several mistakes frequently made by students. 
-Besides basic errors like syntax or references to undefined identifiers, the code analysis several programming errors, 
+The Wollok IDE is able to detect statically several mistakes frequently made by students. 
+Besides basic errors like syntax or references to undefined identifiers, 
+the code analysis can detect several programming errors, 
 \eg a method must return in all execution branches or in none,
 or abstract classes cannot be instantiated.
 Other, more subtle errors are indicated as warnings,
 such as unused or never-assigned variables.
 Also, the code analysis enforces selected programming practices, 
-\eg class definitions must follow a definite order: instance variable declarations, followed by constructors, followed by methods. 
+\eg class definitions must follow a definite order: 
+instance variable declarations, followed by constructors, followed by methods. 
 
-These errors are, detected while the student is typing a program and are shown in the editor. 
-Like in several modern code editors, the source line is marked with an error sign. 
-When the student passes the mouse pointer over that sign, an explanatory message is shown.
-Special care has been put in the messages, to explain mistakes in the same terms in which the teacher talks to students.
+These errors are, detected while the student is typing a program and are shown \emph{in place} in the editor.
+Error messages aim to explain mistakes in the same terms in which the teacher talks to students.
 In some situations, the IDE proposes possible \emph{automatic fixes} to the detected problems.
 Figure \ref{fig:errorReporting} exemplifies this feature along with the rendering of a code error. 
-The mispelled identifier is underlined and if we pass over the mouse on the error report, we get an error message together with possible fix.
+The mispelled identifier is underlined and if we pass over the mouse on the error report, 
+we get an error message together with possible fix.
 In this case, the automatic fix will insert an empty method in the adecquate position. 
 
 \begin{figure}[ht]
 \vspace{-2mm}
 \centering
-\includegraphics[scale=0.5, trim={0 0 0.15cm 0},clip]{images/errorReporting.png}
-\vspace{-5mm}
+\includegraphics[scale=0.45, trim={0 0 0.15cm 0},clip]{images/errorReporting.png}
+\vspace{-2mm}
 \caption{\small Example of a simple error detection.}
 \label{fig:errorReporting}
 \vspace{-3mm}
 \end{figure}
 
-These features aim to give a quick visualization and a proper understanding of coding mistakes. In this way, we intend to empower students to explore different ideas, providing positive feedback in case of mistakes.
-While this does not replace the more personalized feedback a teacher provides, in several situations, a sensitive automatic feedback helps students not to stay stuck with simple errors waiting for teacher or colleague assistance.
-This, in turn, allows for more agile lab classes and, therefore, for the possibility of including more exercises during a course.
+By focusing on quick visualization and a proper understanding of their mistakes,
+we intend to empower students to explore different ideas, receiving constructive feedback.
+While this does not replace the more personalized feedback a teacher can provide, 
+in several situations, a sensitive automatic feedback helps students not to stay stuck with simple errors 
+waiting for assistance.
+This, in turn, allows for more agile lab classes and, therefore, 
+for the possibility of including more exercises during a course.
 
-\medskip
-Automatic detection acts as a (basic) assistant teacher, 
-\ie some simple topics that are not crucial for the course can be left for the student to learn by herself in the interaction with the IDE, 
+Moreover, some simple topics that are not crucial for the course
+can be left for the student to learn by herself in the interaction with the IDE, 
 instead of to being explained in class.
 This is specially useful for some errors that only some students are likely to make,
 \eg students with previous experience in OO languages but without a good theoretical support.
-We prefer to avoid covering these errors in class, because it would imply to show a bad solution to the rest of the students, who had otherwise not thought about it. 
+We prefer to avoid covering these errors in class, 
+because it would imply to show a bad solution to the rest of the students, 
+who had otherwise not thought about it. 
 While anticipating errors could be a fine strategy in an advanced course, it frequently confuses beginners.
 By having the IDE IDE detect the mistake and show possible solutions,
 we can tackle the problem only for the students that effectively incur in this kind of errors.

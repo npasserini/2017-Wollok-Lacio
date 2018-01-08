@@ -4,56 +4,61 @@ Since March 2015 Wollok has been used to teach introductory OOP courses
 in more than 30 courses in five different universities, reaching almost 1000 students.
 It has also been used at highschool level.
 Some of these ideas where also present in other tools we had previously developed, going back to 2006. 
-
-In these 12 years, these ideas, although always evolving, have been applied by more than 100 teachers and 6000 students. 
+In these 12 years, our approach, although evolving, 
+has been applied by more than 100 teachers and 6000 students. 
 In several cases, approval rates changed from 30--40\% to 80--90\%.
-At the same time, the level of the courses has been consistently increased, 
-covering more topics and requiring the students to build bigger programs with higher design quality.
+
 
 %Acá podés mechar también los exámenes. Creo que el 2do parcial que se toma en Quilmes es zarpado. Se puede decir que tienen que resolver un problema que involucra aprox x clases, el uso de herencia y polimorfismo, y que la mayor parte (tirar porcentajes) lo hace en 4 horas. 
 
-As a way to measure the knowledge level, we analysed the difficulty in final exams along 12 years.
-In some cases, the programs required to pass a final exam used to consist of only one or two classes, 
+At the same time, the level of the courses has been consistently increased, 
+covering more topics and requiring the students to build bigger programs with higher design quality.
+As a way to measure the knowledge level, we analysed the difficulty in final exams.
+Frequently, the programs required to pass a final exam used to consist of only one or two classes, 
 with no more than 6--8 methods, and only one (fairly simple) usage of polymorphism.
-Current exams require the student to write a program with 10--15 classes and no less than 20 methods (excluding getters and setters).
-Also, there are more usages of polymorphism 
-frequently including one that requires to come up with a non-obvious abstraction in order to sort out the problem.
+Current exams require the student to write a program with 10--15 classes 
+and no less than 20 methods (excluding getters and setters);
+there are more usages of polymorphism 
+and often they require to come up with some non-obvious abstractions.
 Metrics from 2017 show that 88\% of the students that started the course took the final exam,
 96\% of those where able to complete the required program (and tests) in less than four hours.
 The final approuval rate was 79\%.
 
-\medskip
-
-% Para entender mejor las reacciones al uso de Wollok, realizamos encuestas y entrevistas, organizadas de acuerdo a lo que se indica en la sección de metodología. 
-For a better understanding to the effect of using Wollok, we've realized surveys and interviews, organized according to the ideas described in Section \ref{sec:methodology}.
+For a better understanding to the effect of using Wollok, 
+we have realized surveys and interviews, organized according to the ideas described in Section \ref{sec:methodology}.
 % Las encuestas cubrieron un universo de x estudiantes de y universidades.  ... algunos números simpáticos de las encuestas ...
-We surveyed 15 courses during 2017, obtaining 133 responses.
+We surveyed 15 courses, obtaining 133 responses.
 % dificultad apreciada por los alumnos
 % \emph{las fáciles}: aprobación / asistencia / notas en las entregas. 
-These surveys show that 84\% of students found Wollok at least significantly easier to understand than other languages (\cf Fig. \ref{fig:surveys/languageAppreciation}),
+These surveys show that 84\% of students found Wollok significantly easier to understand than other languages (\cf Fig. \ref{fig:surveys/languageAppreciation}),
 and 95\% thinks that Wollok has helped them understand their mistakes and learn from them.
 At the same time 70\% of the students consider that having learnt Wollok will help them in their professional practice.
+% Conceptos teóricos
+% justificar que la visión "primero la práctica" no elimina la base teórica, al contrario.
+This was confirmed in interviews,
+which showed that the subject provides a solid theoretical base;
+the students are aware of the new theory they incorporated
+and they are capable of applying these concepts in different technologies and situations.
 
-\begin{figure}[ht]
+\begin{figure}[t]
  \centering
  \footnotesize
- \begin{tabular}{|p{13em}|c|c|c|c|c|}
+ \begin{tabular}{|p{16em}|c|c|c|c|c|}
  	\hline
  	& Abs. & Sign. & Part. & Not & N/A \\
  	\hline
- 	Easier to learn than other langs. & 33 & 74 & 16 & 4 & 4 \\
+ 	Easier to learn than other languages. & 33 & 74 & 16 & 4 & 4 \\
  	Helps understanding errors & 47 & 78 & 5 & 1 & 0 \\
- 	Similar to prev. known langs. & 19 & 44 & 31 & 15 & 22 \\
+ 	Similar to previously known languages. & 19 & 44 & 31 & 15 & 22 \\
  	Helps professional activity & 26 & 52 & 18 & 15 & 19 \\
  	\hline
- 
  \end{tabular}
 
 \vspace{-2mm}
 \caption{\small Student evaluation of Wollok Language and IDE. \\
 \small For each question, each student had to select between "Absolutely", "Significantly", "Partially" or "Not at all".}
 \label{fig:surveys/languageAppreciation}
-\vspace{-3mm}
+\vspace{-5mm}
 \end{figure}
 
 % Applicability
@@ -61,8 +66,8 @@ At the same time 70\% of the students consider that having learnt Wollok will he
 %as we consider it to be a major motivational point.
 %Students tend to decline in attention 
 %when they fail to see the application of the concepts that are being taught.
-Interviews confirm that students have no problems recognizing the applicability of the concepts learned with Wollok.
-For example, several students with professional experience affirmed that 
+Interviews also confirm that students have no problems recognizing the applicability of the concepts learned,
+\eg several students with professional experience affirmed that 
 learning OOP with Wollok led them to improve their professional practice.
 Others indicated that having learned OOP with Wollok was of significant help 
 to learn other modern OOP languages, such as \emph{Swift}.
@@ -72,11 +77,6 @@ to learn other modern OOP languages, such as \emph{Swift}.
 %Otro destacado => permite olvidarse de cosas que son procedurales, que no aportaban nada para aprender. 
 %Otro tópico que se repite es la simplicidad (4/6 lo mencionan), hablan de no tipado, expresiones de orden superior, no hay que incluir librerías.
 
-% Conceptos teóricos
-% justificar que la visión "primero la práctica" no elimina la base teórica, al contrario.
-Interviews also confirmed that the subject allows the students to get a good grasp of theoretical knowledge, 
-that they are aware of the new theory they incorporated
-and that they are capable of applying these concepts in different technologies and situations.
 %We have checked this assertion in the final path of initial courses as well as in following advanced OOP courses.
 %For example, some courses include a final lesson in which the introduce an industrial language, such as Java.
 %In other courses we have introduced a (extremely simple) \emph{game-building framework} known as Wollok Game,
@@ -88,7 +88,7 @@ and that they are capable of applying these concepts in different technologies a
 Students assign great value to the tools of the IDE.
 Some of the most appreciated tools are those that help understanding and visualization, 
 such as outline, diagrams and class catalog.
-The other most referenced characteristic of the IDE is its error reporting mechanism;
+Another valued characteristic is the error reporting mechanism;
 most students mentioned it as a great help for debugging their programs.
 Finally, also integrated tooling is considered valuable, 
 such as testing facilities and git integration.

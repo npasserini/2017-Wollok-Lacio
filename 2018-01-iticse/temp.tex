@@ -4,3 +4,71 @@ helping her to understand what was wrong and how to fix the program.
 
 
 
+BlueJ es un IDE pedagógico, de características bastante distintas a Wollok. En parti-
+cular, no es file-based, llegás al código a partir de un diagrama de clases que parece ser
+su ventana inicial. Para probar, en lugar de REPL, hay un panel con representación de
+objetos a los que se puede enviar mensajes “a la Naked Objects”.
+
+En BlueJ (ver [KQPR03] se muestran los errores en la línea en que se producen. Si
+entendí bien, para ver los errores hay que compilar, o al menos así era en 2003. Habría
+que ver/probar/leer ahora.
+
+Arriesgo un resumen: partimos de diagnósticos similares, nos planteamos objetivos
+similares, definimos formas de lograrlos con diferencias relevantes.
+
+no definen un lenguaje propio, usan Java sin cambios.
+en particular, no tiene una sintaxis para definición de objetos.
+está despegado de los IDE industriales. 
+
+En particular, no es text-based. La ventana
+principal es un diagrama de clases, y de ahí vas a editar cada clae. 
+
+Dos de las tres debilidades que menciona el artículo son cuándo y cómo salir de BlueJ.
+BlueJ tiene un panel gráfico donde se pueden tirar objetos y enviarles mensajes . a
+la Naked Objects". Wollok tiene el REPL.
+
+Diferencias del enfoque pedgógico
+
+Ni polimorfismo ni referencias están mencionados como conceptos principales. De
+hecho no están mencionadas en el artículo. La lista de "big concepts"(sección 6) es:
+classes, methods, parameters, invocation.
+
+El camino de graduación de complejidad en la propuesta BlueJ pasa por qué hace el
+estudiante: primero envía mensajes, después modifica métodos, después implementa
+métodos, después agrega métodos, después agrega clases, 
+recién al final, en el 2do
+semestre (OK que haciendo CS1 en objetos) un proyecto desde cero. 
+Trabajando siempre con proyectos grandes. 
+
+Wollok propone ir agregando elementos al marco conceptual y el lenguaje usados: 
+primero un objeto solito, después objetos que interactúan y polimorfismo, 
+después colecciones con foco en referencias, después clases, después herencia.
+
+Similitudes en la concepción
+la cantidad de conceptos involucrados en el "Hello World"se destaca como un pro-
+blema que debe ser esquivado.
+
+se destaca que un problema importante es la potencial confusión entre objeto y clase,
+y se propone un enfoque object first". 
+
+
+La forma de lograr este objetivo difiere gran-
+demente: BlueJ propone interactuar con objetos por medio de una interfaz gráfica,
+
+Wollok propone una sintaxis de objetos que tiene una evolución natural a clases.
+en ambos casos se destaca la complejidad, o bien falta de support, de los entornos
+de desarrollo como un problema relevante, y se propone un entorno simplificado,
+adecuado a un estudiante de primer año.
+
+se organiza un curso graduando la conplejidad que se introduce, y en espiral. El
+camino que proponen es muy (pero muy) distinto.
+
+Similitudes en el entorno
+ambos presentan los errores en la línea en que se producen.
+los dos incluyen soporte para unit testing.
+tal vez (está como would-be en el paper de BlueJ) los dos provean soporte para repo
+de código.
+
+
+En la secuencia de BlueJ el diseño aparece en la última etapa. Se aclara que es en un
+proyecto grupal y con fuerte asistencia

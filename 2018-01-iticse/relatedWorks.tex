@@ -1,75 +1,61 @@
-%\section{Related Work}
-%\label{sec:related}
-
-% Other solutions in the domain, and a real comparison of our contribution with solutions from other people.
-BlueJ \cite{bennedsen_bluej_2010} is an educative environment for programming in Java 
-which shares several points of view with our approach (\cf \secref{related}).
-
-
-
-
-Other approaches have put their focus in the 
-A step further is to provide a whole programming environment specifically designed to aid novice programmers.
-
- 
-such as Squeak \cite{ingalls_back_1997}, 
-Loop \cite{griggio_programming_2011}, 
-and BlueJ .
-
-Other environments make use of block-based or visual programming, 
-such as Scratch \cite{malan_scratch_2007}, Etoys \cite{lee_empowering_2011} and Kodu \cite{kodu}. 
-In our vision, these tools are suitable for stimulating interest in programming and for being used in secondary education, but not beyond that stage.
-
-Other educators propose to use industrial languages in introductory courses, 
-such as Java \cite{kolling2001guidelines}, Eiffel \cite{meyer1993towards}, Smalltalk \cite{ducasse2006squeak} and Self \cite{Unga87a}.
-
-
 \section{Related Works}
 \label{sec:related}
 
+% Other solutions in the domain, and a real comparison of our contribution with solutions from other people.
+
 % Primero hablar de lenguajes específicos para enseñar
-There have been proposals to tackle the first two problems by defining specific languages
-that provide simplified programming models.
-such as Karel++~\cite{bergin_karel++:_1996} and Mama~\cite{harrisonmama}.
-This approach has been used even outside the OO world \cite{feurzeig_programming-languages_1970, pattis_karel_1981, lopez_nombre_2012}.
-In this paper we use based on \emph{Wollok} \cite{passerini2017wollok}, 
-an educative OO language designed to support a novel path to introduce OO concepts \cite{lombardi_instances_2007,lombardi_carlos_alumnos_2008,spigariol_lucas_ensenando_2013}.
-This alternative learning path proposes to focus first on objects, messages an polymorphism, 
-while delaying the introduction of more abstract concepts, such as classes, types or inheritance.
+Several approaches have recognized the value of tools to support introductory programming courses,
+dating back to the creation of Smalltalk \cite{Gold84a} and, later, Self \cite{Unga87a}.
+These environments are undoubtedly powerful 
+and many of the tools and ideas they introduced are still used today  
+\cite{ingalls_back_1997,ducasse2006squeak},
+but they are too different from the main tools used today,
+which hampers one of our main goals.
+%Subjectively, students are less motivated to learn tools that they perceive as outmoded;
+%objectively, both students and teachers have sometimes a hard time getting used to these tools that require them to think in a different way as the rest of the tools they use.
+One of outstanding caracteristics of these environments to understand programs as a network of \emph{live objects}.
+Live environment allow the programmer to manipulate objects or even modify their code 
+while the program is running. 
+This is a very powerful tools for a professional, 
+but begginners can not take advantage of it 
+because modifying code while its running requires 
+a deep understanding of the nature of the code being changed.
 
-This approach has been used even outside the OO world \cite{feurzeig_programming-languages_1970, pattis_karel_1981, lopez_nombre_2012}.
+Moreover, a view in which the program is represented by \emph{code} 
+makes it easier for begginners to reason about their programs.
+Other environments with similar views as ours, such as Loop \cite{griggio_programming_2011}, 
+have difficulties to model unit tests, 
+because of the interference between the live objects in a \emph{live image}
+ant the requirement of unit tests to well-known initial state.
+Therefore, Wollok IDE is designed to bring as much as possible features from these tools into a 
+file based environment.
 
-\cite{passerini2017wollok}, 
-which consists on a novel path to introduce OO concepts focusing first on objects, messages and polymorphism 
+% Esto habla de lenguajes
+%There have been proposals to tackle the first two problems by defining specific languages
+%that provide simplified programming models.
+%such as Karel++~\cite{bergin_karel++:_1996} and Mama~\cite{harrisonmama}.
+%This approach has been used even outside the OO world \cite{feurzeig_programming-languages_1970, pattis_karel_1981, lopez_nombre_2012}.
 
-that supports an iterative learning path allows for a extremely simple initial programming model, 
-as well as smooth transitions to a complete OO dynamicaly typed language.
+% diagnóstico similar
+Also, Traffic \cite{broy_outside-method_2003} and BlueJ \cite{bennedsen_bluej_2010} 
+are educative environments that share several points of view with Wollok IDE.
+Both of them propose alternate paths for introduce the main concepts;
+BlueJ proposes an \emph{objects first} approach
+and Traffic proposes an \emph{inverted curriculum} with an \emph{outside-in} strategy.
+Both recommend to teach about design and architecture 
+and to embed programming tasks in a broader \emph{software development} view, 
+right from the first introductory course.
 
-which consists on a novel path to introduce OO concepts focusing first on objects, messages and polymorphism 
-
-that supports an iterative learning path allows for a extremely simple initial programming model, 
-as well as smooth transitions to a complete OO dynamicaly typed language.
-
-% Environments
-Still, the language by itself can not
-A step further is to provide a whole programming environment specifically designed to aid novice programmers 
-such as Squeak \cite{ingalls_back_1997}, 
-Traffic \cite{broy_outside-method_2003},
-Loop \cite{griggio_programming_2011}, 
-and BlueJ \cite{bennedsen_bluej_2010}.
+Still, both of them use industrial languages (Java and Eiffel, respectively) 
+that require the students to handle several abstract concepts 
+that are too complex for a begginner.
+In the case of Traffic, both the language as the IDE are meant for professionals
+and, in our view, too harsh for begginners.
+BlueJ proposes proposes a \emph{Graphical User Interface} (GUI) to create objects.
+Similar approaches are followed by 
+In our experience, this strategy can lead to difficulties 
+in the posterior transition to full fledged IDEs.
 
 Other environments make use of block-based or visual programming, 
 such as Scratch \cite{malan_scratch_2007}, Etoys \cite{lee_empowering_2011} and Kodu \cite{kodu}. 
 In our vision, these tools are suitable for stimulating interest in programming and for being used in secondary education, but not beyond that stage.
-
-Other educators propose to use industrial languages in introductory courses, 
-such as Java \cite{kolling2001guidelines}, Eiffel \cite{meyer1993towards}, Smalltalk \cite{ducasse2006squeak} and Self \cite{Unga87a}.
-%Self, at the same time, has pioneered in allowing for OOP without classes.
-
-
-%There have been several proposals to address the difficulties in introductory OO courses 
-%by defining a specific language which provides a simplified programming model such as Karel++~\cite{bergin_karel++:_1996} and Mama~\cite{harrisonmama}.
-%This approach has been used even outside the OO world \cite{feurzeig_programming-languages_1970, pattis_karel_1981, lopez_nombre_2012}.
-%% Environments
-%A step further is to provide a whole programming environment specifically designed to aid novice programmers 
-%such as Squeak \cite{ingalls_back_1997}, Traffic \cite{broy_outside-method_2003} and BlueJ \cite{bennedsen_bluej_2010}. 

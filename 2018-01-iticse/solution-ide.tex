@@ -201,6 +201,106 @@ we can tackle the problem only for the students that effectively incur in this k
 
 
 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Tests and experiments}
+\label{sec:testing}
+As we described in \secref{problem}, Wollok provides two ways of working with the defined objects and classes: the REPL and the definition of tests.
+
+The REPL is first introduced and provides a simple environment for direct object manipulation.
+Running a program in the REPL brings all defined objects to life,
+allowing the student send messages to the them and see how they respond (\cf Fig. \ref{fig:repl}).
+In some courses, we even \emph{start} on the REPL by sending messages to objects provided by the teacher.
+In this way, students get familiarized with the most important concepts of OOP: \emph{object} and \emph{message}, 
+before going into the details about how these objects are implemented.
+The REPL also allows the programmer to define local variables, 
+useful to remember intermediate results to be used in further operations, 
+allowing for more complex object manipulations.
+
+\begin{figure}[ht]
+\vspace{-2mm}
+ \centering
+ \includegraphics[scale=0.55]{images/accumulator-repl.png}
+\vspace{-3mm}
+\caption{Sample usage of the accumulator in the REPL}
+\label{fig:repl}
+\vspace{-4mm}
+\end{figure}
+
+As REPL interaction grows, students realize that they are doing repetitive operations there 
+and start looking for automation.
+At this moment, \emph{automatic tests} are introduced.
+Fig. \ref{fig:testRunner.png} shows the test runner tool output for the test shown in Fig. \ref{fig:test}.
+
+\begin{figure}[ht]
+\vspace{-3mm}
+\centering
+\begin{lstlisting}[language=Wollok]
+ 	import accumulator.*
+
+	test "adding 2+5+8 should give 15" {
+		accumulator.add(2)
+		accumulator.add(5)
+		accumulator.add(8)
+		assert.equals(15, accumulator.getCurrentTotal())		
+	}
+   
+	test "accumulator starts with 0" {
+		assert.equals(0, accumulator.getCurrentTotal())
+	}\end{lstlisting}
+\vspace{-5mm}
+\caption{Sample test Wollok program.}
+\label{fig:test}
+\end{figure}
+
+\begin{figure}[ht]
+\vspace{-2mm}
+\centering
+\includegraphics[scale=0.5]{images/testRunner.png}
+\vspace{-3mm}
+\caption{Test runner view after a sucessful test run.}
+\label{fig:testRunner.png}
+\vspace{-5mm}
+\end{figure}
+
+The Wollok test runner simplifies unit test creation for for begginners by automatically providing \emph{test isolation} \cite{martin2008cleanCode},
+\ie global state is reset after each individual test case is run.
+For example, the messages sent to the accumulator in the first test in Figure \ref{fig:test} will not affect the state of the accumulator in the second test.
+
+It is important to notice that the test requires a \emph{higher level of abstraction} than the REPL.
+Now the student has to anticipate the result that some expression should yield, write both the expression and the expected result 
+and interpretate a \emph{green bar} as a signal that the answer was the expected, without ever seeing it.
+
+%We observe that, once the students become more fluent with automated tests, they use the REPL with less frequence, even while it is available all along the course.
+
+%\subsection{Type Inference}
+% Type inferer
+%Another distinctive characteristic of the Wollok project is the type inferer.
+%We think that type inference is key to a simple programming environment.
+%On one side, it allows to detect lots of common mistakes \emph{before running the program}:
+%if an object does understand a message, if a wrong argument is passed, if incompatible types are mixed or even miss-spellings.
+%In environments without this capability it takes more time to detect errors.
+%Moreover, it is not uncommon that a type mistake produces a runtime error in a place different from where the mistake was done, producing confusion.
+%
+%Still, providing a type inferer for a language such as Wollok has many subtleties, which deserves an independent study \cite{passerini_nicolas_extensible_2014}.
+%On one side we require it to be able to work without type annotations and at the same time provide feedback useful for an inexperienced programmer.
+%On the other side, the type system is rather complex;
+%for example, the presence of stand-alone objects requires the type system to handle \emph{structural types}, since a named type system would not allow them to be treated polymorphically.
+%Also, we want to be able to treat polymorphically stand alone objects with class-based objects.
+%\figref{check-messageSending.png} shows an error detected by the type inferer and how it shows the information to the programmer.
+%Notice that the inferred type for the object \code{ufo} is a structural type: \code{fly}
+%
+%\begin{figure}[ht]
+%    \centering
+%	\includegraphics[scale=0.5]{images/wollok-paper-check-messageSending.png}
+%    \caption{Type system in action, detecting not defined method for the message sent}
+%    \label{fig:check-messageSending.png}
+%\end{figure}
+%
+%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Coping with bigger programs}
 Code navigation and visualization tools can significantly improve the programming experience, 
@@ -335,102 +435,3 @@ At the same time, we are teching good development practices, that will be useful
 %%Without adequate guidance, a group of novices, who have yet not assimilated an autonomous organization discipline, will usually encounter difficulties structuring their code or coordinating their work.
 %%For example, in the absence of better tools it is ordinary to see members of a work group share code by sending \emph{zips} by e-mail between each other.
 %%The time spent trying to reconcile different versions of the program or even trying to understand which is the latest one, distracts them from learning the actual topics of the course.
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Tests and experiments}
-\label{sec:testing}
-As we described in \secref{problem}, Wollok provides two ways of working with the defined objects and classes: the REPL and the definition of tests.
-
-The REPL is first introduced and provides a simple environment for direct object manipulation.
-Running a program in the REPL brings all defined objects to life,
-allowing the student send messages to the them and see how they respond (\cf Fig. \ref{fig:repl}).
-In some courses, we even \emph{start} on the REPL by sending messages to objects provided by the teacher.
-In this way, students get familiarized with the most important concepts of OOP: \emph{object} and \emph{message}, 
-before going into the details about how these objects are implemented.
-The REPL also allows the programmer to define local variables, 
-useful to remember intermediate results to be used in further operations, 
-allowing for more complex object manipulations.
-
-\begin{figure}[ht]
-\vspace{-2mm}
- \centering
- \includegraphics[scale=0.55]{images/accumulator-repl.png}
-\vspace{-3mm}
-\caption{Sample usage of the accumulator in the REPL}
-\label{fig:repl}
-\vspace{-4mm}
-\end{figure}
-
-As REPL interaction grows, students realize that they are doing repetitive operations there 
-and start looking for automation.
-At this moment, \emph{automatic tests} are introduced.
-Fig. \ref{fig:testRunner.png} shows the test runner tool output for the test shown in Fig. \ref{fig:test}.
-
-\begin{figure}[ht]
-\vspace{-3mm}
-\centering
-\begin{lstlisting}[language=Wollok]
- 	import accumulator.*
-
-	test "adding 2+5+8 should give 15" {
-		accumulator.add(2)
-		accumulator.add(5)
-		accumulator.add(8)
-		assert.equals(15, accumulator.getCurrentTotal())		
-	}
-   
-	test "accumulator starts with 0" {
-		assert.equals(0, accumulator.getCurrentTotal())
-	}\end{lstlisting}
-\vspace{-5mm}
-\caption{Sample test Wollok program.}
-\label{fig:test}
-\end{figure}
-
-\begin{figure}[ht]
-\vspace{-2mm}
-\centering
-\includegraphics[scale=0.5]{images/testRunner.png}
-\vspace{-3mm}
-\caption{Test runner view after a sucessful test run.}
-\label{fig:testRunner.png}
-\vspace{-5mm}
-\end{figure}
-
-The Wollok test runner simplifies unit test creation for for begginners by automatically providing \emph{test isolation} \cite{martin2008cleanCode},
-\ie global state is reset after each individual test case is run.
-For example, the messages sent to the accumulator in the first test in Figure \ref{fig:test} will not affect the state of the accumulator in the second test.
-
-It is important to notice that the test requires a \emph{higher level of abstraction} than the REPL.
-Now the student has to anticipate the result that some expression should yield, write both the expression and the expected result 
-and interpretate a \emph{green bar} as a signal that the answer was the expected, without ever seeing it.
-
-%We observe that, once the students become more fluent with automated tests, they use the REPL with less frequence, even while it is available all along the course.
-
-%\subsection{Type Inference}
-% Type inferer
-%Another distinctive characteristic of the Wollok project is the type inferer.
-%We think that type inference is key to a simple programming environment.
-%On one side, it allows to detect lots of common mistakes \emph{before running the program}:
-%if an object does understand a message, if a wrong argument is passed, if incompatible types are mixed or even miss-spellings.
-%In environments without this capability it takes more time to detect errors.
-%Moreover, it is not uncommon that a type mistake produces a runtime error in a place different from where the mistake was done, producing confusion.
-%
-%Still, providing a type inferer for a language such as Wollok has many subtleties, which deserves an independent study \cite{passerini_nicolas_extensible_2014}.
-%On one side we require it to be able to work without type annotations and at the same time provide feedback useful for an inexperienced programmer.
-%On the other side, the type system is rather complex;
-%for example, the presence of stand-alone objects requires the type system to handle \emph{structural types}, since a named type system would not allow them to be treated polymorphically.
-%Also, we want to be able to treat polymorphically stand alone objects with class-based objects.
-%\figref{check-messageSending.png} shows an error detected by the type inferer and how it shows the information to the programmer.
-%Notice that the inferred type for the object \code{ufo} is a structural type: \code{fly}
-%
-%\begin{figure}[ht]
-%    \centering
-%	\includegraphics[scale=0.5]{images/wollok-paper-check-messageSending.png}
-%    \caption{Type system in action, detecting not defined method for the message sent}
-%    \label{fig:check-messageSending.png}
-%\end{figure}
-%
-%
